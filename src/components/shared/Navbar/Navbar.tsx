@@ -676,7 +676,7 @@ const Navbar = () => {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="h-[40px] text-base text-[#131313] font-normal leading-[150%] border-[2px] border-[#131313] py-2 px-12 rounded-full"
+                        className="h-[40px] text-base text-[#131313] font-normal leading-[150%] border-[2px] border-[#131313] py-2 px-9 rounded-full"
                       >
                         Sign In
                       </Button>
@@ -684,7 +684,7 @@ const Navbar = () => {
                     <Link href="/sign-up">
                       <Button
                         size="sm"
-                        className="h-[40px] py-2 px-10 rounded-full bg-primary hover:bg-primary/90 text-white text-base font-normal leading-[150%] "
+                        className="h-[40px] py-2 px-9 rounded-full bg-primary hover:bg-primary/90 text-white text-base font-normal leading-[150%] "
                       >
                         Register
                       </Button>
