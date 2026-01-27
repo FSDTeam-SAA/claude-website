@@ -6,16 +6,16 @@ const WhatDoWeOffer = () => {
     return (
         <div className='py-6 md:py-12 lg:py-16'>
 
-            <div className='container grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 lg:gap-24'>
+            <div className='container grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 xl:gap-24'>
                 <div className="order-2 md:order-1 md:col-span-1 flex items-center">
-                    <div className=' bg_color shadow-[0px_4px_16px_0px_#00000029] rounded-[16px] flex flex-col justify-center py-6 md:py-10 lg:py-14 px-8 md:px-16 lg:px-20'>
+                    <div className=' bg_color shadow-[0px_4px_16px_0px_#00000029] rounded-[16px] flex flex-col justify-center py-6 md:py-10 lg:py-14 px-6 md:px-10 xl:px-20'>
                     <h3 className='text-2xl md:text-3xl lg:text-4xl text-[#131313] h_underline leading-[120%] font-normal'>What do we offer</h3>
 
                     <ul className='py-6 md:py-10 lg:py-12 list-disc list-inside'>
-                        <li className='text-base font-normal leading-[150%] text-[#616161]'>Specific technical and tactical data</li>
-                        <li className='text-base font-normal leading-[150%] text-[#616161] py-4 md:py-5 lg:py-6'>Ratings for every game to measure your progression</li>
-                        <li className='text-base font-normal leading-[150%] text-[#616161]'>Personalized highlights showcasing your key actions</li>
-                         <li className='text-base font-normal leading-[150%] text-[#616161] py-4 md:py-5 lg:py-6'>Structured Feedback</li>
+                        <li className='text-sm xl:text-base font-normal leading-[150%] text-[#616161]'>Specific technical and tactical data</li>
+                        <li className='text-sm xl:text-base font-normal leading-[150%] text-[#616161] py-4 md:py-5 lg:py-6'>Ratings for every game to measure your progression</li>
+                        <li className='text-sm xl:text-base font-normal leading-[150%] text-[#616161]'>Personalized highlights showcasing your key actions</li>
+                         <li className='text-sm xl:text-base font-normal leading-[150%] text-[#616161] py-4 md:py-5 lg:py-6'>Structured Feedback</li>
                     </ul>
 
                     <div className="w-full flex items-center justify-center">
@@ -26,7 +26,7 @@ const WhatDoWeOffer = () => {
                 </div>
                 </div>
                 <div className='order-1 md:order-2 md:col-span-1'>
-                    <Image src="/assets/images/what_do_we_offer.png" alt="What Do We Offer" width={1000} height={1000} className='w-full h-[360px] md:h-[440px] lg:h-[684px]' />
+                    <Image src="/assets/images/new-what-do-we-offer.png" alt="What Do We Offer" width={1000} height={1000} className='w-full h-[360px] md:h-[580px] xl:h-[684px]' />
                 </div>
             </div>
         </div>

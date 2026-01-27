@@ -93,6 +93,16 @@ const faqItems = [
       answer:
         "You are allowed up to 3 videos and you can update them at any time. The duration of each video can't exceed 3 minutes.",
     },
+     {
+      question: "Do I fill out my profile?",
+      answer:
+        "Yes. You only fill out your profile information. The Transfer History, the National Team Career & the Data are completed exclusively by our staff.",
+    },
+     {
+      question: "What about Transfer History and National Team Career information?",
+      answer:
+        "We will contact you to collect and verify all the required information.",
+    },
   ];
 
   return (

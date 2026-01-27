@@ -26,7 +26,7 @@ const PlayerProfiles = () => {
                     </Link>
                 </div>
                 <div className="md:col-span-1 order-2 md:order-1 ">
-                    <Image  src="/assets/images/profile-cart.jpeg" alt="player profiles" width={500} height={500} className='w-full h-[400px] md:h-[501px] lg:h-[694px] object-contain rounded-[16px] ' />
+                    <Image  src="/assets/images/new_profile.jpeg" alt="player profiles" width={500} height={500} className='w-full h-[400px] md:h-[501px] lg:h-[694px] object-contain rounded-[16px] ' />
                 </div>
             </div>
         </div>

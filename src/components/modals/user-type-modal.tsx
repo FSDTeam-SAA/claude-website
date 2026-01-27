@@ -24,30 +24,30 @@ const UserTypeModal = ({ isOpen, onClose, onUserTypeSelect }: UserTypeModalProps
           </DialogTitle>
         </DialogHeader>
         
-        <div className="py-4">
-          <p className="text-center text-gray-600 mb-6">
+        <div className="pb-4">
+          <p className="text-center text-[#131313] mb-4">
             Please select your role to continue with Google signup
           </p>
           
           <div className="space-y-4">
             <button
               onClick={() => onUserTypeSelect("player")}
-              className="w-full p-6 border-2 border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-all flex flex-col items-center"
+              className="w-full p-6 border-2 border-[#424242] rounded-[12px] hover:border-primary hover:bg-primary/5 transition-all flex flex-col items-center"
             >
               <div className="text-3xl mb-2">⚽</div>
               <h3 className="text-lg font-semibold">Player</h3>
-              <p className="text-sm text-gray-500 mt-1">
+              <p className="text-sm text-[#424242] mt-1">
                 Sign up as a field player
               </p>
             </button>
             
             <button
               onClick={() => onUserTypeSelect("gk")}
-              className="w-full p-6 border-2 border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-all flex flex-col items-center"
+              className="w-full p-6 border-2 border-[#424242] rounded-lg hover:border-primary hover:bg-primary/5 transition-all flex flex-col items-center"
             >
               <div className="text-3xl mb-2">🧤</div>
               <h3 className="text-lg font-semibold">Goalkeeper</h3>
-              <p className="text-sm text-gray-500 mt-1">
+              <p className="text-sm text-[#424242] mt-1">
                 Sign up as a goalkeeper
               </p>
             </button>
@@ -57,7 +57,7 @@ const UserTypeModal = ({ isOpen, onClose, onUserTypeSelect }: UserTypeModalProps
             <Button
               variant="outline"
               onClick={onClose}
-              className="w-full"
+              className="w-full border border-[#424242] rounded-[12px]"
             >
               Cancel
             </Button>

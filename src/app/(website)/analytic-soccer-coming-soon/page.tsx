@@ -3,8 +3,8 @@ import React from 'react'
 
 const AnalyticSoccerPage = () => {
   return (
-    <div className="bg-[#CDFFCD] py-10 md:py-16 lg:py-40 xl:py-60">
-        <h3 className='text-2xl md:text-3xl lg:text-4xl text-center text-primary font-bold leading-[150%] pb-10 md:pb-14 lg:pb-20'>Coming Soon 2026</h3>
+    <div className="bg-[#CDFFCD] py-10 md:py-16 lg:py-32 xl:py-40">
+        <h3 className='text-2xl md:text-3xl lg:text-4xl text-center text-primary font-bold leading-[150%] pb-6 md:pb-14 lg:pb-20'>Coming Soon 2026</h3>
         <div className="container grid grid-cols-1 md:grid-cols-2 gap-10">
             <div className="md:col-span-1 h-full flex flex-col justify-center">
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary h_underline leading-[150%] pb-2 md:pb-3 lg:pb-4">Analytic Soccer+ Presents</h3>
@@ -23,7 +23,7 @@ const AnalyticSoccerPage = () => {
                
             </div>
             <div className="md:col-span-1">
-                <Image src="/assets/images/analytic-soccer.jpg" alt="Analytic Soccer Coming Soon" width={500} height={500} className='w-full h-[400px] md:h-[501px] rounded-[16px] object-cover'/>
+                <Image src="/assets/images/analytic-soccer.jpg" alt="Analytic Soccer Coming Soon" width={500} height={500} className='w-full h-[350px] md:h-[440px] lg:h-[501px] rounded-[16px] object-cover'/>
             </div>
         </div>
     </div>
