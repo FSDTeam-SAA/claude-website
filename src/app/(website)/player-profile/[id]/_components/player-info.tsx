@@ -58,6 +58,7 @@ const PlayerInfo = ({
     }
 
     const personalInfo = data?.user;
+    console.log(data)
 
 
     if (!personalInfo) return null;
@@ -67,10 +68,10 @@ const PlayerInfo = ({
     return (
         <div className='py-6'>
             <div className="container grid grid-cols-1 md:gris-cols-2 lg:grid-cols-5 gap-6 bg-white rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]">
-                <div className="md:col-span-1">
-                    <Image src={personalInfo?.profileImage || "/assets/images/no-user.jpg"} alt={personalInfo?.firstName || "profile image"} width={1000} height={1000} className="w-auto h-auto object-cover rounded-full" />
+                <div className="md:col-span-1 w-full flex flex-col justify-center items-center">
+                    <Image src={personalInfo?.profileImage || "/assets/images/no-user.jpg"} alt={personalInfo?.firstName || "profile image"} width={1000} height={1000} className="w-full h-auto object-contain rounded-full" />
 
-                    <p className="text-base md:text-lg lg:text-xl font-semibold text-black pt-2 leading-[150%] text-center">{personalInfo?.firstName} {personalInfo?.lastName}</p>
+                    <p className="text-base md:text-lg lg:text-xl font-semibold text-black pt-2 leading-[150%]">{personalInfo?.firstName} {personalInfo?.lastName}</p>
 
                     <div>
 
@@ -215,6 +216,12 @@ const PlayerInfo = ({
                         totalGames={averageRatings?.gamesNumber ?? 0}
                         stars={averageRatings?.stars ?? 0}
                     />
+
+{/* player market value  */}
+
+                     {/* <div className="flex flex-col gap-4 p-4 mt-6 border border-[#EBEBEB] rounded-[12px] shadow">
+                        <h4 className='text-lg md:text-xl lg:text-xl font-semibold text-[#131313] '>Market Value : $ {data?.marketValue[0]?.marketValue || 0}</h4>
+                    </div> */}
 
                     {/* <div className="flex flex-col gap-6 p-4 mt-6 border border-[#EBEBEB] rounded-[12px] shadow">
 

@@ -22,6 +22,17 @@ export interface UserProfile {
   gkDistributionStats: GKDistributionStats[]
   avarageRatting: AvarageRatting 
   semelierPlayer: SimilarPlayer[];
+  marketValue: MarketValueItem[];
+}
+
+
+export interface MarketValueItem {
+  _id: string;
+  gk: string;
+  marketValue: number;
+  createdAt: string; // ISO date string
+  updatedAt: string; // ISO date string
+  __v: number;
 }
 
 
