@@ -138,7 +138,7 @@ const RegisterAsIndividualPlayerForm = ({
 
     onSuccess: (data) => {
       toast.success("Redirecting to payment...")
-      window.location.href = data.data.url
+      window.location.href = data.data.approvalUrl
     },
 
     onError: (error: Error) => {
