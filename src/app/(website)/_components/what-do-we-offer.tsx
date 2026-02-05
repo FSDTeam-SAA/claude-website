@@ -26,7 +26,7 @@ const WhatDoWeOffer = () => {
                 </div>
                 </div>
                 <div className='order-1 md:order-2 md:col-span-1'>
-                    <Image src="/assets/images/1.png" alt="What Do We Offer" width={1000} height={1000} className='w-full h-[360px] md:h-[480px] xl:h-[600px] object-concatin rounded-[16px]' />
+                    <Image src="/assets/images/what_do_we_offer_new.png" alt="What Do We Offer" width={1000} height={1000} className='w-full h-[360px] md:h-[480px] xl:h-[600px] object-concatin rounded-[16px]' />
                 </div>
             </div>
         </div>

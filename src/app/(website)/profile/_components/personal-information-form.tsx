@@ -52,9 +52,7 @@ const formSchema = z.object({
     lastName: z.string().min(2, {
         message: "Last Name must be at least 2 characters.",
     }),
-    schoolName: z.string().min(2, {
-        message: "School Name must be at least 2 characters.",
-    }),
+    schoolName: z.string().optional(),
     phoneCode: z.string().min(1),
     phone: z.string().min(6),
     // phone: z.string().min(7, { message: "Phone number is too short." }),
@@ -165,6 +163,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
         "YouTube",
         "TikTok",
     ] as const
+
 
 
 
@@ -333,7 +332,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                     </FormItem>
                                 )}
                             />
-                           
+
 
 
 
@@ -435,7 +434,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                         </div>
 
                         <div>
-                             <FormField
+                            <FormField
                                 control={form.control}
                                 name="email"
                                 render={({ field }) => (
@@ -486,7 +485,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
 
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
-                            <FormField
+                            {/* <FormField
                                 control={form.control}
                                 name="dob"
                                 render={({ field }) => (
@@ -522,7 +521,55 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                         <FormMessage />
                                     </FormItem>
                                 )}
+                            /> */}
+
+                            <FormField
+                                control={form.control}
+                                name="dob"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
+                                            Date of Birth
+                                        </FormLabel>
+
+                                        <Popover>
+                                            <PopoverTrigger asChild>
+                                                <FormControl>
+                                                    <Button
+                                                        variant="outline"
+                                                        className={`w-full justify-start text-left h-[47px] border border-[#645949] ${!field.value && "text-muted-foreground"
+                                                            }`}
+                                                    >
+                                                        {field.value
+                                                            ? format(field.value, "dd MMM yyyy")
+                                                            : "Select date"}
+
+                                                        <CalendarIcon className="ml-auto h-4 w-4 opacity-70" />
+                                                    </Button>
+                                                </FormControl>
+                                            </PopoverTrigger>
+
+                                            <PopoverContent className="w-auto p-2" align="start">
+                                                <Calendar
+                                                    mode="single"
+                                                    selected={field.value ?? undefined}
+                                                    onSelect={(date) => field.onChange(date ?? null)}
+                                                    captionLayout="dropdown"
+                                                    fromYear={1970}
+                                                    toYear={new Date().getFullYear()}
+                                                    className="rounded-lg border"
+                                                    initialFocus
+                                                />
+                                            </PopoverContent>
+                                        </Popover>
+
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
                             />
+
+
+
 
                             <FormField
                                 control={form.control}
@@ -595,7 +642,8 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                     <SelectItem value="mls next">MLS NEXT</SelectItem>
                                                     <SelectItem value="npl">NPL</SelectItem>
                                                     <SelectItem value="pdl">PDL</SelectItem>
-                                                    <SelectItem value="upsl">UPSL</SelectItem>
+                                                    <SelectItem value="upsl division 1">UPSL Division 1</SelectItem>
+                                                    <SelectItem value="upsl premier">UPSL Premier</SelectItem>
                                                     <SelectItem value="usl academy">USL Academy</SelectItem>
                                                 </SelectContent>
                                             </Select>
