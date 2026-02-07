@@ -2,7 +2,7 @@ import React from 'react'
 import Link from "next/link"
 import Image from "next/image"
 import NewsletterSubscribe from './NewsletterSubscribe'
-import { Facebook, Linkedin, Twitter, Instagram } from 'lucide-react'
+import { Facebook, Linkedin, Instagram } from 'lucide-react'
 
 const Footer = () => {
   return (
@@ -23,9 +23,9 @@ const Footer = () => {
             <Link href="#">
             <span className='inline-flex border-[2px] border-[#5B6574] p-3 rounded-full '><Linkedin /></span>
             </Link>
-            <Link href="#">
+            {/* <Link href="#">
             <span className='inline-flex border-[2px] border-[#5B6574] p-3 rounded-full '><Twitter /></span>
-            </Link>
+            </Link> */}
             <Link href="#">
             <span className='inline-flex border-[2px] border-[#5B6574] p-3 rounded-full '><Instagram /></span>
             </Link>
