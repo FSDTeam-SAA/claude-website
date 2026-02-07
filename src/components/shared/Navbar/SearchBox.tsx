@@ -182,7 +182,7 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
                   alt={`${user.firstName} ${user.lastName}`}
                   width={40}
                   height={40}
-                  className="rounded-full object-cover border"
+                  className="w-10 h-10 rounded-full object-cover border"
                 />
                 <div>
                   <p className="text-sm font-medium">

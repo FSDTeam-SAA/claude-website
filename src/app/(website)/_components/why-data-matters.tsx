@@ -124,9 +124,9 @@ const WhyDataMatters = () => {
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal text-[#131313] leading-[120%]">
             Why Data Matters
           </h2>
-          <p className="text-sm md:text-base leading-[150%] font-normal text-[#616161] pt-4 md:pt-5">
+          {/* <p className="text-sm md:text-base leading-[150%] font-normal text-[#616161] pt-4 md:pt-5">
             Empowering every stakeholder with objective insights that drive better decisions
-          </p>
+          </p> */}
         </div>
 
         {/* Content */}

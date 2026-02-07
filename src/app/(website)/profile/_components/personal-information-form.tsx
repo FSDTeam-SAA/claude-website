@@ -1014,7 +1014,9 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                         )}
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
-                            <FormField
+                            {
+                                inSchoolOrCollege === "yes" && (
+                                     <FormField
                                 control={form.control}
                                 name="schoolName"
                                 render={({ field }) => (
@@ -1027,6 +1029,9 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                     </FormItem>
                                 )}
                             />
+                                )
+                            }
+                           
 
                         </div>
 

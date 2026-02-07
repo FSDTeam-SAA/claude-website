@@ -20,7 +20,7 @@ const WhyWeAreUnique = () => {
                         <p className='text-sm md:text-base text-[#424242] font-normal leading-[150%] pt-4 md:pt-5 lg:pt-6'>Analytic Soccer is the first platform to deliver all of this, giving amateur players the same digital tools, visibility and data identity used by professionals players.</p>
                     </div>
                     <div className="md:col-span-1 h-full w-full flex justify-center items-center">
-                      <Image src="/assets/images/why-unique.jpg" alt="why we unique" width={700} height={700} className="w-full h-[346px] object-cover rounded-[16px]"/>
+                      <Image src="/assets/images/why_we_are_uneque.jpeg" alt="why we unique" width={700} height={700} className="w-full h-[346px] object-contain rounded-[16px]"/>
                     </div>
                 </div>
 
@@ -60,9 +60,9 @@ const WhyWeAreUnique = () => {
 
                 </div>
 
-                <div className="p-6 shadow-[0px_4px_16px_0px_#00000029] rounded-[16px]  grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 lg:gap-16">
+                <div className="p-6 shadow-[0px_4px_16px_0px_#00000029] rounded-[16px]  grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 lg:gap-16 ">
                     <div className='md:col-span-2 '>
-                        <Image src="/assets/images/why-we-are-unique.jpg" alt="why-we-uniqe" width={500} height={500} className="object-cover rounded-[8px] h-[350px] md:h-[400px] lg:h-[460px] w-full" />
+                        <Image src="/assets/images/why_you_need.jpeg" alt="why-we-uniqe" width={500} height={500} className="object-contain rounded-[8px] h-[350px] md:h-[400px] lg:h-[400px] w-full" />
                     </div>
 
                     <div className='md:col-span-3 h-full flex flex-col justify-center'>
