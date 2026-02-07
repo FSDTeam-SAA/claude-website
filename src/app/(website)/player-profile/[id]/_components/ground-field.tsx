@@ -33,6 +33,7 @@ const GroundField = ({
     }
 
     const personalInfo = data?.user;
+    console.log(personalInfo)
 
     if (!personalInfo) return null;
   return (
@@ -54,3 +55,4 @@ const GroundField = ({
 }
 
 export default GroundField
+
