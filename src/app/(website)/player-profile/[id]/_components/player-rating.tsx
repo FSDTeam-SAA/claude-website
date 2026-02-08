@@ -100,7 +100,7 @@ const PlayerRating = ({
       <Card>
         <CardContent>
           <ChartContainer config={chartConfig} className="w-full h-[290px]">
-            <BarChart data={ratingData} margin={{ top: 32 }}>
+            <BarChart data={ratingData} margin={{ top: 32 }} barCategoryGap="10%">
               <CartesianGrid vertical={false} />
 
               <XAxis
@@ -120,6 +120,8 @@ const PlayerRating = ({
                 dataKey="rating"
                 fill="var(--color-desktop)"
                 radius={8}
+                barSize={100}
+                maxBarSize={110}
               >
                 <LabelList content={CustomBarLabel} />
               </Bar>

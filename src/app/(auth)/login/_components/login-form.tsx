@@ -211,17 +211,19 @@ const LoginForm = () => {
               </Button>
             </div>
 
-            <div className="py-4">
-              <GoogleLoginButton context="login" />
-            </div>
-
-            <div className="w-full flex items-center gap-2">
+             <div className="w-full flex items-center gap-2">
               <span className="w-1/3 border-b border-[#6C6C6C]"/>
               <span className="w-1/3 text-base md:text-lg font-normal text-[#424242] leading-[120%] text-center">
                 Or Sign Up with
               </span>
               <span className="w-1/3 border-b border-[#6C6C6C]"/>
             </div>
+
+            <div className="pb-4">
+              <GoogleLoginButton context="login" />
+            </div>
+
+           
             
             <div>
               <p className="text-sm font-normal leading-[150%] text-[#616161] text-center">
