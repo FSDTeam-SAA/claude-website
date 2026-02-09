@@ -113,23 +113,62 @@ const formSchema = z.object({
     inSchoolOrCollege: z.enum(["yes", "no"], { message: "Please select if you are in school/college." }),
     institute: z.string().optional(),
     gpa: z.string().optional(),
-}).refine((data) => {
+})  .superRefine((data, ctx) => {
+    // ✅ School Name required ONLY if yes
     if (data.inSchoolOrCollege === "yes") {
-        if (!data.institute || data.institute.trim().length < 2) return false;
-
-        // GPA required for High School OR College / University
-        if (
-            data.institute === "high school" ||
-            data.institute === "college / university"
-        ) {
-            if (!data.gpa || data.gpa.trim().length === 0) return false;
-        }
+      if (!data.schoolName || data.schoolName.trim().length === 0) {
+        ctx.addIssue({
+          path: ["schoolName"],
+          message: "School Name is required",
+          code: z.ZodIssueCode.custom,
+        })
+      }
     }
-    return true;
-}, {
-    message: "GPA required for High School and College / University",
-    path: ["gpa"],
-})
+
+    // ✅ Institute required if yes
+    if (data.inSchoolOrCollege === "yes") {
+      if (!data.institute) {
+        ctx.addIssue({
+          path: ["institute"],
+          message: "Please select institute",
+          code: z.ZodIssueCode.custom,
+        })
+      }
+    }
+
+    // ✅ GPA required for High School & College
+    if (
+      data.inSchoolOrCollege === "yes" &&
+      ["high school", "college / university"].includes(data.institute ?? "")
+    ) {
+      if (!data.gpa || data.gpa.trim().length === 0) {
+        ctx.addIssue({
+          path: ["gpa"],
+          message: "GPA is required",
+          code: z.ZodIssueCode.custom,
+        })
+      }
+    }
+  })
+
+
+// .refine((data) => {
+//     if (data.inSchoolOrCollege === "yes") {
+//         if (!data.institute || data.institute.trim().length < 2) return false;
+
+//         // GPA required for High School OR College / University
+//         if (
+//             data.institute === "high school" ||
+//             data.institute === "college / university"
+//         ) {
+//             if (!data.gpa || data.gpa.trim().length === 0) return false;
+//         }
+//     }
+//     return true;
+// }, {
+//     message: "GPA required for High School and College / University",
+//     path: ["gpa"],
+// })
 
 
 
@@ -298,7 +337,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                 <SelectContent>
                                                     <SelectItem value="male">Male</SelectItem>
                                                     <SelectItem value="female">Female</SelectItem>
-                                                    <SelectItem value="other">Other</SelectItem>
+                                                    {/* <SelectItem value="other">Other</SelectItem> */}
                                                 </SelectContent>
                                             </Select>
                                         </FormControl>
