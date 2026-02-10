@@ -106,7 +106,7 @@ const SignupForm = () => {
 
   return (
     <div>
-      <div className="w-full md:w-[570px] bg-white rounded-[16px] border-[2px] border-[#E7E7E7] shadow-[0px_0px_32px_0px_#0000001F] px-8 py-3">
+      <div className="w-full md:w-[570px] bg-white rounded-[16px] border-[2px] border-[#E7E7E7] shadow-[0px_0px_32px_0px_#0000001F] px-4 md:px-6 lg:px-8 py-3">
         <div className="w-full flex items-center justify-center pb-2">
           <Link href="/">
             <Image 

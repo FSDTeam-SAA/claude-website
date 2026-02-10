@@ -3,11 +3,11 @@ import React, { Suspense } from 'react'
 import LoginForm from './_components/login-form'
 const LoginPage = () => {
     return (
-        <div className='w-full min-h-screen grid grid-cols-1 md:grid-cols-2'>
-            <div className='md:col-span-1'>
-                <Image src="/assets/images/auth_image.jpeg" alt="Auth Image" width={1000} height={1000} className='object-cover w-full h-screen' />
+        <div className='w-full h-full md:h-screen flex flex-col md:flex-row items-center justify-center gap-6 py-6 md:py-0'>
+            <div className=' w-full md:w-1/2 flex items-center justify-end'>
+                <Image src="/assets/images/auth11111.jpeg" alt="Auth Image" width={1000} height={1000} className='object-contain w-[700px] h-[450px] md:h-[550px] lg:h-[691px]' />
             </div>
-            <div className='md:col-span-1 flex items-center justify-center'>
+            <div className='w-full md:w-1/2 flex items-center justify-start px-4 md:px-0'>
                 <Suspense fallback={<div>Loading...</div>}>
                     <LoginForm />
                 </Suspense>

@@ -28,8 +28,8 @@ const OurPartners = () => {
 
 
     const ourPartnersImg = [
-        "/assets/partners/partner1.jpeg",
         "/assets/partners/partner2.jpeg",
+        "/assets/partners/partner1.jpeg",
 
     ]
     return (
@@ -49,7 +49,7 @@ const OurPartners = () => {
                             loop: true,
                         }}
                         className="w-full">
-                        <CarouselContent className="w-full flex items-center justify-center">
+                        <CarouselContent className="w-full flex items-center justify-center gap-10">
                             {
                                 ourPartnersImg?.map((item, index) => {
                                     return <CarouselItem key={index} className="basis-1/2 md:basis-[14.28%] lg:basis-[12.5%]">

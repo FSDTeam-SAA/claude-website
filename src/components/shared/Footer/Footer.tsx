@@ -46,6 +46,9 @@ const Footer = () => {
             <Link href="/contact-us">
               <li className="text-base md:text-lg font-normal text-[#616161] leading-[120%] hover:underline hover:text-primary py-3 md:py-4">Contact Us</li>
             </Link>
+              <Link href="/faq">
+              <li className="text-base md:text-lg font-normal text-[#616161] leading-[120%] hover:underline hover:text-primary">FAQ</li>
+            </Link>
           </ul>
         </div>
         <div className="md:col-span-2">
