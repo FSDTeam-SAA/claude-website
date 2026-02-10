@@ -12,17 +12,24 @@ import Autoplay from "embla-carousel-autoplay";
 
 const OurPartners = () => {
 
+    // const ourPartnersImg = [
+    //     "/assets/our-partners/op1.png",
+    //     "/assets/our-partners/op2.png",
+    //     "/assets/our-partners/op3.png",
+    //     "/assets/our-partners/op4.png",
+    //     "/assets/our-partners/op5.png",
+    //     "/assets/our-partners/op6.png",
+    //     "/assets/our-partners/op7.png",
+    //     "/assets/our-partners/op8.png",
+    //     "/assets/our-partners/op9.png",
+    //     "/assets/our-partners/op10.png",
+
+    // ]
+
+
     const ourPartnersImg = [
-        "/assets/our-partners/op1.png",
-        "/assets/our-partners/op2.png",
-        "/assets/our-partners/op3.png",
-        "/assets/our-partners/op4.png",
-        "/assets/our-partners/op5.png",
-        "/assets/our-partners/op6.png",
-        "/assets/our-partners/op7.png",
-        "/assets/our-partners/op8.png",
-        "/assets/our-partners/op9.png",
-        "/assets/our-partners/op10.png",
+        "/assets/partners/partner1.jpeg",
+        "/assets/partners/partner2.jpeg",
 
     ]
     return (
@@ -42,7 +49,7 @@ const OurPartners = () => {
                             loop: true,
                         }}
                         className="w-full">
-                        <CarouselContent>
+                        <CarouselContent className="w-full flex items-center justify-center">
                             {
                                 ourPartnersImg?.map((item, index) => {
                                     return <CarouselItem key={index} className="basis-1/2 md:basis-[14.28%] lg:basis-[12.5%]">
