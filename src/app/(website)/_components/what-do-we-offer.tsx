@@ -25,8 +25,8 @@ const WhatDoWeOffer = () => {
                     </div>
                 </div>
                 </div>
-                <div className='order-1 md:order-2 md:col-span-1'>
-                    <Image src="/assets/images/what_do_we_offers.png" alt="What Do We Offer" width={1000} height={1000} className='w-full h-[360px] md:h-[480px] xl:h-[600px] object-concatin rounded-[16px]' />
+                <div className='order-1 md:order-2 md:col-span-1 w-full flex items-center justify-end'>
+                    <Image src="/assets/images/what_do_we_offers.png" alt="What Do We Offer" width={1000} height={1000} className='w-[466px] h-[360px] md:h-[480px] xl:h-[540px] object-concatin rounded-[16px]' />
                 </div>
             </div>
         </div>
