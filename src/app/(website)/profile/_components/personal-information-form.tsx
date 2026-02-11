@@ -188,10 +188,10 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
         { label: "RB", value: "rb" },
         { label: "LB", value: "lb" },
         { label: "CB", value: "cb" },
-        { label: "Defensive Midfielder", value: "defensive midfielder" },
-        { label: "Offensive Midfielder", value: "offensive midfielder" },
-        { label: "Right Winger", value: "right winger" },
-        { label: "Left Winger", value: "left winger" },
+        { label: "CM", value: "cm" },
+        { label: "AM", value: "am" },
+        { label: "RW", value: "rw" },
+        { label: "LW", value: "lw" },
         { label: "Striker", value: "striker" },
     ]
 

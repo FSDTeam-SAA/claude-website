@@ -14,9 +14,9 @@ const Footer = () => {
             <Image src="/assets/images/logo.png" alt="logo" width={1000} height={1000} className="w-[202px] h-[56px] object-cover" />
           </Link>
           {/* <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal pt-4 md:pt-5 lg:pt-6">Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit?</p> */}
-          <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal pt-2"><strong className='text-[#131313]'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p>
+          {/* <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal pt-2"><strong className='text-[#131313]'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}
 
-          <div className='pt-4 flex items-center gap-2'>
+          <div className='pt-12 flex items-center gap-2'>
             <Link href="#">
             <span className='inline-flex border-[2px] border-[#5B6574] p-3 rounded-full '><Facebook /></span>
             </Link>
@@ -63,6 +63,7 @@ const Footer = () => {
               <li className="text-base md:text-lg font-normal text-[#616161] leading-[120%] hover:underline hover:text-primary py-3 md:py-4">Privacy Policy</li>
             </Link>
           </ul>
+          <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal"><strong className='text-[#131313]'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p>
         </div>
         <div className="md:col-span-3">
           <h4 className="text-lg md:text-xl font-semibold leading-[120%] text-[#2A2A2A] pb-3 lg:pb-4">Subscribe To Our <span className="text-primary">NEWSLETTER</span></h4>

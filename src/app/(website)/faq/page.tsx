@@ -110,9 +110,8 @@ const faqItems = [
     <div>
       <section className="py-6 md:py-10 lg:py-16 bg-[#F4FFF4]">
         <div className="container ">
-          <h4 className='text-2xl md:text-3xl lg:text-4xl text-center font-normal leading-[120%] text-[#131313]'>FAQ Analytic Soccer</h4>
-          <p className='text-sm lg:text-base text-[#616161] leading-[150%] text-center font-nnormal pt-4 pb-6 md:pb-8 lg:pb-10'>Get answers to common questions about our vehicle inspection <br />
-            services and process.</p>
+          <h4 className='text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center font-normal leading-[120%] text-[#131313] pb-6 md:pb-8'>FAQ</h4>
+          
           <Accordion type="single" collapsible className="w-full">
             {faqItems?.map((item, index) => (
               <AccordionItem
