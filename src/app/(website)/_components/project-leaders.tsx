@@ -5,13 +5,15 @@ const ProjectLeader = () => {
   const projectLeaders = [
     {
       id: 1,
-      image: "/assets/images/pl1.png",
-      name: "Wilamson"
+      image: "/assets/partners/partner1.svg",
     },
     {
       id: 2,
-      image: "/assets/images/pl2.png",
-      name: "Wilamson"
+      image: "/assets/partners/partner2.svg",
+    },
+      {
+      id: 3,
+      image: "/assets/partners/partner3.svg",
     },
   ]
   return (
@@ -22,10 +24,9 @@ const ProjectLeader = () => {
           {projectLeaders?.map((item) => (
             <div
               key={item?.id}
-              className="bg-primary rounded-[16px] shadow-[0px_8px_32px_0px_#00000029] p-6 md:p-7 lg:p-8 flex flex-col items-center justify-center"
+              className="flex flex-col items-center justify-center"
             >
-              <Image src={item?.image} alt="project leader" width={500} height={500} className="w-[180px] h-[180px] rounded-full object-contain" />
-              <h4 className="text-xl lg:text-2xl text-white font-normal leading-[150%] text-center pt-6 md:pt-7 lg:pt-8">{item?.name}</h4>
+              <Image src={item?.image} alt="project leader" width={500} height={500} className="w-[150px] h-[250px] object-contain" />
             </div>
           ))}
         </div>

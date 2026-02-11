@@ -119,9 +119,9 @@ const SignupForm = () => {
           </Link>
         </div>
         
-        <p className="text-base font-normal text-[#616161] leading-[150%] text-center pt-1">
+        {/* <p className="text-base font-normal text-[#616161] leading-[150%] text-center pt-1">
           Welcome to Website
-        </p>
+        </p> */}
         
         <h3 className="text-2xl md:text-2xl xl:text-3xl font-normal text-[#131313] text-center leading-[120%] pt-2">
           Create an account
