@@ -12,33 +12,18 @@ import Autoplay from "embla-carousel-autoplay";
 
 const OurPartners = () => {
 
-    // const ourPartnersImg = [
-    //     "/assets/our-partners/op1.png",
-    //     "/assets/our-partners/op2.png",
-    //     "/assets/our-partners/op3.png",
-    //     "/assets/our-partners/op4.png",
-    //     "/assets/our-partners/op5.png",
-    //     "/assets/our-partners/op6.png",
-    //     "/assets/our-partners/op7.png",
-    //     "/assets/our-partners/op8.png",
-    //     "/assets/our-partners/op9.png",
-    //     "/assets/our-partners/op10.png",
-
-    // ]
-
-
     const ourPartnersImg = [
         "/assets/partners/partner2.jpeg",
         "/assets/partners/partner1.jpeg",
 
     ]
     return (
-        <div className="py-6 md:py-10 lg:py-16">
+        <div className="py-6 md:py-8 lg:py-12">
             <div className="container pt-4">
                 <h4 className='text-2xl md:text-3xl lg:text-4xl text-center font-normal leading-[120%] text-[#131313]'>Our Partners</h4>
                 {/* <p className='text-sm lg:text-base text-[#616161] leading-[150%] text-center font-nnormal pt-4'>Don&lsquo;t just take our word for it. Here&lsquo;s what real customers have to say about <br /> their AutoIntel inspection experience.</p> */}
 
-                <div className="py-6 md:py-10 lg:py-14">
+                <div className="py-6 md:py-18 lg:py-10">
                     <Carousel plugins={[
                         Autoplay({
                             delay: 2000,
@@ -49,7 +34,7 @@ const OurPartners = () => {
                             loop: true,
                         }}
                         className="w-full">
-                        <CarouselContent className="w-full flex items-center justify-center gap-10">
+                        <CarouselContent className="w-full flex items-center justify-center gap-5 md:gap-10">
                             {
                                 ourPartnersImg?.map((item, index) => {
                                     return <CarouselItem key={index} className="basis-1/2 md:basis-[14.28%] lg:basis-[12.5%]">

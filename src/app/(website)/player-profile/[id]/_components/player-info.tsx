@@ -87,7 +87,7 @@ const PlayerInfo = ({
                 </div>
                 <div className="md:col-span-3">
                     <ul className="grid gris-cols-1 md:gris-cols-2 lg:grid-cols-3 gap-4">
-                        <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Nationality</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.citizenship || "N/A"}</span></li>
+                        <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Nationality</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.nationality || "N/A"}</span></li>
                         <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Place of birth</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.birthdayPlace || "N/A"}</span></li>
                         <li className="flex flex-col gap-2">
                             <span className="text-base font-normal text-[#616161] leading-[150%]">

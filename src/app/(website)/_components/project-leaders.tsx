@@ -17,16 +17,16 @@ const ProjectLeader = () => {
     },
   ]
   return (
-    <div className='bg_color py-10 md:py-16 lg:py-20'>
+    <div className='bg_color py-8 md:py-14 lg:py-16'>
       <div className="container">
         <h3 className='text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] text-center'>Project Leaders</h3>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-10 pt-6 md:pt-8 lg:pt-10">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-10 pt-6 md:pt-8 lg:pt-10">
           {projectLeaders?.map((item) => (
             <div
               key={item?.id}
-              className="flex flex-col items-center justify-center"
+              className="flex flex-col items-center justify-center "
             >
-              <Image src={item?.image} alt="project leader" width={500} height={500} className="w-[150px] h-[250px] object-contain" />
+              <Image src={item?.image} alt="project leader" width={500} height={500} className="w-[150px] h-[200px] object-contain" />
             </div>
           ))}
         </div>

@@ -71,7 +71,7 @@ const SimilarPlayers = ({
                                     <div className="flex items-center gap-4">
                                         <Image
                                             src={item.profileImage || "/assets/images/no-user.jpg"}
-                                            alt={`${item?.name || "image" }`}
+                                            alt={`${item?.name || "image"}`}
                                             width={93}
                                             height={93}
                                             className="w-[93px] h-[93px] rounded-[8px] object-cover"

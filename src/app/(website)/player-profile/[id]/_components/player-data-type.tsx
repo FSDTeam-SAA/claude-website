@@ -101,7 +101,7 @@ export interface User {
   updatedAt: string;
   lastLogin: string;
   __v: number;
-
+  nationality: string;
   birthdayPlace: string;
   category: string;
   citizenship: string;

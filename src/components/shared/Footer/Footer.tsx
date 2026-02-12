@@ -6,7 +6,7 @@ import { Facebook, Linkedin, Instagram } from 'lucide-react'
 
 const Footer = () => {
   return (
-    <div className=" bg-white">
+    <div className=" bg-white border-t border-[#8E959F]/50">
       <div className="py-10 md:py-12 lg:py-14 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-10 gap-6 md:gap-8 lg:gap-10">
         <div className="md:col-span-3">
           {/* Logo */}
@@ -16,7 +16,7 @@ const Footer = () => {
           {/* <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal pt-4 md:pt-5 lg:pt-6">Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit?</p> */}
           {/* <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal pt-2"><strong className='text-[#131313]'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}
 
-          <div className='pt-12 flex items-center gap-2'>
+          <div className='pt-12 flex items-center gap-3'>
             <Link href="#">
             <span className='inline-flex border-[2px] border-[#5B6574] p-3 rounded-full '><Facebook /></span>
             </Link>
@@ -76,7 +76,7 @@ const Footer = () => {
 
       </div>
       {/* footer bottom  */}
-      <p className="container text-base md:text-lg font-normal text-center text-[#929292] leading-[120%] py-4 border-t border-[#8E959F]">@ {new Date().getFullYear()}. All Rights Reserved</p>
+      <p className="container text-base md:text-lg font-normal text-center text-[#929292] leading-[120%] py-4 border-t border-[#8E959F]/50">@ {new Date().getFullYear()}. All Rights Reserved</p>
     </div>
   )
 }

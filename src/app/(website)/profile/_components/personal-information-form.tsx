@@ -55,14 +55,6 @@ const formSchema = z.object({
     schoolName: z.string().optional(),
     phoneCode: z.string().min(1),
     phone: z.string().min(6),
-    // phone: z.string().min(7, { message: "Phone number is too short." }),
-    // phone: z
-    //     .string()
-    //     .min(7, { message: "Phone number is too short." })
-    //     .max(20, { message: "Phone number is too long." })
-    //     .regex(/^\+?[0-9]{7,15}$/, {
-    //         message: "Enter a valid international phone number (e.g. +1 456765432)",
-    //     }),
     jerseyNumber: z.string().min(1, {
         message: "Jersey Number must be at least 1 characters.",
     }),
@@ -92,7 +84,11 @@ const formSchema = z.object({
     currentClub: z.string().min(2, {
         message: "Current Club must be at least 2 characters.",
     }),
-    dob: z.date().nullable(),
+    // dob: z.date().nullable(),
+    dob: z.date().nullable().refine((val) => val !== null, {
+        message: "Date of Birth is required",
+    }),
+
     birthdayPlace: z.string().min(2, {
         message: "Place Of Birth must be at least 2 characters.",
     }),
@@ -113,43 +109,43 @@ const formSchema = z.object({
     inSchoolOrCollege: z.enum(["yes", "no"], { message: "Please select if you are in school/college." }),
     institute: z.string().optional(),
     gpa: z.string().optional(),
-})  .superRefine((data, ctx) => {
+}).superRefine((data, ctx) => {
     // ✅ School Name required ONLY if yes
     if (data.inSchoolOrCollege === "yes") {
-      if (!data.schoolName || data.schoolName.trim().length === 0) {
-        ctx.addIssue({
-          path: ["schoolName"],
-          message: "School Name is required",
-          code: z.ZodIssueCode.custom,
-        })
-      }
+        if (!data.schoolName || data.schoolName.trim().length === 0) {
+            ctx.addIssue({
+                path: ["schoolName"],
+                message: "School Name is required",
+                code: z.ZodIssueCode.custom,
+            })
+        }
     }
 
     // ✅ Institute required if yes
     if (data.inSchoolOrCollege === "yes") {
-      if (!data.institute) {
-        ctx.addIssue({
-          path: ["institute"],
-          message: "Please select institute",
-          code: z.ZodIssueCode.custom,
-        })
-      }
+        if (!data.institute) {
+            ctx.addIssue({
+                path: ["institute"],
+                message: "Please select institute",
+                code: z.ZodIssueCode.custom,
+            })
+        }
     }
 
     // ✅ GPA required for High School & College
     if (
-      data.inSchoolOrCollege === "yes" &&
-      ["high school", "college / university"].includes(data.institute ?? "")
+        data.inSchoolOrCollege === "yes" &&
+        ["high school", "college / university"].includes(data.institute ?? "")
     ) {
-      if (!data.gpa || data.gpa.trim().length === 0) {
-        ctx.addIssue({
-          path: ["gpa"],
-          message: "GPA is required",
-          code: z.ZodIssueCode.custom,
-        })
-      }
+        if (!data.gpa || data.gpa.trim().length === 0) {
+            ctx.addIssue({
+                path: ["gpa"],
+                message: "GPA is required",
+                code: z.ZodIssueCode.custom,
+            })
+        }
     }
-  })
+})
 
 
 // .refine((data) => {
@@ -289,7 +285,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
         <div>
             <div className="pt-6">
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
                             <FormField
@@ -299,7 +295,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                     <FormItem>
                                         <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">First Name</FormLabel>
                                         <FormControl>
-                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Bessie" {...field} />
+                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Enter your first name" {...field} />
                                         </FormControl>
                                         <FormMessage className="text-red-500" />
                                     </FormItem>
@@ -312,7 +308,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                     <FormItem>
                                         <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">Last Name</FormLabel>
                                         <FormControl>
-                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Jackson" {...field} />
+                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Enter your last name" {...field} />
                                         </FormControl>
                                         <FormMessage className="text-red-500" />
                                     </FormItem>
@@ -352,7 +348,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                     <FormItem>
                                         <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">Nationality</FormLabel>
                                         <FormControl>
-                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="AAAAAA" {...field} />
+                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Enter Nationality" {...field} />
                                         </FormControl>
                                         <FormMessage className="text-red-500" />
                                     </FormItem>
@@ -365,7 +361,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                     <FormItem>
                                         <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">Jersey Number</FormLabel>
                                         <FormControl>
-                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Jackson" {...field} />
+                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Enter Jersey Number" {...field} />
                                         </FormControl>
                                         <FormMessage className="text-red-500" />
                                     </FormItem>
@@ -501,7 +497,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                     <FormItem>
                                         <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">Hight</FormLabel>
                                         <FormControl>
-                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="00" {...field} />
+                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Enter hight" {...field} />
                                         </FormControl>
                                         <FormMessage className="text-red-500" />
                                     </FormItem>
@@ -514,7 +510,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                     <FormItem>
                                         <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">Weight</FormLabel>
                                         <FormControl>
-                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="00" {...field} />
+                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Enter weight" {...field} />
                                         </FormControl>
                                         <FormMessage className="text-red-500" />
                                     </FormItem>
@@ -617,7 +613,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                     <FormItem>
                                         <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">Place of birth</FormLabel>
                                         <FormControl>
-                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="AAAAAA" {...field} />
+                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Enter Place of Birth" {...field} />
                                         </FormControl>
                                         <FormMessage className="text-red-500" />
                                     </FormItem>
@@ -633,7 +629,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                     <FormItem>
                                         <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">Citizenship</FormLabel>
                                         <FormControl>
-                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="AAAAAA" {...field} />
+                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Enter Citizenship" {...field} />
                                         </FormControl>
                                         <FormMessage className="text-red-500" />
                                     </FormItem>
@@ -646,7 +642,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                     <FormItem>
                                         <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">Current Club</FormLabel>
                                         <FormControl>
-                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="AAAAAA" {...field} />
+                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Enter Current Club" {...field} />
                                         </FormControl>
                                         <FormMessage className="text-red-500" />
                                     </FormItem>
@@ -670,7 +666,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                 value={field.value}
                                             >
                                                 <SelectTrigger className="w-full h-[48px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
-                                                    <SelectValue placeholder="Select" />
+                                                    <SelectValue placeholder="Select League" />
                                                 </SelectTrigger>
                                                 <SelectContent className="h-[200px] overflow-y-auto">
                                                     <SelectItem value="nwsl">NWSL</SelectItem>
@@ -705,7 +701,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                 value={field.value}
                                             >
                                                 <SelectTrigger className="w-full h-[48px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
-                                                    <SelectValue placeholder="Select" />
+                                                    <SelectValue placeholder="Select Category" />
                                                 </SelectTrigger>
                                                 <SelectContent className="h-[200px] overflow-y-auto">
                                                     <SelectItem value="semi-professional">Semi Professional</SelectItem>
@@ -747,7 +743,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                 value={field.value}
                                             >
                                                 <SelectTrigger className="w-full h-[48px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
-                                                    <SelectValue placeholder="Select" />
+                                                    <SelectValue placeholder="Select Foot" />
                                                 </SelectTrigger>
                                                 <SelectContent>
                                                     <SelectItem value="left">Left</SelectItem>
@@ -843,7 +839,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                     <FormItem>
                                         <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">Agent/Agency Name</FormLabel>
                                         <FormControl>
-                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Bessie" {...field} />
+                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Enter Agent" {...field} />
                                         </FormControl>
                                         <FormMessage className="text-red-500" />
                                     </FormItem>
@@ -1036,7 +1032,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                     </FormLabel>
                                                     <FormControl>
                                                         <Input
-                                                            placeholder="Write here"
+                                                            placeholder="Enter GPA"
                                                             {...field}
                                                             className="w-full h-[47px] border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292]"
                                                         />
@@ -1055,22 +1051,22 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
                             {
                                 inSchoolOrCollege === "yes" && (
-                                     <FormField
-                                control={form.control}
-                                name="schoolName"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">School Name</FormLabel>
-                                        <FormControl>
-                                            <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="AAAAAA" {...field} />
-                                        </FormControl>
-                                        <FormMessage className="text-red-500" />
-                                    </FormItem>
-                                )}
-                            />
+                                    <FormField
+                                        control={form.control}
+                                        name="schoolName"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">School Name</FormLabel>
+                                                <FormControl>
+                                                    <Input className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]" placeholder="Enter School Name" {...field} />
+                                                </FormControl>
+                                                <FormMessage className="text-red-500" />
+                                            </FormItem>
+                                        )}
+                                    />
                                 )
                             }
-                           
+
 
                         </div>
 
