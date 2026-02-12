@@ -6,6 +6,38 @@ import { UserProfile } from './player-data-type';
 import ErrorContainer from '@/components/shared/ErrorContainer/ErrorContainer';
 import GroundFieldSkeleton from './ground-field-skeleton';
 
+
+const POSITION_IMAGES: Record<string, string> = {
+  gk: "/assets/grounds/gk.png",
+  rb: "/assets/grounds/rb.png",
+  lb: "/assets/grounds/lb.png",
+  cb: "/assets/grounds/cb.png",
+  cm: "/assets/grounds/cm.png",
+  am: "/assets/grounds/am.png",
+  rw: "/assets/grounds/rw.png",
+  lw: "/assets/grounds/lw.png",
+  striker: "/assets/grounds/striker.png",
+
+  // optional combined images
+
+  "am-lw": "/assets/grounds/am_lw.png",
+  "am-rw": "/assets/grounds/am_rw.png",
+  "am-st": "/assets/grounds/am_st.png",
+  "cb-cm": "/assets/grounds/cb_cm.png",
+  "cb_lb": "/assets/grounds/cb_lb.png",
+  "cb-rb": "/assets/grounds/cb_rb.png",
+  "cm-am": "/assets/grounds/cm_am.png",
+  "lb-cm": "/assets/grounds/lb_cm.png",
+  "lw-am": "/assets/grounds/lw_am.png",
+  "rb-cm": "/assets/grounds/rb_cm.png",
+  "rb-lb": "/assets/grounds/rb_lb.png",
+  "lb-rb": "/assets/grounds/rb_lb.png",
+  "rw-am": "/assets/grounds/rw_am.png",
+  "striker-am": "/assets/grounds/st_am.png",
+  "striker-lw": "/assets/grounds/st_lw.png",
+  "striker-rw": "/assets/grounds/st_rw.png",
+};
+
 const GroundField = ({
   data,
   isLoading,
@@ -33,7 +65,14 @@ const GroundField = ({
   }
 
   const personalInfo = data?.user;
-  console.log(data)
+  const groundField = personalInfo?.position || [];
+  console.log("ground field", groundField)
+
+  const positionKey = groundField.slice(0, 2).join("-");
+
+  const groundImage =
+    POSITION_IMAGES[positionKey] ||
+    POSITION_IMAGES[groundField[0]];
 
   if (!personalInfo) return null;
 
@@ -67,7 +106,16 @@ const GroundField = ({
         </p>
       </div>
 
-      <Image src="/assets/images/ground-field.png" alt="ground field" width={1000} height={1000} className='w-full h-[200px] md:h-[288px] object-contain' />
+      {/* ground field  */}
+      <div>
+        <Image
+          src={groundImage || "/assets/grounds/ground-field.png"}
+          alt="ground field"
+          width={1000}
+          height={1000}
+          className="w-full h-[200px] md:h-[288px] object-contain"
+        />
+      </div>
     </div>
   )
 }
