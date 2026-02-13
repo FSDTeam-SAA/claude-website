@@ -38,7 +38,7 @@ export interface User {
   hight?: string
   weight?: string
   phone?: string
-
+  nationality?: string
   league?: string | null
   category?: string | null
   position?: string[]
