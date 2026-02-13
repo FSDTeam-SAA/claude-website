@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function PlayerRatingSkeleton() {
   return (
-    <div className="w-full rounded-xl border bg-white p-6">
+    <div className="w-full rounded-xl bg-white p-6">
       {/* Title Skeleton */}
       <Skeleton className="h-10 w-[420px] mb-8" />
 
