@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function GroundFieldSkeleton() {
   return (
-    <div className="w-full rounded-xl border bg-white p-7">
+    <div className="w-full rounded-xl bg-white p-7">
       {/* Top Positions */}
       <div className="flex justify-between mb-6">
         <div>
