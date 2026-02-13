@@ -5,15 +5,15 @@ const ProjectLeader = () => {
   const projectLeaders = [
     {
       id: 1,
-      image: "/assets/partners/partner1.svg",
+      image: "/assets/partners/1.jpg",
     },
     {
       id: 2,
-      image: "/assets/partners/partner2.svg",
+      image: "/assets/partners/2.jpg",
     },
       {
       id: 3,
-      image: "/assets/partners/partner3.svg",
+      image: "/assets/partners/3.jpg",
     },
   ]
   return (

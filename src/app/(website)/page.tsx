@@ -1,6 +1,6 @@
 import React from 'react'
 import HeroSection from './_components/hero-section'
-import OurPartners from './_components/our-partners'
+// import OurPartners from './_components/our-partners'
 // import { FaqSection } from './_components/faq-section'
 import WhyDataMatters from './_components/why-data-matters'
 import WhyYouNeedAProfile from './_components/why-you-need-profile'
@@ -24,7 +24,7 @@ const HomePage = () => {
                 <WhyDataMatters/>
                 {/* <AccessThePlatform/> */}
                 <ProjectLeader/>
-                <OurPartners/>
+                {/* <OurPartners/> */}
                 {/* <FaqSection /> */}
             </>
         </div>

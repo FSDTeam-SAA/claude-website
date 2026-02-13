@@ -88,7 +88,7 @@ const ProfilesContainer = () => {
                                 </TableCell>
                                 {/* <TableCell className="text-base text-[#131313] leading-[150%] text-center font-normal py-3">  {moment(info?.dob).format("DD / MM / YYYY")} </TableCell> */}
                                 <TableCell className="text-xs md:text-sm lg:text-base text-[#131313] leading-[150%] text-center font-normal py-3"> {info?.age || 0} </TableCell>
-                                <TableCell className="text-xs md:text-sm lg:text-base text-[#131313] leading-[150%] text-center font-normal py-3"> {info?.citizenship || "N/A"} </TableCell>
+                                <TableCell className="text-xs md:text-sm lg:text-base text-[#131313] leading-[150%] text-center font-normal py-3"> {info?.nationality || "N/A"} </TableCell>
                             </TableRow>
                         }
                         )}
