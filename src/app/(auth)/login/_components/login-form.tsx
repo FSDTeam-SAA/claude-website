@@ -95,11 +95,11 @@ const LoginForm = () => {
         <div className="w-full flex items-center justify-center pb-4">
           <Link href="/">
             <Image 
-              src="/assets/images/auth-logo.png" 
+              src="/assets/images/new_logo.jpg" 
               alt="auth logo" 
               width={500} 
               height={500} 
-              className="w-[290px] h-[80px] object-contain"
+              className="w-[290px] h-[80px] object-cover"
             />
           </Link>
         </div>
