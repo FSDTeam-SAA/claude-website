@@ -372,7 +372,7 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-50">
-      <header className="w-full border-b border-border bg-white">
+      <header className="w-full border-b border-border border-gray-200 bg-white">
         <nav className="container mx-auto px-4 py-3 ">
           <div className="flex items-center justify-between gap-5">
             {/* Logo */}
@@ -492,7 +492,7 @@ const Navbar = () => {
                       className="w-14 h-14 rounded-full border object-contain"
                     />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="p-2">
+                  <DropdownMenuContent className="p-2 border-none bg-white">
                     <Link href="/profile">
                       <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
                         Profile

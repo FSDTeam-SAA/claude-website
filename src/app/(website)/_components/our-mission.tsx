@@ -138,7 +138,7 @@ const OurMission = () => {
 
       {/* Center Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
-        <h3 className=" text-2xl md:text-3xl lg:text-4xl font-normal text-[#131313] leading-[120%] h_underline">
+        <h3 className=" text-2xl md:text-3xl lg:text-4xl font-normal text-primary leading-[120%] h_underline">
           Our Mission
         </h3>
 

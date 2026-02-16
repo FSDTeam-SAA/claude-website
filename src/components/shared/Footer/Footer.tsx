@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="md:col-span-3">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/assets/images/logo.png" alt="logo" width={1000} height={1000} className="w-[202px] h-[56px] object-cover" />
+            <Image src="/assets/images/new_logo.jpg" alt="logo" width={1000} height={1000} className="w-[202px] h-[56px] object-cover" />
           </Link>
           {/* <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal pt-4 md:pt-5 lg:pt-6">Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit?</p> */}
           {/* <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal pt-2"><strong className='text-[#131313]'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}

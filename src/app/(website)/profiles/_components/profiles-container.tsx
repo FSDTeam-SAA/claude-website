@@ -102,7 +102,7 @@ const ProfilesContainer = () => {
     return (
         <div className='py-10'>
             <div className="container bg-white rounded-[16px] p-6 shadow-[0px_4px_16px_0px_#00000014]">
-                <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-3 md:pb-5 lg:pb-6">All PLAYERS</h3>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary h_underline     font-normal leading-[120%] pb-3 md:pb-5 lg:pb-6">All PLAYERS</h3>
                 <div>
                     <div>
                         {content}

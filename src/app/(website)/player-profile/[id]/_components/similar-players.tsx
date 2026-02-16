@@ -70,7 +70,7 @@ const SimilarPlayers = ({
                                     {/* LEFT: Profile */}
                                     <div className="flex items-center gap-4">
                                         <Image
-                                            src={item.profileImage || "/assets/images/no-user.jpg"}
+                                            src={item?.profileImage || "/assets/images/no-user.jpg"}
                                             alt={`${item?.name || "image"}`}
                                             width={93}
                                             height={93}
@@ -82,7 +82,7 @@ const SimilarPlayers = ({
                                                 {item?.name || "N/A"}
                                             </h4>
 
-                                            <div className="flex items-center gap-2 pt-3">
+                                            {/* <div className="flex items-center gap-2 pt-3">
                                                 <Image
                                                     src={item?.nationalTeam?.flag || "/assets/images/no-flag.png"}
                                                     alt="flag"
@@ -93,7 +93,7 @@ const SimilarPlayers = ({
                                                 <p className="text-sm font-normal text-[#131313] leading-[150%]">
                                                     {item?.nationalTeam?.teamName || "N/A"}
                                                 </p>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
 

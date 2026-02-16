@@ -330,9 +330,9 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                 <SelectTrigger className="w-full h-[48px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
                                                     <SelectValue placeholder="Select Gender" />
                                                 </SelectTrigger>
-                                                <SelectContent>
-                                                    <SelectItem value="male">Male</SelectItem>
-                                                    <SelectItem value="female">Female</SelectItem>
+                                                <SelectContent className="bg-white border-none">
+                                                    <SelectItem className="cursor-pointer" value="male">Male</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="female">Female</SelectItem>
                                                     {/* <SelectItem value="other">Other</SelectItem> */}
                                                 </SelectContent>
                                             </Select>
@@ -389,7 +389,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                             <SelectTrigger className="w-[110px] h-[47px] border border-[#645949] rounded-[8px]">
                                                                 <SelectValue />
                                                             </SelectTrigger>
-                                                            <SelectContent className="h-[250px]  md:h-[300px] overflow-auto">
+                                                            <SelectContent className="h-[250px]  md:h-[300px] overflow-auto bg-white border-none">
                                                                 {/* North America */}
                                                                 <SelectItem value="+1">🇺🇸 +1</SelectItem>
                                                                 {/* <SelectItem value="+1">🇨🇦 +1</SelectItem> */}
@@ -584,7 +584,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                 </FormControl>
                                             </PopoverTrigger>
 
-                                            <PopoverContent className="w-auto p-2" align="start">
+                                            <PopoverContent className="w-auto p-2 bg-white border-none" align="start">
                                                 <Calendar
                                                     mode="single"
                                                     selected={field.value ?? undefined}
@@ -592,7 +592,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                     captionLayout="dropdown"
                                                     fromYear={1970}
                                                     toYear={new Date().getFullYear()}
-                                                    className="rounded-lg border"
+                                                    className="rounded-lg "
                                                     initialFocus
                                                 />
                                             </PopoverContent>
@@ -668,18 +668,18 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                 <SelectTrigger className="w-full h-[48px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
                                                     <SelectValue placeholder="Select League" />
                                                 </SelectTrigger>
-                                                <SelectContent className="h-[200px] overflow-y-auto">
-                                                    <SelectItem value="nwsl">NWSL</SelectItem>
-                                                    <SelectItem value="ecnl">ECNL</SelectItem>
-                                                    <SelectItem value="usl super league">USL Super League</SelectItem>
-                                                    <SelectItem value="travel">Travel</SelectItem>
-                                                    <SelectItem value="ecnl rl">ECNL RL</SelectItem>
-                                                    <SelectItem value="mls next">MLS NEXT</SelectItem>
-                                                    <SelectItem value="npl">NPL</SelectItem>
-                                                    <SelectItem value="pdl">PDL</SelectItem>
-                                                    <SelectItem value="upsl division 1">UPSL Division 1</SelectItem>
-                                                    <SelectItem value="upsl premier">UPSL Premier</SelectItem>
-                                                    <SelectItem value="usl academy">USL Academy</SelectItem>
+                                                <SelectContent className="h-[200px] overflow-y-auto bg-white border-none">
+                                                    <SelectItem className="cursor-pointer" value="nwsl">NWSL</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="ecnl">ECNL</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="usl super league">USL Super League</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="travel">Travel</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="ecnl rl">ECNL RL</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="mls next">MLS NEXT</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="npl">NPL</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="pdl">PDL</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="upsl division 1">UPSL Division 1</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="upsl premier">UPSL Premier</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="usl academy">USL Academy</SelectItem>
                                                 </SelectContent>
                                             </Select>
                                         </FormControl>
@@ -703,21 +703,21 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                 <SelectTrigger className="w-full h-[48px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
                                                     <SelectValue placeholder="Select Category" />
                                                 </SelectTrigger>
-                                                <SelectContent className="h-[200px] overflow-y-auto">
-                                                    <SelectItem value="semi-professional">Semi Professional</SelectItem>
-                                                    <SelectItem value="professional">Professional</SelectItem>
-                                                    <SelectItem value="adult">Adult</SelectItem>
-                                                    <SelectItem value="U9">U9</SelectItem>
-                                                    <SelectItem value="U10">U10</SelectItem>
-                                                    <SelectItem value="U11">U11</SelectItem>
-                                                    <SelectItem value="U12">U12</SelectItem>
-                                                    <SelectItem value="U13">U13</SelectItem>
-                                                    <SelectItem value="U14">U14</SelectItem>
-                                                    <SelectItem value="U15">U15</SelectItem>
-                                                    <SelectItem value="U16">U16</SelectItem>
-                                                    <SelectItem value="U17">U17</SelectItem>
-                                                    <SelectItem value="U18">U18</SelectItem>
-                                                    <SelectItem value="U19">U19</SelectItem>
+                                                <SelectContent className="h-[200px] overflow-y-auto bg-white border-none">
+                                                    <SelectItem className="cursor-pointer" value="semi-professional">Semi Professional</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="professional">Professional</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="adult">Adult</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="U9">U9</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="U10">U10</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="U11">U11</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="U12">U12</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="U13">U13</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="U14">U14</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="U15">U15</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="U16">U16</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="U17">U17</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="U18">U18</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="U19">U19</SelectItem>
                                                 </SelectContent>
                                             </Select>
                                         </FormControl>
@@ -745,10 +745,10 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                 <SelectTrigger className="w-full h-[48px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
                                                     <SelectValue placeholder="Select Foot" />
                                                 </SelectTrigger>
-                                                <SelectContent>
-                                                    <SelectItem value="left">Left</SelectItem>
-                                                    <SelectItem value="right">Right</SelectItem>
-                                                    <SelectItem value="both">Both</SelectItem>
+                                                <SelectContent className="bg-white border-none">
+                                                    <SelectItem className="cursor-pointer" value="left">Left</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="right">Right</SelectItem>
+                                                    <SelectItem className="cursor-pointer" value="both">Both</SelectItem>
                                                 </SelectContent>
                                             </Select>
                                         </FormControl>
@@ -767,11 +767,11 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                         </FormLabel>
 
                                         <Popover >
-                                            <PopoverTrigger asChild>
+                                            <PopoverTrigger className="bg-white" asChild>
                                                 <FormControl >
                                                     <Button
                                                         variant="outline"
-                                                        className="w-full justify-between h-[48px] border border-[#645949]"
+                                                        className="w-full justify-between h-[48px] bg-white border border-[#645949]"
                                                     >
                                                         {field.value?.length
                                                             ? field.value
@@ -787,7 +787,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({ user 
                                                 </FormControl>
                                             </PopoverTrigger>
 
-                                            <PopoverContent className="min-w-[320px] p-3">
+                                            <PopoverContent className="min-w-[320px] p-3 bg-white border-none">
                                                 <div className="space-y-2">
                                                     {POSITIONS.map((pos) => {
                                                         const checked = field.value?.includes(pos.value)

@@ -9,7 +9,7 @@ const WhyWeAreUnique = () => {
             <div className='container'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                     <div className="md:col-span-1">
-                        <h3 className='text-2xl md:text-3xl lg:text-4xl text-[#131313] font-normal leading-[120%]'>Why We&lsquo;re Unique</h3>
+                        <h3 className='text-2xl md:text-3xl lg:text-4xl text-primary font-normal h_underline leading-[120%]'>Why We&lsquo;re Unique</h3>
                         <p className='text-sm md:text-base lg:text-lg text-[#131313] font-normal leading-[120%] py-4 md:py-5'>There is no global, centralized data platform where amateur players can :</p>
                          <ul className='list-disc list-inside'>
                         <li className='text-base font-normal leading-[150%] text-[#616161]'>Access verified performance data</li>
@@ -66,7 +66,7 @@ const WhyWeAreUnique = () => {
                     </div>
 
                     <div className='md:col-span-3 h-full flex flex-col justify-center'>
-                        <h4 className='text-2xl md:text-3xl lg:text-4xl text-[#131313] font-normal leading-[120%]'>Why you need verified data from us ?</h4>
+                        <h4 className='text-2xl md:text-3xl lg:text-4xl text-primary h_underline font-normal leading-[120%]'>Why you need verified data from us ?</h4>
                         <p className='text-base md:text-lg text-[#131313] leading-[120%] font-normal py-4 md:py-5'>Key Advantages</p>
                         <ul>
                             <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal'><CircleCheckBig className="text-primary" />Trusted Data Source</li>
@@ -77,7 +77,7 @@ const WhyWeAreUnique = () => {
                         {/* button  */}
                     <div className='w-full flex items-center justify-center'>
                        <Link href="/prices">
-                        <button className='h-[48px] px-12 rounded-full bg-primary text-white text-base md:text-lg leading-[120%] font-normal '>Buy Now</button>
+                        <button className='h-[48px] px-12 rounded-full bg-primary text-black text-base md:text-lg leading-[120%] font-normal'>Buy Now</button>
                        </Link>
                     </div>
                     </div>
