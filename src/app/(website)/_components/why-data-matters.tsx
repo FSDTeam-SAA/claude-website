@@ -121,7 +121,7 @@ const WhyDataMatters = () => {
       <div className="container">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal text-[#131313] leading-[120%]">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal text-primary h_underline leading-[120%]">
             Why Data Matters
           </h2>
           {/* <p className="text-sm md:text-base leading-[150%] font-normal text-[#616161] pt-4 md:pt-5">

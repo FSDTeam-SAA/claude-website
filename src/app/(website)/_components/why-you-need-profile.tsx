@@ -9,17 +9,17 @@ const WhyYouNeedAProfile = () => {
     <div className="bg-[#F4FFF4] py-6 md:py-10 lg:py-16">
 
       <div className="container">
-        <h3 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] font-normal leading-[120%]">
+        <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary h_underline font-normal leading-[120%]">
           Why You Need a Profile
         </h3>
 
-        <p className="text-sm md:text-base text-[#616161] font-normal leading-[120%] py-4 md:py-5">
+        <p className="text-sm md:text-base text-[#616161] font-normal leading-[120%] py-3 md:py-4">
           Most amateur players today are invisible to the football market even if
           they <br />
           perform well. No one outside their local area sees them.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-6 md:py-10 lg:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-6 md:py-8 lg:py-10">
           {/* Card 1 */}
           <div className="group rounded-[16px] bg-[linear-gradient(109deg,#EFF3FF_0.92%,#BCCDFD_99.08%)]
             shadow-[0_4px_16px_rgba(0,0,0,0.08)] p-6

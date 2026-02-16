@@ -19,8 +19,8 @@ const ProjectLeader = () => {
   return (
     <div className='bg_color py-8 md:py-14 lg:py-16'>
       <div className="container">
-        <h3 className='text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] text-center'>Project Leaders</h3>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-10 pt-6 md:pt-8 lg:pt-10">
+        <h3 className='text-2xl md:text-3xl lg:text-4xl text-primary font-normal h_underline leading-[120%] text-center'>Project Leaders</h3>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-10 pt-5 md:pt-6 lg:pt-8">
           {projectLeaders?.map((item) => (
             <div
               key={item?.id}

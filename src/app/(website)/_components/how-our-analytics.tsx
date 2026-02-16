@@ -10,11 +10,11 @@ const HowOurAnalytics = () => {
                     <Image src="/assets/images/12.jpeg" alt="how our analytics" width={1000} height={1000} className='w-[622px] h-[360px] md:h-[500px] xl:h-[530px] object-contain rounded-[16px]' />
                 </div>
                 <div className='md:col-span-3 h-full flex flex-col justify-center'>
-                    <h3 className='text-2xl md:text-3xl lg:text-4xl text-[#131313] font-normal leading-[120%]'>How Our Analytics Process Works</h3>
+                    <h3 className='text-2xl md:text-3xl lg:text-4xl text-primary font-normal h_underline leading-[120%]'>How Our Analytics Process Works</h3>
                     {/* <h3 className='block md:hidden text-2xl md:text-3xl lg:text-4xl text-[#131313] font-normal leading-[120%]'>Our Analytics Process</h3> */}
-                    <p className='text-sm md:text-base text-[#616161] font-normal leading-[120%] pt-4 md:pt-5'>To activate your profile, you must first register and purchase our data service to receive your report.</p>
+                    <p className='text-sm md:text-base text-[#616161] font-normal leading-[120%] pt-2 md:pt-3'>To activate your profile, you must first register and purchase our data service to receive your report.</p>
 
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-3 md:py-5 lg:py-7'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-3 md:py-5'>
 
                         <div className='md:col-span-1 flex flex-col items-center bg-[#CDFFCD] rounded-[16px] p-4 border border-[#E7E7E7)]'>
                             <div className='flex flex-col items-center gap-4'>
@@ -41,7 +41,7 @@ const HowOurAnalytics = () => {
 
                                     <Image src="/assets/images/email.png" alt="send" width={500} height={500} className='object-cover w-10 h-10' />
                                 </div>
-                                <p className='text-sm lg:text-base font-normal text-center text-[#0A1628] leading-[120%]'>Receive your report and highlight within 72 hours</p>
+                                <p className='text-sm lg:text-base font-normal text-center text-black leading-[120%]'>Receive your report and highlight within 72 hours</p>
                             </div>
                         </div>
 
@@ -51,7 +51,7 @@ const HowOurAnalytics = () => {
                     {/* button  */}
                     <div className='w-full flex items-center justify-center'>
                         <Link href="/sign-up">
-                        <button className='h-[48px] px-12 rounded-full bg-primary text-white text-base md:text-lg leading-[120%] font-normal '>Get Started</button>
+                        <button className='h-[48px] px-12 rounded-full bg-primary text-black text-base md:text-lg leading-[120%] font-normal '>Get Started</button>
                         </Link>
                     </div>
                 </div>
