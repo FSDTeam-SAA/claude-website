@@ -103,7 +103,7 @@ const WhyYouNeedAProfile = () => {
           <p className="text-sm md:text-base text-[#E7E7E7] text-center font-normal leading-[150%] py-4 md:py-5 lg:py-6 relative z-10">Without a profile, you don’t exist in the recruitment world.
           </p>
          <Link href="/sign-up">
-          <button className="w-[215px] h-[48px] text-base md:text-lg text-white leading-[120%] font-normal bg-primary rounded-full relative z-10">Register</button>
+          <button className="w-[215px] h-[48px] text-base md:text-lg text-black leading-[120%] font-normal bg-primary rounded-full relative z-10">Register</button>
          </Link>
         </div>
 
