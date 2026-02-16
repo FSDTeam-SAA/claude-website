@@ -97,9 +97,9 @@ const PlayerRating = ({
         PLAYER RATINGS FROM LAST {gameCount} GAME{gameCount > 1 ? "S" : ""}
       </h4>
 
-      <Card>
-        <CardContent>
-          <ChartContainer config={chartConfig} className="w-full h-[290px]">
+      <Card className="border-none">
+        <CardContent className="border-none">
+          <ChartContainer config={chartConfig} className="w-full h-[290px] ">
             <BarChart data={ratingData} margin={{ top: 32 }} barCategoryGap="10%">
               <CartesianGrid vertical={false} />
 
@@ -109,6 +109,7 @@ const PlayerRating = ({
                 tickMargin={10}
                 axisLine={false}
                 tickFormatter={(value: string) => value.slice(0, 10)}
+                className="bg-white"
               />
 
               <ChartTooltip
