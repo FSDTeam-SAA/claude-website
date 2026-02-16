@@ -3,6 +3,7 @@ import { UserProfile } from "./player-data-type";
 import ErrorContainer from "@/components/shared/ErrorContainer/ErrorContainer";
 import SimilarPlayersSkeleton from "./similar-players-skeleton";
 import Image from "next/image";
+import Link from "next/link";
 
 const SimilarPlayers = ({
     data,
@@ -66,19 +67,20 @@ const SimilarPlayers = ({
 
                         return (
                             <li key={item._id}>
-                                <div className="bg-[#E9EBF3]/50 flex items-center justify-between gap-4 rounded-[16px] p-4">
+                               <Link href={`/player-profile/${item?._id}`}>
+                                <div className="bg-[#E9EBF3]/50 flex items-center justify-between gap-4 rounded-[16px] p-3">
                                     {/* LEFT: Profile */}
-                                    <div className="flex items-center gap-4">
+                                    <div className="w-full md:w-2/5 flex items-center gap-2">
                                         <Image
                                             src={item?.profileImage || "/assets/images/no-user.jpg"}
                                             alt={`${item?.name || "image"}`}
                                             width={93}
                                             height={93}
-                                            className="w-[93px] h-[93px] rounded-[8px] object-cover"
+                                            className="w-[80px] h-[80px] rounded-[8px] object-contain"
                                         />
 
                                         <div>
-                                            <h4 className="text-sm md:text-base text-[#131313] font-normal leading-[120%]">
+                                            <h4 className="text-sm md:text-base text-[#131313] font-semibold leading-[120%]">
                                                 {item?.name || "N/A"}
                                             </h4>
 
@@ -98,7 +100,7 @@ const SimilarPlayers = ({
                                     </div>
 
                                     {/* RIGHT: Stats + Similarity */}
-                                    <div className="hidden md:flex items-center gap-6">
+                                    <div className="w-full md:w-3/5 hidden md:flex items-center justify-between gap-4 ">
                                         {/* Stat Item */}
                                         {[
                                             { label: "Age", value: item?.age ?? 0 },
@@ -113,10 +115,10 @@ const SimilarPlayers = ({
                                             { label: "Nationality", value: item?.nationality ?? "N/A" },
                                         ].map((stat, index) => (
                                             <div key={index} className="flex flex-col items-center gap-2">
-                                                <div className="w-16 h-12 rounded-full p-2 flex items-center justify-center text-base font-medium text-[#131313]">
+                                                <div className="w-16 h-12 rounded-full p-2 flex items-center justify-center text-[15px] font-semibold text-[#131313]">
                                                     {stat.value}
                                                 </div>
-                                                <p className="text-xm text-black leading-[150%]">
+                                                <p className="text-sm text-black leading-[150%]">
                                                     {stat.label}
                                                 </p>
                                             </div>
@@ -128,34 +130,36 @@ const SimilarPlayers = ({
                                                 <svg className="w-full h-full rotate-[-90deg]" viewBox="0 0 40 40">
                                                     <path
                                                         d="M18 2.0845
-                 a 15.9155 15.9155 0 0 1 0 31.831
-                 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                                        a 15.9155 15.9155 0 0 1 0 -31.831"
                                                         fill="none"
                                                         stroke="#B9C2DB"
-                                                        strokeWidth="4"
+                                                        strokeWidth="3"
                                                     />
                                                     <path
                                                         d="M18 2.0845
-                 a 15.9155 15.9155 0 0 1 0 31.831
-                 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                                        a 15.9155 15.9155 0 0 1 0 -31.831"
                                                         fill="none"
                                                         stroke="#1E3A8A"
-                                                        strokeWidth="4"
+                                                        strokeWidth="3"
                                                         strokeDasharray={`${item?.similarity ?? 0}, 100`}
                                                     />
                                                 </svg>
 
-                                                <span className="absolute inset-0 flex items-center justify-center text-[15px] font-medium text-[#131313]">
+                                                <span className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-[#131313]">
                                                     {item?.similarity ?? 0}%
                                                 </span>
                                             </div>
 
-                                            <p className="text-xm text-black leading-[150%]">
+                                            <p className="text-sm text-black leading-[150%]">
                                                 Similarity
                                             </p>
                                         </div>
                                     </div>
+
                                 </div>
+                               </Link>
                             </li>
                         );
                     })}
