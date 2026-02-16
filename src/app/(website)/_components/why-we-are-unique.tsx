@@ -66,7 +66,10 @@ const WhyWeAreUnique = () => {
                     </div>
 
                     <div className='md:col-span-3 h-full flex flex-col justify-center'>
-                        <h4 className='text-2xl md:text-3xl lg:text-4xl text-primary h_underline font-normal leading-[120%]'>Why you need verified data from us ?</h4>
+                        <h4 className='hidden md:block text-2xl md:text-3xl lg:text-4xl text-primary h_underline font-normal leading-[120%]'>Why you need verified data from us</h4>
+                        <h3 className='block md:hidden text-xl md:text-3xl lg:text-4xl text-primary h_underline font-normal leading-[120%]'>Why we need verified data</h3>
+
+                       
                         <p className='text-base md:text-lg text-[#131313] leading-[120%] font-normal py-4 md:py-5'>Key Advantages</p>
                         <ul>
                             <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal'><CircleCheckBig className="text-primary" />Trusted Data Source</li>
