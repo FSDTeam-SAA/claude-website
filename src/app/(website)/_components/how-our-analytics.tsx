@@ -4,10 +4,10 @@ import Link from 'next/link'
 
 const HowOurAnalytics = () => {
     return (
-        <div className='py-6 md:py-6 bg_color'>
+        <div className='py-6 md:py-10 bg_color'>
             <div className="container grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 lg:gap-20">
                 <div className='md:col-span-2 '>
-                    <Image src="/assets/images/12.jpeg" alt="how our analytics" width={1000} height={1000} className='w-[622px] h-[200px] md:h-[500px] xl:h-[530px] object-contain rounded-[16px]' />
+                    <Image src="/assets/images/12.jpeg" alt="how our analytics" width={1000} height={1000} className='w-[622px] h-[200px] md:h-[500px] xl:h-[430px] object-contain rounded-[16px]' />
                 </div>
                 <div className='md:col-span-3 h-full flex flex-col justify-center'>
                     <h3 className='hidden md:block text-2xl md:text-3xl lg:text-4xl text-primary font-normal h_underline leading-[120%]'>How Our Analytics Process Works</h3>
