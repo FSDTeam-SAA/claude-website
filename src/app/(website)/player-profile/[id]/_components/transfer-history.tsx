@@ -50,34 +50,34 @@ const TransferHistory = ({
                 <div>
                     <Table>
                         <TableHeader>
-                            <TableRow>
-                                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%]">Season</TableHead>
-                                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%]">Date</TableHead>
-                                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%]">Left</TableHead>
-                                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%]">Joined</TableHead>
+                            <TableRow className="w-full flex items-center justify-between gap-6 md:gap-2">
+                                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] text-left">Season</TableHead>
+                                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] text-left">Date</TableHead>
+                                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] text-left">Left</TableHead>
+                                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] text-left">Joined</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
                             {
                                 personalInfo?.map((info) => {
-                                    return <TableRow key={info?._id} className="">
+                                    return <TableRow key={info?._id} className="w-full flex items-center justify-between gap-6 md:gap-2">
 
-                                         <TableCell className="text-base text-[#131313] leading-[150%] font-normal py-3">{info?.season || "N/A"}</TableCell>
-                                        <TableCell className="text-base text-[#131313] leading-[150%] font-normal py-3">{moment(info?.date).format("DD / MM / YYYY")}</TableCell>
+                                         <TableCell className="text-sm md:text-base text-[#131313] leading-[150%] font-normal py-3">{info?.season || "N/A"}</TableCell>
+                                        <TableCell className="text-sm md:text-base text-[#131313] leading-[150%] font-normal py-3">{moment(info?.date).format("DD/MM/YYYY")}</TableCell>
                                        
 
-                                        <TableCell className="w-1/4 py-3">
-                                        <div className="flex items-center gap-1">
+                                        <TableCell className="py-3 pr-8 md:pr-0 ">
+                                        <div className="flex items-center gap-3 md:gap-2">
                                             <Image src={info?.leftClub || "/assets/images/no-flag.png"} alt={info?.leftClubName || "team name"} width={100} height={100} className="w-8 h-8 object-contain" />
                                             <Image src={info?.leftCountery || "/assets/images/no-flag.png"} alt={info?.leftClubName || "team name"} width={100} height={100} className="w-8 h-8 object-contain" />
-                                            <p className="text-base text-[#131313] leading-[150%] font-normal py-3">{info?.leftClubName || "N/A"}</p>
+                                            <p className="text-sm md:text-base text-[#131313] leading-[150%] font-normal py-3">{info?.leftClubName || "N/A"}</p>
                                             </div>
                                         </TableCell>
-                                          <TableCell className="w-1/4 py-3">
-                                          <div className="flex items-center gap-1">
+                                          <TableCell className="py-3">
+                                          <div className="flex items-center justify-start gap-3 md:gap-2">
                                             <Image src={info?.joinedClub || "/assets/images/no-flag.png"} alt={info?.joinedclubName || "team name"} width={100} height={100} className="w-8 h-8 object-contain" />
                                             <Image src={info?.joinedCountery || "/assets/images/no-flag.png"} alt={info?.joinedclubName || "team name"} width={100} height={100} className="w-8 h-8 object-contain" />
-                                            <p className="text-base text-[#131313] leading-[150%] font-normal py-3">{info?.joinedclubName || "N/A"}</p>
+                                            <p className="text-sm md:text-base text-[#131313] leading-[150%] font-normal py-3">{info?.joinedclubName || "N/A"}</p>
                                             </div>
                                         </TableCell>
                                     </TableRow>
