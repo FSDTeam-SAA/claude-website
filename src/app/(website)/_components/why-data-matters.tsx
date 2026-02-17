@@ -130,7 +130,7 @@ const WhyDataMatters = () => {
         </div>
 
         {/* Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4 md:mt-8 lg:mt-12">
           {data.map((column, index) => (
             <div key={index} className="relative">
               {/* Vertical Divider */}
@@ -159,7 +159,7 @@ const WhyDataMatters = () => {
                       <h5 className="text-sm md:text-base font-normal leading-[150%] text-[#0A1628]">
                         {item.title}
                       </h5>
-                      <p className="text-sm text-[#616161] font-normal leading-[150%] pt-2 ">
+                      <p className="text-sm text-[#616161] font-normal leading-[150%] pt-1 md:pt-2 ">
                         {item.description}
                       </p>
                     </div>

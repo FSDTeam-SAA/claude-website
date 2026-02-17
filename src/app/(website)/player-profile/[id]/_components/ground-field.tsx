@@ -213,13 +213,13 @@ const GroundField = ({
       </div>
 
       {/* ground field  */}
-      <div>
+      <div className="">
         <Image
           src={groundImage || "/assets/grounds/ground-field.png"}
           alt="ground field"
           width={1000}
           height={1000}
-          className="w-full h-[200px] md:h-[288px] object-contain"
+          className="w-full h-[150px] md:h-[200px] lg:h-[288px] object-contain"
         />
       </div>
     </div>

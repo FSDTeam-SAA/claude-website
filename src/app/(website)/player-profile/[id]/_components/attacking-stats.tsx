@@ -42,22 +42,22 @@ const AttackingStats = ({
                         personalInfo?.map((info) => {
                             return <ul key={info?._id} className="grid grid-cols-1 md:gris-cols-2 lg:grid-cols-5 gap-6">
 
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Goals</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.goals || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Assists
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Goals</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.goals || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Assists
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.assists || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shots inside PA</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.shotsNsidePr || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shots outside PA
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shots inside PA</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.shotsNsidePr || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shots outside PA
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.shotsOutsidePa || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Total Shots
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Total Shots
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.totalShots || "N/A"}</span></li>
 
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shots on Target</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.shotsOnTarget || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shots on Target</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.shotsOnTarget || "N/A"}</span></li>
                                 <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shooting Accuracy 
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.shootingAccuracy || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shots off Target</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.shotsOffTarget || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shots off Target</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.shotsOffTarget || "N/A"}</span></li>
                                 <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Passes Accuracy 
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.passesAccuracy || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Take-on
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Take-on
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.takeOn || "N/A"}</span></li>
                             </ul>
                         }
