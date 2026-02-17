@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const WhatDoWeOffer = () => {
     return (
-        <div className='py-6 md:py-6'>
+        <div className='py-6 md:py-10'>
 
             <div className='container grid grid-cols-1 md:grid-cols-7 gap-6 md:gap-7 lg:gap-10 xl:gap-12 '>
                 <div className="order-2 md:order-1 md:col-span-3 flex items-center">
@@ -25,8 +25,8 @@ const WhatDoWeOffer = () => {
                     </div>
                 </div>
                 </div>
-                <div className='order-1 md:order-2 md:col-span-4 w-full flex items-center justify-end'>
-                    <Image src="/assets/images/what_do_we.jpeg" alt="What Do We Offer" width={1000} height={1000} className='w-auto h-[160px] md:h-[550px] xl:h-[600px] object-contain rounded-[16px]' />
+                <div className='order-1 md:order-2 md:col-span-4 w-full flex items-center justify-end '>
+                    <Image src="/assets/images/what_do_we.jpeg" alt="What Do We Offer" width={1000} height={1000} className='w-auto h-[160px] md:h-[550px] xl:h-[400px] object-contain rounded-[16px]' />
                 </div>
             </div>
         </div>
