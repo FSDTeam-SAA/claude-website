@@ -10,17 +10,17 @@ const WhyWeAreUnique = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                     <div className="md:col-span-1">
                         <h3 className='text-2xl md:text-3xl lg:text-4xl text-primary font-normal h_underline leading-[120%]'>Why We&lsquo;re Unique</h3>
-                        <p className='text-sm md:text-base lg:text-lg text-[#131313] font-normal leading-[120%] py-4 md:py-5'>There is no global, centralized data platform where amateur players can :</p>
+                        <p className='text-sm md:text-base lg:text-lg text-[#131313] font-normal leading-[120%] py-2 md:py-5'>There is no global, centralized data platform where amateur players can :</p>
                          <ul className='list-disc list-inside'>
-                        <li className='text-base font-normal leading-[150%] text-[#616161]'>Access verified performance data</li>
-                        <li className='text-base font-normal leading-[150%] text-[#616161] py-4 md:py-5'>Receive objective ratings</li>
-                        <li className='text-base font-normal leading-[150%] text-[#616161] pb-4 md:pb-5'>Track their career progression and transfer history</li>
-                        <li className='text-base font-normal leading-[150%] text-[#616161]'>Build true proof of performance </li>
+                        <li className='text-sm md:text-base font-normal leading-[150%] text-[#616161]'>Access verified performance data</li>
+                        <li className='text-sm md:text-base font-normal leading-[150%] text-[#616161] py-2 md:py-5'>Receive objective ratings</li>
+                        <li className='text-sm md:text-base font-normal leading-[150%] text-[#616161] pb-2 md:pb-5'>Track their career progression and transfer history</li>
+                        <li className='text-sm md:text-base font-normal leading-[150%] text-[#616161]'>Build true proof of performance </li>
                     </ul>
-                        <p className='text-sm md:text-base text-[#424242] font-normal leading-[150%] pt-4 md:pt-5 lg:pt-6'>Analytic Soccer is the first platform to deliver all of this, giving amateur players the same digital tools, visibility and data identity used by professionals players.</p>
+                        <p className='text-sm md:text-base text-[#424242] font-normal leading-[150%] pt-3 md:pt-5 lg:pt-6'>Analytic Soccer is the first platform to deliver all of this, giving amateur players the same digital tools, visibility and data identity used by professionals players.</p>
                     </div>
-                    <div className="md:col-span-1 h-full w-full flex justify-center items-center">
-                      <Image src="/assets/images/why_we_are_uneque.jpeg" alt="why we unique" width={700} height={700} className="w-full h-[346px] object-contain rounded-[16px]"/>
+                    <div className="md:col-span-1 h-full w-full flex justify-center items-center ">
+                      <Image src="/assets/images/why_we_are_uneque.jpeg" alt="why we unique" width={700} height={700} className="w-full h-[200px] md:h-[346px] object-contain rounded-[16px]"/>
                     </div>
                 </div>
 
@@ -62,25 +62,25 @@ const WhyWeAreUnique = () => {
 
                 <div className="p-6 shadow-[0px_4px_16px_0px_#00000029] rounded-[16px]  grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 lg:gap-16 ">
                     <div className='md:col-span-2 '>
-                        <Image src="/assets/images/why_you_need.jpeg" alt="why-we-uniqe" width={500} height={500} className="object-contain rounded-[8px] h-[350px] md:h-[400px] lg:h-[400px] w-full" />
+                        <Image src="/assets/images/why_you_need.jpeg" alt="why-we-uniqe" width={500} height={500} className="object-contain rounded-[8px] h-[160px] md:h-[400px] lg:h-[400px] w-full" />
                     </div>
 
-                    <div className='md:col-span-3 h-full flex flex-col justify-center'>
+                    <div className='md:col-span-3 h-full flex flex-col justify-center '>
                         <h4 className='hidden md:block text-2xl md:text-3xl lg:text-4xl text-primary h_underline font-normal leading-[120%]'>Why you need verified data from us</h4>
                         <h3 className='block md:hidden text-xl md:text-3xl lg:text-4xl text-primary h_underline font-normal leading-[120%]'>Why we need verified data</h3>
 
                        
-                        <p className='text-base md:text-lg text-[#131313] leading-[120%] font-normal py-4 md:py-5'>Key Advantages</p>
+                        <p className='text-base md:text-lg text-[#131313] leading-[120%] font-normal pb-2 md:py-5'>Key Advantages</p>
                         <ul>
-                            <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal'><CircleCheckBig className="text-primary" />Trusted Data Source</li>
-                            <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal py-4 '><CircleCheckBig className="text-primary" />Standardized Evaluation</li>
-                            <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal'><CircleCheckBig className="text-primary" />Transparency & Fairness</li>
-                            <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal py-4'><CircleCheckBig className="text-primary" />Verified Performance Profile</li>
+                            <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal'><CircleCheckBig className="text-primary w-4 h-4 md:w-5 md:w-5" />Trusted Data Source</li>
+                            <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal py-2 md:py-3 lg:py-4 '><CircleCheckBig className="text-primary w-4 h-4 md:w-5 md:w-5" />Standardized Evaluation</li>
+                            <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal'><CircleCheckBig className="text-primary w-4 h-4 md:w-5 md:w-5" />Transparency & Fairness</li>
+                            <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal py-2 md:py-3 lg:py-4'><CircleCheckBig className="text-primary w-4 h-4 md:w-5 md:w-5" />Verified Performance Profile</li>
                         </ul>
                         {/* button  */}
-                    <div className='w-full flex items-center justify-center'>
+                    <div className='w-full flex items-center justify-center pt-4 md:pt-0'>
                        <Link href="/prices">
-                        <button className='h-[48px] px-12 rounded-full bg-primary text-black text-base md:text-lg leading-[120%] font-normal'>Buy Now</button>
+                        <button className='h-[40px] md:h-[48px] px-12 rounded-full bg-primary text-black text-base md:text-lg leading-[120%] font-normal'>Buy Now</button>
                        </Link>
                     </div>
                     </div>

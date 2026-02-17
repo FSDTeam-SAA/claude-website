@@ -43,22 +43,22 @@ const DefensiveStats = ({
                         personalInfo?.map((info) => {
                             return <ul key={info?._id} className="grid grid-cols-1 md:gris-cols-2 lg:grid-cols-4 gap-6">
 
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Tackle Attempts</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.tackleAttempts || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Tackle Succeeded: Possession
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Tackle Attempts</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.tackleAttempts || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Tackle Succeeded: Possession
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.tackleSucceededPossession || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Tackle Succeeded: No Possession</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.tackleSucceededNOPossession || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Tackle Failed
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Tackle Succeeded: No Possession</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.tackleSucceededNOPossession || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Tackle Failed
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.tackleFailed || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Turnover Won
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Turnover Won
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.turnoverwon || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Interceptions</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.interceptions || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Recoveries</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.recoveries || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Clearance</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.clearance || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Total Blocked</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.totalBlocked || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shot Blocked
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Interceptions</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.interceptions || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Recoveries</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.recoveries || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Clearance</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.clearance || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Total Blocked</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.totalBlocked || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shot Blocked
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.shotBlocked || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Cross Blocked</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.crossBlocked || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2">
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Cross Blocked</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.crossBlocked || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2">
                                     <span className="text-base font-normal text-[#616161] leading-[150%]">
                                         Mistakes
                                     </span>
@@ -67,9 +67,9 @@ const DefensiveStats = ({
                                         {info?.mistakes || "N/A"}
                                     </span>
                                 </li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Aerial Duels</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.aerialDuels || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Physical Duels</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.phvsicalDuels || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Own Goals</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.ownGoals || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Aerial Duels</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.aerialDuels || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Physical Duels</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.phvsicalDuels || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Own Goals</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.ownGoals || "N/A"}</span></li>
 
                             </ul>
                         }

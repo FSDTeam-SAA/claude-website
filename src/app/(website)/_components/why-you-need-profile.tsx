@@ -13,13 +13,13 @@ const WhyYouNeedAProfile = () => {
           Why You Need a Profile
         </h3>
 
-        <p className="text-sm md:text-base text-[#616161] font-normal leading-[120%] py-3 md:py-4">
+        <p className="text-sm md:text-base text-[#616161] font-normal leading-[120%] py-1 md:py-4">
           Most amateur players today are invisible to the football market even if
           they <br />
           perform well. No one outside their local area sees them.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-6 md:py-8 lg:py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 py-6 md:py-8 lg:py-10">
           {/* Card 1 */}
           <div className="group rounded-[16px] bg-[linear-gradient(109deg,#EFF3FF_0.92%,#BCCDFD_99.08%)]
             shadow-[0_4px_16px_rgba(0,0,0,0.08)] p-6
@@ -100,10 +100,10 @@ const WhyYouNeedAProfile = () => {
 
         <div className="absolute inset-0 bg-black/30 rounded-[8px]"/>
           <h4 className="text-2xl md:text-3xl lg:text-4xl text-white font-normal leading-[120%] text-center relative z-10">Don&apos;t Stay Invisible</h4>
-          <p className="text-sm md:text-base text-[#E7E7E7] text-center font-normal leading-[150%] py-4 md:py-5 lg:py-6 relative z-10">Without a profile, you don’t exist in the recruitment world.
+          <p className="text-sm md:text-base text-[#E7E7E7] text-center font-normal leading-[150%] py-3 md:py-5 lg:py-6 relative z-10">Without a profile, you don’t exist in the recruitment world.
           </p>
-         <Link href="/sign-up">
-          <button className="w-[215px] h-[48px] text-base md:text-lg text-black leading-[120%] font-normal bg-primary rounded-full relative z-10">Register</button>
+         <Link href="/sign-up" className="pt-2 md:pt-0">
+          <button className="w-[215px] h-[40px] md:h-[48px] text-base md:text-lg text-black leading-[120%] font-normal bg-primary rounded-full relative z-10">Register</button>
          </Link>
         </div>
 

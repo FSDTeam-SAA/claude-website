@@ -16,18 +16,18 @@ const Footer = () => {
           {/* <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal pt-4 md:pt-5 lg:pt-6">Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit?</p> */}
           {/* <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal pt-2"><strong className='text-[#131313]'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}
 
-          <div className='pt-12 flex items-center gap-3'>
+          <div className='pt-6 md:pt-8 lg:pt-12 flex items-center gap-3'>
             <Link href="#">
-            <span className='inline-flex border-[2px] border-[#5B6574] p-3 rounded-full '><Facebook /></span>
+            <span className='inline-flex border-[2px] border-[#5B6574] p-2 md:p-3 rounded-full '><Facebook /></span>
             </Link>
             <Link href="#">
-            <span className='inline-flex border-[2px] border-[#5B6574] p-3 rounded-full '><Linkedin /></span>
+            <span className='inline-flex border-[2px] border-[#5B6574] p-2 md:p-3 rounded-full '><Linkedin /></span>
             </Link>
             {/* <Link href="#">
-            <span className='inline-flex border-[2px] border-[#5B6574] p-3 rounded-full '><Twitter /></span>
+            <span className='inline-flex border-[2px] border-[#5B6574] p-2 md:p-3 rounded-full '><Twitter /></span>
             </Link> */}
             <Link href="#">
-            <span className='inline-flex border-[2px] border-[#5B6574] p-3 rounded-full '><Instagram /></span>
+            <span className='inline-flex border-[2px] border-[#5B6574] p-2 md:p-3 rounded-full '><Instagram /></span>
             </Link>
 
           </div>
