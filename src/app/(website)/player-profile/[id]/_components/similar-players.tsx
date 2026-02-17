@@ -68,7 +68,7 @@ const SimilarPlayers = ({
                         return (
                             <li key={item._id}>
                                <Link href={`/player-profile/${item?._id}`}>
-                                <div className="bg-[#E9EBF3]/50 flex items-center justify-between gap-4 rounded-[16px] p-3">
+                                <div className="bg-[#E9EBF3]/50 flex flex-col md:flex-row items-center justify-between gap-4 rounded-[16px] p-3">
                                     {/* LEFT: Profile */}
                                     <div className="w-full md:w-2/5 flex items-center gap-2">
                                         <Image
@@ -100,7 +100,7 @@ const SimilarPlayers = ({
                                     </div>
 
                                     {/* RIGHT: Stats + Similarity */}
-                                    <div className="w-full md:w-3/5 hidden md:flex items-center justify-between gap-4 ">
+                                    <div className="w-full md:w-3/5 md:flex items-center justify-between gap-2 md:gap-4 ">
                                         {/* Stat Item */}
                                         {[
                                             { label: "Age", value: item?.age ?? 0 },
@@ -114,7 +114,7 @@ const SimilarPlayers = ({
                                             },
                                             { label: "Nationality", value: item?.nationality ?? "N/A" },
                                         ].map((stat, index) => (
-                                            <div key={index} className="flex flex-col items-center gap-2">
+                                            <div key={index} className="flex flex-col items-center gap-1 md:gap-2">
                                                 <div className="w-16 h-12 rounded-full p-2 flex items-center justify-center text-[15px] font-semibold text-[#131313]">
                                                     {stat.value}
                                                 </div>

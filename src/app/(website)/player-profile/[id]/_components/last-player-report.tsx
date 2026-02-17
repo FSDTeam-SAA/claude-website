@@ -45,15 +45,15 @@ const LastPlayerReport = ({
                             return <div key={info?._id}>
                                 <ul  className="grid grid-cols-1 md:gris-cols-2 lg:grid-cols-4 gap-6">
 
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Date</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{moment(info?.date || "N/A")?.format("DD / MM / YYYY")}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Category
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Date</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{moment(info?.date || "N/A")?.format("DD/MM/YYYY")}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Category
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.category || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Game Title</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.gameTitle || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Rating
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Game Title</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.gameTitle || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Rating
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.rating || "N/A"}</span></li>
 
-                                     <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Position</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.position?.join(", ") || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Minutes Played
+                                     <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Position</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.position?.join(", ") || "N/A"}</span></li>
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Minutes Played
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.minutesPlayed || "N/A"}</span></li>
 
                                 
