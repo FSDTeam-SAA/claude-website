@@ -27,13 +27,13 @@ const LogoutModal = ({ isOpen, onClose, onConfirm }: logoutModalProps) => {
         </DialogHeader>
         <DialogFooter className="w-full flex items-center justify-end gap-7 mt-5">
           <button
-            className="text-white dark:text-black bg-red-600 py-[8px] px-6 text-sm font-medium leading-[120%] rounded-[8px]"
+            className="text-white  bg-black py-[8px] px-6 text-sm font-medium leading-[120%] rounded-[8px]"
             onClick={onConfirm}
           >
             Yes
           </button>
           <button
-            className="text-base font-medium bg-primary text-white leading-[120%] py-[8px] px-[18px] rounded-lg shadow-none border-none"
+            className="text-base font-medium bg-primary text-white leading-[120%] py-[8px] px-[18px] rounded-[8px] shadow-none border-none"
             onClick={onClose}
           >
             No

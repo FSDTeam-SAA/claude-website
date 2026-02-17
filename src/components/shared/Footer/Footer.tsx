@@ -70,6 +70,7 @@ const Footer = () => {
           {/* <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal">Connect with us on social media and <br /> stay in the loop :</p> */}
           <div>
             <NewsletterSubscribe />
+            {/* <p className="text-base md:text-lg  pt-4 leading-[120%] text-[#616161] font-normal"><strong className='text-[#131313]'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}
           </div>
         </div>
 
