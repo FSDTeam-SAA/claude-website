@@ -60,27 +60,27 @@ const WhyWeAreUnique = () => {
 
                 </div>
 
-                <div className="p-6 shadow-[0px_4px_16px_0px_#00000029] rounded-[16px]  grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 lg:gap-16 ">
+                <div className="pb-6 md:py-6 md:pl-6 shadow-[0px_4px_16px_0px_#00000029] rounded-[16px]  grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 lg:gap-16 ">
                     <div className='md:col-span-2 '>
-                        <Image src="/assets/images/why_you_need.jpeg" alt="why-we-uniqe" width={500} height={500} className="object-contain rounded-[8px] h-[160px] md:h-[400px] lg:h-[400px] w-full" />
+                        <Image src="/assets/images/why_you_needs.jpeg" alt="why-we-uniqe" width={500} height={500} className="w-full object-fill rounded-[8px] h-[180px] md:h-[380px] lg:h-[350px] " />
                     </div>
 
-                    <div className='md:col-span-3 h-full flex flex-col justify-center '>
+                    <div className='md:col-span-3 h-full flex flex-col justify-center px-4 md:pr-6'>
                         <h4 className='hidden md:block text-2xl md:text-3xl lg:text-4xl text-primary h_underline font-normal leading-[120%]'>Why you need verified data from us</h4>
                         <h3 className='block md:hidden text-xl md:text-3xl lg:text-4xl text-primary h_underline font-normal leading-[120%]'>Why we need verified data</h3>
 
                        
-                        <p className='text-base md:text-lg text-[#131313] leading-[120%] font-normal pb-2 md:py-5'>Key Advantages</p>
+                        <p className='text-base md:text-lg text-[#131313] leading-[120%] font-normal pb-2 md:py-3'>Key Advantages</p>
                         <ul>
                             <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal'><CircleCheckBig className="text-primary w-4 h-4 md:w-5" />Trusted Data Source</li>
-                            <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal py-2 md:py-3 lg:py-4 '><CircleCheckBig className="text-primary w-4 h-4 md:w-5" />Standardized Evaluation</li>
+                            <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal py-2 md:py-3 '><CircleCheckBig className="text-primary w-4 h-4 md:w-5" />Standardized Evaluation</li>
                             <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal'><CircleCheckBig className="text-primary w-4 h-4 md:w-5" />Transparency & Fairness</li>
-                            <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal py-2 md:py-3 lg:py-4'><CircleCheckBig className="text-primary w-4 h-4 md:w-5" />Verified Performance Profile</li>
+                            <li className='flex items-center gap-2 text-sm md:text-base text-[#616161] leading-[150%] font-normal py-2 md:py-3'><CircleCheckBig className="text-primary w-4 h-4 md:w-5" />Verified Performance Profile</li>
                         </ul>
                         {/* button  */}
-                    <div className='w-full flex items-center justify-center pt-4 md:pt-0'>
+                    <div className='w-full flex items-center justify-center pt-4 md:pt-3'>
                        <Link href="/prices">
-                        <button className='h-[40px] md:h-[48px] px-10 rounded-full bg-primary text-black text-base md:text-lg leading-[120%] font-normal'>Get Your Player Report</button>
+                        <button className='h-[40px] md:h-[48px] px-5 md:px-6 lg:px-8 rounded-full bg-primary text-black text-base md:text-lg leading-[120%] font-normal'>Get Your Player Report</button>
                        </Link>
                     </div>
                     </div>
