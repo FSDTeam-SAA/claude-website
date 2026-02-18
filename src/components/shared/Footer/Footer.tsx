@@ -63,7 +63,9 @@ const Footer = () => {
               <li className="text-base md:text-lg font-normal text-[#616161] leading-[120%] hover:underline hover:text-primary py-3 md:py-4">Privacy Policy</li>
             </Link>
           </ul>
-          <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal"><strong className='text-[#131313]'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p>
+          <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal">
+            {/* <strong className='text-[#131313]'>Email :</strong>  */}
+            <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p>
         </div>
         <div className="md:col-span-3">
           <h4 className="text-lg md:text-xl font-semibold leading-[120%] text-[#2A2A2A] pb-3 lg:pb-4">Subscribe To Our <span className="text-primary">NEWSLETTER</span></h4>

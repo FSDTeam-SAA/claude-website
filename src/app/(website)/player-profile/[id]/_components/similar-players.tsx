@@ -100,63 +100,82 @@ const SimilarPlayers = ({
                                     </div>
 
                                     {/* RIGHT: Stats + Similarity */}
-                                    <div className="w-full md:w-3/5 md:flex items-center justify-between gap-2 md:gap-4 ">
-                                        {/* Stat Item */}
-                                        {[
-                                            { label: "Age", value: item?.age ?? 0 },
-                                            // { label: "Positions", value: item?.position?.join(", ") ?? "N/A" },
-                                            {
-                                                label: "Positions",
-                                                value:
-                                                    item?.position
-                                                        ?.map((pos) => pos.toUpperCase())
-                                                        .join(", ") ?? "N/A",
-                                            },
-                                            { label: "Nationality", value: item?.nationality ?? "N/A" },
-                                        ].map((stat, index) => (
-                                            <div key={index} className="flex flex-col items-center gap-1 md:gap-2">
-                                                <div className="w-16 h-12 rounded-full p-2 flex items-center justify-center text-[15px] font-semibold text-[#131313]">
-                                                    {stat.value}
-                                                </div>
-                                                <p className="text-sm text-black leading-[150%]">
-                                                    {stat.label}
-                                                </p>
-                                            </div>
-                                        ))}
+                                    
 
-                                        {/* Similarity */}
-                                        <div className="flex flex-col items-center gap-2">
-                                            <div className="relative w-14 h-14">
-                                                <svg className="w-full h-full rotate-[-90deg]" viewBox="0 0 40 40">
-                                                    <path
-                                                        d="M18 2.0845
-                                                        a 15.9155 15.9155 0 0 1 0 31.831
-                                                        a 15.9155 15.9155 0 0 1 0 -31.831"
-                                                        fill="none"
-                                                        stroke="#B9C2DB"
-                                                        strokeWidth="3"
-                                                    />
-                                                    <path
-                                                        d="M18 2.0845
-                                                        a 15.9155 15.9155 0 0 1 0 31.831
-                                                        a 15.9155 15.9155 0 0 1 0 -31.831"
-                                                        fill="none"
-                                                        stroke="#1E3A8A"
-                                                        strokeWidth="3"
-                                                        strokeDasharray={`${item?.similarity ?? 0}, 100`}
-                                                    />
-                                                </svg>
+                  <div className="w-full md:w-3/5 flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-4">
 
-                                                <span className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-[#131313]">
-                                                    {item?.similarity ?? 0}%
-                                                </span>
-                                            </div>
+  {/* Stats Section */}
+  <div className="grid grid-cols-3 w-full text-center">
 
-                                            <p className="text-sm text-black leading-[150%]">
-                                                Similarity
-                                            </p>
-                                        </div>
-                                    </div>
+    {[
+      { label: "Age", value: item?.age ?? 0 },
+      {
+        label: "Positions",
+        value:
+          item?.position
+            ?.map((pos) => pos.toUpperCase())
+            .join(", ") ?? "N/A",
+      },
+      { label: "Nationality", value: item?.nationality ?? "N/A" },
+    ].map((stat, index) => (
+      <div
+        key={index}
+        className="flex flex-col items-center justify-between md:justify-center py-2 "
+      >
+        {/* Label */}
+        <p className="text-[12px] text-gray-500 mb-1">
+          {stat.label}
+        </p>
+
+        {/* Value */}
+        <div className="text-[15px] font-semibold text-[#131313] truncate max-w-[90px]">
+          {stat.value}
+        </div>
+      </div>
+    ))}
+
+  </div>
+
+  {/* Similarity Section */}
+  <div className="flex flex-col items-center gap-2">
+    <div className="relative w-16 h-16 md:w-14 md:h-14">
+      <svg
+        className="w-full h-full rotate-[-90deg]"
+        viewBox="0 0 40 40"
+      >
+        <path
+          d="M18 2.0845
+            a 15.9155 15.9155 0 0 1 0 31.831
+            a 15.9155 15.9155 0 0 1 0 -31.831"
+          fill="none"
+          stroke="#E5E7EB"
+          strokeWidth="3"
+        />
+        <path
+          d="M18 2.0845
+            a 15.9155 15.9155 0 0 1 0 31.831
+            a 15.9155 15.9155 0 0 1 0 -31.831"
+          fill="none"
+          stroke="#1E3A8A"
+          strokeWidth="3"
+          strokeDasharray={`${item?.similarity ?? 0}, 100`}
+        />
+      </svg>
+
+      <span className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-[#131313]">
+        {item?.similarity ?? 0}%
+      </span>
+    </div>
+
+    <p className="text-xs text-gray-500">
+      Similarity
+    </p>
+  </div>
+
+</div>
+
+
+
 
                                 </div>
                                </Link>
