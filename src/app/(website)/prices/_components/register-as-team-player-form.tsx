@@ -160,7 +160,7 @@ const RegisterAsTeamPlayerForm = ({
 
       <Dialog open={open} onOpenChange={onOpenChange}>
 
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-2xl bg-white">
           {/* Logo */}
           <Link href="/" className="flex items-center justify-center">
             <Image
@@ -293,7 +293,7 @@ const RegisterAsTeamPlayerForm = ({
 
                 {/* PLAYERS */}
                 <div className="bg-[#E9F6E9] p-4 rounded-xl space-y-4">
-                  <p className="font-medium">Player names (10+ names) *</p>
+                  <p className="font-medium">Player names (15 names) *</p>
 
                   {fields.map((field, index) => (
                     <div key={field.id} className="bg-[#F5FFF5] p-4 rounded-lg relative space-y-3">
