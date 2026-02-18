@@ -78,7 +78,7 @@ const ProfilesContainer = () => {
                                 <TableCell className="">
                                     {/* <Link href="/player-profile"> */}
                                     <div className="bg-[#E7F5E6] flex flex-col  md:flex-row items-center gap-1 md:gap-2 lg:gap-3 rounded-[8px] p-2 md:p-3 lg:p-4 ">
-                                        <Image src={info?.profileImage || "/assets/images/no-user.jpg"} alt={info?.firstName || "user name"} width={100} height={100} className="w-8 md:w-10 lg:w-12 h-8 md:h-10 lg:h-12 object-contain rounded-full " />
+                                        <Image src={info?.profileImage || "/assets/images/no-user.jpg"} alt={info?.firstName || "user name"} width={100} height={100} className="w-8 md:w-10 lg:w-12 h-8 md:h-10 lg:h-12 object-contain rounded-full" />
                                         <p className="text-xs md:text-sm lg:text-base text-[#131313] leading-[150%] text-center md:text-left font-normal pt-2 md:py-3">{info?.firstName || "N/A"} {info?.lastName || " "}</p>
                                     </div>
                                     {/* </Link> */}

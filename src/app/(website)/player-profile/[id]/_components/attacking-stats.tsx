@@ -52,10 +52,10 @@ const AttackingStats = ({
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.totalShots || "N/A"}</span></li>
 
                                 <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shots on Target</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.shotsOnTarget || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shooting Accuracy 
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shooting Accuracy 
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.shootingAccuracy || "N/A"}</span></li>
                                 <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Shots off Target</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.shotsOffTarget || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Passes Accuracy 
+                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Passes Accuracy 
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.passesAccuracy || "N/A"}</span></li>
                                 <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Take-on
                                 </span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{info?.takeOn || "N/A"}</span></li>
