@@ -29,7 +29,7 @@ const MobileNavbar = () => {
             <div className="flex items-center justify-between mb-8">
               <Link href="/" onClick={closeSheet}>
                 <Image
-                  src={"/assets/images/logo.png"}
+                  src={"/assets/images/logo.jpg"}
                   alt="logo"
                   width={1000}
                   height={1000}

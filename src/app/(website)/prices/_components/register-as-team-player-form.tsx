@@ -164,7 +164,7 @@ const RegisterAsTeamPlayerForm = ({
           {/* Logo */}
           <Link href="/" className="flex items-center justify-center">
             <Image
-              src="/assets/images/logo.png"
+              src="/assets/images/logo.jpg"
               alt="logo"
               width={1000}
               height={1000}

@@ -46,7 +46,7 @@
 //           {/* Logo */}
 //           <Link href={"/"}>
 //             <Image
-//               src={"/assets/images/logo.png"}
+//               src={"/assets/images/"}
 //               alt="logo"
 //               width={1000}
 //               height={1000}
