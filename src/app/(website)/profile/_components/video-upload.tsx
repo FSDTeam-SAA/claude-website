@@ -171,7 +171,7 @@ const { isPending } = uploadMutation
         disabled={isPending}
       />
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-5">
+      <div className="grid grid-cols-3 md:grid-cols-3 gap-3 mt-5">
         {keptExistingVideos.map(url => (
           <div key={url} className="relative">
             <video src={url} controls className="w-full h-24 rounded-xl" />

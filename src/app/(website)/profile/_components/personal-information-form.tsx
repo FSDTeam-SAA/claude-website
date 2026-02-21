@@ -1161,7 +1161,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                           <RadioGroup
                             onValueChange={field.onChange}
                             value={field.value}
-                            className="flex flex-row items-center space-x-8 pt-2"
+                            className="flex flex-col md:flex-row items-start md:items-center md:space-x-8 pt-2 "
                           >
                             <div className="flex items-center space-x-3">
                               <RadioGroupItem
@@ -1189,7 +1189,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                               </label>
                             </div>
 
-                            <div className="flex items-center space-x-3">
+                            <div className="flex items-center space-x-3 pb-5 md:pb-0">
                               <RadioGroupItem
                                 value="college / university"
                                 id="college / university"
