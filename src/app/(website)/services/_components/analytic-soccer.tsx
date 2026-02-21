@@ -4,7 +4,7 @@ import React from 'react'
 const AnalyticSoccer = () => {
   return (
     <div className="bg_color py-7 md:py-16 lg:py-20">
-         <h3 className='text-3xl md:text-3xl lg:text-4xl text-center text-primary h_underline font-bold leading-[150%] pb-4 md:pb-8 lg:pb-10'>Coming Soon 2026</h3>
+         <h3 className='hidden md:block text-3xl md:text-3xl lg:text-4xl text-center text-primary h_underline font-bold leading-[150%] pb-4 md:pb-8 lg:pb-10'>Coming Soon 2026</h3>
         <div className="container grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10">
             <div className="md:col-span-1 h-full flex flex-col justify-center">
                 <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary h_underline leading-[150%] pb-2 md:pb-3 lg:pb-4">Player Evaluation Program</h3>
@@ -24,6 +24,8 @@ const AnalyticSoccer = () => {
             </div>
             <div className="md:col-span-1">
                 <Image src="/assets/images/analytic-soccer.jpg" alt="Analytic Soccer Coming Soon" width={500} height={500} className='w-full h-[300px] md:h-[501px] rounded-[16px] object-cover'/>
+
+                 <h3 className='block md:hidden text-3xl md:text-3xl lg:text-4xl text-center text-primary h_underline font-bold leading-[150%] py-4 md:py-8 lg:py-10'>Coming Soon 2026</h3>
             </div>
         </div>
     </div>
