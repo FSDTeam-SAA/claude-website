@@ -1,127 +1,282 @@
-import React from 'react'
+import React from "react";
 
 const PrivacyPolicyPage = () => {
   return (
     <div>
-        <div className="container py-10 md:py-14 lg:py-[72px]">
-        <div className="">
-          {/* Hero Title with Effective Date */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-[#616161] mb-4">Privacy Policy</h1>
+      <div className="container py-10 md:py-14 lg:py-[72px]">
+        <div>
+          {/* Main Title */}
+          <div className="text-center mb-6 md:mb-8 lg:mb-12">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold h_underline text-primary leading-normal md:leading-[120%]">
+              PRIVACY POLICY — ANALYTIC SOCCER
+            </h1>
+            <p className="w-full flex items-center justify-between mt-4 text-[#616161] ">
+              <span><strong className="text-primary">Effective Date :</strong> 02/18/2026 </span>
+              <span><strong className="text-primary">Last Updated :</strong> 02/18/2026</span>
+            </p>
           </div>
 
-          <div className="space-y-6 text-base font-normal leading-[120%] text-[#a0a0a0]">
-            {/* Introduction */}
+          <div className="space-y-4 md:space-y-5 lg:space-y-4 text-base text-[#616161] leading-[150%]">
+
+            {/* 1 */}
             <section className="space-y-4">
-              <p className="text-justify text-[#616161]">
-                We value and respect your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website{" "}
-                <span className="text-[#4dabf7] font-normal">yourwebsite.com</span> (or make a purchase from us).
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                1. Introduction
+              </h2>
+              <p>
+                Analytic Soccer LLC (“Company,” “we,” “us,” or “our”) respects
+                your privacy and is committed to protecting your personal data.
               </p>
-              <p className="text-justify text-[#616161]">
-                By using our website, you agree to the practices described in this Privacy Policy. Please read it carefully to understand our views and practices regarding your personal data.
+              <p>
+                This Privacy Policy explains how we collect, use, store, disclose,
+                and safeguard your information when you use our platform,
+                applications, reports, events, or services (“Platform”).
               </p>
             </section>
 
-            {/* Information We Collect */}
-            <section className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-normal text-[#616161] mb-8">Information We Collect</h2>
-              <p className="text-justify text-[#616161]">We collect various types of information to provide and improve our auction services, including:</p>
-              <ul className="list-disc pl-8 space-y-4">
-                <li className="text-justify text-[#616161]"><strong >Personal Information:</strong> When you register for an account, place a bid, or use certain features on our site, we may collect your name, email address, phone number, billing address, shipping address, and payment details.</li>
-                <li className="text-justify text-[#616161]"><strong >Transaction and Payment Information:</strong> We collect details of your bidding activity, including bids placed, items purchased, and payment history.</li>
-                <li className="text-justify text-[#616161]"><strong >Usage Data:</strong> We collect information about your interactions with the site, including IP address, browser type, device type, pages visited, and time spent on the site. This helps us improve your user experience and optimize our services.</li>
-                <li className="text-justify text-[#616161]"><strong >Cookies and Tracking Technologies:</strong> We use cookies, web beacons, and other tracking technologies to enhance your experience and collect information about how you use our site.</li>
+            {/* 2 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                2. Information We Collect
+              </h2>
+
+              <div>
+                <h4 className="text-base md:text-lg lg:text-xl text-[#616161] font-normal leading-[120%] pb-2">We may collect the following categories of information :</h4>
+                <p className="font-medium mb-2">Personal Information</p>
+                <ul className="list-disc pl-6 space-y-1">
+                  <li>name</li>
+                  <li>email address</li>
+                  <li>date of birth</li>
+                  <li>nationality</li>
+                  <li>contact information</li>
+                </ul>
+              </div>
+
+              <div>
+                <p className="font-medium mb-2">Player Performance Data</p>
+                <ul className="list-disc pl-6 space-y-1">
+                  <li>statistics</li>
+                  <li>evaluations</li>
+                  <li>rankings</li>
+                  <li>testing results</li>
+                  <li>training metrics</li>
+                </ul>
+              </div>
+
+              <div>
+                <p className="font-medium mb-2">Technical Data</p>
+                <ul className="list-disc pl-6 space-y-1">
+                  <li>IP address</li>
+                  <li>device information</li>
+                  <li>browser type</li>
+                  <li>usage data</li>
+                </ul>
+              </div>
+
+              <div>
+                <p className="font-medium mb-2">Media Content</p>
+                <ul className="list-disc pl-6 space-y-1">
+                  <li>uploaded videos</li>
+                  <li>photos</li>
+                  <li>match footage</li>
+                </ul>
+              </div>
+            </section>
+
+            {/* 3 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                3. How We Use Information
+              </h2>
+              <h4 className="text-base md:text-lg lg:text-xl text-[#616161] font-normal leading-[120%]">We use collected data to :</h4>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>operate and maintain the Platform</li>
+                <li>generate analytics and evaluations</li>
+                <li>create player profiles</li>
+                <li>improve services</li>
+                <li>communicate with users</li>
+                <li>provide customer support</li>
+                <li>ensure security and fraud prevention</li>
+                <li>comply with legal obligations</li>
               </ul>
             </section>
 
-            {/* How We Use Your Information */}
-            <section className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-normal text-[#616161] mb-8">How We Use Your Information</h2>
-              <p className="text-justify text-[#616161]">We use the information we collect to:</p>
-              <ul className="list-disc pl-8 space-y-3">
-                <li className="text-justify text-[#616161]">Provide and manage the auction services, including processing bids, managing payments, and shipping orders.</li>
-                <li className="text-justify text-[#616161]">Communicate with you about your account, bids, and purchases.</li>
-                <li className="text-justify text-[#616161]">Respond to customer service inquiries and resolve any issues.</li>
-                <li className="text-justify text-[#616161]">Personalize your experience on our site and recommend relevant products or auctions.</li>
-                <li className="text-justify text-[#616161]">Analyze and improve the performance and functionality of the site, prevent fraud.</li>
-                <li className="text-justify text-[#616161]">Ensure compliance with our Terms of Service, legal obligations, and prevent fraud.</li>
+            {/* 4 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                4. Legal Basis for Processing
+              </h2>
+              <h4 className="text-base md:text-lg lg:text-xl text-[#616161] font-normal leading-[120%]">We process personal data based on:</h4>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>user consent</li>
+                <li>contractual necessity</li>
+                <li>legitimate business interests</li>
+                <li>legal obligations</li>
               </ul>
             </section>
+            
 
-            {/* How We Share Your Information */}
-            <section className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-normal text-[#616161] mb-8">How We Share Your Information</h2>
-              <p className="text-justify text-[#616161]">We may share your personal information in the following situations:</p>
-              <ul className="list-disc pl-8 space-y-3">
-                <li className="text-justify text-[#616161]"><strong >Service Providers:</strong> We may share your data with trusted third-party service providers who assist us in operating the site, processing payments, and fulfilling orders. These providers are required to use your data solely for the purpose of providing services to us.</li>
-                <li className="text-justify text-[#616161]"><strong >Legal Requirements:</strong> We may disclose your personal information if required to do so by law or in response to valid requests by public authorities (e.g., a court or government agency).</li>
-                <li className="text-justify text-[#616161]"><strong >Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your personal information may be transferred as part of the transaction.</li>
+            {/* 5 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                5. Youth Privacy Protection
+              </h2>
+              <h4 className="text-base md:text-lg lg:text-xl text-[#616161] font-normal leading-[120%]">We are committed to protecting minors.</h4>
+              <p>
+                Users under 18 require parental or guardian consent.
+              </p>
+              <p>
+                Parents may review, modify, or request deletion of a child’s data at any time.
+              </p>
+              <p>
+                We limit public visibility of minor profiles when appropriate.
+              </p>
+            </section>
+
+            {/* 6 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                6. Children Under 13 (COPPA Compliance)
+              </h2>
+              <p>
+                For children under 13, verifiable parental consent is required
+                before personal data is collected.
+              </p>
+              <p>
+                Parents may request access, correction, or deletion of their child’s data at any time.
+              </p>
+              <p>
+                We do not knowingly collect unnecessary personal data from children.
+              </p>
+            </section>
+
+            {/* 7 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                7. Sharing of Information
+              </h2>
+
+              <h4 className="text-base md:text-lg lg:text-xl text-[#616161] font-normal leading-[120%]">We may share data with:</h4>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>authorized scouts and clubs for evaluation purposes</li>
+                <li>service providers assisting platform operations</li>
+                <li>legal authorities when required by law</li>
               </ul>
+              <p>We do not sell personal data.</p>
             </section>
 
-            {/* Data Security */}
+            {/* 8 */}
             <section className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-normal text-[#616161] mb-4">Data Security</h2>
-              <p className="text-justify text-[#616161]">
-                We take the security of your personal information seriously and use industry-standard security measures to protect it. However, no data transmission over the Internet is completely secure, and we cannot guarantee the absolute security of your information.
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                8. Data Retention
+              </h2>
+              <p>
+                We retain information only as long as necessary for platform services,
+                legal obligations, dispute resolution, and enforcement of agreements.
               </p>
             </section>
 
-            {/* Your Data Rights */}
-            <section className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-normal text-[#616161] mb-8">Your Data Rights</h2>
-              <p className="text-justify text-[#616161]">Depending on your location, you may have certain rights regarding your personal data, including:</p>
-              <ul className="list-disc pl-8 space-y-3">
-                <li className="text-justify text-[#616161]">The right to access the personal information we hold about you.</li>
-                <li className="text-justify text-[#616161]">The right to correct any inaccuracies in your personal information.</li>
-                <li className="text-justify text-[#616161]">The right to delete your personal information, subject to legal and contractual obligations.</li>
-                <li className="text-justify text-[#616161]">The right to withdraw consent where we process data based on consent.</li>
-                <li className="text-justify text-[#616161]">The right to opt-out of marketing communications.</li>
+            {/* 9 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                9. Data Security
+              </h2>
+              <p>
+                We implement technical and organizational safeguards designed to
+                protect your data. However, no system can guarantee absolute security.
+              </p>
+            </section>
+
+            {/* 10 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                10. International Users
+              </h2>
+              <p>
+                If you access the Platform from outside the United States,
+                you consent to data transfer and processing in the United States.
+              </p>
+            </section>
+
+            {/* 11 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                11. Your Rights
+              </h2>
+              <h4 className="text-base md:text-lg lg:text-xl text-[#616161] font-normal leading-[120%]">Depending on your jurisdiction, you may have the right to :</h4>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>access your data</li>
+                <li>correct inaccuracies</li>
+                <li>delete data</li>
+                <li>restrict processing</li>
+                <li>withdraw consent</li>
               </ul>
-              <p className="mt-6 text-justify text-[#616161]">
-                If you wish to exercise any of these rights, please contact us at{" "}
-                <a href="mailto:contact@yourwebsite.com" className="text-[#4dabf7] underline">
-                  contact@yourwebsite.com
-                </a>.
+              <p>
+                Requests may be submitted using the contact information below.
               </p>
             </section>
 
-            {/* Data Retention */}
+            {/* 12 */}
             <section className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-normal text-[#616161] mb-4">Data Retention</h2>
-              <p className="text-justify text-[#616161]">
-                We retain your personal information for as long as necessary to provide services, comply with legal obligations, and resolve disputes. Once your data is no longer needed, we will securely delete or anonymize it.
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                12. Cookies & Tracking Technologies
+              </h2>
+              <p>
+                We may use cookies, analytics tools, and tracking technologies
+                to enhance user experience, analyze usage, and improve services.
               </p>
             </section>
 
-            {/* Cookies */}
+            {/* 13 */}
             <section className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-normal text-[#616161] mb-4">Cookies</h2>
-              <p className="text-justify text-[#616161]">
-                We use cookies to enhance your browsing experience. A cookie is a small file stored on your device that helps us remember your preferences, analyze site usage, and improve functionality. You can control cookies through your browser settings, but disabling cookies may affect your ability to use certain features of the site.
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                13. Third-Party Services
+              </h2>
+              <p>
+                We are not responsible for privacy practices of third-party services
+                linked to or integrated with our Platform.
               </p>
             </section>
 
-            {/* Children's Privacy */}
+            {/* 14 */}
             <section className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-normal text-[#616161] mb-4">Children&apos;s Privacy</h2>
-              <p className="text-justify text-[#616161]">
-                Our site is not intended for children under the age of 13, and we do not knowingly collect personal information from children. If we become aware that we have inadvertently collected personal information from a child under 13, we will take steps to delete that information.
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                14. AI & Automated Processing
+              </h2>
+              <p>
+                We may use automated systems or artificial intelligence to generate
+                performance insights. These systems assist analysis but do not replace
+                human decision-making.
               </p>
             </section>
 
-            {/* Changes to This Privacy Policy */}
+            {/* 15 */}
             <section className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-normal text-[#616161] mb-4">Changes to This Privacy Policy</h2>
-              <p className="text-justify text-[#616161]">
-                We may update this Privacy Policy from time to time. Any changes will be posted on this page, and the &#34;Effective Date&rdquo; at the top will be updated. We encourage you to review this policy periodically to stay informed about how we protect your information.
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                15. Changes to This Policy
+              </h2>
+              <p>
+                We may update this Privacy Policy periodically.
+                Updated versions become effective upon posting.
               </p>
             </section>
+
+            {/* 16 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                16. Contact
+              </h2>
+              <p>
+                Analytic Soccer LLC <br />
+                Email : info@analyticsoccer.com
+              </p>
+            </section>
+
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PrivacyPolicyPage
+export default PrivacyPolicyPage;
