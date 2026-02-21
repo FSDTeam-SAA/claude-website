@@ -12,11 +12,26 @@
   background-color: #F4FFF4
 }
 
-.h_underline {
+/* .h_underline {
   text-decoration-line: underline;
   text-underline-offset: 8px;
   text-decoration-thickness: 4px;
   padding-bottom: 1.5rem;
+} */
+
+.h_underline {
+  text-decoration-line: underline;
+  text-underline-offset: 8px;   /* smaller default for mobile */
+  text-decoration-thickness: 3px;
+  padding-bottom: .75rem;
+}
+
+@media (min-width: 768px) {
+  .h_underline {
+    text-underline-offset: 8px;
+    text-decoration-thickness: 4px;
+    padding-bottom: 1.5rem;
+  }
 }
 
 @layer base {

@@ -1,160 +1,329 @@
-import React from 'react'
+import React from "react";
 
 const TermsOfUsePage = () => {
   return (
     <div>
-        <div className="container py-10 md:py-14 lg:py-[72px]">
-      <div className="">
-        {/* Title */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#131313] mb-4">
-            Terms & Conditions
-          </h1>
-        </div>
-
-        <div className="space-y-6 text-base font-normal leading-[120%] text-[#a0a0a0]">
-
-          {/* Introduction */}
-          <section className="space-y-4">
-            <p className="text-justify text-[#616161]">
-              Welcome to Dimond. By accessing and using our website <span className="text-[#4dabf7]">dripswag.com</span> and purchasing our products, you agree to comply with and be bound by the following terms and conditions. Please read these terms carefully. If you do not agree to these terms, please do not use the site or make a purchase.
+      <div className="container py-10 md:py-14 lg:py-[72px]">
+        <div>
+          {/* Main Title */}
+          <div className="text-center mb-6 md:mb-8 lg:mb-12">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold line-clamp-4 lg:line-clamp-1 h_underline text-primary leading-normal md:leading-[120%]">
+              MASTER TERMS OF USE & LEGAL AGREEMENT — ANALYTIC SOCCER
+            </h1>
+            <p className="w-full flex items-center justify-between mt-4 text-[#616161]">
+              <span><strong className="text-primary">Effective Date :</strong> 02/18/2026 </span>
+              <span><strong className="text-primary">Last Updated :</strong> 02/18/2026</span>
             </p>
-          </section>
+          </div>
 
-          {/* Eligibility */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Eligibility</h2>
-            <p className="text-justify text-[#616161]">
-              You must be at least 18 years old and legally able to enter into contracts to use our site. By using the site, you represent and warrant that you meet these eligibility requirements.
-            </p>
-          </section>
+          <div className="space-y-4 md:space-y-5 lg:space-y-6 text-base text-[#616161] leading-[150%]">
 
-          {/* Account Registration */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Account Registration</h2>
-            <p className="text-justify text-[#616161]">To participate in auctions and place bids, you must create an account on our site. When registering, you agree to:</p>
-            <ul className="list-disc pl-8 space-y-3">
-              <li className="text-justify text-[#616161]">Provide accurate and complete information during the registration process.</li>
-              <li className="text-justify text-[#616161]">Maintain the confidentiality of your account credentials and notify us immediately of any unauthorized access to your account.</li>
-              <li className="text-justify text-[#616161]">Be responsible for all activity under your account, even if you have not directly authorized it.</li>
-            </ul>
-          </section>
+            {/* 1 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                1. Acceptance of Agreement
+              </h2>
+              <p>
+                By accessing or using Analytic Soccer’s platform, reports, evaluations,
+                software, events, or services (“Platform”), you agree to be legally
+                bound by this Agreement. If you do not agree, discontinue use immediately.
+              </p>
+              <p>
+                This agreement is between you and Analytic Soccer LLC (“Company”).
+              </p>
+            </section>
 
-          {/* Auctions & Bidding */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Auctions & Bidding</h2>
-            <ul className="list-disc pl-8 space-y-3">
-              <li className="text-justify text-[#616161]"><strong>Auction Process:</strong> Auctions on our site are conducted in real-time or at scheduled times, depending on the auction type. You can place bids on items listed by sellers.</li>
-              <li className="text-justify text-[#616161]"><strong>Bidding Rules:</strong> By placing a bid, you are making a legally binding offer to purchase the item. If you have the highest bid when the auction ends, you are required to complete the purchase.</li>
-              <li className="text-justify text-[#616161]"><strong>Bid Cancellation:</strong> Once a bid is placed, it cannot be canceled or withdrawn. If you are the winning bidder, you are obligated to pay the bid amount.</li>
-              <li className="text-justify text-[#616161]"><strong>Reserve Price:</strong> Some items may have a reserve price. If the highest bid does not meet the reserve price, the item will not be sold.</li>
-            </ul>
-          </section>
+            {/* 2 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                2. Governing Law (Florida)
+              </h2>
+              <p>
+                This Agreement is governed by the laws of the State of Florida.
+                All legal disputes must be brought within Florida jurisdiction
+                unless arbitration applies.
+              </p>
+            </section>
 
-          {/* Winning Bid and Payment */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Winning Bid and Payment</h2>
-            <ul className="list-disc pl-8 space-y-3">
-              <li className="text-justify text-[#616161]"><strong>Payment:</strong> If you win an auction, you agree to pay the bid amount plus any applicable taxes, fees, and shipping costs. Payments must be made through the methods specified on the site.</li>
-              <li className="text-justify text-[#616161]"><strong>Failure to Pay:</strong> If you fail to make the required payment within the specified time, we may cancel the transaction, and you may be subject to penalties, including being banned from future auctions.</li>
-            </ul>
-          </section>
+            {/* 3 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                3. Eligibility
+              </h2>
+              <p>Users must be at least 18 years old.</p>
+              <p>Minors may only use the Platform with verified parental consent.</p>
+              <p>Guardians accept responsibility for minor use.</p>
+            </section>
 
-          {/* Fees */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Fees</h2>
-            <ul className="list-disc pl-8 space-y-3">
-              <li className="text-justify text-[#616161]"><strong>Listing Fees:</strong> Sellers may be required to pay a fee to list an item for auction on our site. These fees are outlined in our fee schedule available on the site.</li>
-              <li className="text-justify text-[#616161]"><strong>Transaction Fees:</strong> We may charge a transaction fee for successful auctions, which will be specified at the time of the auction.</li>
-            </ul>
-          </section>
+            {/* 4 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                4. Services
+              </h2>
+              <p>
+                The Platform provides performance analytics, evaluations, reports,
+                rankings, development plans, video analysis, data tracking,
+                scouting visibility tools, and related services.
+              </p>
+              <p>Services may change at any time.</p>
+            </section>
 
-          {/* Seller Responsibilities */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Seller Responsibilities</h2>
-            <ul className="list-disc pl-8 space-y-3">
-              <li className="text-justify text-[#616161]"><strong>Item Description:</strong> Sellers must provide accurate and honest descriptions of the items they list for auction, including clear details about condition, defects, and authenticity.</li>
-              <li className="text-justify text-[#616161]"><strong>Shipping:</strong> Sellers are responsible for shipping the items to the winning bidder within the timeframe specified on the site.</li>
-              <li className="text-justify text-[#616161]"><strong>Returns and Disputes:</strong> Sellers must adhere to our return policy and resolve any disputes related to their items in a fair and timely manner.</li>
-            </ul>
-          </section>
+            {/* 5 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                5. Accounts
+              </h2>
+              <p>
+                Users must provide accurate information and maintain account security.
+                You are responsible for activity under your account.
+              </p>
+            </section>
 
-          {/* Prohibited Activities */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Prohibited Activities</h2>
-            <p className="text-justify text-[#616161]">You agree not to:</p>
-            <ul className="list-disc pl-8 space-y-3">
-              <li className="text-justify text-[#616161]">Violate any applicable laws or regulations.</li>
-              <li className="text-justify text-[#616161]">Engage in fraudulent activities, such as placing fake bids, creating multiple accounts to manipulate auction outcomes, or misrepresenting items for sale.</li>
-              <li className="text-justify text-[#616161]">Interfere with or disrupt the site’s functionality or security.</li>
-              <li className="text-justify text-[#616161]">Use our site for any illegal or harmful purposes.</li>
-            </ul>
-          </section>
+            {/* 6 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                6. Acceptable Use
+              </h2>
+              <p>
+                Users may not upload false data, impersonate others, exploit systems,
+                reverse engineer software, or upload unlawful content.
+              </p>
+            </section>
 
-          {/* Intellectual Property */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Intellectual Property</h2>
-            <p className="text-justify text-[#616161]">
-              Ownership: All content on the site, including text, graphics, logos, images, and software, is the property of [Your Website Name] or our licensors and is protected by intellectual property laws.
-            </p>
-            <p className="text-justify text-[#616161]">
-              Limited License: We grant you a limited, non-exclusive, non-transferable license to access and use the site for its intended purpose.
-            </p>
-          </section>
+            {/* 7 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                7. Player Evaluation Disclaimer
+              </h2>
+              <p>
+                Evaluations, ratings, and reports are analytical opinions based on available data.
+                They do not guarantee selection, recruitment, scholarships, or contracts.
+              </p>
+            </section>
 
-          {/* Privacy */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Privacy</h2>
-            <p className="text-justify text-[#616161]">
-              Your use of the site is also governed by our <a href="/privacy-policy" className="text-[#4dabf7] underline">Privacy Policy</a>, which outlines how we collect, use, and protect your personal information.
-            </p>
-          </section>
+            {/* 8 */}
+            <section className="">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                8. Youth Player Protection
+              </h2>
+              <h4 className="pt-4 pb-3">For minors :</h4>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Parental consent required</li>
+                <li>Parents may review or delete data</li>
+                <li>Visibility restrictions may apply</li>
+                <li>Only necessary data collected</li>
+              </ul>
+            </section>
 
-          {/* Limitation of Liability */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Limitation of Liability</h2>
-            <p className="text-justify text-[#616161]">
-              To the fullest extent permitted by law, [Your Website Name] shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use of the site or any transactions conducted through the site.
-            </p>
-          </section>
+            {/* 9 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                9. COPPA Compliance
+              </h2>
+              <p>
+                For users under 13, verifiable parental consent is required before data collection.
+                Parents may request deletion or access at any time.
+              </p>
+            </section>
 
-          {/* Dispute Resolution */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Dispute Resolution</h2>
-            <p className="text-justify text-[#616161]">
-              Any disputes arising out of or related to these terms and your use of the site will be resolved through binding arbitration in accordance with the laws of [Your country/state]. You agree to waive the right to participate in class actions, class arbitrations, or any other proceedings involving multiple parties.
-            </p>
-          </section>
+            {/* 10 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                10. Payments
+              </h2>
+              <p>
+                Paid features must be paid as stated at purchase.
+                Fees are non-refundable unless stated otherwise.
+                Subscriptions may auto-renew unless cancelled.
+              </p>
+            </section>
 
-          {/* Termination */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Termination</h2>
-            <p className="text-justify text-[#616161]">
-              We reserve the right to suspend or terminate your access to the site at our discretion, without notice, for violations of these terms or any other reason. If your account is terminated, any outstanding transactions or obligations will remain enforceable.
-            </p>
-          </section>
+            {/* 11 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                11. Intellectual Property
+              </h2>
+              <p>
+                All platform systems, methodologies, reports, branding,
+                algorithms, and software belong to Analytic Soccer LLC.
+                Unauthorized use is prohibited.
+              </p>
+            </section>
 
-          {/* Changes to These Terms */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Changes to These Terms</h2>
-            <p className="text-justify text-[#616161]">
-              We may update these Terms from time to time. The most current version will always be available on this page. By continuing to use the site after changes are posted, you agree to be bound by the updated Terms.
-            </p>
-          </section>
+            {/* 12 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                12. User Content License
+              </h2>
+              <p>
+                By uploading content, you grant the Company a worldwide royalty-free
+                license to use it for platform operation, analytics, and promotion.
+              </p>
+            </section>
 
-          {/* Governing Law */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-normal text-[#131313]">Governing Law</h2>
-            <p className="text-justify text-[#616161]">
-              These Terms are governed by and construed in accordance with the laws of [Your country/state]. Any legal action or proceeding related to these Terms shall be brought in the competent courts located in [Jurisdiction].
-            </p>
-          </section>
+            {/* 13 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                13. Scout & Recruiter Data Access
+              </h2>
+              <p>
+                Authorized scouts and clubs may access player data solely for evaluation purposes.
+                Resale or redistribution of data is prohibited without written permission.
+              </p>
+            </section>
 
+            {/* 14 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                14. AI Analytics Disclosure
+              </h2>
+              <p>
+                The Platform may use automated or AI-driven analytics.
+                Outputs are decision-support tools only and do not replace human judgment.
+              </p>
+            </section>
+
+            {/* 15 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                15. Third-Party Services
+              </h2>
+              <p>
+                We are not responsible for third-party tools, integrations,
+                or external platforms.
+              </p>
+            </section>
+
+            {/* 16 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                16. Event & Trial Liability Waiver
+              </h2>
+              <p>
+                Participation in combines, trials, or events is voluntary.
+                Participants assume all risk of injury or loss.
+                Personal insurance is recommended.
+              </p>
+            </section>
+
+            {/* 17 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                17. Medical & Fitness Disclaimer
+              </h2>
+              <p>
+                The Platform does not provide medical advice.
+                Fitness assessments are informational only.
+                Consult qualified professionals before training changes.
+              </p>
+            </section>
+
+            {/* 18 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                18. Data Integrity Clause
+              </h2>
+              <p>
+                Submitting false or manipulated data is strictly prohibited.
+                Accounts may be suspended or permanently terminated for violations.
+              </p>
+            </section>
+
+            {/* 19 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                19. Image & Likeness Release
+              </h2>
+              <p>
+                By participating in events or uploading media, you grant permission
+                for your image, video, or likeness to be used for platform operations,
+                promotion, scouting exposure, and marketing.
+              </p>
+            </section>
+
+            {/* 20 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                20. International Users
+              </h2>
+              <p>
+                Users outside the United States agree that Florida law governs this Agreement
+                and consent to jurisdiction as stated herein.
+              </p>
+            </section>
+
+            {/* 21 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                21. Disclaimer of Warranties
+              </h2>
+              <p>
+                The Platform is provided “as is” and “as available.”
+                We disclaim all warranties including accuracy, reliability, or availability.
+              </p>
+            </section>
+
+            {/* 22 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                22. Limitation of Liability
+              </h2>
+              <p>
+                To the fullest extent permitted by Florida law,
+                Analytic Soccer LLC is not liable for indirect or consequential damages.
+                Total liability shall not exceed fees paid within the previous 12 months.
+              </p>
+            </section>
+
+            {/* 23 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                23. Termination
+              </h2>
+              <p>
+                We may suspend or terminate accounts for violations or misuse.
+                Upon termination, access ends immediately.
+              </p>
+            </section>
+
+            {/* 24 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                24. Arbitration
+              </h2>
+              <p>
+                Disputes shall first undergo negotiation. If unresolved, they shall be resolved
+                by binding arbitration in Florida under AAA rules. Class actions are waived.
+              </p>
+            </section>
+
+            {/* 25 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                25. Modifications
+              </h2>
+              <p>
+                We may update this Agreement periodically.
+                Continued use after updates constitutes acceptance.
+              </p>
+            </section>
+
+            {/* 26 */}
+            <section className="space-y-4">
+              <h2 className="text-xl md:text-2xl lg:text-3xl text-primary font-normal leading-[120%]">
+                26. Contact
+              </h2>
+              <p>
+                Analytic Soccer LLC <br />
+                Email : info@analyticsoccer.com
+              </p>
+            </section>
+
+          </div>
         </div>
       </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default TermsOfUsePage
+export default TermsOfUsePage;
