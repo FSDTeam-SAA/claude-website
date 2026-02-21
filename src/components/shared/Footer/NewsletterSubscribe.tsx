@@ -70,7 +70,7 @@ export default function NewsletterSubscribe() {
             onChange={(e) => setEmail(e.target.value)}
             required
             disabled={isPending}
-            className="h-10 border-y border-l border-primary rounded-l-[8px] focus:outline-none ring-0"
+            className="h-10 border-y border-l border-primary rounded-l-[8px] focus:outline-none ring-0 placeholder:text-[#616161]"
           />
 
           <Button
