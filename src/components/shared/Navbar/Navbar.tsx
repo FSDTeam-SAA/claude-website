@@ -328,27 +328,13 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
   const [logoutModalOpen, setLogoutModalOpen] = useState(false)
-  const [open, setOpen] = useState(false)
-
-  // comment 
-
-  // const [desktopServicesOpen, setDesktopServicesOpen] = useState(false)
-  // const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
-
+  const [open, setOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false)
 
 
   const session = useSession()
   const status = session?.status
   const user = session?.data?.user
-
-  // const serviceItems = [
-  //   {
-  //     label: "Profiles", link: "/profiles"
-  //   },
-  //   {
-  //     label: "Player Evalution Program", link: "/player-evalution-program"
-  //   }
-  // ]
 
   // Replace with your actual base URL
   const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || ""
@@ -417,14 +403,6 @@ const Navbar = () => {
                 Profiles
               </Link>
 
-              {/* <Link
-                href="/player-evaluation-program"
-                className={`text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${pathname === "/contact-us" ? "border-b-[2px] border-primary" : "border-0"
-                  }`}
-              >
-                Player Evaluation Program
-              </Link> */}
-
               <Link
                 href="/analytic-soccer-coming-soon"
                 className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${pathname === "/analytic-soccer-coming-soon" ? "border-b-[2px] border-primary" : "border-0"
@@ -433,41 +411,6 @@ const Navbar = () => {
                 Player Evaluation Program
               </Link>
 
-              {/* Services Dropdown - Desktop */}
-              {/* <DropdownMenu modal={false} open={desktopServicesOpen}
-                onOpenChange={setDesktopServicesOpen}>
-                <DropdownMenuTrigger asChild>
-                  <button
-                    className={`text-sm md:text-base flex items-center gap-1 leading-[150%] text-[#131313] font-normal  transition-all duration-300 hover:text-primary ${pathname.startsWith("/profiles") ||
-                      pathname.startsWith("/player-evalution-program")
-                      ? "border-b-[2px] border-primary"
-                      : ""
-                      }`}
-                  >
-                    Services
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-300 ${desktopServicesOpen ? "rotate-180" : "rotate-0"
-                        }`}
-                    />
-                  </button>
-                </DropdownMenuTrigger>
-
-                <DropdownMenuContent
-                  align="center"
-                  className="w-56 rounded-xl border bg-white p-2 shadow-lg mt-2"
-                >
-                  {serviceItems.map((item) => (
-                    <DropdownMenuItem key={item.link} asChild>
-                      <Link
-                        href={item.link}
-                        className="w-full rounded-md px-3 py-2 text-sm cursor-pointer text-[#131313] hover:bg-gray-100 transition"
-                      >
-                        {item.label}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu> */}
 
               <Link
                 href="/prices"
@@ -498,11 +441,6 @@ const Navbar = () => {
                         Profile
                       </DropdownMenuLabel>
                     </Link>
-                    {/* <Link href="#">
-                      <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
-                        Player Evaluation Program
-                      </DropdownMenuLabel>
-                    </Link> */}
                     <Link href="/password-change">
                       <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
                         Password Change
@@ -564,36 +502,6 @@ const Navbar = () => {
               >
                 Home
               </Link>
-              {/* Services - Mobile */}
-
-              {/* <button
-                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                className="flex items-center justify-between w-full text-sm text-[#131313]"
-              >
-                <span>Services</span>
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform ${mobileServicesOpen ? "rotate-180" : "rotate-0"
-                    }`}
-                />
-              </button>
-
-              {mobileServicesOpen && (
-                <div className="ml-4 flex flex-col gap-2">
-                  {serviceItems.map((item) => (
-                    <Link
-                      key={item.link}
-                      href={item.link}
-                      className="text-sm hover:text-primary"
-                      onClick={() => {
-                        setIsOpen(false)
-                        setMobileServicesOpen(false)
-                      }}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )} */}
 
               <Link
                 href="/services"
@@ -609,13 +517,6 @@ const Navbar = () => {
               >
                 Profiles
               </Link>
-              {/* <Link
-                href="/player-evaluation-program"
-                className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${pathname === "/contact-us" ? "border-b-[2px] border-primary" : "border-0"
-                  }`}
-              >
-                Player Evaluation Program
-              </Link> */}
 
               <Link
                 href="/analytic-soccer-coming-soon"
@@ -636,7 +537,11 @@ const Navbar = () => {
 
               <div className="flex items-center justify-between gap-4 pt-2">
                 {status === "authenticated" && user ? (
-                  <DropdownMenu open={open} onOpenChange={setOpen} modal={false}>
+                  <DropdownMenu
+                    open={mobileDropdownOpen}
+                    onOpenChange={setMobileDropdownOpen}
+                    modal={false}
+                  >
                     <DropdownMenuTrigger>
                       <Image
                         src={user?.profileImage || "/assets/images/no-user.jpg"}
@@ -646,18 +551,25 @@ const Navbar = () => {
                         className="w-14 h-14 rounded-full border object-contain"
                       />
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="p-2">
-                      <Link href="/profile">
+                    <DropdownMenuContent className="p-2 bg-white border-white">
+                      <Link
+                        href="/profile"
+                        onClick={() => {
+                          setIsOpen(false)
+                          setMobileDropdownOpen(false)
+                        }}
+                      >
                         <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
                           Profile
                         </DropdownMenuLabel>
                       </Link>
-                      {/* <Link href="#">
-                        <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
-                          Player Evaluation Program
-                        </DropdownMenuLabel>
-                      </Link> */}
-                      <Link href="/password-change">
+                      <Link
+                        href="/password-change"
+                        onClick={() => {
+                          setIsOpen(false)
+                          setMobileDropdownOpen(false)
+                        }}
+                      >
                         <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
                           Password Change
                         </DropdownMenuLabel>

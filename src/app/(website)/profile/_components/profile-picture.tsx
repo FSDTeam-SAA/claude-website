@@ -79,7 +79,7 @@ const ProfilePicture = ({ user }: { user?: User }) => {
 
          <div>
              <button
-            className="w-[200px] flex items-center justify-center gap-2 rounded-[8px] border-[2px] border-primary text-primary py-3 px-3"
+            className="w-[200px] flex items-center justify-center gap-2 rounded-[8px] border-[2px] border-primary text-primary py-2 md:py-3 px-3"
             onClick={() => fileInputRef.current?.click()}
             disabled={isPending}
           >
