@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="md:col-span-2">
-          <h4 className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] pb-4 md:pb-6 lg:pb-8">
+          <h4 className="hidden md:block text-lg md:text-xl font-normal text-[#131313] leading-[120%] pb-4 md:pb-6 lg:pb-8">
             Useful Links
           </h4>
           <ul>
@@ -44,7 +44,7 @@ const Footer = () => {
               <li className="text-base md:text-lg font-normal text-[#616161] leading-[120%] hover:underline hover:text-primary py-3 md:py-4">About Us</li>
             </Link> */}
             <Link href="/contact-us">
-              <li className="text-base md:text-lg font-normal text-[#616161] leading-[120%] hover:underline hover:text-primary py-3 md:py-4">Contact Us</li>
+              <li className="text-base md:text-lg font-normal text-[#616161] leading-[120%] hover:underline hover:text-primary py-4">Contact Us</li>
             </Link>
               <Link href="/faq">
               <li className="text-base md:text-lg font-normal text-[#616161] leading-[120%] hover:underline hover:text-primary">FAQ</li>
@@ -52,7 +52,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="md:col-span-2">
-          <h4 className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] pb-4 md:pb-6 lg:pb-8">
+          <h4 className="hidden md:block text-lg md:text-xl font-normal text-[#131313] leading-[120%] pb-4 md:pb-6 lg:pb-8">
             Other Links
           </h4>
           <ul>
@@ -60,7 +60,7 @@ const Footer = () => {
               <li className="text-base md:text-lg font-normal text-[#616161] leading-[120%] hover:underline hover:text-primary">Terms Of Use</li>
             </Link>
             <Link href="/privacy-policy">
-              <li className="text-base md:text-lg font-normal text-[#616161] leading-[120%] hover:underline hover:text-primary py-3 md:py-4">Privacy Policy</li>
+              <li className="text-base md:text-lg font-normal text-[#616161] leading-[120%] hover:underline hover:text-primary py-4">Privacy Policy</li>
             </Link>
           </ul>
           <p className="text-base md:text-lg leading-[120%] text-[#616161] font-normal">

@@ -19,8 +19,8 @@ const WhyWeAreUnique = () => {
                     </ul>
                         <p className='text-sm md:text-base text-[#616161] font-normal leading-[150%] pt-3 md:pt-5 lg:pt-6'>Analytic Soccer is the first platform to deliver all of this, giving amateur players the same digital tools, visibility and data identity used by professionals players.</p>
                     </div>
-                    <div className="md:col-span-1 h-full w-full flex justify-center items-center ">
-                      <Image src="/assets/images/why_we_are_uneque.jpeg" alt="why we unique" width={700} height={700} className="w-full h-[200px] md:h-[346px] object-contain rounded-[16px]"/>
+                    <div className="md:col-span-1 h-full w-full flex justify-center items-center">
+                      <Image src="/assets/images/why_we_are_uneque.jpeg" alt="why we unique" width={700} height={700} className="w-full h-[200px] md:h-[346px] object-fill rounded-[16px]"/>
                     </div>
                 </div>
 
