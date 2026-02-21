@@ -66,7 +66,7 @@ const PlayerInfo = ({
     const averageRatings = data?.avarageRatting
 
     return (
-        <div className='py-6'>
+        <div className='bg-[#111111] py-6'>
             <div className="container grid grid-cols-1 md:gris-cols-2 lg:grid-cols-5 gap-6 bg-white rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]">
                 <div className="md:col-span-1 w-full flex flex-col justify-center items-center">
                     <Image src={personalInfo?.profileImage || "/assets/images/no-user.jpg"} alt={personalInfo?.firstName || "profile image"} width={1000} height={1000} className="w-[200px] h-[200px] object-cover rounded-full border shadow" />
