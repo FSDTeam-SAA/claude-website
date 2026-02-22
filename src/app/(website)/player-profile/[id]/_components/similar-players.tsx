@@ -153,7 +153,7 @@ const SimilarPlayers = ({
             a 15.9155 15.9155 0 0 1 0 31.831
             a 15.9155 15.9155 0 0 1 0 -31.831"
                               fill="none"
-                              stroke="#1E3A8A"
+                              stroke="#10e607"
                               strokeWidth="3"
                               strokeDasharray={`${item?.similarity ?? 0}, 100`}
                             />

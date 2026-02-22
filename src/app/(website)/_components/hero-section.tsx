@@ -20,7 +20,7 @@ const HeroSection = () => {
         {/* small device  */}
         <video
           className="block md:hidden absolute top-0 left-0 w-full h-full object-cover"
-          src="/assets/videos/mobile_hero.mp4"
+          src="/assets/videos/new_phone_video.mp4"
           autoPlay
           loop
           muted

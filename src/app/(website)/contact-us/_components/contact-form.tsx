@@ -119,7 +119,7 @@ const ContactForm = () => {
                             <FormItem>
                                 <FormLabel className="text-base font-normal leading-[150%] text-[#2A2A2A]">Email Address *</FormLabel>
                                 <FormControl>
-                                    <Input className="h-[45px] rounded-[8px] border border-[#5A5A5A] py-3 px-4 placeholder:text-[#929292] outline-none ring-0" placeholder="Enter your full name" {...field} />
+                                    <Input className="h-[45px] rounded-[8px] border border-[#5A5A5A] py-3 px-4 placeholder:text-[#929292] outline-none ring-0" placeholder="Enter your Email Address" {...field} />
                                 </FormControl>
                                 <FormMessage className="text-red-500" />
                             </FormItem>
