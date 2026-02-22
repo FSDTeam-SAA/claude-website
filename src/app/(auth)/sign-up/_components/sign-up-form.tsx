@@ -133,11 +133,11 @@ const SignupForm = () => {
         </div>
 
         <div className="w-full flex items-center gap-2 py-3">
-          <span className="w-1/3 border-b border-[#6C6C6C]"/>
-          <span className="w-1/3 text-base md:text-lg font-normal text-[#424242] leading-[120%] text-center">
+          <span className="hidden md:block w-1/4 border-b border-[#6C6C6C]"/>
+          <span className="w-full md:w-2/4 text-base md:text-lg font-normal text-[#424242] leading-[120%] text-center pb-3 md:pb-0">
             Or sign up with email
           </span>
-          <span className="w-1/3 border-b border-[#6C6C6C]"/>
+          <span className="hidden md:block w-1/4 border-b border-[#6C6C6C]"/>
         </div>
 
         <Form {...form}>

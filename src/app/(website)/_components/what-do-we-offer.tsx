@@ -8,14 +8,14 @@ const WhatDoWeOffer = () => {
 
             <div className='container grid grid-cols-1 md:grid-cols-7 gap-6 md:gap-7 lg:gap-10 xl:gap-12 '>
                 <div className="order-2 md:order-1 md:col-span-3 flex items-center">
-                    <div className=' bg_color shadow-[0px_4px_16px_0px_#00000029] rounded-[16px] flex flex-col justify-center py-6 md:py-8 px-6 md:px-10 xl:px-14'>
+                    <div className=' bg_color shadow-[0px_4px_16px_0px_#00000029] rounded-[16px] flex flex-col justify-center py-6 md:py-8 px-6 md:px-10 xl:px-10'>
                     <h3 className='text-2xl md:text-3xl lg:text-4xl text-primary h_underline leading-[120%] font-normal'>What do we offer</h3>
 
                     <ul className='pt-1 md:pt-5 list-disc list-inside '>
-                        <li className='text-sm xl:text-base font-normal leading-[150%] text-[#616161]'>Specific technical and tactical data</li>
-                        <li className='text-sm xl:text-base font-normal leading-[150%] text-[#616161] py-4'>Ratings for every game to measure your progression</li>
-                        <li className='text-sm xl:text-base font-normal leading-[150%] text-[#616161]'>Personalized highlights showcasing your key actions</li>
-                         <li className='text-sm xl:text-base font-normal leading-[150%] text-[#616161] py-4'>Structured Feedback</li>
+                        <li className='text-sm xl:text-base font-normal leading-[150%] text-[#131313]'>Specific technical and tactical data</li>
+                        <li className='text-sm xl:text-base font-normal leading-[150%] text-[#131313] py-4'>Ratings for every game to measure your progression</li>
+                        <li className='text-sm xl:text-base font-normal leading-[150%] text-[#131313]'>Personalized highlights showcasing your key actions</li>
+                         <li className='text-sm xl:text-base font-normal leading-[150%] text-[#131313] py-4'>Structured Feedback</li>
                     </ul>
 
                     <div className="w-full flex items-center justify-center pt-4 md:pt-0">
