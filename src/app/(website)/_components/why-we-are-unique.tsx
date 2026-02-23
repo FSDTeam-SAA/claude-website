@@ -9,8 +9,8 @@ const WhyWeAreUnique = () => {
             <div className='container'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                     <div className="md:col-span-1">
-                        <h3 className='text-2xl md:text-3xl lg:text-4xl text-primary font-normal h_underline leading-[120%]'>Why We&lsquo;re Unique</h3>
-                        <p className='text-sm md:text-base lg:text-lg text-[#131313] font-normal leading-[120%] py-2 md:py-5'>There is no global, centralized data platform where amateur players can :</p>
+                        <h3 className='text-2xl md:text-3xl lg:text-4xl text-primary font-normal h_underline leading-[120%] mb-2 md:mb-0'>Why We&lsquo;re Unique</h3>
+                        <p className='text-sm md:text-base lg:text-lg text-[#131313] font-normal leading-normal md:leading-[120%] py-2 md:py-5'>There is no global, centralized data platform where amateur players can :</p>
                          <ul className='list-disc list-inside'>
                         <li className='text-sm md:text-base font-normal leading-[150%] text-[#131313]'>Access verified performance data</li>
                         <li className='text-sm md:text-base font-normal leading-[150%] text-[#131313] py-2 md:py-5'>Receive objective ratings</li>
@@ -28,31 +28,31 @@ const WhyWeAreUnique = () => {
 
                     <div className='md:col-span-1 flex flex-col items-center rounded-[16px] p-4 border border-[#B6B6B6)] group hover:bg-primary transition'>
                         <div className='flex flex-col items-start'>
-                            <div className='bg-[#E6F4E6] rounded-[8px] p-5 inline-flex' >
+                            <div className='bg-[#E6F4E6] rounded-[8px] p-5 inline-flex mb-2 md:mb-1' >
 
                                 <Database className='text-primary' />
                             </div>
-                            <h4 className='text-sm lg:text-base font-normal text-[#0A1628] group-hover:text-white leading-[120%] py-3 md:py-4'>Access verified performance data</h4>
+                            <h4 className='text-sm lg:text-base font-normal text-[#0A1628] group-hover:text-white leading-[120%] py-4'>Access verified performance data</h4>
                             <p className='text-sm font-normal text-[#131313] group-hover:text-white leading-[150%]'>Every stat, every match, every achievement verified and recorded in one place. No more scattered records or lost history. </p>
                         </div>
                     </div>
                     <div className='md:col-span-1 flex flex-col items-center rounded-[16px] p-4 border border-[#B6B6B6)] group bg-green-700 transition'>
                         <div className='flex flex-col items-start'>
-                            <div className='bg-[#E6F4E6] rounded-[8px] p-5 inline-flex' >
+                            <div className='bg-[#E6F4E6] rounded-[8px] p-5 inline-flex mb-2 md:mb-1' >
 
                                 <Award className='text-primary' />
                             </div>
-                            <h4 className='text-sm lg:text-base font-normal  text-white group-hover:text-white leading-[120%] py-3 md:py-4'>Receive objective ratings</h4>
+                            <h4 className='text-sm lg:text-base font-normal  text-white group-hover:text-white leading-[120%] py-4'>Receive objective ratings</h4>
                             <p className='text-sm font-normal text-white group-hover:text-white leading-[150%]'>Get rated based on real performance metrics, not opinions. Fair, transparent, and comparable across regions</p>
                         </div>
                     </div>
                     <div className='md:col-span-1 flex flex-col items-center rounded-[16px] p-4 border border-[#B6B6B6)] group hover:bg-primary transition'>
                         <div className='flex flex-col items-start'>
-                            <div className='bg-[#E6F4E6] rounded-[8px] p-5 inline-flex' >
+                            <div className='bg-[#E6F4E6] rounded-[8px] p-5 inline-flex mb-2 md:mb-1' >
 
                                 <TrendingUp className='text-primary' />
                             </div>
-                            <h4 className='text-sm lg:text-base font-normaltext-[#0A1628] group-hover:text-white leading-[120%] py-3 md:py-4'>Track your career progression and transfer history</h4>
+                            <h4 className='text-sm lg:text-base font-normaltext-[#0A1628] group-hover:text-white leading-[120%] py-4'>Track your career progression and transfer history</h4>
                             <p className='text-sm font-normal text-[#131313] group-hover:text-white leading-[150%]'>Track your entire football journey. Every club, every season, every progression milestone documented.</p>
                         </div>
                     </div>
