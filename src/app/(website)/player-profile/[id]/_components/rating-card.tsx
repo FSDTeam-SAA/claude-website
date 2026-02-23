@@ -18,11 +18,11 @@ export default function RatingCard({
 
   return (
     <div className="w-auto rounded-[16px] bg-primary py-6 px-5 text-white shadow-lg">
-      <h3 className="text-lg md:text-xl text-[#E7E7E7] leading-[120%] font-normal italic">
+      <h3 className="text-lg md:text-xl text-white leading-[120%] font-normal italic">
         Average of the <br/> ratings :
       </h3>
 
-      <p className="mt-2 text-4xl md:text-[35px] lg:text-[40px] leading-[120%] font-normal text-[#E7E7E7]">
+      <p className="mt-2 text-4xl md:text-[35px] lg:text-[40px] leading-[120%] font-normal text-white">
         {averageRating.toFixed(1)}
       </p>
 
@@ -40,7 +40,7 @@ export default function RatingCard({
         ))}
       </div>
 
-      <p className="mt-4 text-base md:text-lg text-[#E7E7E7] leading-[120%] italic">
+      <p className="mt-4 text-base md:text-lg text-white leading-[120%] italic">
         Number of Game : {totalGames}
       </p>
     </div>

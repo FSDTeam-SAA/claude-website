@@ -217,7 +217,7 @@ const RegisterAsIndividualPlayerForm = ({
                           <SelectTrigger className="w-full h-[42px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
                             <SelectValue placeholder="Select Category" />
                           </SelectTrigger>
-                          <SelectContent className="h-[200px] overflow-y-auto">
+                          <SelectContent className="h-[200px] overflow-y-auto bg-white border-none">
                             <SelectItem value="semi-professional">Semi Professional</SelectItem>
                             <SelectItem value="professional">Professional</SelectItem>
                             <SelectItem value="adult">Adult</SelectItem>
@@ -255,7 +255,7 @@ const RegisterAsIndividualPlayerForm = ({
                           <SelectTrigger className="w-full h-[42px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
                             <SelectValue placeholder="Select League" />
                           </SelectTrigger>
-                          <SelectContent className="h-[200px] overflow-y-auto">
+                          <SelectContent className="h-[200px] overflow-y-auto bg-white border-none">
                             <SelectItem value="nwsl">NWSL</SelectItem>
                             <SelectItem value="ecnl">ECNL</SelectItem>
                             <SelectItem value="usl super league">USL Super League</SelectItem>
