@@ -8,7 +8,7 @@ import RegisterAsTeamPlayerForm from './register-as-team-player-form';
 import TeamPricingSkeleton from './team-pricing-skeleton';
 import ErrorContainer from '@/components/shared/ErrorContainer/ErrorContainer';
 
-const TeamsPlayer = () => {
+const PlayerEvaluationProgram = () => {
     const [teamIsOpen, setTeamIsOpen] = useState(false);
 const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
 
@@ -58,10 +58,9 @@ const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
             </div>
         }
     return (
-        <div className="py-7 md:py-16 lg:py-24">
+        <div className="bg_color border-b border-[#EBEBEB]  py-7 md:py-16 lg:py-24">
             <div className="container ">
-                <h3 className='text-2xl md:text-3xl lg:text-[40px] text-primary leading-normal h_underline font-normal text-center line-clamp-2 md:line-clamp-1'>Pricing For Teams (minimum 10 players)</h3>
-                {/* <p className='text-base text-[#424242] leading-[150%] font-normal text-center pt-4'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> */}
+                <h3 className='text-2xl md:text-3xl lg:text-[40px] text-primary leading-normal h_underline font-normal text-center line-clamp-2 md:line-clamp-1'>Player Evaluation Program</h3>
                 <div className="grid grid-cols-1 md:grid-cols-6 gap-6 pt-2 md:pt-7 lg:pt-10">
                 {sortedSubscriptionData?.sort()?.map((item, index) => {
                         const isFourth = index === 3;
@@ -115,4 +114,4 @@ const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
     )
 }
 
-export default TeamsPlayer
+export default PlayerEvaluationProgram

@@ -13,7 +13,7 @@ const WhyYouNeedAProfile = () => {
           Why You Need a Profile
         </h3>
 
-        <p className="text-sm md:text-base text-[#131313] font-normal leading-normal md:leading-[120%] py-1 md:py-4">
+        <p className="text-sm md:text-base text-[#131313] font-normal leading-normal py-1 md:py-4">
           Most amateur players today are invisible to the football market even if
           they <br className="hidden md:block"/>
           perform well. No one outside their local area sees them.
