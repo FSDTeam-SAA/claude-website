@@ -32,7 +32,7 @@ const WhyWeAreUnique = () => {
 
                                 <Database className='text-primary' />
                             </div>
-                            <h4 className='text-sm lg:text-base font-normal text-[#0A1628] group-hover:text-white leading-[120%] py-4'>Access verified performance data</h4>
+                            <h4 className='text-sm lg:text-base font-normal text-[#0A1628] group-hover:text-white leading-normal py-4'>Access verified performance data</h4>
                             <p className='text-sm font-normal text-[#131313] group-hover:text-white leading-[150%]'>Every stat, every match, every achievement verified and recorded in one place. No more scattered records or lost history. </p>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ const WhyWeAreUnique = () => {
 
                                 <Award className='text-primary' />
                             </div>
-                            <h4 className='text-sm lg:text-base font-normal  text-white group-hover:text-white leading-[120%] py-4'>Receive objective ratings</h4>
+                            <h4 className='text-sm lg:text-base font-normal  text-white group-hover:text-white leading-normal py-4'>Receive objective ratings</h4>
                             <p className='text-sm font-normal text-white group-hover:text-white leading-[150%]'>Get rated based on real performance metrics, not opinions. Fair, transparent, and comparable across regions</p>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ const WhyWeAreUnique = () => {
 
                                 <TrendingUp className='text-primary' />
                             </div>
-                            <h4 className='text-sm lg:text-base font-normaltext-[#0A1628] group-hover:text-white leading-[120%] py-4'>Track your career progression and transfer history</h4>
+                            <h4 className='text-sm lg:text-base font-normaltext-[#0A1628] group-hover:text-white leading-normal py-4'>Track your career progression and transfer history</h4>
                             <p className='text-sm font-normal text-[#131313] group-hover:text-white leading-[150%]'>Track your entire football journey. Every club, every season, every progression milestone documented.</p>
                         </div>
                     </div>
@@ -60,13 +60,13 @@ const WhyWeAreUnique = () => {
 
                 </div>
 
-                <div className="pb-6 md:py-6 md:pl-6 shadow-[0px_4px_16px_0px_#00000029] rounded-[16px]  grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 lg:gap-16 ">
+                <div className="pb-6 md:py-6 md:pl-6 shadow-[0px_4px_16px_0px_#00000029] rounded-[16px]  grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-9 lg:gap-10 ">
                     <div className='md:col-span-2 '>
                         <Image src="/assets/images/why_you_needs.jpeg" alt="why-we-uniqe" width={500} height={500} className="w-full object-fill rounded-[8px] h-[180px] md:h-[380px] lg:h-[350px] " />
                     </div>
 
                     <div className='md:col-span-3 h-full flex flex-col justify-center px-4 md:pr-6'>
-                        <h4 className='hidden md:block text-2xl md:text-3xl lg:text-4xl text-primary h_underline font-normal leading-[120%]'>Why you need verified data from us</h4>
+                        <h4 className='hidden md:block text-2xl md:text-[29px] lg:text-[35px] text-primary h_underline font-normal leading-[120%] '>Why you need verified data from us</h4>
                         <h3 className='block md:hidden text-xl md:text-3xl lg:text-4xl text-primary h_underline font-normal leading-[120%]'>Why we need verified data</h3>
 
                        
@@ -79,7 +79,7 @@ const WhyWeAreUnique = () => {
                         </ul>
                         {/* button  */}
                     <div className='w-full flex items-center justify-center pt-4 md:pt-3'>
-                       <Link href="/prices">
+                       <Link href="/sign-up">
                         <button className='h-[40px] md:h-[48px] px-5 md:px-6 lg:px-8 rounded-full bg-primary text-black text-base md:text-lg leading-[120%] font-normal'>Get Your Player Report</button>
                        </Link>
                     </div>

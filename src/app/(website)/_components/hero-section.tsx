@@ -1,19 +1,17 @@
-import React from 'react'
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
     <div>
-      <div
-        className="relative min-h-[calc(100vh)] flex items-center justify-center overflow-hidden"
-      >
-{/* large device  */}
+      <div className="relative min-h-[calc(100vh)] flex items-center justify-center overflow-hidden">
+        {/* large device  */}
         <video
           className="hidden md:block absolute top-0 left-0 w-full h-full object-cover"
           src="/assets/videos/hero.mp4"
           autoPlay
           loop
-          muted
+          // muted
           playsInline
         />
 
@@ -23,23 +21,22 @@ const HeroSection = () => {
           src="/assets/videos/new_phone_video.mp4"
           autoPlay
           loop
-          muted
+          // muted
           playsInline
         />
         <div className="absolute inset-0 bg-black/40" />
 
-          <Link
-          href="/profiles"
+        <Link
+          href="/sign-up"
           className="absolute bottom-24 md:bottom-20 lg:bottom-32 left-1/2 -translate-x-1/2"
         >
           <button className="w-[200px] md:w-[250px] h-[40px] md:h-[50px] lg:h-[56px] bg-primary ease-in-out duration-200 transition-all py-3 px-5 md:px-6 rounded-full text-sm md:text-base lg:text-lg font-medium leading-[120%] text-whhite">
             Get Your Player Report
           </button>
         </Link>
-
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HeroSection
+export default HeroSection;
