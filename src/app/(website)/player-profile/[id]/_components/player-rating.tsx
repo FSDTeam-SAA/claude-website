@@ -56,6 +56,7 @@ const chartConfig = {
   desktop: {
     label: "Rating",
     color: "#4674B7",
+    // color: "#ffffff",
   },
 } satisfies ChartConfig
 
@@ -86,14 +87,17 @@ const PlayerRating = ({
         </div>
     }
 
+    
+
     const ratingData = data?.rating?.slice(0, 5);
     const gameCount = Math.min(data?.rating?.length ?? 0, 5);
 
 
     if (!ratingData) return null;
   return (
-    <div className="bg-white shadow-[0px_4px_16px_0px_#00000014] rounded-[16px] p-5">
-      <h4 className="text-xl md:text-3xl lg:text-4xl font-normal leading-[120%] text-[#131313] pb-2">
+    <div className='relative bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")] shadow-[0px_4px_16px_0px_#00000014] rounded-[16px] p-5'>
+      <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
+      <h4 className="text-xl md:text-3xl lg:text-4xl font-normal leading-[120%] text-white pb-2">
         PLAYER RATINGS FROM LAST {gameCount} GAME{gameCount > 1 ? "S" : ""}
       </h4>
 
@@ -109,7 +113,7 @@ const PlayerRating = ({
                 tickMargin={10}
                 axisLine={false}
                 tickFormatter={(value: string) => value.slice(0, 10)}
-                className="bg-white"
+                className="bg-white text-white"
               />
 
               <ChartTooltip
