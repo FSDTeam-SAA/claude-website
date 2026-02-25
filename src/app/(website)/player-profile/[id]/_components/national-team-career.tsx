@@ -52,7 +52,8 @@ const NationalTeam = ({
 
   return (
     <div className="pb-6">
-      <div className="container bg-white rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]">
+       <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
+                 <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
         
         <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">
           National Team Career
@@ -64,19 +65,19 @@ const NationalTeam = ({
             
             <TableHeader>
               <TableRow>
-                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] whitespace-nowrap">
+                <TableHead className="text-lg md:text-xl font-normal text-primary leading-[120%] whitespace-nowrap">
                   National Team
                 </TableHead>
-                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] whitespace-nowrap">
+                <TableHead className="text-lg md:text-xl font-normal text-primary leading-[120%] whitespace-nowrap">
                   Debut
                 </TableHead>
-                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] whitespace-nowrap">
+                <TableHead className="text-lg md:text-xl font-normal text-primary leading-[120%] whitespace-nowrap">
                   Category
                 </TableHead>
-                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] whitespace-nowrap">
+                <TableHead className="text-lg md:text-xl font-normal text-primary leading-[120%] whitespace-nowrap">
                   Match
                 </TableHead>
-                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] whitespace-nowrap">
+                <TableHead className="text-lg md:text-xl font-normal text-primary leading-[120%] whitespace-nowrap">
                   Goal
                 </TableHead>
               </TableRow>
@@ -96,31 +97,31 @@ const NationalTeam = ({
                         height={100}
                         className="w-12 h-8 object-contain"
                       />
-                      <p className="text-base text-[#131313] leading-[150%] font-normal">
+                      <p className="text-base text-white leading-[150%] font-normal">
                         {info?.teamName || "N/A"}
                       </p>
                     </div>
                   </TableCell>
 
                   {/* Debut */}
-                  <TableCell className="text-base text-[#131313] leading-[150%] font-normal py-3 whitespace-nowrap">
+                  <TableCell className="text-base text-white leading-[150%] font-normal py-3 whitespace-nowrap">
                     {info?.debut
                       ? moment(info.debut).format("DD/MM/YYYY")
                       : "N/A"}
                   </TableCell>
 
                   {/* Category */}
-                  <TableCell className="text-base text-[#131313] leading-[150%] font-normal py-3 whitespace-nowrap">
+                  <TableCell className="text-base text-white leading-[150%] font-normal py-3 whitespace-nowrap">
                     {info?.category || "N/A"}
                   </TableCell>
 
                   {/* Match */}
-                  <TableCell className="text-base text-[#131313] leading-[150%] font-normal py-3 whitespace-nowrap text-left">
+                  <TableCell className="text-base text-white leading-[150%] font-normal py-3 whitespace-nowrap text-left">
                     {info?.match ?? "N/A"}
                   </TableCell>
 
                   {/* Goal */}
-                  <TableCell className="text-base text-[#131313] leading-[150%] font-normal py-3 whitespace-nowrap">
+                  <TableCell className="text-base text-white leading-[150%] font-normal py-3 whitespace-nowrap">
                     {info?.goals ?? "N/A"}
                   </TableCell>
 

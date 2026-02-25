@@ -1,11 +1,9 @@
+import React from "react";
+import Image from "next/image";
+import { UserProfile } from "./player-data-type";
 
-import React from 'react'
-import Image from 'next/image'
-import { UserProfile } from './player-data-type';
-
-import ErrorContainer from '@/components/shared/ErrorContainer/ErrorContainer';
-import GroundFieldSkeleton from './ground-field-skeleton';
-
+import ErrorContainer from "@/components/shared/ErrorContainer/ErrorContainer";
+import GroundFieldSkeleton from "./ground-field-skeleton";
 
 const POSITION_IMAGES: Record<string, string> = {
   gk: "/assets/grounds/gk.png",
@@ -44,7 +42,6 @@ const POSITION_IMAGES: Record<string, string> = {
   "amr-rw": "/assets/grounds/amr_rw.png",
   "amr-striker": "/assets/grounds/amr_st.png",
 
-
   "cbl-aml": "/assets/grounds/cbl_aml.png",
   "cbl-amr": "/assets/grounds/cbl_amr.png",
   "cbl-cbr": "/assets/grounds/cbl_cbr.png",
@@ -55,7 +52,6 @@ const POSITION_IMAGES: Record<string, string> = {
   "cbl-rb": "/assets/grounds/cbl_rb.png",
   "cbl-rw": "/assets/grounds/cbl_rw.png",
   "cbl-striker": "/assets/grounds/cbl_st.png",
-
 
   "cbr-aml": "/assets/grounds/cbr_aml.png",
   "cbr-amr": "/assets/grounds/cbr_amr.png",
@@ -68,7 +64,6 @@ const POSITION_IMAGES: Record<string, string> = {
   "cbr-rw": "/assets/grounds/cbr_rw.png",
   "cbr-striker": "/assets/grounds/cbr_st.png",
 
-
   "cm-aml": "/assets/grounds/cm_aml.png",
   "cm-amr": "/assets/grounds/cm_amr.png",
   "cm-cbl": "/assets/grounds/cm_cbl.png",
@@ -79,8 +74,6 @@ const POSITION_IMAGES: Record<string, string> = {
   "cm-rb": "/assets/grounds/cm_rb.png",
   "cm-rw": "/assets/grounds/cm_rw.png",
   "cm-striker": "/assets/grounds/cm_st.png",
-
-
 
   "gk-aml": "/assets/grounds/gk_aml.png",
   "gk-amr": "/assets/grounds/gk_amr.png",
@@ -93,7 +86,6 @@ const POSITION_IMAGES: Record<string, string> = {
   "gk-rw": "/assets/grounds/gk_rw.png",
   "gk-striker": "/assets/grounds/gk_st.png",
 
-
   "lw-aml": "/assets/grounds/lw_aml.png",
   "lw-amr": "/assets/grounds/lw_amr.png",
   "lw-cbl": "/assets/grounds/lw_cbl.png",
@@ -105,8 +97,6 @@ const POSITION_IMAGES: Record<string, string> = {
   "lw-rw": "/assets/grounds/lw_rw.png",
   "lw-striker": "/assets/grounds/lw_st.png",
 
-
-
   "rb-aml": "/assets/grounds/rb_aml.png",
   "rb-amr": "/assets/grounds/rb_amr.png",
   "rb-cbl": "/assets/grounds/rb_cbl.png",
@@ -117,7 +107,6 @@ const POSITION_IMAGES: Record<string, string> = {
   "rb-lw": "/assets/grounds/rb_lw.png",
   "rb-rw": "/assets/grounds/rb_rw.png",
   "rb-striker": "/assets/grounds/rb_st.png",
-
 
   "rw-aml": "/assets/grounds/rw_aml.png",
   "rw-amr": "/assets/grounds/rw_amr.png",
@@ -140,8 +129,6 @@ const POSITION_IMAGES: Record<string, string> = {
   "striker-lw": "/assets/grounds/st_lw.png",
   "striker-rb": "/assets/grounds/st_rb.png",
   "striker-rw": "/assets/grounds/st_rw.png",
-
-
 };
 
 const GroundField = ({
@@ -150,62 +137,69 @@ const GroundField = ({
   error,
   isError,
 }: {
-  data?: UserProfile
-  isLoading: boolean
-  error: unknown
-  isError: boolean
+  data?: UserProfile;
+  isLoading: boolean;
+  error: unknown;
+  isError: boolean;
 }) => {
-
   if (isLoading) {
-    return <div className="pt-0">
-      <GroundFieldSkeleton />
-    </div>
+    return (
+      <div className="pt-0">
+        <GroundFieldSkeleton />
+      </div>
+    );
   }
 
   if (isError) {
     const message =
       error instanceof Error ? error.message : "Something went wrong!";
-    return <div className="py-8">
-      <ErrorContainer message={message} />
-    </div>
+    return (
+      <div className="py-8">
+        <ErrorContainer message={message} />
+      </div>
+    );
   }
 
   const personalInfo = data?.user;
   const groundField = personalInfo?.position || [];
-  console.log("ground field", groundField)
+  console.log("ground field", groundField);
 
   const positionKey = groundField.slice(0, 2).join("-");
 
   const groundImage =
-    POSITION_IMAGES[positionKey] ||
-    POSITION_IMAGES[groundField[0]];
+    POSITION_IMAGES[positionKey] || POSITION_IMAGES[groundField[0]];
 
   if (!personalInfo) return null;
 
-
-
   return (
-    <div className="bg-white shadow-[0px_4px_16px_0px_#00000014] rounded-[16px] p-6 ">
-      <div className='flex items-center justify-between pb-1 md:pb-4'>
-        <p className='text-center'>
-          <span className='text-base md:text-lg font-normal text-black leading-[120%] text-center'>Main Position : </span> <br />
+    <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")] rounded-[16px] p-5 shadow-[0px_4px_24px_0px_#00000014]]'>
+      <div className="absolute inset-0 bg-black rounded-[16px] -z-50" />
+      <div className="flex items-center justify-between pb-1 md:pb-4">
+        <p className="text-center">
+          <span className="text-base md:text-lg font-normal text-primary leading-[120%] text-center">
+            Main Position :{" "}
+          </span>{" "}
+          <br />
           {/* <span className='text-lg md:text-xl font-normal text-black leading-[120%] text-center'>
             {personalInfo?.position?.slice(0, 1).toUpperCase() || "N/A"}
             </span> */}
-
-          <span className="text-lg md:text-xl font-normal text-black leading-[120%]">
-            {Array.isArray(personalInfo?.position) && personalInfo.position.length > 0
+          <span className="text-lg md:text-xl font-normal text-white leading-[120%]">
+            {Array.isArray(personalInfo?.position) &&
+            personalInfo.position.length > 0
               ? personalInfo.position[0].toUpperCase()
               : "N/A"}
           </span>
         </p>
 
-        <p className='text-center'>
-          <span className='text-base md:text-lg font-normal text-black leading-[120%] text-center'>Other Position : </span> <br />
+        <p className="text-center">
+          <span className="text-base md:text-lg font-normal text-primary leading-[120%] text-center">
+            Other Position :{" "}
+          </span>{" "}
+          <br />
           {/* <span className='text-lg md:text-xl font-normal text-black leading-[120%] text-center'>{personalInfo?.position?.slice(1, 2) || "N/A"}</span> */}
-
-          <span className="text-lg md:text-xl font-normal text-black leading-[120%]">
-            {Array.isArray(personalInfo?.position) && personalInfo.position.length > 1
+          <span className="text-lg md:text-xl font-normal text-white leading-[120%]">
+            {Array.isArray(personalInfo?.position) &&
+            personalInfo.position.length > 1
               ? personalInfo.position[1].toUpperCase()
               : "N/A"}
           </span>
@@ -223,8 +217,7 @@ const GroundField = ({
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GroundField
-
+export default GroundField;

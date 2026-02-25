@@ -52,7 +52,8 @@ const TransferHistory = ({
 
   return (
     <div className="pb-6">
-      <div className="container bg-white rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]">
+       <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
+                 <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
         
         <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">
           Transfer History
@@ -64,16 +65,16 @@ const TransferHistory = ({
             
             <TableHeader>
               <TableRow>
-                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] text-left whitespace-nowrap">
+                <TableHead className="text-lg md:text-xl font-normal text-primary leading-[120%] text-left whitespace-nowrap">
                   Season
                 </TableHead>
-                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] text-left whitespace-nowrap">
+                <TableHead className="text-lg md:text-xl font-normal text-primary leading-[120%] text-left whitespace-nowrap">
                   Date
                 </TableHead>
-                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] text-left whitespace-nowrap">
+                <TableHead className="text-lg md:text-xl font-normal text-primary leading-[120%] text-left whitespace-nowrap">
                   Left
                 </TableHead>
-                <TableHead className="text-lg md:text-xl font-normal text-[#131313] leading-[120%] text-left whitespace-nowrap">
+                <TableHead className="text-lg md:text-xl font-normal text-primary leading-[120%] text-left whitespace-nowrap">
                   Joined
                 </TableHead>
               </TableRow>
@@ -83,11 +84,11 @@ const TransferHistory = ({
               {transferHistory.map((info) => (
                 <TableRow key={info?._id}>
                   
-                  <TableCell className="text-sm md:text-base text-[#131313] leading-[150%] font-normal py-3 whitespace-nowrap">
+                  <TableCell className="text-sm md:text-base text-white leading-[150%] font-normal py-3 whitespace-nowrap">
                     {info?.season || "N/A"}
                   </TableCell>
 
-                  <TableCell className="text-sm md:text-base text-[#131313] leading-[150%] font-normal py-3 whitespace-nowrap">
+                  <TableCell className="text-sm md:text-base text-white leading-[150%] font-normal py-3 whitespace-nowrap">
                     {info?.date
                       ? moment(info.date).format("DD/MM/YYYY")
                       : "N/A"}
@@ -109,7 +110,7 @@ const TransferHistory = ({
                         height={100}
                         className="w-8 h-8 object-contain"
                       />
-                      <p className="text-sm md:text-base text-[#131313] leading-[150%] font-normal">
+                      <p className="text-sm md:text-base text-white leading-[150%] font-normal">
                         {info?.leftClubName || "N/A"}
                       </p>
                     </div>
@@ -131,7 +132,7 @@ const TransferHistory = ({
                         height={100}
                         className="w-8 h-8 object-contain"
                       />
-                      <p className="text-sm md:text-base text-[#131313] leading-[150%] font-normal">
+                      <p className="text-sm md:text-base text-white leading-[150%] font-normal">
                         {info?.joinedclubName || "N/A"}
                       </p>
                     </div>

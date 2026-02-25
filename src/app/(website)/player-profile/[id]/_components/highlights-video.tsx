@@ -37,8 +37,10 @@ const HighlightsVideo = ({
 
       if (!videos || videos.length === 0) {
     return (
-      <div className="mt-8">
-        <p className="py-12 text-center text-muted-foreground">
+       <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
+                 <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">Highlights</h3>
+        <p className="py-12 text-center text-white">
           No playing videos uploaded yet
         </p>
       </div>
@@ -46,7 +48,8 @@ const HighlightsVideo = ({
   }
     return (
         <div className='pb-6'>
-            <div className="container bg-white rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]">
+             <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
+                 <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
                 <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">Highlights</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {videos?.map((videoUrl, index) => (
