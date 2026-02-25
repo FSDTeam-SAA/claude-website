@@ -92,6 +92,7 @@ const RegisterAsPlayerEvaluationForm = ({
       )
 
       const profileData = await profileRes.json()
+      
       if (!profileData?.success) {
         throw new Error(profileData?.message || "Profile update failed")
       }
@@ -108,21 +109,27 @@ const RegisterAsPlayerEvaluationForm = ({
       )
 
       const paymentData = await paymentRes.json()
-      if (!paymentData?.success) {
-        throw new Error("Payment creation failed")
-      }
+      // console.log("Payment Response:", paymentData)
+      // if (!paymentData?.success) {
+      //   toast.message(paymentData?.message || "Payment initiation failed")
+      // }
 
       return paymentData
     },
 
     onSuccess: (data) => {
+      // console.log("Payment Initiation Success:", data)
+      if(!data?.success){
+        toast.message(data?.message || "Payment initiation failed")
+        return
+      }
       toast.success("Redirecting to payment...")
       window.location.href = data.data.approvalUrl
     },
 
-    onError: (error: Error) => {
-      toast.error(error.message || "Something went wrong")
-    },
+    // onError: (error: Error) => {
+    //   toast.error(error.message || "Something went wrong")
+    // },
   })
 
   // 2. Define a submit handler.

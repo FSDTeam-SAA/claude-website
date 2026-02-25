@@ -132,21 +132,26 @@ const RegisterAsTeamPlayerForm = ({
       )
 
       const paymentData = await paymentRes.json()
-      if (!paymentData?.success) {
-        throw new Error("Payment creation failed")
-      }
+      // if (!paymentData?.success) {
+      //   throw new Error("Payment creation failed")
+      // }
 
       return paymentData
     },
 
-    onSuccess: (data) => {
+      onSuccess: (data) => {
+      // console.log("Payment Initiation Success:", data)
+      if(!data?.success){
+        toast.message(data?.message || "Payment initiation failed")
+        return
+      }
       toast.success("Redirecting to payment...")
-      window.location.href = data.data.url
+      window.location.href = data.data.approvalUrl
     },
 
-    onError: (error: Error) => {
-      toast.error(error.message || "Something went wrong")
-    },
+    // onError: (error: Error) => {
+    //   toast.error(error.message || "Something went wrong")
+    // },
   })
 
   // 2. Define a submit handler.
