@@ -16,8 +16,9 @@ interface UserTypeModalProps {
 
 const UserTypeModal = ({ isOpen, onClose, onUserTypeSelect }: UserTypeModalProps) => {
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
+    <div className="">
+      <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="sm:max-w-md bg-white rounded-[12px] border-none ">
         <DialogHeader>
           <DialogTitle className="text-center text-xl">
             Select Your Role
@@ -65,6 +66,7 @@ const UserTypeModal = ({ isOpen, onClose, onUserTypeSelect }: UserTypeModalProps
         </div>
       </DialogContent>
     </Dialog>
+    </div>
   );
 };
 

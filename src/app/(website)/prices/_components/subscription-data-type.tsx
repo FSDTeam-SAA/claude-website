@@ -3,9 +3,10 @@ export interface Subscription {
   title: string
   price: number
   currency: string
+  evaluationLimit: number
   description?: string
   features: string[]
-  paymentType?: "TeamGame" | "Individual"
+  paymentType?: "TeamGame" | "Individual" | "Evaluation"
   interval?: "monthly" | "yearly"
   numberOfGames: number | null
   isActive: boolean

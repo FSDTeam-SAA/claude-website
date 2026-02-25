@@ -41,12 +41,13 @@ const SimilarPlayers = ({
   // ✅ Empty state (item friendly)
   if (!similarPlayers || similarPlayers.length === 0) {
     return (
-      <div className="container py-6">
-        <div className="bg-white rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]">
+      <div className="container py-6 px-0 ">
+        <div className='relative bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
+        <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
           <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5">
             SIMILAR PLAYERS
           </h3>
-          <p className="text-sm text-gray-500">No similar players found.</p>
+          <p className="text-sm text-white text-center">No similar players found.</p>
         </div>
       </div>
     );
@@ -54,7 +55,8 @@ const SimilarPlayers = ({
 
   return (
     <div className="pb-10 md:pb-14 lg:pb-20">
-      <div className="container bg-white rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]">
+      <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
+        <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
         <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">
           SIMILAR PLAYERS
         </h3>
@@ -65,7 +67,7 @@ const SimilarPlayers = ({
             return (
               <li key={item._id}>
                 <Link href={`/player-profile/${item?._id}`}>
-                  <div className="bg-[#E9EBF3]/50 flex flex-col md:flex-row items-center justify-between gap-4 rounded-[16px] p-3">
+                  <div className="bg-[#E9EBF3] flex flex-col md:flex-row items-center justify-between gap-4 rounded-[16px] p-3">
                     {/* LEFT: Profile */}
                     <div className="w-full md:w-2/5 flex items-center gap-2">
                       <Image
@@ -80,19 +82,6 @@ const SimilarPlayers = ({
                         <h4 className="text-sm md:text-base text-[#131313] font-semibold leading-[120%]">
                           {item?.name || "N/A"}
                         </h4>
-
-                        {/* <div className="flex items-center gap-2 pt-3">
-                                                <Image
-                                                    src={item?.nationalTeam?.flag || "/assets/images/no-flag.png"}
-                                                    alt="flag"
-                                                    width={24}
-                                                    height={24}
-                                                    className="w-6 h-6 rounded-[6px] object-cover"
-                                                />
-                                                <p className="text-sm font-normal text-[#131313] leading-[150%]">
-                                                    {item?.nationalTeam?.teamName || "N/A"}
-                                                </p>
-                                            </div> */}
                       </div>
                     </div>
 

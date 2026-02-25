@@ -68,7 +68,7 @@ const PlayerInfo = ({
     return (
         <div className='py-6  '>
             {/* new  */}
-            <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profiles_bg.jpg")]  grid grid-cols-1 md:gris-cols-2 lg:grid-cols-5 gap-6 bg-white rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014] '>
+            <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")]  grid grid-cols-1 md:gris-cols-2 lg:grid-cols-5 gap-6 bg-white rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014] '>
                    <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
                 <div className="md:col-span-1 w-full flex flex-col justify-center items-center ">
                     <Image src={personalInfo?.profileImage || "/assets/images/no-user.jpg"} alt={personalInfo?.firstName || "profile image"} width={1000} height={1000} className="w-[200px] h-[200px] object-cover rounded-full border border-white/50 shadow" />
