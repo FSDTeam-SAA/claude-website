@@ -39,7 +39,7 @@ export default function PaymentSuccessContainer() {
               <span className="text-green-600 font-semibold">Completed</span>
             </p>
             <p>
-              <span className="font-medium">Payment Method :</span> Stripe
+              <span className="font-medium">Payment Method :</span> Paypal
             </p>
             {/* <p>
               <span className="font-medium">Transaction ID :</span> #TRX2025001

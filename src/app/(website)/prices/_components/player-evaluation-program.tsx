@@ -1,17 +1,15 @@
 "use client"
-import { CircleCheckBig } from 'lucide-react'
 import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query';
 import { SubscriptionApiResponse } from './subscription-data-type';
 import { useSession } from 'next-auth/react';
-import RegisterAsTeamPlayerForm from './register-as-team-player-form';
-import TeamPricingSkeleton from './team-pricing-skeleton';
+import IndividualPricingSkeleton from './individual-pricing-skeleton';
 import ErrorContainer from '@/components/shared/ErrorContainer/ErrorContainer';
+import RegisterAsPlayerEvaluationForm from './register-as-player-evaluation-form';
 
 const PlayerEvaluationProgram = () => {
-    const [teamIsOpen, setTeamIsOpen] = useState(false);
-const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
-
+    const [isOpen, setIsOpen] = useState(false);
+    const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
     const session = useSession();
     const token = (session?.data?.user as { accessToken: string })?.accessToken;
 
@@ -28,25 +26,17 @@ const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
         }
     })
 
-    console.log(data)
+    // console.log(data)
 
     const subscriptionData = data?.data?.filter(
-        (item) => item?.paymentType === "TeamGame"
+        (item) => item?.paymentType === "Evaluation"
     )
-
-    const sortedSubscriptionData = subscriptionData
-  ?.sort((a, b) => {
-    const aGames = a.numberOfGames ?? Number.MAX_SAFE_INTEGER;
-    const bGames = b.numberOfGames ?? Number.MAX_SAFE_INTEGER;
-
-    return aGames - bGames;
-  });
 
     // console.log(subscriptionData)
 
        if (isLoading) {
-            return <div className="container py-10">
-                <TeamPricingSkeleton />
+            return <div className="container py-6">
+                <IndividualPricingSkeleton />
             </div>
         }
     
@@ -57,57 +47,39 @@ const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
                 <ErrorContainer message={message} />
             </div>
         }
+
+
     return (
-        <div className="bg_color border-b border-[#EBEBEB]  py-7 md:py-16 lg:py-24">
+        // <div className="bg-[#EBEBEB] py-10 md:py-16 lg:py-24">
+         <div className="bg_color py-7 md:py-16 lg:py-24">
             <div className="container ">
-                <h3 className='text-2xl md:text-3xl lg:text-[40px] text-primary leading-normal h_underline font-normal text-center line-clamp-2 md:line-clamp-1'>Player Evaluation Program</h3>
-                <div className="grid grid-cols-1 md:grid-cols-6 gap-6 pt-2 md:pt-7 lg:pt-10">
-                {sortedSubscriptionData?.sort()?.map((item, index) => {
-                        const isFourth = index === 3;
-                        const isFifth = index === 4;
-
-                        return (
-                            <div
-                                key={item._id}
-                                className={`
-                                col-span-1 md:col-span-2
-                                ${isFourth ? "md:col-start-2" : ""}
-                                ${isFifth ? "md:col-start-4" : ""}
-                                border-[1.5px] border-primary rounded-[16px] overflow-hidden
-                                `}
-                            >
-                                
-                                <div className="bg-primary rounded-t-[14px] text-lg md:text-xl lg:text-2xl font-normal text-white leading-[120%] text-center py-6">
-                                    {item?.numberOfGames} games
+                <h3 className='text-2xl md:text-3xl lg:text-[40px] text-primary h_underline leading-[120%] font-normal text-center'>Player Evaluation Program</h3>
+               
+                <div className='w-full flex items-center justify-center gap-6 pt-2 md:pt-9 lg:pt-12'>
+                    {
+                        subscriptionData?.map((item) => {
+                            return <div key={item?._id} className="w-full md:w-1/3 border-[1.5px] border-primary rounded-[16px]">
+                                <div className='bg-primary rounded-t-[14px] py-4 md:py-6 lg:py-8'>
+                                    <h4 className='text-lg md:text-xl lg:text-[22px] font-normal text-white leading-[120%] text-center '>{item?.title}</h4>
+                                 <p className=' text-base md:text-lg  font-normal text-white leading-[120%] text-center '>{item?.evaluationLimit || 0} Evaluation</p>
+                                </div>
+                                <div className='pt-5 pb-6 md:pb-8 lg:pb-10 px-6 md:px-7 lg:px-8'>
+                                    <h5 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-5">${item?.price}</h5>
+                                    <button onClick={() => {setIsOpen(true); setSubscriptionId(item?._id)}} className='w-full h-[51px] bg-[#424242] rounded-[8px] text-base text-white leading-[120%] font-medium '>Continue</button>
                                 </div>
 
-                                
-                                <div className="p-6 text-center">
-                                    <h4 className="text-2xl md:text-3xl lg:text-[40px] text-[#131313] text-center leading-[120%] font-bold pb-5">
-                                        ${item.price}
-                                        <span className="text-sm font-normal"> / player</span>
-                                    </h4>
 
-                                    <p className="flex items-center justify-center gap-2 text-sm text-[#131313] py-4">
-                                        <CircleCheckBig className="w-4 h-4 text-green-600" />
-                                        {item?.description}
-                                    </p>
-
-                                    <button onClick={()=>{
-                                        setTeamIsOpen(true)
-                                        setSubscriptionId(item._id)
-                                    }} className='w-full h-[51px] bg-[#424242] rounded-[8px] text-base text-white leading-[120%] font-medium '>Continue</button>
-                                </div>
                             </div>
-                        );
-                    })}
+                        })
+                    }
+
                 </div>
             </div>
 
-             {/* modal open  */}
+            {/* modal open  */}
             {
-                teamIsOpen && subscriptionId && (
-                    <RegisterAsTeamPlayerForm open={teamIsOpen} onOpenChange={setTeamIsOpen} subscriptionId={subscriptionId} />
+                isOpen && subscriptionId && (
+                    <RegisterAsPlayerEvaluationForm open={isOpen} onOpenChange={setIsOpen} subscriptionId={subscriptionId} />
                 )
             }
         </div>
