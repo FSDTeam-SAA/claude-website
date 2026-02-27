@@ -18,9 +18,9 @@ const UserTypeModal = ({ isOpen, onClose, onUserTypeSelect }: UserTypeModalProps
   return (
     <div className="">
       <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md bg-white rounded-[12px] border-none ">
+      <DialogContent className="sm:max-w-md bg-white !rounded-[12px] border-none ">
         <DialogHeader>
-          <DialogTitle className="text-center text-xl">
+          <DialogTitle className="text-center text-xl text-green-700">
             Select Your Role
           </DialogTitle>
         </DialogHeader>
@@ -36,7 +36,7 @@ const UserTypeModal = ({ isOpen, onClose, onUserTypeSelect }: UserTypeModalProps
               className="w-full p-6 border-2 border-[#424242] rounded-[12px] hover:border-primary hover:bg-primary/5 transition-all flex flex-col items-center"
             >
               <div className="text-3xl mb-2">⚽</div>
-              <h3 className="text-lg font-semibold">Player</h3>
+              <h3 className="text-lg font-semibold text-green-700">Player</h3>
               <p className="text-sm text-[#424242] mt-1">
                 Sign up as a field player
               </p>
@@ -44,10 +44,10 @@ const UserTypeModal = ({ isOpen, onClose, onUserTypeSelect }: UserTypeModalProps
             
             <button
               onClick={() => onUserTypeSelect("gk")}
-              className="w-full p-6 border-2 border-[#424242] rounded-lg hover:border-primary hover:bg-primary/5 transition-all flex flex-col items-center"
+              className="w-full p-6 border-2 border-[#424242] rounded-[12px] hover:border-primary hover:bg-primary/5 transition-all flex flex-col items-center"
             >
               <div className="text-3xl mb-2">🧤</div>
-              <h3 className="text-lg font-semibold">Goalkeeper</h3>
+              <h3 className="text-lg font-semibold text-green-700">Goalkeeper</h3>
               <p className="text-sm text-[#424242] mt-1">
                 Sign up as a goalkeeper
               </p>
@@ -58,7 +58,7 @@ const UserTypeModal = ({ isOpen, onClose, onUserTypeSelect }: UserTypeModalProps
             <Button
               variant="outline"
               onClick={onClose}
-              className="w-full border border-[#424242] rounded-[12px]"
+              className="w-full border border-[#424242] text-green-700 rounded-[12px]"
             >
               Cancel
             </Button>

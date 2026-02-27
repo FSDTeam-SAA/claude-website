@@ -4,7 +4,8 @@ import Link from 'next/link'
 
 const WhatDoWeOffer = () => {
     return (
-        <div className='py-6 md:py-10'>
+        <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")]  py-6 md:py-10'>
+            <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
 
             <div className='container grid grid-cols-1 md:grid-cols-7 gap-6 md:gap-7 lg:gap-10 xl:gap-12 '>
                 <div className="order-2 md:order-1 md:col-span-3 flex items-center">

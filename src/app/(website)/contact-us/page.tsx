@@ -6,7 +6,7 @@ import ContactInformation from './_components/contact-information'
 
 const ContactUsPage = () => {
   return (
-    <div>
+    <div className='bg-white'>
       {/* <ContactHero/> */}
       <ContactInformation/>
       {/* <BuyYourDataNow/> */}

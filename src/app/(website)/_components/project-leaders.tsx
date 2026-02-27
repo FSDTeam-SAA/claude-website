@@ -17,7 +17,8 @@ const ProjectLeader = () => {
     },
   ]
   return (
-    <div className='bg_color py-8 md:py-14 lg:py-16'>
+    <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")] py-8 md:py-14 lg:py-16'>
+      <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
       <div className="container">
         <h3 className='text-2xl md:text-3xl lg:text-4xl text-primary font-normal h_underline leading-[120%] text-center'>Project Leaders</h3>
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-10 pt-2 md:pt-6 lg:pt-8">

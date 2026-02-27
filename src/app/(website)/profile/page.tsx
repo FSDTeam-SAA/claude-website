@@ -3,7 +3,7 @@ import ProfileContainer from './_components/profile-container'
 
 const ProfilePage = () => {
   return (
-    <div>
+    <div className='bg-white'>
       <ProfileContainer/>
     </div>
   )

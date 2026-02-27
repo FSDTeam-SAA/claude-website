@@ -18,9 +18,10 @@ const OurPartners = () => {
 
     ]
     return (
-        <div className="py-6 md:py-8 lg:py-12">
+        <div className='py-6 md:py-8 lg:py-12 bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")]'>
+            <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
             <div className="container pt-4">
-                <h4 className='text-2xl md:text-3xl lg:text-4xl text-center font-normal leading-[120%] text-[#131313]'>Our Partners</h4>
+                <h4 className='text-2xl md:text-3xl lg:text-4xl text-center font-normal leading-[120%] text-primary'>Our Partners</h4>
                 {/* <p className='text-sm lg:text-base text-[#616161] leading-[150%] text-center font-nnormal pt-4'>Don&lsquo;t just take our word for it. Here&lsquo;s what real customers have to say about <br /> their AutoIntel inspection experience.</p> */}
 
                 <div className="py-6 md:py-18 lg:py-10">

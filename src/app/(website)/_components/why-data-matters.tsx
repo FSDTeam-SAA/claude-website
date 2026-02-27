@@ -117,7 +117,8 @@ const data: Column[] = [
 
 const WhyDataMatters = () => {
   return (
-    <section className="py-6 md:py-10 lg:py-16">
+    <section className='py-6 md:py-10 lg:py-16 bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")]'>
+      <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
       <div className="container">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto">
@@ -135,13 +136,13 @@ const WhyDataMatters = () => {
             <div key={index} className="relative">
               {/* Vertical Divider */}
               {index !== 0 && (
-                <div className="hidden md:block absolute -left-4 top-0 h-full w-[4px] bg-[#131313]" />
+                <div className="hidden md:block absolute -left-4 top-0 h-full w-[4px] bg-primary" />
               )}
                {index === 0 && (
-                <div className="hidden md:block absolute -left-4 top-0 h-full w-[4px] bg-[#131313]" />
+                <div className="hidden md:block absolute -left-4 top-0 h-full w-[4px] bg-primary" />
               )}
 
-              <h4 className="text-xl md:text-2xl lg:text-3xl font-normal leading-[120%] text-black underline underline-offset-8 decoration-4 pb-6 md:pb-7 lg:pb-8">
+              <h4 className="text-xl md:text-2xl lg:text-3xl font-normal leading-[120%] text-primary underline underline-offset-8 decoration-4 pb-6 md:pb-7 lg:pb-8">
                 {column.heading}
               </h4>
 
@@ -156,10 +157,10 @@ const WhyDataMatters = () => {
                     </div>
 
                     <div>
-                      <h5 className="text-sm md:text-base font-normal leading-[150%] text-[#0A1628]">
+                      <h5 className="text-sm md:text-base font-normal leading-[150%] text-primary">
                         {item.title}
                       </h5>
-                      <p className="text-sm text-[#616161] font-normal leading-[150%] pt-1 md:pt-2 ">
+                      <p className="text-sm text-white font-normal leading-[150%] pt-1 md:pt-2 ">
                         {item.description}
                       </p>
                     </div>

@@ -55,10 +55,10 @@ const PlayerEvaluationProgram = () => {
             <div className="container ">
                 <h3 className='text-2xl md:text-3xl lg:text-[40px] text-primary h_underline leading-[120%] font-normal text-center'>Player Evaluation Program</h3>
                
-                <div className='w-full flex items-center justify-center gap-6 pt-2 md:pt-9 lg:pt-12'>
+                <div className='w-full grid grid-cols-1 md:grid-cols-3 gap-6 pt-2 md:pt-9 lg:pt-12'>
                     {
                         subscriptionData?.map((item) => {
-                            return <div key={item?._id} className="w-full md:w-1/3 border-[1.5px] border-primary rounded-[16px]">
+                            return <div key={item?._id} className="w-full border-[1.5px] border-primary rounded-[16px]">
                                 <div className='bg-primary rounded-t-[14px] py-4 md:py-6 lg:py-8'>
                                     <h4 className='text-lg md:text-xl lg:text-[22px] font-normal text-white leading-[120%] text-center '>{item?.title}</h4>
                                  <p className=' text-base md:text-lg  font-normal text-white leading-[120%] text-center '>{item?.evaluationLimit || 0} Evaluation</p>

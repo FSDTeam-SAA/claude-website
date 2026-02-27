@@ -2,7 +2,7 @@ import React from "react";
 
 const TermsOfUsePage = () => {
   return (
-    <div>
+    <div className="bg-white">
       <div className="container py-10 md:py-14 lg:py-[72px]">
         <div>
           {/* Main Title */}

@@ -9,7 +9,7 @@ interface PlayerProfilePageProps {
 
 const PlayerProfilePage = ({ params }: PlayerProfilePageProps) => {
   return (
-    <div className="h-min-screen bg-[#B1AEFF]/10 ">
+    <div className="h-min-screen bg-[#B1AEFF]/10">
       <PlayerProfileContainer id={params?.id} />
 
     </div>

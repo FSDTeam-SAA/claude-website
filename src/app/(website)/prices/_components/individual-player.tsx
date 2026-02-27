@@ -35,7 +35,7 @@ const IndividualPlayer = () => {
     // console.log(subscriptionData)
 
        if (isLoading) {
-            return <div className="container py-6">
+            return <div className=" container py-6">
                 <IndividualPricingSkeleton />
             </div>
         }
@@ -51,7 +51,7 @@ const IndividualPlayer = () => {
 
     return (
         // <div className="bg-[#EBEBEB] py-10 md:py-16 lg:py-24">
-         <div className="bg_color py-7 md:py-16 lg:py-24">
+         <div className="bg_color py-7 md:py-16 lg:py-24 ">
             <div className="container ">
                 <h3 className='text-2xl md:text-3xl lg:text-[40px] text-primary h_underline leading-[120%] font-normal text-center'>Pricing For Individual Player</h3>
                 {/* <p className='text-base text-[#424242] leading-[150%] font-normal text-center pt-4'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> */}

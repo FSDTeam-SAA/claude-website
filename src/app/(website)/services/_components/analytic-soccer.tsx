@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const AnalyticSoccer = () => {
@@ -21,6 +22,16 @@ const AnalyticSoccer = () => {
                 <p className='text-sm md:text-base text-[#131313] font-normal leading-[150%]'>Parents and players receive ongoing feedback that helps them understand progress and areas to work on.</p>
                 <p className='text-sm md:text-base text-[#131313] font-normal leading-[150%] py-2 '>The goal is to understand where your child is today and support their development step by step, at their own pace.</p>
                
+                <div className="pt-5">
+                <Link
+                                       href="/analytic-soccer-coming-soon"
+                                       className="w-full flex items-center justify-center"
+                                   >
+                                       <button className="w-auto h-[44px] md:h-[50px] lg:h-[56px] bg-primary text-black ease-in-out duration-200 transition-all py-3 px-5 md:px-6 rounded-full text-sm md:text-base lg:text-lg font-medium leading-[120%] ">
+                                           Go to Player Evaluation Program
+                                       </button>
+                                   </Link>
+                                   </div>
             </div>
             <div className="md:col-span-1">
                 <Image src="/assets/images/analytic-soccer.jpg" alt="Analytic Soccer Coming Soon" width={500} height={500} className='w-full h-[300px] md:h-[501px] rounded-[16px] object-cover'/>

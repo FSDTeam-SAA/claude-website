@@ -131,7 +131,7 @@ const PlayerInfo = ({
 
                         <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>GPA</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.gpa || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Jerssy Number</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.jerseyNumber || "N/A"}</span></li>
+                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Jersey Number</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.jerseyNumber || "N/A"}</span></li>
 
                         <li className="flex flex-row md:flex-col gap-2">
                             <span className='text-base font-normal text-primary leading-[150%]'>

@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function IndividualPricingSkeleton() {
   return (
-    <div className="w-full flex items-center justify-center gap-6">
+    <div className=" w-full flex items-center justify-center gap-6">
       {Array.from({ length: 1 }).map((_, index) => (
         <div
           key={index}

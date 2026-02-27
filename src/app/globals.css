@@ -8,6 +8,10 @@
   }
 }
 
+body{
+  @apply bg-[#F4FFF4]
+}
+
 .bg_color{
   background-color: #F4FFF4
 }
@@ -139,11 +143,11 @@
 
 
 
-@layer base {
+/* @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
   }
-}
+} */
