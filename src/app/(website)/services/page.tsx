@@ -5,7 +5,7 @@ import PlayerProfiles from './_components/player-profiles'
 
 const ServicesPage = () => {
   return (
-    <div>
+    <div className='bg-white'>
       <ServiceData/>
       <PlayerProfiles/>
       <AnalyticSoccer/>
