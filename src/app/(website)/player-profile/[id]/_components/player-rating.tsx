@@ -1,6 +1,5 @@
-
-import React from 'react'
-import { UserProfile } from './player-data-type';
+import React from "react";
+import { UserProfile } from "./player-data-type";
 import {
   Bar,
   BarChart,
@@ -8,49 +7,37 @@ import {
   LabelList,
   XAxis,
   type LabelProps,
-} from "recharts"
+} from "recharts";
 
-import ErrorContainer from '@/components/shared/ErrorContainer/ErrorContainer';
+import ErrorContainer from "@/components/shared/ErrorContainer/ErrorContainer";
 
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card";
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/components/ui/chart"
-import PlayerRatingSkeleton from './player-rating-skeleton';
+} from "@/components/ui/chart";
+import PlayerRatingSkeleton from "./player-rating-skeleton";
 
-
-const CustomBarLabel: React.FC<LabelProps> = ({
-  x,
-  y,
-  width,
-  value,
-}) => {
+const CustomBarLabel: React.FC<LabelProps> = ({ x, y, width, value }) => {
   if (
     typeof x !== "number" ||
     typeof y !== "number" ||
     typeof width !== "number" ||
     typeof value !== "number"
   ) {
-    return null
+    return null;
   }
 
   return (
-    <foreignObject
-      x={x + width / 2 - 18}
-      y={y - 28}
-      width={36}
-      height={24}
-    >
+    <foreignObject x={x + width / 2 - 18} y={y - 28} width={36} height={24}>
       <div className="flex items-center justify-center rounded-[4px] bg-primary px-2 py-1 text-xs font-normal leading-[150%] text-white">
         {value}
       </div>
     </foreignObject>
-  )
-}
-
+  );
+};
 
 const chartConfig = {
   desktop: {
@@ -58,44 +45,43 @@ const chartConfig = {
     color: "#4674B7",
     // color: "#ffffff",
   },
-} satisfies ChartConfig
-
+} satisfies ChartConfig;
 
 const PlayerRating = ({
-    data,
-    isLoading,
-    error,
-    isError,
+  data,
+  isLoading,
+  error,
+  isError,
 }: {
-    data?: UserProfile
-    isLoading: boolean
-    error: unknown
-    isError: boolean
+  data?: UserProfile;
+  isLoading: boolean;
+  error: unknown;
+  isError: boolean;
 }) => {
+  if (isLoading) {
+    return (
+      <div className="pt-0">
+        <PlayerRatingSkeleton />
+      </div>
+    );
+  }
 
-    if (isLoading) {
-        return <div className="pt-0">
-            <PlayerRatingSkeleton />
-        </div>
-    }
+  if (isError) {
+    const message =
+      error instanceof Error ? error.message : "Something went wrong!";
+    return (
+      <div className="py-8">
+        <ErrorContainer message={message} />
+      </div>
+    );
+  }
 
-    if (isError) {
-        const message =
-            error instanceof Error ? error.message : "Something went wrong!";
-        return <div className="py-8">
-            <ErrorContainer message={message} />
-        </div>
-    }
+  const ratingData = data?.rating?.slice(0, 5);
+  const gameCount = Math.min(data?.rating?.length ?? 0, 5);
 
-    
+  console.log("ratingData", ratingData);
 
-    const ratingData = data?.rating?.slice(0, 5);
-    const gameCount = Math.min(data?.rating?.length ?? 0, 5);
-
-    console.log("ratingData", ratingData)
-
-
-    if (!ratingData) return null;
+  if (!ratingData) return null;
   return (
     <div className='relative bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")] shadow-[0px_4px_16px_0px_#00000014] rounded-[16px] p-5'>
       <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
@@ -106,19 +92,32 @@ const PlayerRating = ({
       <Card className="border-none">
         <CardContent className="border-none">
           <ChartContainer config={chartConfig} className="w-full h-[290px] ">
-            <BarChart data={ratingData} margin={{ top: 32 }} barCategoryGap="10%">
+            <BarChart
+              data={ratingData}
+              margin={{ top: 32 }}
+              barCategoryGap="10%"
+            >
               <CartesianGrid vertical={false} />
 
-              <XAxis
+              {/* <XAxis
                 dataKey="createdAt"
                 tickLine={false}
                 tickMargin={10}
                 axisLine={false}
                 tickFormatter={(value: string) => value.slice(0, 10)}
-                className="bg-white text-white"
-              />
+                className="!bg-white !text-white"
+              /> */}
 
-               
+
+            <XAxis
+  dataKey="createdAt"
+  tickLine={false}
+  tickMargin={10}
+  axisLine={false}
+  tickFormatter={(value: string) => value.slice(0, 10)}
+  tick={{ fill: "white", fontSize: 12 }}
+/>
+
 
               <ChartTooltip
                 cursor={false}
@@ -139,10 +138,7 @@ const PlayerRating = ({
         </CardContent>
       </Card>
     </div>
-  )
-}
+  );
+};
 
-export default PlayerRating
-
-
-
+export default PlayerRating;
