@@ -23,7 +23,7 @@ import { toast } from "sonner"
 import SearchBox from "./SearchBox"
 import { useRouter } from "next/navigation"
 import { useQuery } from "@tanstack/react-query"
-import { UserProfileApiResponse } from "@/app/(website)/player-profile/[id]/_components/player-data-type"
+import { UserProfileApiResponse } from "@/app/(player-profile)/player-profile/[id]/_components/player-data-type"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)

@@ -23,8 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AuthProvider>
           <AppProvider>
 
-           
-
             {children}
             <Toaster />
 
