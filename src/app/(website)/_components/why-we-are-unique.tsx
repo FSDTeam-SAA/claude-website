@@ -63,7 +63,7 @@ const WhyWeAreUnique = () => {
 
                 <div className="pb-6 md:py-6 md:pl-6 shadow-[0px_4px_16px_0px_#00000029] rounded-[16px]  grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-9 lg:gap-10 ">
                     <div className='md:col-span-2 '>
-                        <Image src="/assets/images/why_you_needs.jpeg" alt="why-we-uniqe" width={500} height={500} className="w-full object-fill rounded-[8px] h-[180px] md:h-[340px] lg:h-[320px] " />
+                        <Image src="/assets/images/why_you_needs.jpeg" alt="why-we-uniqe" width={500} height={500} className="w-full object-fill rounded-[8px] h-[180px] md:h-[320px] lg:h-[310px] " />
                     </div>
 
                     <div className='md:col-span-3 h-full flex flex-col justify-center px-4 md:pr-6'>

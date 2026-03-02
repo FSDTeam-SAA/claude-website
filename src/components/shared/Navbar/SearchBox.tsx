@@ -144,7 +144,7 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           onFocus={handleFocus}
-          className="pl-10 pr-10 h-10 rounded-full border-2 border-gray-200 focus:border-primary"
+          className="pl-10 pr-10 h-10 rounded-full border-2 border-gray-200 focus:border-primary placeholder:text-[#616161]"
         />
 
         {searchTerm && (

@@ -11,7 +11,7 @@ type NewsletterResponse = {
   message?: string;
 };
 
-export default function NewsletterSubscribe() {
+export default function BgNewsletterSubscribe() {
   const [email, setEmail] = useState("");
 
   const { mutate, isPending } = useMutation({
@@ -70,7 +70,7 @@ export default function NewsletterSubscribe() {
             onChange={(e) => setEmail(e.target.value)}
             required
             disabled={isPending}
-            className="h-10 border-y border-l border-primary rounded-l-[8px] focus:outline-none ring-0 placeholder:text-[#616161] text-[#131313]"
+            className="h-10 border-y border-l border-primary rounded-l-[8px] focus:outline-none ring-0 placeholder:text-white text-white"
           />
 
           <Button
