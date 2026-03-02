@@ -5,7 +5,7 @@ import React from 'react'
 
 const WhyWeAreUnique = () => {
     return (
-        <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")] py-6 md:py-10 lg:py-16'>
+        <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")] py-6 md:py-10 lg:py-16'>
             <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
             <div className='container '>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
@@ -63,7 +63,7 @@ const WhyWeAreUnique = () => {
 
                 <div className="pb-6 md:py-6 md:pl-6 shadow-[0px_4px_16px_0px_#00000029] rounded-[16px]  grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-9 lg:gap-10 ">
                     <div className='md:col-span-2 '>
-                        <Image src="/assets/images/why_you_needs.jpeg" alt="why-we-uniqe" width={500} height={500} className="w-full object-fill rounded-[8px] h-[180px] md:h-[380px] lg:h-[350px] " />
+                        <Image src="/assets/images/why_you_needs.jpeg" alt="why-we-uniqe" width={500} height={500} className="w-full object-fill rounded-[8px] h-[180px] md:h-[340px] lg:h-[320px] " />
                     </div>
 
                     <div className='md:col-span-3 h-full flex flex-col justify-center px-4 md:pr-6'>

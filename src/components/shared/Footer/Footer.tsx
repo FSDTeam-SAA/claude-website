@@ -6,7 +6,7 @@ import { Facebook, Linkedin, Instagram, Mail } from 'lucide-react'
 
 const Footer = () => {
   return (
-    <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")] border-t border-[#8E959F]/50'>
+    <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")] border-t border-[#8E959F]/50'>
       <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
       <div className="py-10 md:py-12 lg:py-14 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-10 gap-5 md:gap-6 lg:gap-6">
         <div className="md:col-span-3">

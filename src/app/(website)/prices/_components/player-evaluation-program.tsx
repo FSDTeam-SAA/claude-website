@@ -6,6 +6,7 @@ import { useSession } from 'next-auth/react';
 import IndividualPricingSkeleton from './individual-pricing-skeleton';
 import ErrorContainer from '@/components/shared/ErrorContainer/ErrorContainer';
 import RegisterAsPlayerEvaluationForm from './register-as-player-evaluation-form';
+import { CircleCheckBig } from 'lucide-react';
 
 const PlayerEvaluationProgram = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -64,7 +65,11 @@ const PlayerEvaluationProgram = () => {
                                  <p className=' text-base md:text-lg  font-normal text-white leading-[120%] text-center '>{item?.evaluationLimit || 0} Evaluation</p>
                                 </div>
                                 <div className='pt-5 pb-6 md:pb-8 lg:pb-10 px-6 md:px-7 lg:px-8'>
-                                    <h5 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-5">${item?.price}</h5>
+                                    <h5 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-2">${item?.price}</h5>
+                                     <p className="flex items-center justify-center gap-2 text-sm text-[#131313] py-3">
+                                        <CircleCheckBig className="w-4 h-4 text-green-600" />
+                                        Report - Feedback - Development Plan
+                                    </p>
                                     <button onClick={() => {setIsOpen(true); setSubscriptionId(item?._id)}} className='w-full h-[51px] bg-[#424242] rounded-[8px] text-base text-white leading-[120%] font-medium '>Continue</button>
                                 </div>
 

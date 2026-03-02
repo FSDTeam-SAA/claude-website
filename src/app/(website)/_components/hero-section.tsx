@@ -11,7 +11,7 @@ const HeroSection = () => {
           src="/assets/videos/hero.mp4"
           autoPlay
           loop
-          // muted
+          muted
           playsInline
         />
 
@@ -21,7 +21,7 @@ const HeroSection = () => {
           src="/assets/videos/new_phone_video.mp4"
           autoPlay
           loop
-          // muted
+          muted
           playsInline
         />
         <div className="absolute inset-0 bg-black/40" />

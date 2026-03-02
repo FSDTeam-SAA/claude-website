@@ -49,7 +49,7 @@ const OurMission = () => {
   ];
 
   return (
-    <section className='relative w-full bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")] py-8 md:py-12 lg:py-16 overflow-hidden'>
+    <section className='relative w-full bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")] py-8 md:py-12 lg:py-16 overflow-hidden'>
       <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
       
       {/* Left background image */}

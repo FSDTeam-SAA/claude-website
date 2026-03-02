@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const WhatDoWeOffer = () => {
     return (
-        <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")]  py-6 md:py-10'>
+        <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")]  py-6 md:py-10'>
             <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
 
             <div className='container grid grid-cols-1 md:grid-cols-7 gap-6 md:gap-7 lg:gap-10 xl:gap-12 '>
@@ -21,7 +21,7 @@ const WhatDoWeOffer = () => {
 
                     <div className="w-full flex items-center justify-center pt-4 md:pt-0">
                         <Link href="/sign-up">
-                        <button className="w-[180px] md:w-[200px] lg:w-[215px] h-[40px] md:h-[44px] lg:h-[48px] text-base md:text-lg text-black leading-[120%] font-normal bg-primary rounded-full relative z-10">Register</button>
+                        <button className="w-auto h-[40px] md:h-[44px] lg:h-[48px] text-base md:text-lg text-black leading-[120%] font-normal bg-primary rounded-full relative z-10 px-6">Get Your Player Report</button>
                     </Link>
                     </div>
                 </div>
