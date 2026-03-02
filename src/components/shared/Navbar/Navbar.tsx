@@ -71,7 +71,7 @@ const Navbar = () => {
   const handLogout = async () => {
     try {
       toast.success("Logout successful!")
-      await signOut({ callbackUrl: "/login" })
+      await signOut({ callbackUrl: "/" })
     } catch (error) {
       console.error("Logout failed:", error)
       toast.error("Logout failed. Please try again.")

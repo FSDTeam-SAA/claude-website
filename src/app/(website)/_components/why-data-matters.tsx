@@ -117,7 +117,7 @@ const data: Column[] = [
 
 const WhyDataMatters = () => {
   return (
-    <section className='py-6 md:py-10 lg:py-16 bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/player_profile_bg.svg")]'>
+    <section className='py-6 md:py-10 lg:py-16 bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")]'>
       <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
       <div className="container">
         {/* Header */}
