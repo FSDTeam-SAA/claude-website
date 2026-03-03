@@ -49,8 +49,7 @@ const OurMission = () => {
   ];
 
   return (
-    <section className='relative w-full bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] py-8 md:py-12 lg:py-16 overflow-hidden'>
-      <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
+    <section className='relative w-full bg_color py-8 md:py-12 lg:py-16 overflow-hidden'>
       
       {/* Left background image */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2">
@@ -80,7 +79,7 @@ const OurMission = () => {
           Our Mission
         </h3>
 
-        <p className="text-sm md:text-base text-white leading-[150%] pt-3 max-w-2xl mx-auto">
+        <p className="text-sm md:text-base text-[#131313] leading-[150%] pt-3 max-w-2xl mx-auto">
           Give amateur players the same digital visibility as professional athletes.
         </p>
 

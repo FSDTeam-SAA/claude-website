@@ -9,14 +9,13 @@ const WhyYouNeedAProfile = () => {
        const session = useSession();
             const isLogin = session?.data?.user?.accessToken
   return (
-    <div className='w-full bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] py-6 md:py-10 lg:py-16 rounded-none'>
-      <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
+    <div className='w-full bg_color py-6 md:py-10 lg:py-16 rounded-none'>
       <div className="container">
         <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary h_underline font-normal leading-[120%]">
           Why You Need a Profile
         </h3>
 
-        <p className="text-sm md:text-base text-white font-normal leading-normal py-1 md:py-4">
+        <p className="text-sm md:text-base text-[#131313] font-normal leading-normal py-1 md:py-4">
           Most amateur players today are invisible to the football market even
           if they <br className="hidden md:block" />
           perform well. No one outside their local area sees them.
@@ -106,7 +105,7 @@ const WhyYouNeedAProfile = () => {
         {/* <div className="relative h-[390px] w-full bg-[url('/assets/images/you-need-profile-bg.jpg')] bg-cover bg-center bg-no-repeat rounded-[8px] flex flex-col items-center justify-center animate-moveBackground"> */}
         <div className="relative h-[390px] w-full bg-[url('/assets/images/dont-stay-banner.png')] bg-cover bg-center bg-no-repeat rounded-[8px] flex flex-col items-center justify-center animate-moveBackground">
           <div className="absolute inset-0 bg-black/30 rounded-[8px]" />
-          <h4 className="text-2xl md:text-3xl lg:text-4xl text-white font-normal leading-[120%] text-center relative z-10">
+          <h4 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] font-normal leading-[120%] text-center relative z-10">
             Don&apos;t Stay Invisible
           </h4>
           <p className="text-sm md:text-base text-[#E7E7E7] text-center font-normal leading-[150%] py-3 md:py-5 lg:py-6 relative z-10">
