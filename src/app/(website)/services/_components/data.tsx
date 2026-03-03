@@ -31,7 +31,7 @@ const ServiceData = () => {
                         Feedback that helps players understand strengths, weaknesses, and what to improve..</p>
 
                     <Link
-                        href="/profiles"
+                        href="/prices"
                         className="flex items-center justify-center pt-3 md:pt-0"
                     >
                         <button className="w-[250px] md:w-[300px] h-[40px] md:h-[50px] lg:h-[56px] bg-primary text-black ease-in-out duration-200 transition-all py-3 px-5 md:px-6 rounded-full text-sm md:text-base lg:text-lg font-medium leading-[120%]">

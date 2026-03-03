@@ -1,11 +1,16 @@
+"use client"
+
 import { Award, CircleCheckBig, Database, TrendingUp } from 'lucide-react'
+import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 const WhyWeAreUnique = () => {
+     const session = useSession();
+          const isLogin = session?.data?.user?.accessToken
     return (
-        <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")] py-6 md:py-10 lg:py-16'>
+        <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] py-6 md:py-10 lg:py-16'>
             <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
             <div className='container '>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
@@ -20,8 +25,8 @@ const WhyWeAreUnique = () => {
                     </ul>
                         <p className='text-sm md:text-base text-white font-normal leading-[150%] pt-3 md:pt-5 lg:pt-6'>Analytic Soccer is the first platform to deliver all of this, giving amateur players the same digital tools, visibility and data identity used by professionals players.</p>
                     </div>
-                    <div className="md:col-span-1 h-full w-full flex justify-center items-center">
-                      <Image src="/assets/images/why_we_are_uneque.jpeg" alt="why we unique" width={700} height={700} className="w-full h-[200px] md:h-[346px] object-fill rounded-[16px]"/>
+                    <div className="md:col-span-1 h-full w-full flex justify-center items-center ">
+                      <Image src="/assets/images/why_we_are_uneque.jpeg" alt="why we unique" width={700} height={700} className="w-full h-[200px] md:h-[316px] object-content rounded-[16px]"/>
                     </div>
                 </div>
 
@@ -80,7 +85,7 @@ const WhyWeAreUnique = () => {
                         </ul>
                         {/* button  */}
                     <div className='w-full flex items-center justify-center pt-4 md:pt-3'>
-                       <Link href="/sign-up">
+                       <Link href={`${isLogin ? "/prices" : "/sign-up"}`}>
                         <button className='h-[40px] md:h-[48px] px-5 md:px-6 lg:px-8 rounded-full bg-primary text-black text-base md:text-lg leading-[120%] font-normal'>Get Your Player Report</button>
                        </Link>
                     </div>

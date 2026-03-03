@@ -1,10 +1,15 @@
+"use client"
+
 import React from "react";
 import { Database, TrendingUp, Eye, UserCheck } from "lucide-react";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const WhyYouNeedAProfile = () => {
+       const session = useSession();
+            const isLogin = session?.data?.user?.accessToken
   return (
-    <div className='w-full bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")] py-6 md:py-10 lg:py-16 rounded-none'>
+    <div className='w-full bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] py-6 md:py-10 lg:py-16 rounded-none'>
       <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
       <div className="container">
         <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary h_underline font-normal leading-[120%]">
@@ -107,7 +112,7 @@ const WhyYouNeedAProfile = () => {
           <p className="text-sm md:text-base text-[#E7E7E7] text-center font-normal leading-[150%] py-3 md:py-5 lg:py-6 relative z-10">
             Without a profile, you don’t exist in the recruitment world.
           </p>
-          <Link href="/sign-up" className="pt-2 md:pt-0">
+          <Link href={`${isLogin ? "/prices" : "/sign-up"}`} className="pt-2 md:pt-0">
             <button className=" h-[40px] md:h-[48px] px-5 text-base md:text-lg text-black leading-[120%] font-normal bg-primary rounded-full relative z-10">
               Get Your Player Report
             </button>

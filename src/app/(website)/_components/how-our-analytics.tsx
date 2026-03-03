@@ -1,10 +1,15 @@
+
+"use client"
 import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
+import { useSession } from 'next-auth/react'
 
 const HowOurAnalytics = () => {
+     const session = useSession();
+          const isLogin = session?.data?.user?.accessToken
     return (
-        <div className='py-6 md:py-10 bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")]'>
+        <div className='py-6 md:py-10 bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")]'>
             <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
             <div className="container grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 lg:gap-20">
                 <div className='md:col-span-2 hidden md:block'>
@@ -51,7 +56,7 @@ const HowOurAnalytics = () => {
 
                     {/* button  */}
                     <div className='w-full flex items-center justify-center pt-4 md:pt-2'>
-                        <Link href="/sign-up">
+                        <Link href={`${isLogin ? "/prices" : "/sign-up"}`}>
                         <button className='h-[40px] md:h-[48px] px-5 rounded-full bg-primary text-black text-base md:text-lg leading-[120%] font-normal '>Get Your Player Report</button>
                         </Link>
                     </div>

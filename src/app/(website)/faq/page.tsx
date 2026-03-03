@@ -41,7 +41,7 @@ const faqItems = [
     },
     {
       question: "Do I need to create an account?",
-      answer: "Yes, you must register first and purchase the data service to activate your player profile.",
+      answer: "Yes, you must register first, then complete your profile.",
     },
     {
       question: "Can teams use Analytic Soccer?",
@@ -97,12 +97,17 @@ const faqItems = [
      {
       question: "Do I fill out my profile?",
       answer:
-        "Yes. You only fill out your profile information. The Transfer History, the National Team Career & the Data are completed exclusively by our staff.",
+        "Yes. You only need to fill out your profile information. The Transfer History, National Team Career, and Data sections are completed exclusively by our staff once you purchase the data.",
     },
      {
       question: "What about Transfer History and National Team Career information?",
       answer:
         "We will contact you to collect and verify all the required information.",
+    },
+     {
+      question: "What happens if l don’t have any data?",
+      answer:
+        "If you don’t have any data, your profile will be incomplete and you will not be able to access the premium program.",
     },
   ];
 
