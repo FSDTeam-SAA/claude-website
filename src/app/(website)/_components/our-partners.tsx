@@ -18,7 +18,7 @@ const OurPartners = () => {
 
     ]
     return (
-        <div className='py-6 md:py-8 lg:py-12 bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")]'>
+        <div className='py-6 md:py-8 lg:py-12 bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")]'>
             <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
             <div className="container pt-4">
                 <h4 className='text-2xl md:text-3xl lg:text-4xl text-center font-normal leading-[120%] text-primary h_underline'>Our Partners</h4>

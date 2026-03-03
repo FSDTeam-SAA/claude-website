@@ -6,13 +6,13 @@ import BgNewsletterSubscribe from './bg-newsletter-subscribe'
 
 const BgFooter = () => {
   return (
-    <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")] border-t border-[#8E959F]/50'>
+    <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] border-t border-[#8E959F]/50'>
       <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
       <div className="py-10 md:py-12 lg:py-14 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-10 gap-5 md:gap-6 lg:gap-6">
         <div className="md:col-span-3">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/assets/images/footer_logo.png" alt="logo" width={1000} height={1000} className="w-[202px] h-[56px] object-cover" />
+            <Image src="/assets/images/Profile_new_logo.png" alt="logo" width={1000} height={1000} className="w-[202px] h-[56px] object-cover" />
           </Link>
           {/* <p className="text-base md:text-lg leading-[120%] text-white font-normal pt-4 md:pt-5 lg:pt-6">Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit?</p> */}
           {/* <p className="text-base md:text-lg leading-[120%] text-white font-normal pt-2"><strong className='text-white'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}

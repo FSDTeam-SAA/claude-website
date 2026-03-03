@@ -1,7 +1,13 @@
+"use client"
+
+
 import React from "react";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const HeroSection = () => {
+  const session = useSession();
+  const isLogin = session?.data?.user?.accessToken
   return (
     <div>
       <div className="relative min-h-[calc(100vh)] flex items-center justify-center overflow-hidden">
@@ -27,7 +33,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-black/40" />
 
         <Link
-          href="/sign-up"
+          href={`${isLogin ? "/prices" : "/sign-up"}`}
           className="absolute bottom-24 md:bottom-20 lg:bottom-32 left-1/2 -translate-x-1/2"
         >
           <button className="w-[200px] md:w-[250px] h-[40px] md:h-[50px] lg:h-[56px] bg-primary ease-in-out duration-200 transition-all py-3 px-5 md:px-6 rounded-full text-sm md:text-base lg:text-lg font-medium leading-[120%] text-whhite">
