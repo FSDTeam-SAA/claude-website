@@ -1,7 +1,7 @@
 import Navbar from "@/components/shared/Navbar/Navbar";
 import React from "react";
 import ScrollToTopComponent from "@/components/shared/ScrollToTop/ScrollToTop";
-import BgFooter from "../(player-profile)/_components/bg-footer";
+import Footer from "@/components/shared/Footer/Footer";
 
 const HomePageLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -9,7 +9,7 @@ const HomePageLayout = ({ children }: { children: React.ReactNode }) => {
       <Navbar />
       {children}
       <ScrollToTopComponent />
-      <BgFooter />
+      <Footer />
     </div>
   );
 };

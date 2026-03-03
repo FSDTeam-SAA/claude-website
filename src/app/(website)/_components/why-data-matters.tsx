@@ -117,8 +117,7 @@ const data: Column[] = [
 
 const WhyDataMatters = () => {
   return (
-    <section className='py-6 md:py-10 lg:py-16 bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")]'>
-      <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
+    <section className='py-6 md:py-10 lg:py-16 bg-white'>
       <div className="container">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto">
@@ -136,13 +135,13 @@ const WhyDataMatters = () => {
             <div key={index} className="relative">
               {/* Vertical Divider */}
               {index !== 0 && (
-                <div className="hidden md:block absolute -left-4 top-0 h-full w-[4px] bg-primary" />
+                <div className="hidden md:block absolute -left-4 top-0 h-full w-[4px] bg-black" />
               )}
                {index === 0 && (
-                <div className="hidden md:block absolute -left-4 top-0 h-full w-[4px] bg-primary" />
+                <div className="hidden md:block absolute -left-4 top-0 h-full w-[4px] bg-black" />
               )}
 
-              <h4 className="text-xl md:text-2xl lg:text-3xl font-normal leading-[120%] text-primary underline underline-offset-8 decoration-4 pb-6 md:pb-7 lg:pb-8">
+              <h4 className="text-xl md:text-2xl lg:text-3xl font-normal leading-[120%] text-black underline underline-offset-8 decoration-4 pb-6 md:pb-7 lg:pb-8">
                 {column.heading}
               </h4>
 
@@ -152,15 +151,15 @@ const WhyDataMatters = () => {
                     key={idx}
                     className="border-0 shadow-none flex gap-4 p-0"
                   >
-                    <div className="w-12 h-12 bg-primary p-3 flex items-center justify-center rounded-[8px] text-white">
+                    <div className="w-12 h-12 bg-primary p-3 flex items-center justify-center rounded-[8px] text-[#131313]">
                       {item.icon}
                     </div>
 
                     <div>
-                      <h5 className="text-sm md:text-base font-normal leading-[150%] text-primary">
+                      <h5 className="text-sm md:text-base font-normal leading-[150%] text-[#0A1628]">
                         {item.title}
                       </h5>
-                      <p className="text-sm text-white font-normal leading-[150%] pt-1 md:pt-2 ">
+                      <p className="text-sm text-[#131313] font-normal leading-[150%] pt-1 md:pt-2 ">
                         {item.description}
                       </p>
                     </div>

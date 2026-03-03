@@ -9,8 +9,7 @@ const WhatDoWeOffer = () => {
   const session = useSession();
   const isLogin = session?.data?.user?.accessToken;
   return (
-    <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")]  py-6 md:py-10 lg:py-16'>
-      <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
+    <div className='bg-white  py-6 md:py-10 lg:py-16'>
 
       <div className="container grid grid-cols-1 md:grid-cols-7 gap-6 md:gap-6 lg:gap-7 xl:gap-8 ">
         <div className="order-2 md:order-1 md:col-span-3 flex items-center ">
