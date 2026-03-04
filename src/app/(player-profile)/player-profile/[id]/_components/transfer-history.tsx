@@ -48,67 +48,66 @@ const TransferHistory = ({ data, isLoading, error, isError }: Props) => {
   return (
     <div className="pb-6">
       <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]'>
-        
+
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-10" />
 
         <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary pb-6 relative z-10">
           Transfer History
         </h3>
 
+        {/* ✅ Responsive Wrapper (Same as NationalTeam) */}
         <div className="w-full overflow-x-auto relative z-10">
-          <Table className="w-full table-fixed">
+          <Table className="w-full min-w-[900px] table-fixed">
 
-            {/* 🔥 THIS GUARANTEES EQUAL WIDTH */}
-            <colgroup>
-              <col className="w-1/4" />
-              <col className="w-1/4" />
-              <col className="w-1/4" />
-              <col className="w-1/4" />
-            </colgroup>
-
+            {/* Table Header */}
             <TableHeader>
               <TableRow className="border-none">
-                <TableHead className="text-left text-lg md:text-xl text-primary whitespace-nowrap">
+                <TableHead className="w-1/4 text-left text-lg md:text-xl text-primary whitespace-nowrap">
                   Season
                 </TableHead>
-                <TableHead className="text-center text-lg md:text-xl text-primary whitespace-nowrap">
+                <TableHead className="w-1/4 text-center text-lg md:text-xl text-primary whitespace-nowrap">
                   Date
                 </TableHead>
-                <TableHead className="text-center text-lg md:text-xl text-primary whitespace-nowrap">
+                <TableHead className="w-1/4 text-center text-lg md:text-xl text-primary whitespace-nowrap">
                   Left
                 </TableHead>
-                <TableHead className="text-center text-lg md:text-xl text-primary whitespace-nowrap">
+                <TableHead className="w-1/4 text-center text-lg md:text-xl text-primary whitespace-nowrap">
                   Joined
                 </TableHead>
               </TableRow>
             </TableHeader>
 
+            {/* Table Body */}
             <TableBody>
               {transferHistory.map((info) => (
                 <TableRow key={info?._id} className="border-none">
 
-                  <TableCell className="text-left text-sm md:text-base text-white py-4 whitespace-nowrap">
+                  {/* Season */}
+                  <TableCell className="w-1/4 text-left text-sm md:text-base text-white py-4 whitespace-nowrap">
                     {info?.season || "N/A"}
                   </TableCell>
 
-                  <TableCell className="text-center text-sm md:text-base text-white py-4 whitespace-nowrap">
+                  {/* Date */}
+                  <TableCell className="w-1/4 text-center text-sm md:text-base text-white py-4 whitespace-nowrap">
                     {info?.date
                       ? moment(info.date).format("DD/MM/YYYY")
                       : "N/A"}
                   </TableCell>
 
-                  <TableCell className="py-4">
+                  {/* Left Club */}
+                  <TableCell className="w-1/4 py-4">
                     <div className="flex items-center justify-center gap-2 min-w-0">
                       <Image
                         src={info?.leftClub || "/assets/images/no-flag.png"}
-                        alt=""
+                        alt="left club"
                         width={32}
                         height={32}
                         className="w-8 h-8 object-contain shrink-0"
                       />
                       <Image
                         src={info?.leftCountery || "/assets/images/no-flag.png"}
-                        alt=""
+                        alt="left country"
                         width={32}
                         height={32}
                         className="w-8 h-8 object-contain shrink-0"
@@ -119,18 +118,19 @@ const TransferHistory = ({ data, isLoading, error, isError }: Props) => {
                     </div>
                   </TableCell>
 
-                  <TableCell className="py-4">
+                  {/* Joined Club */}
+                  <TableCell className="w-1/4 py-4">
                     <div className="flex items-center justify-center gap-2 min-w-0">
                       <Image
                         src={info?.joinedClub || "/assets/images/no-flag.png"}
-                        alt=""
+                        alt="joined club"
                         width={32}
                         height={32}
                         className="w-8 h-8 object-contain shrink-0"
                       />
                       <Image
                         src={info?.joinedCountery || "/assets/images/no-flag.png"}
-                        alt=""
+                        alt="joined country"
                         width={32}
                         height={32}
                         className="w-8 h-8 object-contain shrink-0"
@@ -153,6 +153,9 @@ const TransferHistory = ({ data, isLoading, error, isError }: Props) => {
 };
 
 export default TransferHistory;
+
+
+
 
 
 
@@ -191,12 +194,7 @@ export default TransferHistory;
 //   isError: boolean;
 // };
 
-// const TransferHistory = ({
-//   data,
-//   isLoading,
-//   error,
-//   isError,
-// }: Props) => {
+// const TransferHistory = ({ data, isLoading, error, isError }: Props) => {
 //   if (isLoading) {
 //     return (
 //       <div className="pb-0">
@@ -221,29 +219,37 @@ export default TransferHistory;
 
 //   return (
 //     <div className="pb-6">
-//        <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
-//                  <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
+//       <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]'>
         
-//         <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">
+//         <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-10" />
+
+//         <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary pb-6 relative z-10">
 //           Transfer History
 //         </h3>
 
-//         {/* Responsive Wrapper */}
-//         <div className="w-full overflow-x-auto">
-//           <Table className="min-w-[900px]">
-            
-//             <TableHeader className="">
-//               <TableRow className="border-none ">
-//                 <TableHead className="text-lg md:text-xl font-normal text-primary leading-[120%] text-left whitespace-nowrap">
+//         <div className="w-full overflow-x-auto relative z-10">
+//           <Table className="w-full table-fixed">
+
+//             {/* 🔥 THIS GUARANTEES EQUAL WIDTH */}
+//             <colgroup>
+//               <col className="w-1/4" />
+//               <col className="w-1/4" />
+//               <col className="w-1/4" />
+//               <col className="w-1/4" />
+//             </colgroup>
+
+//             <TableHeader>
+//               <TableRow className="border-none">
+//                 <TableHead className="text-left text-lg md:text-xl text-primary whitespace-nowrap">
 //                   Season
 //                 </TableHead>
-//                 <TableHead className="text-lg md:text-xl font-normal text-primary leading-[120%] text-center whitespace-nowrap">
+//                 <TableHead className="text-center text-lg md:text-xl text-primary whitespace-nowrap">
 //                   Date
 //                 </TableHead>
-//                 <TableHead className="text-lg md:text-xl font-normal text-primary leading-[120%] text-center whitespace-nowrap">
+//                 <TableHead className="text-center text-lg md:text-xl text-primary whitespace-nowrap">
 //                   Left
 //                 </TableHead>
-//                 <TableHead className="text-lg md:text-xl font-normal text-primary leading-[120%] text-left whitespace-nowrap">
+//                 <TableHead className="text-center text-lg md:text-xl text-primary whitespace-nowrap">
 //                   Joined
 //                 </TableHead>
 //               </TableRow>
@@ -251,57 +257,57 @@ export default TransferHistory;
 
 //             <TableBody>
 //               {transferHistory.map((info) => (
-//                 <TableRow key={info?._id} className="border-none ">
-                  
-//                   <TableCell className="text-sm md:text-base text-white leading-[150%] font-normal text-left py-3 whitespace-nowrap">
+//                 <TableRow key={info?._id} className="border-none">
+
+//                   <TableCell className="text-left text-sm md:text-base text-white py-4 whitespace-nowrap">
 //                     {info?.season || "N/A"}
 //                   </TableCell>
 
-//                   <TableCell className="text-sm md:text-base text-white leading-[150%] font-normal text-center py-3 whitespace-nowrap">
+//                   <TableCell className="text-center text-sm md:text-base text-white py-4 whitespace-nowrap">
 //                     {info?.date
 //                       ? moment(info.date).format("DD/MM/YYYY")
 //                       : "N/A"}
 //                   </TableCell>
 
-//                   <TableCell className="py-3 pr-8 md:pr-0 ">
-//                     <div className="flex items-center justify-center gap-3 md:gap-2 whitespace-nowrap">
+//                   <TableCell className="py-4">
+//                     <div className="flex items-center justify-center gap-2 min-w-0">
 //                       <Image
 //                         src={info?.leftClub || "/assets/images/no-flag.png"}
-//                         alt={info?.leftClubName || "team name"}
-//                         width={100}
-//                         height={100}
-//                         className="w-8 h-8 object-contain"
+//                         alt=""
+//                         width={32}
+//                         height={32}
+//                         className="w-8 h-8 object-contain shrink-0"
 //                       />
 //                       <Image
 //                         src={info?.leftCountery || "/assets/images/no-flag.png"}
-//                         alt={info?.leftClubName || "team name"}
-//                         width={100}
-//                         height={100}
-//                         className="w-8 h-8 object-contain"
+//                         alt=""
+//                         width={32}
+//                         height={32}
+//                         className="w-8 h-8 object-contain shrink-0"
 //                       />
-//                       <p className="text-sm md:text-base text-white leading-[150%] font-normal">
+//                       <p className="text-sm md:text-base text-white truncate">
 //                         {info?.leftClubName || "N/A"}
 //                       </p>
 //                     </div>
 //                   </TableCell>
 
-//                   <TableCell className="py-3">
-//                     <div className="flex items-center justify-left gap-3 md:gap-2 whitespace-nowrap">
+//                   <TableCell className="py-4">
+//                     <div className="flex items-center justify-center gap-2 min-w-0">
 //                       <Image
 //                         src={info?.joinedClub || "/assets/images/no-flag.png"}
-//                         alt={info?.joinedclubName || "team name"}
-//                         width={100}
-//                         height={100}
-//                         className="w-8 h-8 object-contain"
+//                         alt=""
+//                         width={32}
+//                         height={32}
+//                         className="w-8 h-8 object-contain shrink-0"
 //                       />
 //                       <Image
 //                         src={info?.joinedCountery || "/assets/images/no-flag.png"}
-//                         alt={info?.joinedclubName || "team name"}
-//                         width={100}
-//                         height={100}
-//                         className="w-8 h-8 object-contain"
+//                         alt=""
+//                         width={32}
+//                         height={32}
+//                         className="w-8 h-8 object-contain shrink-0"
 //                       />
-//                       <p className="text-sm md:text-base text-white leading-[150%] font-normal">
+//                       <p className="text-sm md:text-base text-white truncate">
 //                         {info?.joinedclubName || "N/A"}
 //                       </p>
 //                     </div>
@@ -319,18 +325,5 @@ export default TransferHistory;
 // };
 
 // export default TransferHistory;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
