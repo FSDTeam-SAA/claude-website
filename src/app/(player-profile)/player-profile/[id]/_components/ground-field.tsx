@@ -17,6 +17,7 @@ const POSITION_IMAGES: Record<string, string> = {
   rw: "/assets/grounds/rw.png",
   lw: "/assets/grounds/lw.png",
   striker: "/assets/grounds/st.png",
+  10: "/assets/grounds/10.png",
 
   // optional combined images
 
@@ -129,6 +130,17 @@ const POSITION_IMAGES: Record<string, string> = {
   "striker-lw": "/assets/grounds/st_lw.png",
   "striker-rb": "/assets/grounds/st_rb.png",
   "striker-rw": "/assets/grounds/st_rw.png",
+
+  "10-aml": "/assets/grounds/10_aml.png",
+  "10-amr": "/assets/grounds/10_amr.png",
+  "10-cbl": "/assets/grounds/10_cbl.png",
+  "10-cbr": "/assets/grounds/10_cbr.png",
+  "10-cm": "/assets/grounds/10_cm.png",
+  "10-lb": "/assets/grounds/10_lb.png",
+  "10-gk": "/assets/grounds/10_gk.png",
+  "10-lw": "/assets/grounds/10_lw.png",
+  "10-rb": "/assets/grounds/10_rb.png",
+  "10-rw": "/assets/grounds/10_rw.png",
 };
 
 const GroundField = ({
