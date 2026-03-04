@@ -43,13 +43,13 @@ const Fouls = ({
                         personalInfo?.map((info) => {
                             return <ul key={info?._id} className="grid grid-cols-1 md:gris-cols-2 lg:grid-cols-5 gap-6">
 
-                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Fouls</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.fouls || "N/A"}</span></li>
-                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Fouls Won
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Fouls</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.fouls || "N/A"}</span></li>
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Fouls Won
                                 </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.foulswon || "N/A"}</span></li>
-                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Yellow Cards</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.redCards || "N/A"}</span></li>
-                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Red Cards
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Yellow Cards</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.redCards || "N/A"}</span></li>
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Red Cards
                                 </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.yellowCards || "N/A"}</span></li>
-                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Offside
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Offside
                                 </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.offside || "N/A"}</span></li>
                             </ul>
                         }

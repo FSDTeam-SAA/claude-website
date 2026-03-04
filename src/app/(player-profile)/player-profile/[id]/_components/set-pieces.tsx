@@ -43,11 +43,11 @@ const SetPieces = ({
                         personalInfo?.map((info) => {
                             return <ul key={info?._id} className="grid grid-cols-1 md:gris-cols-2 lg:grid-cols-4 gap-6">
 
-                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Freekicks</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.freekicks || "N/A"}</span></li>
-                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Freekicks Shots
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Freekicks</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.freekicks || "N/A"}</span></li>
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Freekicks Shots
                                 </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.freekicksShots || "N/A"}</span></li>
-                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Free kicks Shots on Target</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.freekicksShotsonTarget || "N/A"}</span></li>
-                                <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Penalty Kicks 
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Free kicks Shots on Target</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.freekicksShotsonTarget || "N/A"}</span></li>
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Penalty Kicks 
                                 </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.penaltyKicks || "N/A"}</span></li>
 
                             </ul>

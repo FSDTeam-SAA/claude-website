@@ -43,16 +43,16 @@ const GkStats = ({
                         personalInfo?.map((info) => {
                             return <ul key={info?._id} className="grid grid-cols-1 md:gris-cols-2 lg:grid-cols-4 gap-6">
 
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Goals Conceded</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.goalsConceded || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Penalty kitk Save
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Goals Conceded</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.goalsConceded || "N/A"}</span></li>
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Penalty kitk Save
                                 </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.penaltKitkSave || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Saves</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.saves || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Aerial Control
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Saves</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.saves || "N/A"}</span></li>
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Aerial Control
                                 </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.aerialControl || "N/A"}</span></li>
-                                  <li className="flex flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Catches</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.catches || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Defensive Line Support
+                                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Catches</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.catches || "N/A"}</span></li>
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Defensive Line Support
                                 </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.deFensiveLineSupport || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Parries
+                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Parries
                                 </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.parries || "N/A"}</span></li>
                             </ul>
                         }
