@@ -79,7 +79,7 @@ const Footer = () => {
 
       </div>
       {/* footer bottom  */}
-      <p className="container text-base md:text-lg font-normal text-center text-[#131313] leading-[120%] py-4 border-t border-[#8E959F]/50">@ {new Date().getFullYear()}. All Rights Reserved</p>
+      <p className="container text-base md:text-lg font-normal text-center text-[#131313] leading-[120%] py-4 ">@ {new Date().getFullYear()}. All Rights Reserved</p>
     </div>
   )
 }

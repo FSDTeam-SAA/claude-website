@@ -727,7 +727,27 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+
               <FormField
+                control={form.control}
+                name="league"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
+                      League
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]"
+                        placeholder="Example : MLS Next"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage className="text-red-500" />
+                  </FormItem>
+                )}
+              />
+              {/* <FormField
                 control={form.control}
                 name="league"
                 render={({ field }) => (
@@ -801,7 +821,10 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                     <FormMessage className="text-red-500" />
                   </FormItem>
                 )}
-              />
+              /> */}
+
+
+
               <FormField
                 control={form.control}
                 name="category"
