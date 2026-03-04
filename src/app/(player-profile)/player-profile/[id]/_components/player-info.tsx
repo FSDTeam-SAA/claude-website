@@ -68,7 +68,7 @@ const PlayerInfo = ({
     return (
         <div className='py-6  '>
             {/* new  */}
-            <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")]  grid grid-cols-1 md:gris-cols-2 lg:grid-cols-5 gap-6 rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014] '>
+            <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/sm_profile_info.jpeg")] md:bg-[url("/assets/profiles/profile_bg.svg")]  grid grid-cols-1 md:gris-cols-2 lg:grid-cols-5 gap-6 rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014] '>
                    <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
                 <div className="md:col-span-1 w-full flex flex-col justify-center items-center ">
                     <Image src={personalInfo?.profileImage || "/assets/images/no-user.jpg"} alt={personalInfo?.firstName || "profile image"} width={1000} height={1000} className="w-[200px] h-[200px] object-cover rounded-full border border-white/50 shadow" />
@@ -89,9 +89,9 @@ const PlayerInfo = ({
                 </div>
                 <div className="md:col-span-3">
                     <ul className="grid gris-cols-1 md:gris-cols-2 lg:grid-cols-3 gap-4">
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Nationality</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] capitalize'>{personalInfo?.nationality || "N/A"}</span></li>
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Place of birth</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] capitalize'>{personalInfo?.birthdayPlace || "N/A"}</span></li>
-                        <li className="flex flex-row md:flex-col gap-2">
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Nationality</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] capitalize'>{personalInfo?.nationality || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Place of birth</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] capitalize'>{personalInfo?.birthdayPlace || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
                             <span className="text-base font-normal text-primary leading-[150%]">
                                 Age
                             </span>
@@ -103,37 +103,37 @@ const PlayerInfo = ({
 
                         </li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Gender</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] capitalize'>{personalInfo?.gender || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Gender</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] capitalize'>{personalInfo?.gender || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Citizenship</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] capitalize'>{personalInfo?.citizenship || "N/A"}</span></li>
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Weight</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.weight || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Citizenship</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] capitalize'>{personalInfo?.citizenship || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Weight</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.weight || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Height</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.hight || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Height</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.hight || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>League</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] uppercase'>{personalInfo?.league || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>League</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] uppercase'>{personalInfo?.league || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Preferred Foot</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] capitalize'>{personalInfo?.foot || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Preferred Foot</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] capitalize'>{personalInfo?.foot || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Category</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.category || "N/A"}</span></li>
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Position</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.position?.map(p => p.toUpperCase()).join("-") || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Category</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.category || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Position</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.position?.map(p => p.toUpperCase()).join("-") || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Current Club</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.currentClub || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Current Club</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.currentClub || "N/A"}</span></li>
 
 
 
                         {/* <li className="flex flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Agent</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.agent || "N/A"}</span></li> */}
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Agent</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] capitalize'>{personalInfo?.agent || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Agent</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] capitalize'>{personalInfo?.agent || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>School Name</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.schoolName || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>School Name</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.schoolName || "N/A"}</span></li>
 
 
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>GPA</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.gpa || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>GPA</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.gpa || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Jersey Number</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.jerseyNumber || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Jersey Number</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.jerseyNumber || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2">
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
                             <span className='text-base font-normal text-primary leading-[150%]'>
                                 Social Media
                             </span>
@@ -193,7 +193,7 @@ const PlayerInfo = ({
                         </li> */}
 
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Followers</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.followers?.length || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Followers</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.followers?.length || "N/A"}</span></li>
                         {/* <li className="flex flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Institute Name</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.schoolName|| "N/A"}</span></li> */}
 
 
@@ -256,9 +256,9 @@ const PlayerInfo = ({
                 </div>
                 <div className="md:col-span-3">
                     <ul className="grid gris-cols-1 md:gris-cols-2 lg:grid-cols-3 gap-4">
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Nationality</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.nationality || "N/A"}</span></li>
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Place of birth</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.birthdayPlace || "N/A"}</span></li>
-                        <li className="flex flex-row md:flex-col gap-2">
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Nationality</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{personalInfo?.nationality || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Place of birth</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.birthdayPlace || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
                             <span className="text-base font-normal text-[#616161] leading-[150%]">
                                 Age
                             </span>
@@ -270,36 +270,36 @@ const PlayerInfo = ({
 
                         </li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Gender</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.gender || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Gender</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.gender || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Citizenship</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.citizenship || "N/A"}</span></li>
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Weight</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.weight || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Citizenship</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.citizenship || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Weight</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.weight || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Height</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.hight || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Height</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.hight || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>League</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.league || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>League</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.league || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Preferred Foot</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.foot || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Preferred Foot</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.foot || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Category</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.category || "N/A"}</span></li>
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Position</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.position?.map(p => p.toUpperCase()).join("-") || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Category</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.category || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Position</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.position?.map(p => p.toUpperCase()).join("-") || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Current Club</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.currentClub || "N/A"}</span></li>
-
-
-
-
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Agent</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.agent || "N/A"}</span></li>
-
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>School Name</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.schoolName || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Current Club</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.currentClub || "N/A"}</span></li>
 
 
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>GPA</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.gpa || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Jerssy Number</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.jerseyNumber || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Agent</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.agent || "N/A"}</span></li>
 
-                        <li className="flex flex-row md:flex-col gap-2">
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>School Name</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.schoolName || "N/A"}</span></li>
+
+
+
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>GPA</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.gpa || "N/A"}</span></li>
+
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Jerssy Number</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.jerseyNumber || "N/A"}</span></li>
+
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
                             <span className='text-base font-normal text-[#616161] leading-[150%]'>
                                 Social Media
                             </span>
@@ -328,7 +328,7 @@ const PlayerInfo = ({
                        
 
 
-                        <li className="flex flex-row md:flex-col gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Followers</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.followers?.length || "N/A"}</span></li>
+                        <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-[#616161] leading-[150%]'>Followers</span> <span className='text-lg md:text-xl text-[#131313] font-normal leading-[120%] '>{personalInfo?.followers?.length || "N/A"}</span></li>
                    
 
                     </ul>

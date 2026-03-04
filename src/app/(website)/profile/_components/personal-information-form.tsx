@@ -199,6 +199,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
     { label: "AMR", value: "amr" },
     { label: "RW", value: "rw" },
     { label: "LW", value: "lw" },
+    { label: "10", value: "10" },
     { label: "Striker", value: "striker" },
   ];
 

@@ -49,7 +49,7 @@ const LastPlayerReport = ({
             return (
               <div key={info?._id}>
                 <ul className="grid grid-cols-1 md:gris-cols-2 lg:grid-cols-4 gap-6">
-                  <li className="flex flex-row md:flex-col gap-2">
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
                     <span className="text-base font-normal text-primary leading-[150%]">
                       Date
                     </span>{" "}
@@ -57,7 +57,7 @@ const LastPlayerReport = ({
                       {moment(info?.date || "N/A")?.format("DD/MM/YYYY")}
                     </span>
                   </li>
-                  <li className="flex flex-row md:flex-col gap-2">
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
                     <span className="text-base font-normal text-primary leading-[150%]">
                       Category
                     </span>{" "}
@@ -65,7 +65,7 @@ const LastPlayerReport = ({
                       {info?.category || "N/A"}
                     </span>
                   </li>
-                  <li className="flex flex-row md:flex-col gap-2">
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
                     <span className="text-base font-normal text-primary leading-[150%]">
                       Game Title
                     </span>{" "}
@@ -73,7 +73,7 @@ const LastPlayerReport = ({
                       {info?.gameTitle || "N/A"}
                     </span>
                   </li>
-                  <li className="flex flex-row md:flex-col gap-2">
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
                     <span className="text-base font-normal text-primary leading-[150%]">
                       Rating
                     </span>{" "}
@@ -82,7 +82,7 @@ const LastPlayerReport = ({
                     </span>
                   </li>
 
-                  <li className="flex flex-row md:flex-col gap-2">
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
                     <span className="text-base font-normal text-primary leading-[150%]">
                       Position
                     </span>{" "}
@@ -90,7 +90,7 @@ const LastPlayerReport = ({
                       {info?.position?.join(", ") || "N/A"}
                     </span>
                   </li>
-                  <li className="flex flex-row md:flex-col gap-2">
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
                     <span className="text-base font-normal text-primary leading-[150%]">
                       Minutes Played
                     </span>{" "}
