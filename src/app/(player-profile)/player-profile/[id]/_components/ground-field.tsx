@@ -31,6 +31,7 @@ const POSITION_IMAGES: Record<string, string> = {
   "aml-rb": "/assets/grounds/aml_rb.png",
   "aml-rw": "/assets/grounds/aml_rw.png",
   "aml-striker": "/assets/grounds/aml_st.png",
+  "aml-10": "/assets/grounds/aml_10.png",
 
   "amr-aml": "/assets/grounds/amr_aml.png",
   "amr-cbl": "/assets/grounds/amr_cbl.png",
@@ -42,6 +43,7 @@ const POSITION_IMAGES: Record<string, string> = {
   "amr-rb": "/assets/grounds/amr_rb.png",
   "amr-rw": "/assets/grounds/amr_rw.png",
   "amr-striker": "/assets/grounds/amr_st.png",
+  "amr-10": "/assets/grounds/amr_10.png",
 
   "cbl-aml": "/assets/grounds/cbl_aml.png",
   "cbl-amr": "/assets/grounds/cbl_amr.png",
@@ -53,6 +55,7 @@ const POSITION_IMAGES: Record<string, string> = {
   "cbl-rb": "/assets/grounds/cbl_rb.png",
   "cbl-rw": "/assets/grounds/cbl_rw.png",
   "cbl-striker": "/assets/grounds/cbl_st.png",
+  "cbl-10": "/assets/grounds/cbl_10.png",
 
   "cbr-aml": "/assets/grounds/cbr_aml.png",
   "cbr-amr": "/assets/grounds/cbr_amr.png",
@@ -64,6 +67,7 @@ const POSITION_IMAGES: Record<string, string> = {
   "cbr-rb": "/assets/grounds/cbr_rb.png",
   "cbr-rw": "/assets/grounds/cbr_rw.png",
   "cbr-striker": "/assets/grounds/cbr_st.png",
+  "cbr-10": "/assets/grounds/cbr_10.png",
 
   "cm-aml": "/assets/grounds/cm_aml.png",
   "cm-amr": "/assets/grounds/cm_amr.png",
@@ -75,6 +79,7 @@ const POSITION_IMAGES: Record<string, string> = {
   "cm-rb": "/assets/grounds/cm_rb.png",
   "cm-rw": "/assets/grounds/cm_rw.png",
   "cm-striker": "/assets/grounds/cm_st.png",
+  "cm-10": "/assets/grounds/cm_10.png",
 
   "gk-aml": "/assets/grounds/gk_aml.png",
   "gk-amr": "/assets/grounds/gk_amr.png",
@@ -86,6 +91,7 @@ const POSITION_IMAGES: Record<string, string> = {
   "gk-rb": "/assets/grounds/gk_rb.png",
   "gk-rw": "/assets/grounds/gk_rw.png",
   "gk-striker": "/assets/grounds/gk_st.png",
+  "gk-10": "/assets/grounds/gk_10.png",
 
   "lw-aml": "/assets/grounds/lw_aml.png",
   "lw-amr": "/assets/grounds/lw_amr.png",
@@ -97,6 +103,7 @@ const POSITION_IMAGES: Record<string, string> = {
   "lw-rb": "/assets/grounds/lw_rb.png",
   "lw-rw": "/assets/grounds/lw_rw.png",
   "lw-striker": "/assets/grounds/lw_st.png",
+  "lw-10": "/assets/grounds/lw_10.png",
 
   "rb-aml": "/assets/grounds/rb_aml.png",
   "rb-amr": "/assets/grounds/rb_amr.png",
@@ -108,6 +115,7 @@ const POSITION_IMAGES: Record<string, string> = {
   "rb-lw": "/assets/grounds/rb_lw.png",
   "rb-rw": "/assets/grounds/rb_rw.png",
   "rb-striker": "/assets/grounds/rb_st.png",
+  "rb-10": "/assets/grounds/rb_10.png",
 
   "rw-aml": "/assets/grounds/rw_aml.png",
   "rw-amr": "/assets/grounds/rw_amr.png",
@@ -119,6 +127,7 @@ const POSITION_IMAGES: Record<string, string> = {
   "rw-lw": "/assets/grounds/rw_lw.png",
   "rw-rb": "/assets/grounds/rw_rb.png",
   "rw-striker": "/assets/grounds/rw_st.png",
+  "rw-10": "/assets/grounds/rw_10.png",
 
   "striker-aml": "/assets/grounds/st_aml.png",
   "striker-amr": "/assets/grounds/st_amr.png",
@@ -130,6 +139,7 @@ const POSITION_IMAGES: Record<string, string> = {
   "striker-lw": "/assets/grounds/st_lw.png",
   "striker-rb": "/assets/grounds/st_rb.png",
   "striker-rw": "/assets/grounds/st_rw.png",
+  "striker-st": "/assets/grounds/st_10.png",
 
   "10-aml": "/assets/grounds/10_aml.png",
   "10-amr": "/assets/grounds/10_amr.png",
@@ -141,6 +151,7 @@ const POSITION_IMAGES: Record<string, string> = {
   "10-lw": "/assets/grounds/10_lw.png",
   "10-rb": "/assets/grounds/10_rb.png",
   "10-rw": "/assets/grounds/10_rw.png",
+  "10-st": "/assets/grounds/10_st.png",
 };
 
 const GroundField = ({
