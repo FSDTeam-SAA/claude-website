@@ -151,7 +151,7 @@ const POSITION_IMAGES: Record<string, string> = {
   "10-lw": "/assets/grounds/10_lw.png",
   "10-rb": "/assets/grounds/10_rb.png",
   "10-rw": "/assets/grounds/10_rw.png",
-  "10-st": "/assets/grounds/10_st.png",
+  "10-striker": "/assets/grounds/10_st.png",
 };
 
 const GroundField = ({
