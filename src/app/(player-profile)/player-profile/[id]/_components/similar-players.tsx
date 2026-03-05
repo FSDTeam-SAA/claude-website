@@ -75,7 +75,7 @@ const SimilarPlayers = ({
                         alt={`${item?.name || "image"}`}
                         width={93}
                         height={93}
-                        className="w-[80px] h-[80px] rounded-[8px] object-contain"
+                        className="w-[80px] h-[80px] rounded-[8px] object-contain "
                       />
 
                       <div>
