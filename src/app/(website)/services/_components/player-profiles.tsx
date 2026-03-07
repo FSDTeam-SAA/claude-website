@@ -14,15 +14,13 @@ const PlayerProfiles = () => {
                     <p className='text-sm md:text-base text-[#131313] font-normal leading-[150%] py-2 md:py-4'>Digital profile provides the player’s history, data, ratings, match logs, and club pathway just like professional tracking.</p>
                     <p className='text-sm md:text-base text-[#131313] font-normal leading-[150%] py-2 md:py-4'>It gives every player the visibility, credibility, and opportunities they need to advance in the modern game.</p>
 
-                    <h4 className='text-sm md:text-base text-[#131313] leading-[150%] font-normal pb-2 md:pb-8 lg:pb-10'>The player profile is activated only after purchasing a data report.</h4>
-
                     <div className="hidden md:block">
  <Link
                         href="/profiles"
                         className="w-full flex items-center justify-center"
                     >
                         <button className="w-[200px] md:w-[250px] h-[44px] md:h-[50px] lg:h-[56px] bg-primary text-black ease-in-out duration-200 transition-all py-3 px-5 md:px-6 rounded-full text-sm md:text-base lg:text-lg font-medium leading-[120%] ">
-                            Go to Profiles
+                            Go To Profiles
                         </button>
                     </Link>
                     </div>
