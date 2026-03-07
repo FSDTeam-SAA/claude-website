@@ -1,35 +1,54 @@
-import React from 'react'
-import Link from "next/link"
-import Image from "next/image"
-import NewsletterSubscribe from './NewsletterSubscribe'
-import { Facebook, Linkedin, Instagram, Mail } from 'lucide-react'
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import NewsletterSubscribe from "./NewsletterSubscribe";
+import { Facebook, Linkedin, Instagram, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <div className='bg-white border-t border-[#8E959F]/50'>
+    <div className="bg-white border-t border-[#8E959F]/50">
       <div className="py-10 md:py-12 lg:py-14 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-10 gap-5 md:gap-6 lg:gap-6">
         <div className="md:col-span-3">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/assets/images/logo.jpg" alt="logo" width={1000} height={1000} className="w-[202px] h-[56px] object-cover" />
+            <Image
+              src="/assets/images/logo.jpg"
+              alt="logo"
+              width={1000}
+              height={1000}
+              className="w-[202px] h-[56px] object-cover"
+            /> 
           </Link>
           {/* <p className="text-base md:text-lg leading-[120%] text-[#131313] font-normal pt-4 md:pt-5 lg:pt-6">Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit?</p> */}
           {/* <p className="text-base md:text-lg leading-[120%] text-[#131313] font-normal pt-2"><strong className='text-[#131313]'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}
 
-          <div className='pt-6 md:pt-8 lg:pt-12 flex items-center gap-3'>
-            <Link href="#">
-            <span className='inline-flex border-[2px] border-[#131313] p-2 md:p-3 rounded-full '><Facebook className='text-[#131313]'/></span>
+          <div className="pt-6 md:pt-8 lg:pt-12 flex items-center gap-3">
+            <Link
+              href="https://www.facebook.com/profile.php?id=61583972953701"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="inline-flex border-[2px] border-[#131313] p-2 md:p-3 rounded-full ">
+                <Facebook className="text-[#131313]" />
+              </span>
             </Link>
             <Link href="#">
-            <span className='inline-flex border-[2px] border-[#131313] p-2 md:p-3 rounded-full '><Linkedin className='text-[#131313]'/></span>
+              <span className="inline-flex border-[2px] border-[#131313] p-2 md:p-3 rounded-full ">
+                <Linkedin className="text-[#131313]" />
+              </span>
             </Link>
             {/* <Link href="#">
             <span className='inline-flex border-[2px] border-[#5B6574] p-2 md:p-3 rounded-full '><Twitter /></span>
             </Link> */}
-            <Link href="#">
-            <span className='inline-flex border-[2px] border-[#131313] p-2 md:p-3 rounded-full '><Instagram className='text-[#131313]'/></span>
+            <Link 
+            href="https://www.instagram.com/analytic_soccer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="inline-flex border-[2px] border-[#131313] p-2 md:p-3 rounded-full ">
+                <Instagram className="text-[#131313]" />
+              </span>
             </Link>
-
           </div>
         </div>
         <div className="md:col-span-2">
@@ -38,16 +57,22 @@ const Footer = () => {
           </h4>
           <ul>
             <Link href="/services">
-              <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary">Services</li>
+              <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary">
+                Services
+              </li>
             </Link>
             {/* <Link href="/about-us">
               <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary py-3 md:py-4">About Us</li>
             </Link> */}
             <Link href="/contact-us">
-              <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary py-4">Contact Us</li>
+              <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary py-4">
+                Contact Us
+              </li>
             </Link>
-              <Link href="/faq">
-              <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary">FAQ</li>
+            <Link href="/faq">
+              <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary">
+                FAQ
+              </li>
             </Link>
           </ul>
         </div>
@@ -57,31 +82,43 @@ const Footer = () => {
           </h4>
           <ul>
             <Link href="/terms-of-use">
-              <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary">Terms Of Use</li>
+              <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary">
+                Terms Of Use
+              </li>
             </Link>
             <Link href="/privacy-policy">
-              <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary py-4">Privacy Policy</li>
+              <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary py-4">
+                Privacy Policy
+              </li>
             </Link>
           </ul>
           <p className=" text-base md:text-lg leading-[120%] text-[#131313] hover:text-primary font-normal ">
             {/* <strong className='text-[#131313]'>Email :</strong>  */}
-            <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold flex items-center gap-2'><Mail className='w-5 h-5'/> info@analyticsoccer.com</Link></p>
+            <Link
+              href="mailto:info@analyticsoccer.com"
+              className="hover:font-semibold flex items-center gap-2"
+            >
+              <Mail className="w-5 h-5" /> info@analyticsoccer.com
+            </Link>
+          </p>
         </div>
         <div className="md:col-span-3">
-          <h4 className="text-lg md:text-xl font-semibold leading-[120%] text-[#131313] pb-3 lg:pb-4">Subscribe To Our <span className="text-primary">NEWSLETTER</span></h4>
+          <h4 className="text-lg md:text-xl font-semibold leading-[120%] text-[#131313] pb-3 lg:pb-4">
+            Subscribe To Our <span className="text-primary">NEWSLETTER</span>
+          </h4>
           {/* <p className="text-base md:text-lg leading-[120%] text-[#131313] font-normal">Connect with us on social media and <br /> stay in the loop :</p> */}
           <div>
             <NewsletterSubscribe />
             {/* <p className="text-base md:text-lg  pt-4 leading-[120%] text-[#131313] font-normal"><strong className='text-[#131313]'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}
           </div>
         </div>
-
-
       </div>
       {/* footer bottom  */}
-      <p className="container text-base md:text-lg font-normal text-center text-[#131313] leading-[120%] py-4 ">@ {new Date().getFullYear()}. All Rights Reserved</p>
+      <p className="container text-base md:text-lg font-normal text-center text-[#131313] leading-[120%] py-4 ">
+        @ {new Date().getFullYear()}. All Rights Reserved
+      </p>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
