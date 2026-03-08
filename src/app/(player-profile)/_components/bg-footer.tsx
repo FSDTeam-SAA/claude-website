@@ -1,8 +1,10 @@
 import React from 'react'
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Linkedin, Instagram, Mail } from 'lucide-react'
+import { Mail } from 'lucide-react'
 import BgNewsletterSubscribe from './bg-newsletter-subscribe'
+import { SiFacebook } from 'react-icons/si'
+import { FaSquareInstagram } from 'react-icons/fa6'
 
 const BgFooter = () => {
   return (
@@ -17,21 +19,42 @@ const BgFooter = () => {
           {/* <p className="text-base md:text-lg leading-[120%] text-white font-normal pt-4 md:pt-5 lg:pt-6">Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit?</p> */}
           {/* <p className="text-base md:text-lg leading-[120%] text-white font-normal pt-2"><strong className='text-white'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}
 
-          <div className='pt-6 md:pt-8 lg:pt-12 flex items-center gap-3'>
+          {/* <div className='pt-6 md:pt-8 lg:pt-12 flex items-center gap-3'>
             <Link href="#">
             <span className='inline-flex border-[2px] border-white p-2 md:p-3 rounded-full '><Facebook className='text-white'/></span>
             </Link>
             <Link href="#">
             <span className='inline-flex border-[2px] border-white p-2 md:p-3 rounded-full '><Linkedin className='text-white'/></span>
             </Link>
-            {/* <Link href="#">
-            <span className='inline-flex border-[2px] border-[#5B6574] p-2 md:p-3 rounded-full '><Twitter /></span>
-            </Link> */}
             <Link href="#">
             <span className='inline-flex border-[2px] border-white p-2 md:p-3 rounded-full '><Instagram className='text-white'/></span>
             </Link>
+          </div> */}
 
+          <div className="pt-6 md:pt-8 lg:pt-10 flex items-center gap-4">
+            {/* Facebook */}
+            <Link
+              href="https://www.facebook.com/profile.php?id=61583972953701"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="inline-flex border-[2px] border-[#1877F2] p-2  rounded-full">
+                <SiFacebook className="text-[#1877F2] w-7 h-7" />
+              </span>
+            </Link>
+
+            {/* Instagram */}
+            <Link
+              href="https://www.instagram.com/analytic_soccer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="inline-flex border-[2px] border-[#E1306C] p-2  rounded-full">
+                <FaSquareInstagram className="text-[#E1306C] w-7 h-7" />
+              </span>
+            </Link>
           </div>
+
         </div>
         <div className="md:col-span-2">
           <h4 className="hidden md:block text-lg md:text-xl font-normal text-white leading-[120%] pb-4 md:pb-6 lg:pb-8">
