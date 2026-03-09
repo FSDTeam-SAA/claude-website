@@ -1276,7 +1276,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                       <FormControl>
                         <Input
                           className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]"
-                          placeholder="Enter School Name"
+                          placeholder="Example: College - St Thomas"
                           {...field}
                         />
                       </FormControl>
