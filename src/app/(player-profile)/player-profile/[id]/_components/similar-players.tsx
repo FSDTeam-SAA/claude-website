@@ -41,7 +41,7 @@ const SimilarPlayers = ({
   // ✅ Empty state (item friendly)
   if (!similarPlayers || similarPlayers.length === 0) {
     return (
-      <div className="container py-6 px-0 ">
+      <div className="container pb-12 px-0 ">
         <div className='relative bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
         <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
           <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5">
