@@ -31,7 +31,7 @@ const PlayerProfiles = () => {
           <p className="text-sm md:text-base text-[#131313] font-normal leading-[150%] py-2 md:py-4">
             You only need to fill out your profile information. The Transfer
             History, National Team Career, and Data sections are completed
-            exclusively by our staff once you purchase the data
+            exclusively by our staff once you purchase the data.
           </p>
 
           <div className="hidden md:block pt-8">
