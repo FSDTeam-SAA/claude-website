@@ -507,7 +507,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                         />
                       </FormControl>
                     </div>
-                    <FormMessage />
+                    <FormMessage className="text-red-500" />
                   </FormItem>
                 )}
               />
@@ -660,7 +660,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                       </PopoverContent>
                     </Popover>
 
-                    <FormMessage />
+                    <FormMessage className="text-red-500" />
                   </FormItem>
                 )}
               />
