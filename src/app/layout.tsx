@@ -5,6 +5,10 @@ import { Toaster } from "@/components/ui/sonner";
 import AuthProvider from "@/components/providers/AuthProvider";
 import AppProvider from "@/components/providers/AppProvider";
 import ProfileImageGuard from "./(website)/profile/_components/profile-image-guard";
+import { Suspense } from "react";
+import LangConfig from "./lang-config";
+import Script from "next/script";
+import TranslateProvider from "@/components/providers/TranslateProvider";
 
 const daggerSquare = localFont({
   src: "./fonts/DAGGERSQUARE.otf",
@@ -27,7 +31,24 @@ export default function RootLayout({
       <body className={`font-dagger antialiased`}>
         <AuthProvider>
           <AppProvider>
-            <ProfileImageGuard>{children}</ProfileImageGuard>
+            <ProfileImageGuard>
+              {/* ✅ Google translate container */}
+              <div id="google_translate_element"></div>
+
+              {/* ✅ Loaded only on client */}
+              <Suspense fallback={null}>
+                <LangConfig />
+              </Suspense>
+              <Suspense fallback={null}>
+                <TranslateProvider />
+              </Suspense>
+              {children}
+
+              <Script
+                src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
+                strategy="afterInteractive"
+              />
+            </ProfileImageGuard>
 
             <Toaster />
           </AppProvider>
