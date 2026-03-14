@@ -1,22 +1,20 @@
+"use client";
 
-
-"use client"
-
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm, useFieldArray } from "react-hook-form"
-import { z } from "zod"
-import { LockKeyhole, Plus, X } from 'lucide-react'
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm, useFieldArray } from "react-hook-form";
+import { z } from "zod";
+import { LockKeyhole, Plus, X } from "lucide-react";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
 
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import Image from "next/image"
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import Image from "next/image";
 import {
   Form,
   FormControl,
@@ -24,14 +22,14 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 const playerSchema = z.object({
   name: z.string().min(2, "Player name is required"),
   email: z.string().email("Invalid email"),
   role: z.enum(["player", "gk"]),
-})
+});
 
 const formSchema = z.object({
   coachEmail: z
@@ -52,19 +50,16 @@ const formSchema = z.object({
     message: "Category is required.",
   }),
   players: z.array(playerSchema).min(1, "At least 1 player is required"),
-})
-import {
-  Dialog,
-  DialogContent,
-} from "@/components/ui/dialog"
-import { useSession } from "next-auth/react"
-import { useMutation } from "@tanstack/react-query"
-import { toast } from "sonner"
+});
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useSession } from "next-auth/react";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "sonner";
 
 interface RegisterAsTeamPlayerFormProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-  subscriptionId?: string
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  subscriptionId?: string;
 }
 
 const RegisterAsTeamPlayerForm = ({
@@ -75,7 +70,6 @@ const RegisterAsTeamPlayerForm = ({
   const session = useSession();
   const token = (session?.data?.user as { accessToken: string })?.accessToken;
 
-
   console.log("Subscription ID:", subscriptionId);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -85,17 +79,14 @@ const RegisterAsTeamPlayerForm = ({
       teamName: "",
       league: "",
       category: "",
-      players: [
-        { name: "", email: "", role: "player" },
-      ]
+      players: [{ name: "", email: "", role: "player" }],
     },
-  })
+  });
 
   const { fields, append, remove } = useFieldArray({
     control: form.control,
     name: "players",
-  })
-
+  });
 
   const { mutate, isPending } = useMutation({
     mutationKey: ["team-payment"],
@@ -110,15 +101,15 @@ const RegisterAsTeamPlayerForm = ({
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(values),
-        }
-      )
+        },
+      );
 
-      const teamData = await teamRes.json()
+      const teamData = await teamRes.json();
       if (!teamData?.success) {
-        throw new Error(teamData?.message || "Team creation failed")
+        throw new Error(teamData?.message || "Team creation failed");
       }
 
-      const teamId = teamData?.data?._id
+      const teamId = teamData?.data?._id;
 
       /* 2️⃣ STRIPE PAYMENT */
       const paymentRes = await fetch(
@@ -128,44 +119,42 @@ const RegisterAsTeamPlayerForm = ({
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
-      )
+        },
+      );
 
-      const paymentData = await paymentRes.json()
+      const paymentData = await paymentRes.json();
       // if (!paymentData?.success) {
       //   throw new Error("Payment creation failed")
       // }
 
-      return paymentData
+      return paymentData;
     },
 
-      onSuccess: (data) => {
+    onSuccess: (data) => {
       // console.log("Payment Initiation Success:", data)
-      if(!data?.success){
-        toast.message(data?.message || "Payment initiation failed")
-        return
+      if (!data?.success) {
+        toast.message(data?.message || "Payment initiation failed");
+        return;
       }
-      toast.success("Redirecting to payment...")
-      window.location.href = data.data.approvalUrl
+      toast.success("Redirecting to payment...");
+      window.location.href = data.data.approvalUrl;
     },
 
     // onError: (error: Error) => {
     //   toast.error(error.message || "Something went wrong")
     // },
-  })
+  });
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+    console.log(values);
 
-    mutate(values)
+    mutate(values);
   }
   return (
     <div>
-
       <Dialog open={open} onOpenChange={onOpenChange}>
-
-        <DialogContent className="max-w-2xl bg-white">
+        <DialogContent className="max-w-2xl bg-white !rounded-[12px]">
           {/* Logo */}
           <Link href="/" className="flex items-center justify-center">
             <Image
@@ -176,22 +165,32 @@ const RegisterAsTeamPlayerForm = ({
               className="w-[289px] h-[80px] object-cover"
             />
           </Link>
-          <h4 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] leading-[120%] font-normal text-center pb-2">Register As Team</h4>
+          <h4 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] leading-[120%] font-normal text-center pb-2">
+            Register As Team
+          </h4>
           <div className="h-[250px] md:h-[280px] lg:h-[320px] overflow-auto bg-white border-[2px] border-[#E7E7E7] shadow-[0px_0px_32px_0px_#0000001F] p-6 rounded-[16px]">
             {/* <h4 className="text-xl md:text-2xl lg:text-3xl text-[#131313] leading-[120%] font-normal text-center pb-6">Personal Information</h4> */}
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
-
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-2"
+              >
                 <FormField
                   control={form.control}
                   name="coachName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-base text-[#424242] leading-[150%] font-normal">Coach Name *</FormLabel>
+                      <FormLabel className="text-base text-[#424242] leading-[150%] font-normal">
+                        Coach Name *
+                      </FormLabel>
                       <FormControl>
-                        <Input className="h-[42px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] " placeholder="Enter Coach Name..." {...field} />
+                        <Input
+                          className="h-[42px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] "
+                          placeholder="Enter Coach Name..."
+                          {...field}
+                        />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-500" />
                     </FormItem>
                   )}
                 />
@@ -200,11 +199,18 @@ const RegisterAsTeamPlayerForm = ({
                   name="coachEmail"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-base text-[#424242] leading-[150%] font-normal">Email *</FormLabel>
+                      <FormLabel className="text-base text-[#424242] leading-[150%] font-normal">
+                        Email *
+                      </FormLabel>
                       <FormControl>
-                        <Input type="email" className="h-[42px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] " placeholder="Enter Coach Email..." {...field} />
+                        <Input
+                          type="email"
+                          className="h-[42px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] "
+                          placeholder="Enter Coach Email..."
+                          {...field}
+                        />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-500" />
                     </FormItem>
                   )}
                 />
@@ -213,11 +219,17 @@ const RegisterAsTeamPlayerForm = ({
                   name="teamName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-base text-[#424242] leading-[150%] font-normal">Team Name *</FormLabel>
+                      <FormLabel className="text-base text-[#424242] leading-[150%] font-normal">
+                        Team Name *
+                      </FormLabel>
                       <FormControl>
-                        <Input className="h-[42px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] " placeholder="Enter Player Name..." {...field} />
+                        <Input
+                          className="h-[42px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] "
+                          placeholder="Enter Player Name..."
+                          {...field}
+                        />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-500" />
                     </FormItem>
                   )}
                 />
@@ -239,8 +251,12 @@ const RegisterAsTeamPlayerForm = ({
                             <SelectValue placeholder="Select Category" />
                           </SelectTrigger>
                           <SelectContent className="h-[200px] overflow-y-auto">
-                            <SelectItem value="semi-professional">Semi Professional</SelectItem>
-                            <SelectItem value="professional">Professional</SelectItem>
+                            <SelectItem value="semi-professional">
+                              Semi Professional
+                            </SelectItem>
+                            <SelectItem value="professional">
+                              Professional
+                            </SelectItem>
                             <SelectItem value="adult">Adult</SelectItem>
                             <SelectItem value="U9">U9</SelectItem>
                             <SelectItem value="U10">U10</SelectItem>
@@ -260,7 +276,7 @@ const RegisterAsTeamPlayerForm = ({
                     </FormItem>
                   )}
                 />
-                <FormField
+                {/* <FormField
                   control={form.control}
                   name="league"
                   render={({ field }) => (
@@ -293,15 +309,37 @@ const RegisterAsTeamPlayerForm = ({
                       <FormMessage className="text-red-500" />
                     </FormItem>
                   )}
-                />
+                /> */}
 
+                <FormField
+                  control={form.control}
+                  name="league"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-base text-[#424242] leading-[150%] font-normal">
+                        Leauge *
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          className="h-[42px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] "
+                          placeholder="Enter your leauge..."
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage className="text-red-500" />
+                    </FormItem>
+                  )}
+                />
 
                 {/* PLAYERS */}
                 <div className="bg-[#E9F6E9] p-4 rounded-xl space-y-4">
                   <p className="font-medium">Player names (15 names) *</p>
 
                   {fields.map((field, index) => (
-                    <div key={field.id} className="bg-[#F5FFF5] p-4 rounded-lg relative space-y-3">
+                    <div
+                      key={field.id}
+                      className="bg-[#F5FFF5] p-4 rounded-lg relative space-y-3"
+                    >
                       <p className="text-sm font-medium">Player {index + 1}</p>
 
                       <FormField
@@ -310,9 +348,13 @@ const RegisterAsTeamPlayerForm = ({
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
-                              <Input className="h-[44px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] " placeholder="Player name" {...field} />
+                              <Input
+                                className="h-[44px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] "
+                                placeholder="Player name"
+                                {...field}
+                              />
                             </FormControl>
-                            <FormMessage />
+                            <FormMessage className="text-red-500" />
                           </FormItem>
                         )}
                       />
@@ -323,9 +365,14 @@ const RegisterAsTeamPlayerForm = ({
                         render={({ field }) => (
                           <FormItem>
                             <FormControl>
-                              <Input className="h-[44px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] " type="email" placeholder="Player email" {...field} />
+                              <Input
+                                className="h-[44px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] "
+                                type="email"
+                                placeholder="Player email"
+                                {...field}
+                              />
                             </FormControl>
-                            <FormMessage />
+                            <FormMessage className="text-red-500" />
                           </FormItem>
                         )}
                       />
@@ -335,9 +382,12 @@ const RegisterAsTeamPlayerForm = ({
                         name={`players.${index}.role`}
                         render={({ field }) => (
                           <FormItem>
-                            <Select onValueChange={field.onChange} value={field.value}>
+                            <Select
+                              onValueChange={field.onChange}
+                              value={field.value}
+                            >
                               <FormControl>
-                                <SelectTrigger className="h-[44px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] " >
+                                <SelectTrigger className="h-[44px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] ">
                                   <SelectValue placeholder="Select role" />
                                 </SelectTrigger>
                               </FormControl>
@@ -346,6 +396,7 @@ const RegisterAsTeamPlayerForm = ({
                                 <SelectItem value="gk">Goalkeeper</SelectItem>
                               </SelectContent>
                             </Select>
+                            <FormMessage className="text-red-500" />
                           </FormItem>
                         )}
                       />
@@ -365,7 +416,9 @@ const RegisterAsTeamPlayerForm = ({
                   <div className="flex items-center justify-center">
                     <button
                       type="button"
-                      onClick={() => append({ name: "", email: "", role: "player" })}
+                      onClick={() =>
+                        append({ name: "", email: "", role: "player" })
+                      }
                       className="flex items-center gap-2 text-green-700 text-base font-semibold"
                     >
                       <Plus /> Add Player
@@ -373,14 +426,21 @@ const RegisterAsTeamPlayerForm = ({
                   </div>
                 </div>
 
-                <Button disabled={isPending} className="w-full h-[47px] rounded-[8px] text-[#F2F2F2] text-base " type="submit"><LockKeyhole /> {isPending ? "Processing..." : "Make Your Payment"}</Button>
+                <Button
+                  disabled={isPending}
+                  className="w-full h-[47px] rounded-[8px] text-[#F2F2F2] text-base "
+                  type="submit"
+                >
+                  <LockKeyhole />{" "}
+                  {isPending ? "Processing..." : "Make Your Payment"}
+                </Button>
               </form>
             </Form>
           </div>
         </DialogContent>
       </Dialog>
     </div>
-  )
-}
+  );
+};
 
-export default RegisterAsTeamPlayerForm
+export default RegisterAsTeamPlayerForm;
