@@ -33,7 +33,8 @@ export default function RootLayout({
           <AppProvider>
             <ProfileImageGuard>
               {/* ✅ Google translate container */}
-              <div id="google_translate_element"></div>
+              {/* <div id="google_translate_element"></div> */}
+              <div id="google_translate_element" style={{ display: "none" }}></div>
 
               {/* ✅ Loaded only on client */}
               <Suspense fallback={null}>
