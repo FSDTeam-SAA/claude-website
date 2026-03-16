@@ -41,9 +41,9 @@ const TransferHistory = ({ data, isLoading, error, isError }: Props) => {
     );
   }
 
-  const transferHistory = data?.transferHistory;
+  const transferHistory = data?.transferHistory || [];
 
-  if (!transferHistory || transferHistory.length === 0) return null;
+  // if (!transferHistory || transferHistory.length === 0) return null;
 
   return (
     <div className="pb-6">

@@ -10,7 +10,7 @@ import { useSession } from "next-auth/react"
 import { useEffect, useRef, useState } from "react"
 import { toast } from "sonner"
 
-const MAX_VIDEOS = 3
+const MAX_VIDEOS = 2
 
 export default function VideoUpload({ videos }: { videos: string[] }) {
   const { data: session } = useSession()
@@ -157,7 +157,7 @@ const { isPending } = uploadMutation
           {isPending ? "Uploading..." : "Click to Add Videos"}
         </p>
         <p className="font-semibold text-gray-500">
-          Only 3 videos allowed
+          Only 2 videos allowed
         </p>
       </div>
 
@@ -171,7 +171,7 @@ const { isPending } = uploadMutation
         disabled={isPending}
       />
 
-      <div className="grid grid-cols-3 md:grid-cols-3 gap-3 mt-5">
+      <div className="grid grid-cols-2 gap-4 mt-5">
         {keptExistingVideos.map(url => (
           <div key={url} className="relative">
             <video src={url} controls className="w-full h-24 rounded-xl" />

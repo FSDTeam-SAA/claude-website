@@ -14,6 +14,7 @@ import {
 import moment from "moment";
 import Image from "next/image";
 import CommonSkeleton from "./common-skeleton";
+import { parseCookies } from "nookies";
 
 type Props = {
   data?: UserProfile;
@@ -22,12 +23,12 @@ type Props = {
   isError: boolean;
 };
 
-const NationalTeam = ({
-  data,
-  isLoading,
-  error,
-  isError,
-}: Props) => {
+const COOKIE_NAME = "googtrans";
+
+const NationalTeam = ({ data, isLoading, error, isError }: Props) => {
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
+
   if (isLoading) {
     return (
       <div className="pb-0">
@@ -46,14 +47,13 @@ const NationalTeam = ({
     );
   }
 
-  const personalInfo = data?.national;
+  const personalInfo = data?.national || [];
 
-  if (!personalInfo || personalInfo.length === 0) return null;
+  // if (!personalInfo || personalInfo.length === 0) return null;
 
   return (
     <div className="pb-6">
       <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]'>
-
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-10" />
 
@@ -64,7 +64,6 @@ const NationalTeam = ({
         {/* Responsive Wrapper */}
         <div className="w-full overflow-x-auto relative z-10">
           <Table className="w-full min-w-[1000px] table-fixed">
-            
             {/* Table Header */}
             <TableHeader>
               <TableRow className="border-none">
@@ -77,8 +76,15 @@ const NationalTeam = ({
                 <TableHead className="w-1/5 text-lg md:text-xl font-normal text-primary whitespace-nowrap">
                   Category
                 </TableHead>
-                <TableHead className="w-1/5 text-lg md:text-xl font-normal text-primary whitespace-nowrap">
-                  Match
+                <TableHead className="w-1/5 text-lg md:text-xl font-normal text-primary whitespace-nowrap notranslate">
+                  {/* {lang === "fr" ? "Match" : "Match"} */}
+                  {lang === "fr"
+                    ? "Match"
+                    : lang === "es"
+                      ? "Partidos"
+                      : lang === "bn"
+                        ? "ম্যাচ"
+                        : "Match"}
                 </TableHead>
                 <TableHead className="w-1/5 text-lg md:text-xl font-normal text-primary whitespace-nowrap">
                   Goal
@@ -90,7 +96,6 @@ const NationalTeam = ({
             <TableBody>
               {personalInfo.map((info) => (
                 <TableRow key={info?._id} className="border-white/10">
-                  
                   {/* National Team */}
                   <TableCell className="w-1/5 py-3">
                     <div className="flex items-center gap-2 min-w-0">
@@ -128,11 +133,9 @@ const NationalTeam = ({
                   <TableCell className="w-1/5 text-base text-white py-3 whitespace-nowrap">
                     {info?.goals ?? "N/A"}
                   </TableCell>
-
                 </TableRow>
               ))}
             </TableBody>
-
           </Table>
         </div>
       </div>
@@ -141,5 +144,3 @@ const NationalTeam = ({
 };
 
 export default NationalTeam;
-
-
