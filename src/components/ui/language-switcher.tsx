@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import { parseCookies, setCookie } from 'nookies';
 import { isClient } from '@/lib/client-utils';
 import Image from 'next/image';
-
 import {
   Select,
   SelectContent,
@@ -19,11 +18,12 @@ type GoogleTranslationConfig = {
   languages: { name: string; title: string; flag: string }[];
 };
 
-declare global {
-  interface Window {
-    __GOOGLE_TRANSLATION_CONFIG__?: GoogleTranslationConfig;
-  }
-}
+type WindowWithTranslation = Window & {
+  _GOOGLE_TRANSLATIONCONFIG?: GoogleTranslationConfig;
+};
+
+const getTranslationConfig = (): GoogleTranslationConfig | undefined =>
+  (window as WindowWithTranslation)._GOOGLE_TRANSLATIONCONFIG;
 
 const COOKIE_NAME = 'googtrans';
 
@@ -35,30 +35,52 @@ const LanguageSwitcherComponent = () => {
     if (!isClient) return;
 
     const handleConfig = () => {
-      const translationConfig = window.__GOOGLE_TRANSLATION_CONFIG__;
+      const translationConfig = getTranslationConfig();
       if (!translationConfig) return;
 
       setConfig(translationConfig);
 
-      const cookie = parseCookies()[COOKIE_NAME];
-      const lang = cookie?.split('/')?.[2] || translationConfig.defaultLanguage;
-
-      setCurrentLang(lang);
+      setTimeout(() => {
+        const cookies = parseCookies();
+        const cookie = cookies[COOKIE_NAME];
+        const lang = cookie?.split('/')?.[2] || translationConfig.defaultLanguage;
+        setCurrentLang(lang);
+      }, 200);
     };
 
-    if (window.__GOOGLE_TRANSLATION_CONFIG__) {
+    if (getTranslationConfig()) {
       handleConfig();
     }
 
     window.addEventListener('translationConfigReady', handleConfig);
-
     return () => {
       window.removeEventListener('translationConfigReady', handleConfig);
     };
   }, []);
 
   const switchLang = (lang: string) => {
-    setCookie(undefined, COOKIE_NAME, `/auto/${lang}`, { path: '/' });
+    if (!isClient) return;
+
+    // Clear old cookies
+    setCookie(undefined, COOKIE_NAME, '', { path: '/', maxAge: -1 });
+    setCookie(undefined, COOKIE_NAME, '', {
+      path: '/',
+      domain: window.location.hostname,
+      maxAge: -1,
+    });
+
+    // Set new cookies
+    setCookie(undefined, COOKIE_NAME, `/auto/${lang}`, {
+      path: '/',
+      maxAge: 365 * 24 * 60 * 60,
+    });
+    setCookie(undefined, COOKIE_NAME, `/auto/${lang}`, {
+      path: '/',
+      domain: window.location.hostname,
+      maxAge: 365 * 24 * 60 * 60,
+    });
+
+    setCurrentLang(lang);
     window.location.reload();
   };
 
@@ -70,16 +92,16 @@ const LanguageSwitcherComponent = () => {
     <Select value={currentLang} onValueChange={switchLang}>
       <SelectTrigger
         className="
-        flex items-center gap-3
-        w-auto h-[44px]
-        bg-primary
-        text-white
-        rounded-[24px]
-        border-none
-        px-3
-        text-sm
-        font-medium
-        focus:ring-0
+          flex items-center gap-3
+          w-auto h-[44px]
+          bg-primary
+          text-white
+          rounded-[24px]
+          border-none
+          px-3
+          text-sm
+          font-medium
+          focus:ring-0
         "
       >
         {current && (
@@ -89,19 +111,20 @@ const LanguageSwitcherComponent = () => {
               alt={current.title}
               width={36}
               height={24}
-              className='w-8 h-5 object-contain'
+              className="w-8 h-5 object-contain"
             />
             <span className="text-lg">{current.name.toUpperCase()}</span>
           </div>
         )}
       </SelectTrigger>
-
       <SelectContent className="rounded-xl border-none shadow-lg bg-white">
         {config.languages.map((lang) => (
           <SelectItem key={lang.name} value={lang.name}>
             <div className="flex items-center gap-3 cursor-pointer">
               <Image src={lang.flag} alt={lang.title} width={28} height={18} />
-              <span className='text-sm font-semibold leading-normal text-[#131313]'>{lang.title}</span>
+              <span className="text-sm font-semibold leading-normal text-[#131313]">
+                {lang.title}
+              </span>
             </div>
           </SelectItem>
         ))}
@@ -116,6 +139,137 @@ const LanguageSwitcher = dynamic(
 );
 
 export default LanguageSwitcher;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 'use client';
+
+// import dynamic from 'next/dynamic';
+// import { useEffect, useState } from 'react';
+// import { parseCookies, setCookie } from 'nookies';
+// import { isClient } from '@/lib/client-utils';
+// import Image from 'next/image';
+
+// import {
+//   Select,
+//   SelectContent,
+//   SelectItem,
+//   SelectTrigger,
+// } from '@/components/ui/select';
+
+// type GoogleTranslationConfig = {
+//   defaultLanguage: string;
+//   languages: { name: string; title: string; flag: string }[];
+// };
+
+// declare global {
+//   interface Window {
+//     __GOOGLE_TRANSLATION_CONFIG__?: GoogleTranslationConfig;
+//   }
+// }
+
+// const COOKIE_NAME = 'googtrans';
+
+// const LanguageSwitcherComponent = () => {
+//   const [currentLang, setCurrentLang] = useState('en');
+//   const [config, setConfig] = useState<GoogleTranslationConfig | null>(null);
+
+//   useEffect(() => {
+//     if (!isClient) return;
+
+//     const handleConfig = () => {
+//       const translationConfig = window.__GOOGLE_TRANSLATION_CONFIG__;
+//       if (!translationConfig) return;
+
+//       setConfig(translationConfig);
+
+//       const cookie = parseCookies()[COOKIE_NAME];
+//       const lang = cookie?.split('/')?.[2] || translationConfig.defaultLanguage;
+
+//       setCurrentLang(lang);
+//     };
+
+//     if (window.__GOOGLE_TRANSLATION_CONFIG__) {
+//       handleConfig();
+//     }
+
+//     window.addEventListener('translationConfigReady', handleConfig);
+
+//     return () => {
+//       window.removeEventListener('translationConfigReady', handleConfig);
+//     };
+//   }, []);
+
+//   const switchLang = (lang: string) => {
+//     setCookie(undefined, COOKIE_NAME, `/auto/${lang}`, { path: '/' });
+//     window.location.reload();
+//   };
+
+//   if (!config) return null;
+
+//   const current = config.languages.find(l => l.name === currentLang);
+
+//   return (
+//     <Select value={currentLang} onValueChange={switchLang}>
+//       <SelectTrigger
+//         className="
+//         flex items-center gap-3
+//         w-auto h-[44px]
+//         bg-primary
+//         text-white
+//         rounded-[24px]
+//         border-none
+//         px-3
+//         text-sm
+//         font-medium
+//         focus:ring-0
+//         "
+//       >
+//         {current && (
+//           <div className="flex items-center gap-3">
+//             <Image
+//               src={current.flag}
+//               alt={current.title}
+//               width={36}
+//               height={24}
+//               className='w-8 h-5 object-contain'
+//             />
+//             <span className="text-lg">{current.name.toUpperCase()}</span>
+//           </div>
+//         )}
+//       </SelectTrigger>
+
+//       <SelectContent className="rounded-xl border-none shadow-lg bg-white">
+//         {config.languages.map((lang) => (
+//           <SelectItem key={lang.name} value={lang.name}>
+//             <div className="flex items-center gap-3 cursor-pointer">
+//               <Image src={lang.flag} alt={lang.title} width={28} height={18} />
+//               <span className='text-sm font-semibold leading-normal text-[#131313]'>{lang.title}</span>
+//             </div>
+//           </SelectItem>
+//         ))}
+//       </SelectContent>
+//     </Select>
+//   );
+// };
+
+// const LanguageSwitcher = dynamic(
+//   () => Promise.resolve(LanguageSwitcherComponent),
+//   { ssr: false }
+// );
+
+// export default LanguageSwitcher;
 
 
 
