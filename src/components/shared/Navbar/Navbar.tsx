@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
-// import { ChevronDown } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -161,45 +160,10 @@ const Navbar = () => {
                 Prices
               </button>
 
-               <div>
-              <LanguageSwitcher />
+              <div>
+                <LanguageSwitcher />
+              </div>
             </div>
-
-              {/* <Link
-                href="/services"
-                className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${pathname === "/services" ? "border-b-[2px] border-primary" : "border-0"
-                  }`}
-              >
-                Services
-              </Link>
-
-              <Link
-                href="/profiles"
-                className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${pathname === "/profiles" ? "border-b-[2px] border-primary" : "border-0"
-                  }`}
-              >
-                Profiles
-              </Link>
-
-              <Link
-                href="/analytic-soccer-coming-soon"
-                className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${pathname === "/analytic-soccer-coming-soon" ? "border-b-[2px] border-primary" : "border-0"
-                  }`}
-              >
-                Player Evaluation Program
-              </Link>
-
-
-              <Link
-                href="/prices"
-                className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${pathname === "/prices" ? "border-b-[2px] border-primary" : "border-0"
-                  }`}
-              >
-                Prices
-              </Link> */}
-            </div>
-
-           
 
             {/* CTA Buttons */}
             <div className="hidden sm:flex items-center gap-2 flex-shrink-0">
@@ -341,36 +305,10 @@ const Navbar = () => {
                 Prices
               </button>
 
-              {/* <Link
-                href="/services"
-                className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${pathname === "/services" ? "border-b-[2px] border-primary" : "border-0"
-                  }`}
-              >
-                Services
-              </Link>
-              <Link
-                href="/profiles"
-                className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${pathname === "/profiles" ? "border-b-[2px] border-primary" : "border-0"
-                  }`}
-              >
-                Profiles
-              </Link>
-
-              <Link
-                href="/analytic-soccer-coming-soon"
-                className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${pathname === "/analytic-soccer-coming-soon" ? "border-b-[2px] border-primary" : "border-0"
-                  }`}
-              >
-                Player Evaluation Program
-              </Link>
-
-              <Link
-                href="/prices"
-                className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${pathname === "/prices" ? "border-b-[2px] border-primary" : "border-0"
-                  }`}
-              >
-                Prices
-              </Link> */}
+              {/* ✅ Language Switcher for Mobile */}
+              <div className="pt-2">
+                <LanguageSwitcher />
+              </div>
 
               <div className="flex items-center justify-between gap-4 pt-2">
                 {status === "authenticated" && user ? (

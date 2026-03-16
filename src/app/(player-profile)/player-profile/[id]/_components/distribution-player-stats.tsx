@@ -1,92 +1,252 @@
+import React from "react";
+import { UserProfile } from "./player-data-type";
+import ErrorContainer from "@/components/shared/ErrorContainer/ErrorContainer";
+import CommonSkeleton from "./common-skeleton";
+import { parseCookies } from "nookies";
 
-import React from 'react'
-import { UserProfile } from './player-data-type';
-import ErrorContainer from '@/components/shared/ErrorContainer/ErrorContainer';
-import CommonSkeleton from './common-skeleton';
+const COOKIE_NAME = "googtrans";
 
 const DistributionPlayerStats = ({
-    data,
-    isLoading,
-    error,
-    isError,
+  data,
+  isLoading,
+  error,
+  isError,
 }: {
-    data?: UserProfile
-    isLoading: boolean
-    error: unknown
-    isError: boolean
+  data?: UserProfile;
+  isLoading: boolean;
+  error: unknown;
+  isError: boolean;
 }) => {
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
 
-    if (isLoading) {
-        return <div className="pb-0">
-            <CommonSkeleton />
-        </div>
-    }
-
-    if (isError) {
-        const message =
-            error instanceof Error ? error.message : "Something went wrong!";
-        return <div className="pb-8">
-            <ErrorContainer message={message} />
-        </div>
-    }
-
-    const personalInfo = data?.distribution;
-
-    if (!personalInfo) return null;
-
+  if (isLoading) {
     return (
-        <div className=''>
-            <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
-                 <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
-                <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">Distribution Stats</h3>
-                <div>
-                    {
-                        personalInfo?.map((info) => {
-                            return <div key={info?._id}>
-                                <ul  className="grid grid-cols-1 md:gris-cols-2 lg:grid-cols-4 gap-6">
+      <div className="pb-0">
+        <CommonSkeleton />
+      </div>
+    );
+  }
 
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Passes</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.passes || "N/A"}</span></li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Passes in Final Third
-                                </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.passesinFinalThird || "N/A"}</span></li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Passes in Middle Third
-                                </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.passesinMiddleThird || "N/A"}</span></li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Passes in Defensive Third
+  if (isError) {
+    const message =
+      error instanceof Error ? error.message : "Something went wrong!";
+    return (
+      <div className="pb-8">
+        <ErrorContainer message={message} />
+      </div>
+    );
+  }
 
-                                </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.passesinOerensiveThird || "N/A"}</span></li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Key Passes
-                                </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.kevPasses || "N/A"}</span></li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Long Passes</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.longPasses || "N/A"}</span></li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Medium Passes</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.mediumPasses || "N/A"}</span></li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Short Passes</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.shortPasses || "N/A"}</span></li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Passes Forward</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.passesForward || "N/A"}</span></li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Passes Sideways
-                                </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.passesSidewavs || "N/A"}</span></li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Passes Backward</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.passesBackward || "N/A"}</span></li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                                    <span className="text-base font-normal text-primary leading-[150%]">
-                                        Passes Received
-                                    </span>
-                                    <span className="text-lg md:text-xl text-white font-normal leading-[120%]">
+  const personalInfo = data?.distribution;
 
-                                        {info?.passesReceived || "N/A"}
-                                    </span>
-                                </li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Crosses</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.crosses || "N/A"}</span></li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Step-in</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.stepIn || "N/A"}</span></li>
-                                <li className="grid grid-cols-2 md:grid-cols-1 gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Turnover Conceded</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.turnoverConceded || "N/A"}</span></li>
-                                {/* <li className="flex flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Most Passes Player Between </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.mostPassesPlayerBetween || "N/A"}</span></li> */}
-                                 <li className="flex flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Who do you pass the ball to the most?</span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.passTheMost || "N/A"}</span></li>
-                                <li className="flex flex-col gap-2"><span className='text-base font-me text-primary leading-[150%]'>who do pass the ball to you the most?
-                                </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.ballTheMost || "N/A"}</span></li>
-                            </ul>
-                            </div>
-                        }
-                        )}
-                </div>
+  if (!personalInfo) return null;
 
-            </div>
+  return (
+    <div className="">
+      <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
+        <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
+        <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">
+          Distribution Stats
+        </h3>
+        <div>
+          {personalInfo?.map((info) => {
+            return (
+              <div key={info?._id}>
+                <ul className="grid grid-cols-1 md:gris-cols-2 lg:grid-cols-4 gap-6">
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Passes"
+                        : lang === "es"
+                          ? "Pases"
+                          : lang === "bn"
+                            ? "পাস"
+                            : "Passes"}
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.passes || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Passes en zone offensive"
+                        : lang === "es"
+                          ? "Pases en el último tercio"
+                          : lang === "bn"
+                            ? "আক্রমণাত্মক তৃতীয়াংশে পাস"
+                            : "Passes in Final Third"}
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.passesinFinalThird || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Passes au milieu du terrain"
+                        : lang === "es"
+                          ? "Pases en el tercio medio"
+                          : lang === "bn"
+                            ? "মাঝের তৃতীয়াংশে পাস"
+                            : "Passes in Middle Third"}
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.passesinMiddleThird || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Passes dans la zone défensive"
+                        : lang === "es"
+                          ? "Pases en el tercio defensivo"
+                          : lang === "bn"
+                            ? "রক্ষণাত্মক তৃতীয়াংশে পাস"
+                            : "Passes in Defensive Third"}
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.passesinOerensiveThird || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Passes clés"
+                        : lang === "es"
+                          ? "Pases clave"
+                          : lang === "bn"
+                            ? "গুরুত্বপূর্ণ পাস"
+                            : "Key Passes"}
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.kevPasses || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Longues passes"
+                        : lang === "es"
+                          ? "Pases largos"
+                          : lang === "bn"
+                            ? "লম্বা পাস"
+                            : "Long Passes"}
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.longPasses || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%]">
+                      Medium Passes
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.mediumPasses || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%]">
+                      Short Passes
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.shortPasses || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%]">
+                      Passes Forward
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.passesForward || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%]">
+                      Passes Sideways
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.passesSidewavs || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%]">
+                      Passes Backward
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.passesBackward || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%]">
+                      Passes Received
+                    </span>
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%]">
+                      {info?.passesReceived || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Centres"
+                        : lang === "es"
+                          ? "Centros"
+                          : lang === "bn"
+                            ? "ক্রস"
+                            : "Crosses"}
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.crosses || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Interventions"
+                        : lang === "es"
+                          ? "Intercepciones"
+                          : lang === "bn"
+                            ? "ইন্টারসেপশন"
+                            : "Step-in"}
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.stepIn || "N/A"}
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%]">
+                      Turnover Conceded
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.turnoverConceded || "N/A"}
+                    </span>
+                  </li>
+                  {/* <li className="flex flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Most Passes Player Between </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.mostPassesPlayerBetween || "N/A"}</span></li> */}
+                  <li className="flex flex-col gap-2">
+                    <span className="text-base font-normal text-primary leading-[150%]">
+                      Who do you pass the ball to the most?
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.passTheMost || "N/A"}
+                    </span>
+                  </li>
+                  <li className="flex flex-col gap-2">
+                    <span className="text-base font-me text-primary leading-[150%]">
+                      who do pass the ball to you the most?
+                    </span>{" "}
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                      {info?.ballTheMost || "N/A"}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            );
+          })}
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default DistributionPlayerStats
+export default DistributionPlayerStats;
