@@ -71,24 +71,42 @@ const DefensiveStats = ({
                   </span>
                 </li>
                 <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                  <span className="text-base font-normal text-primary leading-[150%]">
-                    Tackle Succeeded: Possession
+                  <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                    {lang === "fr"
+                      ? "Tacles réussis: possession"
+                      : lang === "es"
+                        ? "Entradas exitosas: posesión"
+                        : lang === "bn"
+                          ? "সফল ট্যাকল: বলের দখল"
+                          : "Tackle Succeeded: Possession"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.tackleSucceededPossession || "N/A"}
                   </span>
                 </li>
                 <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                  <span className="text-base font-normal text-primary leading-[150%]">
-                    Tackle Succeeded: No Possession
+                  <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                    {lang === "fr"
+                      ? "Tacles réussis : aucune possession"
+                      : lang === "es"
+                        ? "Entradas exitosas"
+                        : lang === "bn"
+                          ? "সফল ট্যাকল"
+                          : "Tackle Succeeded : No Possession"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.tackleSucceededNOPossession || "N/A"}
                   </span>
                 </li>
                 <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                  <span className="text-base font-normal text-primary leading-[150%]">
-                    Tackle Failed
+                  <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                    {lang === "fr"
+                      ? "Tacles ratés"
+                      : lang === "es"
+                        ? "Entradas fallidas"
+                        : lang === "bn"
+                          ? "ব্যর্থ ট্যাকল"
+                          : "Tackle Failed"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.tackleFailed || "N/A"}

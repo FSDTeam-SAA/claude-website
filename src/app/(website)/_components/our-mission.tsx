@@ -49,7 +49,7 @@ const OurMission = () => {
   ];
 
   return (
-    <section className='relative w-full bg_color py-8 md:py-12 lg:py-16 overflow-hidden'>
+    <section className=' relative w-full bg_color py-8 md:py-12 lg:py-16 overflow-hidden'>
       
       {/* Left background image */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2">

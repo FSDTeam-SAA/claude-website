@@ -163,16 +163,28 @@ const DistributionPlayerStats = ({
                     </span>
                   </li>
                   <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                    <span className="text-base font-normal text-primary leading-[150%]">
-                      Passes Sideways
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Passes latérales"
+                        : lang === "es"
+                          ? "Pases laterales"
+                          : lang === "bn"
+                            ? "পাশের দিকে পাস"
+                            : "Passes Sideways"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.passesSidewavs || "N/A"}
                     </span>
                   </li>
                   <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                    <span className="text-base font-normal text-primary leading-[150%]">
-                      Passes Backward
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Passes en arrière"
+                        : lang === "es"
+                          ? "Pases hacia atrás"
+                          : lang === "bn"
+                            ? "পেছনের দিকে পাস"
+                            : "Passes Backward"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.passesBackward || "N/A"}
