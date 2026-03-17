@@ -74,7 +74,7 @@ const AttackingStats = ({
                 <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
                   <span className="text-base font-normal text-primary leading-[150%] notranslate">
                     {lang === "fr"
-                      ? "Tirs à l'intérieur des 18"
+                      ? "Tirs à l'intérieur des 18m"
                       : lang === "es"
                         ? "Tiros dentro del área"
                         : lang === "bn"
@@ -88,7 +88,7 @@ const AttackingStats = ({
                 <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
                   <span className="text-base font-normal text-primary leading-[150%] notranslate">
                     {lang === "fr"
-                      ? "Tirs en dehors des 18"
+                      ? "Tirs en dehors des 18m"
                       : lang === "es"
                         ? "Tiros fuera del área"
                         : lang === "bn"
@@ -100,8 +100,14 @@ const AttackingStats = ({
                   </span>
                 </li>
                 <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                  <span className="text-base font-normal text-primary leading-[150%]">
-                    Total Shots
+                  <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                    {lang === "fr"
+                      ? "Nombre total de tirs"
+                      : lang === "es"
+                        ? "Total de tiros"
+                        : lang === "bn"
+                          ? "মোট শট"
+                          : "Total Shots"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.totalShots || "N/A"}
