@@ -62,8 +62,6 @@ const DefensiveStats = ({
                       ? "Tacles"
                       : lang === "es"
                         ? "Entradas"
-                        : lang === "bn"
-                          ? "ট্যাকল প্রচেষ্টা"
                           : "Tackle Attempts"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -76,8 +74,6 @@ const DefensiveStats = ({
                       ? "Tacles réussis: possession"
                       : lang === "es"
                         ? "Entradas exitosas: posesión"
-                        : lang === "bn"
-                          ? "সফল ট্যাকল: বলের দখল"
                           : "Tackle Succeeded: Possession"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -90,8 +86,6 @@ const DefensiveStats = ({
                       ? "Tacles réussis : aucune possession"
                       : lang === "es"
                         ? "Entradas exitosas"
-                        : lang === "bn"
-                          ? "সফল ট্যাকল"
                           : "Tackle Succeeded : No Possession"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -104,8 +98,6 @@ const DefensiveStats = ({
                       ? "Tacles ratés"
                       : lang === "es"
                         ? "Entradas fallidas"
-                        : lang === "bn"
-                          ? "ব্যর্থ ট্যাকল"
                           : "Tackle Failed"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -118,8 +110,6 @@ const DefensiveStats = ({
                       ? "Ballons Récupérés"
                       : lang === "es"
                         ? "Balones Recuperados"
-                        : lang === "bn"
-                          ? "বল পুনরুদ্ধার"
                           : "Turnover Won"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -148,8 +138,6 @@ const DefensiveStats = ({
                       ? "Dégagement"
                       : lang === "es"
                         ? "Despeje"
-                        : lang === "bn"
-                          ? "ক্লিয়ারেন্স"
                           : "Clearance"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -162,8 +150,6 @@ const DefensiveStats = ({
                       ? "Tirs Bloqués"
                       : lang === "es"
                         ? "Tiros Bloqueados"
-                        : lang === "bn"
-                          ? "মোট ব্লক"
                           : "Total Blocked"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -184,8 +170,6 @@ const DefensiveStats = ({
                       ? "Centres Bloqués"
                       : lang === "es"
                         ? "Centros Bloqueados"
-                        : lang === "bn"
-                          ? "ক্রস ব্লক"
                           : "Cross Blocked"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
