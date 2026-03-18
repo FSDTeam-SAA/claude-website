@@ -82,8 +82,6 @@ const NationalTeam = ({ data, isLoading, error, isError }: Props) => {
                     ? "Match"
                     : lang === "es"
                       ? "Partidos"
-                      : lang === "bn"
-                        ? "ম্যাচ"
                         : "Match"}
                 </TableHead>
                 <TableHead className="w-1/5 text-lg md:text-xl font-normal text-primary whitespace-nowrap">

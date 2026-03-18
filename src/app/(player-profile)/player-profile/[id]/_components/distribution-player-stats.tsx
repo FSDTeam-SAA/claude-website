@@ -60,8 +60,6 @@ const DistributionPlayerStats = ({
                         ? "Passes"
                         : lang === "es"
                           ? "Pases"
-                          : lang === "bn"
-                            ? "পাস"
                             : "Passes"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -74,8 +72,6 @@ const DistributionPlayerStats = ({
                         ? "Passes en zone offensive"
                         : lang === "es"
                           ? "Pases en el último tercio"
-                          : lang === "bn"
-                            ? "আক্রমণাত্মক তৃতীয়াংশে পাস"
                             : "Passes in Final Third"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -88,8 +84,6 @@ const DistributionPlayerStats = ({
                         ? "Passes au milieu du terrain"
                         : lang === "es"
                           ? "Pases en el tercio medio"
-                          : lang === "bn"
-                            ? "মাঝের তৃতীয়াংশে পাস"
                             : "Passes in Middle Third"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -102,8 +96,6 @@ const DistributionPlayerStats = ({
                         ? "Passes dans la zone défensive"
                         : lang === "es"
                           ? "Pases en el tercio defensivo"
-                          : lang === "bn"
-                            ? "রক্ষণাত্মক তৃতীয়াংশে পাস"
                             : "Passes in Defensive Third"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -116,8 +108,6 @@ const DistributionPlayerStats = ({
                         ? "Passes clés"
                         : lang === "es"
                           ? "Pases clave"
-                          : lang === "bn"
-                            ? "গুরুত্বপূর্ণ পাস"
                             : "Key Passes"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -130,8 +120,6 @@ const DistributionPlayerStats = ({
                         ? "Longues passes"
                         : lang === "es"
                           ? "Pases largos"
-                          : lang === "bn"
-                            ? "লম্বা পাস"
                             : "Long Passes"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -168,8 +156,6 @@ const DistributionPlayerStats = ({
                         ? "Passes latérales"
                         : lang === "es"
                           ? "Pases laterales"
-                          : lang === "bn"
-                            ? "পাশের দিকে পাস"
                             : "Passes Sideways"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -182,8 +168,6 @@ const DistributionPlayerStats = ({
                         ? "Passes en arrière"
                         : lang === "es"
                           ? "Pases hacia atrás"
-                          : lang === "bn"
-                            ? "পেছনের দিকে পাস"
                             : "Passes Backward"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -204,8 +188,6 @@ const DistributionPlayerStats = ({
                         ? "Centres"
                         : lang === "es"
                           ? "Centros"
-                          : lang === "bn"
-                            ? "ক্রস"
                             : "Crosses"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -218,8 +200,6 @@ const DistributionPlayerStats = ({
                         ? "Interventions"
                         : lang === "es"
                           ? "Intercepciones"
-                          : lang === "bn"
-                            ? "ইন্টারসেপশন"
                             : "Step-in"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">

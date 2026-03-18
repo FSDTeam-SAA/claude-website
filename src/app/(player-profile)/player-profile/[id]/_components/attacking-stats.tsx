@@ -77,8 +77,6 @@ const AttackingStats = ({
                       ? "Tirs à l'intérieur des 18m"
                       : lang === "es"
                         ? "Tiros dentro del área"
-                        : lang === "bn"
-                          ? "পেনাল্টি বক্সের ভেতরের শট"
                           : "Shots inside PA"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -91,8 +89,6 @@ const AttackingStats = ({
                       ? "Tirs en dehors des 18m"
                       : lang === "es"
                         ? "Tiros fuera del área"
-                        : lang === "bn"
-                          ? "পেনাল্টি বক্সের বাইরে শট"
                           : "Shots outside PA"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -105,8 +101,6 @@ const AttackingStats = ({
                       ? "Nombre total de tirs"
                       : lang === "es"
                         ? "Total de tiros"
-                        : lang === "bn"
-                          ? "মোট শট"
                           : "Total Shots"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
@@ -152,8 +146,6 @@ const AttackingStats = ({
                       ? "Duels"
                       : lang === "es"
                         ? "Regates"
-                        : lang === "bn"
-                          ? "ড্রিবল প্রচেষ্টা"
                           : "Take-on"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">

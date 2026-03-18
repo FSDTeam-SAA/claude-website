@@ -37,11 +37,11 @@ const config: GoogleTranslationConfig = {
       name: 'es',
       flag: '/assets/flags/es.svg',
     },
-    {
-      title: 'Bangla',
-      name: 'bn',
-      flag: '/assets/flags/bd.png',
-    },
+    // {
+    //   title: 'Bangla',
+    //   name: 'bn',
+    //   flag: '/assets/flags/bd.png',
+    // },
   ],
   defaultLanguage: 'en',
 };
