@@ -46,8 +46,12 @@ const DefensiveStats = ({
     <div className="pb-6">
       <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
         <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
-        <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">
-          Defensive Stats
+        <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6 notranslate">
+          {lang === "fr"
+            ? "Statistiques défensives"
+            : lang === "es"
+              ? "Estadísticas en defensa"
+              : "Defensive Stats"}
         </h3>
         <div>
           {personalInfo?.map((info) => {
@@ -61,8 +65,8 @@ const DefensiveStats = ({
                     {lang === "fr"
                       ? "Tacles"
                       : lang === "es"
-                        ? "Entradas"
-                          : "Tackle Attempts"}
+                        ? "Intentos de entrada"
+                        : "Tackle Attempts"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.tackleAttempts || "N/A"}
@@ -73,8 +77,8 @@ const DefensiveStats = ({
                     {lang === "fr"
                       ? "Tacles réussis: possession"
                       : lang === "es"
-                        ? "Entradas exitosas: posesión"
-                          : "Tackle Succeeded: Possession"}
+                        ? "Entrada exitosa: con posesión"
+                        : "Tackle Succeeded: Possession"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.tackleSucceededPossession || "N/A"}
@@ -85,8 +89,8 @@ const DefensiveStats = ({
                     {lang === "fr"
                       ? "Tacles réussis : aucune possession"
                       : lang === "es"
-                        ? "Entradas exitosas"
-                          : "Tackle Succeeded : No Possession"}
+                        ? "Entrada exitosa: sin posesión"
+                        : "Tackle Succeeded : No Possession"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.tackleSucceededNOPossession || "N/A"}
@@ -97,8 +101,8 @@ const DefensiveStats = ({
                     {lang === "fr"
                       ? "Tacles ratés"
                       : lang === "es"
-                        ? "Entradas fallidas"
-                          : "Tackle Failed"}
+                        ? "Entrada fallida"
+                        : "Tackle Failed"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.tackleFailed || "N/A"}
@@ -109,24 +113,32 @@ const DefensiveStats = ({
                     {lang === "fr"
                       ? "Ballons Récupérés"
                       : lang === "es"
-                        ? "Balones Recuperados"
-                          : "Turnover Won"}
+                        ? "Balones recuperados"
+                        : "Turnover Won"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.turnoverwon || "N/A"}
                   </span>
                 </li>
                 <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                  <span className="text-base font-normal text-primary leading-[150%]">
-                    Interceptions
+                  <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                    {lang === "fr"
+                      ? "Interceptions"
+                      : lang === "es"
+                        ? "Intercepciones"
+                        : "Interceptions"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.interceptions || "N/A"}
                   </span>
                 </li>
                 <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                  <span className="text-base font-normal text-primary leading-[150%]">
-                    Recoveries
+                  <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                    {lang === "fr"
+                      ? "Récupérations"
+                      : lang === "es"
+                        ? "Recuperaciones"
+                        : "Recoveries"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.recoveries || "N/A"}
@@ -137,8 +149,8 @@ const DefensiveStats = ({
                     {lang === "fr"
                       ? "Dégagement"
                       : lang === "es"
-                        ? "Despeje"
-                          : "Clearance"}
+                        ? "Despejes"
+                        : "Clearance"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.clearance || "N/A"}
@@ -149,16 +161,20 @@ const DefensiveStats = ({
                     {lang === "fr"
                       ? "Tirs Bloqués"
                       : lang === "es"
-                        ? "Tiros Bloqueados"
-                          : "Total Blocked"}
+                        ? "Bloqueos totales"
+                        : "Total Blocked"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.totalBlocked || "N/A"}
                   </span>
                 </li>
                 <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                  <span className="text-base font-normal text-primary leading-[150%]">
-                    Shot Blocked
+                  <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                    {lang === "fr"
+                      ? "Tirs bloqués"
+                      : lang === "es"
+                        ? "Disparos bloqueados"
+                        : "Shot Blocked"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.shotBlocked || "N/A"}
@@ -169,40 +185,56 @@ const DefensiveStats = ({
                     {lang === "fr"
                       ? "Centres Bloqués"
                       : lang === "es"
-                        ? "Centros Bloqueados"
-                          : "Cross Blocked"}
+                        ? "Centros bloqueados"
+                        : "Cross Blocked"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.crossBlocked || "N/A"}
                   </span>
                 </li>
                 <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                  <span className="text-base font-normal text-primary leading-[150%]">
-                    Mistakes
+                  <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                    {lang === "fr"
+                      ? "Erreurs"
+                      : lang === "es"
+                        ? "Errores"
+                        : "Mistakes"}
                   </span>
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%]">
                     {info?.mistakes || "N/A"}
                   </span>
                 </li>
                 <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                  <span className="text-base font-normal text-primary leading-[150%]">
-                    Aerial Duels
+                  <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                    {lang === "fr"
+                      ? "Duels aériens"
+                      : lang === "es"
+                        ? "Duelos aéreos"
+                        : "Aerial Duels"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.aerialDuels || "N/A"}
                   </span>
                 </li>
                 <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                  <span className="text-base font-normal text-primary leading-[150%]">
-                    Physical Duels
+                  <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                    {lang === "fr"
+                      ? "Duels physiques"
+                      : lang === "es"
+                        ? "Duelos físicos"
+                        : "Physical Duels"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.phvsicalDuels || "N/A"}
                   </span>
                 </li>
                 <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                  <span className="text-base font-normal text-primary leading-[150%]">
-                    Own Goals
+                  <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                    {lang === "fr"
+                      ? "Buts contre son camp"
+                      : lang === "es"
+                        ? "Goles en propia puerta"
+                        : "Own Goals"}
                   </span>{" "}
                   <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                     {info?.ownGoals || "N/A"}

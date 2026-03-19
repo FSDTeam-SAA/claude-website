@@ -24,12 +24,12 @@ const GoogleLoginButton = ({ context = "login" }: GoogleLoginButtonProps) => {
     setIsLoading(true);
 
     // Create callback URL with role parameter
-    let callbackUrl = "/";
+    let callbackUrl = "/profile";
 
     if (role && context === "signup") {
       // For signup, pass role through callback URL
       // This will be accessible in the redirect callback
-      callbackUrl = `/?google_signup_role=${role}`;
+      callbackUrl = `/profile/?google_signup_role=${role}`;
 
       console.log("📝 Google signup with role:", role);
       console.log("📍 Callback URL:", callbackUrl);
