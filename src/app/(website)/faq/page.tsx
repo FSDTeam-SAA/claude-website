@@ -92,7 +92,7 @@ const faqItems = [
      {
       question: "Upload your highlights videos",
       answer:
-        "You are allowed up to 3 videos and you can update them at any time. The duration of each video can't exceed 3 minutes.",
+        "You are allowed up to 2 videos and you can update them at any time. The duration of each video can't exceed 3 minutes.",
     },
      {
       question: "Do I fill out my profile?",

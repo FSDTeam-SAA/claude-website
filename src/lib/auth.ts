@@ -114,13 +114,13 @@ export const authOptions: NextAuthOptions = {
 
     // 🔥 CRITICAL FIX: Extract role from callback URL
     async redirect({ url, baseUrl }) {
-      console.log("=== REDIRECT CALLBACK ===");
-      console.log("Redirect URL:", url);
-      console.log("Base URL:", baseUrl);
+      // console.log("=== REDIRECT CALLBACK ===");
+      // console.log("Redirect URL:", url);
+      // console.log("Base URL:", baseUrl);
 
       try {
         // Handle relative URLs by making them absolute
-        const absoluteUrl = url.startsWith("/") ? `${baseUrl}${url}` : url;
+        const absoluteUrl = url.startsWith("/profile") ? `${baseUrl}${url}` : url;
         const redirectUrl = new URL(absoluteUrl);
 
         console.log("Parsed redirect URL:", redirectUrl.href);

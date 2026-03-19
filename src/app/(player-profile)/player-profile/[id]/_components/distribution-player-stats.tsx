@@ -46,8 +46,12 @@ const DistributionPlayerStats = ({
     <div className="">
       <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
         <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
-        <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">
-          Distribution Stats
+        <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6 notranslate">
+          {lang === "fr"
+            ? "Statistiques de distribution"
+            : lang === "es"
+              ? "Estadísticas de distribución"
+              : "Distribution Stats"}
         </h3>
         <div>
           {personalInfo?.map((info) => {
@@ -60,7 +64,7 @@ const DistributionPlayerStats = ({
                         ? "Passes"
                         : lang === "es"
                           ? "Pases"
-                            : "Passes"}
+                          : "Passes"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.passes || "N/A"}
@@ -72,7 +76,7 @@ const DistributionPlayerStats = ({
                         ? "Passes en zone offensive"
                         : lang === "es"
                           ? "Pases en el último tercio"
-                            : "Passes in Final Third"}
+                          : "Passes in Final Third"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.passesinFinalThird || "N/A"}
@@ -84,7 +88,7 @@ const DistributionPlayerStats = ({
                         ? "Passes au milieu du terrain"
                         : lang === "es"
                           ? "Pases en el tercio medio"
-                            : "Passes in Middle Third"}
+                          : "Passes in Middle Third"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.passesinMiddleThird || "N/A"}
@@ -96,7 +100,7 @@ const DistributionPlayerStats = ({
                         ? "Passes dans la zone défensive"
                         : lang === "es"
                           ? "Pases en el tercio defensivo"
-                            : "Passes in Defensive Third"}
+                          : "Passes in Defensive Third"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.passesinOerensiveThird || "N/A"}
@@ -108,7 +112,7 @@ const DistributionPlayerStats = ({
                         ? "Passes clés"
                         : lang === "es"
                           ? "Pases clave"
-                            : "Key Passes"}
+                          : "Key Passes"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.kevPasses || "N/A"}
@@ -120,31 +124,43 @@ const DistributionPlayerStats = ({
                         ? "Longues passes"
                         : lang === "es"
                           ? "Pases largos"
-                            : "Long Passes"}
+                          : "Long Passes"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.longPasses || "N/A"}
                     </span>
                   </li>
                   <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                    <span className="text-base font-normal text-primary leading-[150%]">
-                      Medium Passes
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Passes moyennes"
+                        : lang === "es"
+                          ? "Pases medios"
+                          : "Medium Passes"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.mediumPasses || "N/A"}
                     </span>
                   </li>
                   <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                    <span className="text-base font-normal text-primary leading-[150%]">
-                      Short Passes
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Passes courtes"
+                        : lang === "es"
+                          ? "Pases cortos"
+                          : "Short Passes"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.shortPasses || "N/A"}
                     </span>
                   </li>
                   <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                    <span className="text-base font-normal text-primary leading-[150%]">
-                      Passes Forward
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Passes vers l'avant"
+                        : lang === "es"
+                          ? "Pases hacia adelante"
+                          : "Passes Forward"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.passesForward || "N/A"}
@@ -156,7 +172,7 @@ const DistributionPlayerStats = ({
                         ? "Passes latérales"
                         : lang === "es"
                           ? "Pases laterales"
-                            : "Passes Sideways"}
+                          : "Passes Sideways"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.passesSidewavs || "N/A"}
@@ -168,15 +184,19 @@ const DistributionPlayerStats = ({
                         ? "Passes en arrière"
                         : lang === "es"
                           ? "Pases hacia atrás"
-                            : "Passes Backward"}
+                          : "Passes Backward"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.passesBackward || "N/A"}
                     </span>
                   </li>
                   <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                    <span className="text-base font-normal text-primary leading-[150%]">
-                      Passes Received
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Passes reçues"
+                        : lang === "es"
+                          ? "Pases recibidos"
+                          : "Passes Receive"}
                     </span>
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%]">
                       {info?.passesReceived || "N/A"}
@@ -188,7 +208,7 @@ const DistributionPlayerStats = ({
                         ? "Centres"
                         : lang === "es"
                           ? "Centros"
-                            : "Crosses"}
+                          : "Crosses"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.crosses || "N/A"}
@@ -199,16 +219,20 @@ const DistributionPlayerStats = ({
                       {lang === "fr"
                         ? "Interventions"
                         : lang === "es"
-                          ? "Intercepciones"
-                            : "Step-in"}
+                          ? "Entrada ofensiva / incursión"
+                          : "Step-in"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.stepIn || "N/A"}
                     </span>
                   </li>
                   <li className="grid grid-cols-2 md:grid-cols-1 gap-2">
-                    <span className="text-base font-normal text-primary leading-[150%]">
-                      Turnover Conceded
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Ballons perdus"
+                        : lang === "es"
+                          ? "Pérdidas de balón"
+                          : "Turnover Conceded"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.turnoverConceded || "N/A"}
@@ -216,16 +240,24 @@ const DistributionPlayerStats = ({
                   </li>
                   {/* <li className="flex flex-col gap-2"><span className='text-base font-normal text-primary leading-[150%]'>Most Passes Player Between </span> <span className='text-lg md:text-xl text-white font-normal leading-[120%] '>{info?.mostPassesPlayerBetween || "N/A"}</span></li> */}
                   <li className="flex flex-col gap-2">
-                    <span className="text-base font-normal text-primary leading-[150%]">
-                      Who do you pass the ball to the most?
+                    <span className="text-base font-normal text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "À qui donnez-vous le plus le ballon ?"
+                        : lang === "es"
+                          ? "¿A quién le pasas más el balón?"
+                          : "Who do you pass the ball to the most"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.passTheMost || "N/A"}
                     </span>
                   </li>
                   <li className="flex flex-col gap-2">
-                    <span className="text-base font-me text-primary leading-[150%]">
-                      who do pass the ball to you the most?
+                    <span className="text-base font-me text-primary leading-[150%] notranslate">
+                      {lang === "fr"
+                        ? "Qui vous passe le plus le ballon ?"
+                        : lang === "es"
+                          ? "¿Quién te pasa más el balón?"
+                          : "Who pass the ball to you the most"}
                     </span>{" "}
                     <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
                       {info?.ballTheMost || "N/A"}
