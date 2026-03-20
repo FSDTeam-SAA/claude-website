@@ -13,7 +13,7 @@ const HeroSection = () => {
       <div className="relative min-h-[calc(100vh)] flex items-center justify-center overflow-hidden">
         {/* large device  */}
         <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="hidden md:block absolute top-0 left-0 w-full h-full object-cover"
           src="/assets/videos/hero.mp4"
           autoPlay
           loop
@@ -22,14 +22,14 @@ const HeroSection = () => {
         />
 
         {/* small device  */}
-        {/* <video
-          className="block md:hidden absolute top-0 left-0 w-full h-full object-cover"
+        <video
+          className="block md:hidden absolute top-0 left-0 w-full h-full object-cover "
           src="/assets/videos/new_phone_video.mp4"
           autoPlay
           loop
           muted
           playsInline
-        /> */}
+        />
         <div className="absolute inset-0 bg-black/40" />
 
         <Link
