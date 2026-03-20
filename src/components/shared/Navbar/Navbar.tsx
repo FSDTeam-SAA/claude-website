@@ -49,6 +49,9 @@ const Navbar = () => {
 
   console.log(data);
 
+  const userId = data?.data?.user?._id;
+
+
   // Replace with your actual base URL
   const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "";
 
@@ -182,6 +185,11 @@ const Navbar = () => {
                     <Link href="/profile">
                       <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
                         Profile
+                      </DropdownMenuLabel>
+                    </Link>
+                     <Link href={`/player-profile/${userId}`}>
+                      <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
+                       My Profile
                       </DropdownMenuLabel>
                     </Link>
                     <Link href="/password-change">

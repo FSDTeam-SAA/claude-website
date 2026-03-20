@@ -1,29 +1,27 @@
+"use client";
 
+import { Upload, X, Loader2 } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useSession } from "next-auth/react";
+import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 
-"use client"
-
-import { Upload, X, Loader2 } from "lucide-react"
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { useSession } from "next-auth/react"
-import { useEffect, useRef, useState } from "react"
-import { toast } from "sonner"
-
-const MAX_VIDEOS = 2
+const MAX_VIDEOS = 2;
 
 export default function VideoUpload({ videos }: { videos: string[] }) {
-  const { data: session } = useSession()
-  const token = (session?.user as { accessToken?: string })?.accessToken
-  const queryClient = useQueryClient()
-  const inputRef = useRef<HTMLInputElement>(null)
+  const { data: session } = useSession();
+  const token = (session?.user as { accessToken?: string })?.accessToken;
+  const queryClient = useQueryClient();
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const [keptExistingVideos, setKeptExistingVideos] = useState<string[]>([])
+  const [keptExistingVideos, setKeptExistingVideos] = useState<string[]>([]);
   // const [uploading, setUploading] = useState(false)
 
   useEffect(() => {
-    setKeptExistingVideos(videos)
-  }, [videos])
+    setKeptExistingVideos(videos);
+  }, [videos]);
 
   // Delete video mutation (auto update)
   const deleteMutation = useMutation({
@@ -37,17 +35,17 @@ export default function VideoUpload({ videos }: { videos: string[] }) {
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({ playingVideo: url }),
-        }
-      )
-      return res.json()
+        },
+      );
+      return res.json();
     },
     onSuccess: (_, url) => {
-      setKeptExistingVideos(prev => prev.filter(v => v !== url))
-      queryClient.invalidateQueries({ queryKey: ["user-profile"] })
-      toast.success("Video removed")
+      setKeptExistingVideos((prev) => prev.filter((v) => v !== url));
+      queryClient.invalidateQueries({ queryKey: ["user-profile"] });
+      toast.success("Video removed");
     },
     onError: () => toast.error("Failed to delete video"),
-  })
+  });
 
   // Upload video mutation (auto upload)
   // const uploadMutation = useMutation({
@@ -82,11 +80,10 @@ export default function VideoUpload({ videos }: { videos: string[] }) {
   //   // },
   // })
 
-
-  const  uploadMutation = useMutation({
+  const uploadMutation = useMutation({
     mutationFn: async (file: File) => {
-      const formData = new FormData()
-      formData.append("playingVideo", file)
+      const formData = new FormData();
+      formData.append("playingVideo", file);
 
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/user/video-add`,
@@ -94,48 +91,46 @@ export default function VideoUpload({ videos }: { videos: string[] }) {
           method: "PUT",
           headers: { Authorization: `Bearer ${token}` },
           body: formData,
-        }
-      )
-      return res.json()
+        },
+      );
+      return res.json();
     },
     onSuccess: (data) => {
       if (!data?.success) {
-        toast.error(data?.message || "Video upload failed")
-        return
+        toast.error(data?.message || "Video upload failed");
+        return;
       }
 
-      toast.success(data?.message || "Video uploaded")
-      queryClient.invalidateQueries({ queryKey: ["user-profile"] })
+      toast.success(data?.message || "Video uploaded");
+      queryClient.invalidateQueries({ queryKey: ["user-profile"] });
     },
     onError: () => {
-      toast.error("Upload failed")
+      toast.error("Upload failed");
     },
-  })
+  });
 
-
-const { isPending } = uploadMutation
-
+  const { isPending } = uploadMutation;
 
   const handleSelectVideos = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files || [])
-    const remaining = MAX_VIDEOS - keptExistingVideos.length
+    const files = Array.from(e.target.files || []);
+    const remaining = MAX_VIDEOS - keptExistingVideos.length;
 
     if (remaining <= 0) {
-      toast.warning(`Maximum ${MAX_VIDEOS} videos allowed`)
-      return
+      toast.warning(`Maximum ${MAX_VIDEOS} videos allowed`);
+      return;
     }
 
     const selectedFiles = files
-      .filter(f => f.type.startsWith("video/"))
-      .slice(0, remaining)
+      .filter((f) => f.type.startsWith("video/"))
+      .slice(0, remaining);
 
-    if (!selectedFiles.length) return
+    if (!selectedFiles.length) return;
 
     // Auto-upload each video
-    selectedFiles.forEach(file => uploadMutation.mutate(file))
+    selectedFiles.forEach((file) => uploadMutation.mutate(file));
 
-    e.target.value = "" // reset input
-  }
+    e.target.value = ""; // reset input
+  };
 
   return (
     <Card className="w-full p-6 space-y-5 rounded-xl mt-24">
@@ -145,8 +140,9 @@ const { isPending } = uploadMutation
 
       <div
         onClick={() => inputRef.current?.click()}
-        className={`border-4 border-dashed border-gray-300 rounded-xl p-5 text-center cursor-pointer bg-gray-50 ${isPending ? "opacity-50 cursor-not-allowed" : ""
-          }`}
+        className={`border-4 border-dashed border-gray-300 rounded-xl p-5 text-center cursor-pointer bg-gray-50 ${
+          isPending ? "opacity-50 cursor-not-allowed" : ""
+        }`}
       >
         {isPending ? (
           <Loader2 className="w-10 h-10 mx-auto text-gray-400 mb-3 animate-spin" />
@@ -156,9 +152,9 @@ const { isPending } = uploadMutation
         <p className="font-semibold">
           {isPending ? "Uploading..." : "Click to Add Videos"}
         </p>
-        <p className="font-semibold text-gray-500">
-          Only 2 videos allowed
-        </p>
+        <p className="font-semibold text-gray-500">Only 2 videos allowed</p>
+
+        <p className="font-semibold text-gray-500">Each video lasts 3mn</p>
       </div>
 
       <input
@@ -172,7 +168,7 @@ const { isPending } = uploadMutation
       />
 
       <div className="grid grid-cols-2 gap-4 mt-5">
-        {keptExistingVideos.map(url => (
+        {keptExistingVideos.map((url) => (
           <div key={url} className="relative">
             <video src={url} controls className="w-full h-24 rounded-xl" />
             <Button
@@ -188,6 +184,5 @@ const { isPending } = uploadMutation
         ))}
       </div>
     </Card>
-  )
+  );
 }
-
