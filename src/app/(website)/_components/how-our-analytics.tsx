@@ -21,7 +21,7 @@ const HowOurAnalytics = () => {
 
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-3 md:py-5'>
 
-                        <div className='md:col-span-1 flex flex-col items-center bg-[#CDFFCD] rounded-[16px] p-4 border border-[#E7E7E7)]'>
+                        <div className='md:col-span-1 flex flex-col items-center bg-white rounded-[16px] p-4 border border-[#E7E7E7)]'>
                             <div className='flex flex-col items-center gap-4'>
                                 <div className='bg-[#E6F4E6] rounded-full p-4 inline-flex' >
 
@@ -31,7 +31,7 @@ const HowOurAnalytics = () => {
                                     and the team sheet</p>
                             </div>
                         </div>
-                        <div className='md:col-span-1 flex flex-col items-center bg-[#CDFFCD] rounded-[16px] p-4 border border-[#E7E7E7)]'>
+                        <div className='md:col-span-1 flex flex-col items-center bg-white rounded-[16px] p-4 border border-[#E7E7E7)]'>
                             <div className='flex flex-col items-center gap-4'>
                                 <div className='bg-[#E6F4E6] rounded-full p-4 inline-flex' >
 
@@ -40,7 +40,7 @@ const HowOurAnalytics = () => {
                                 <p className='text-sm lg:text-base font-normal text-center text-[#0A1628] leading-[120%]'>We analyze your performance</p>
                             </div>
                         </div>
-                        <div className='md:col-span-1 flex flex-col items-center bg-[#CDFFCD] rounded-[16px] p-4 border border-[#E7E7E7)]'>
+                        <div className='md:col-span-1 flex flex-col items-center bg-white rounded-[16px] p-4 border border-[#E7E7E7)]'>
                             <div className='flex flex-col items-center gap-4'>
                                 <div className='bg-[#E6F4E6] rounded-full p-4 inline-flex' >
 
