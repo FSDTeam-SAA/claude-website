@@ -86,7 +86,7 @@ const LastPlayerReport = ({
                     <span className="text-base font-normal text-primary leading-[150%]">
                       Position
                     </span>{" "}
-                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] ">
+                    <span className="text-lg md:text-xl text-white font-normal leading-[120%] uppercase">
                       {info?.position?.join(", ") || "N/A"}
                     </span>
                   </li>

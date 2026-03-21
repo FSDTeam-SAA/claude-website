@@ -184,7 +184,7 @@ const Navbar = () => {
                   <DropdownMenuContent className="p-2 border-none bg-white">
                     <Link href="/profile">
                       <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
-                        Profile
+                        Profile Settings
                       </DropdownMenuLabel>
                     </Link>
                      <Link href={`/player-profile/${userId}`}>
@@ -343,7 +343,19 @@ const Navbar = () => {
                         }}
                       >
                         <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
-                          Profile
+                          Profile Settings
+                        </DropdownMenuLabel>
+                      </Link>
+
+                      <Link
+                        href={`/player-profile/${userId}`}
+                        onClick={() => {
+                          setIsOpen(false);
+                          setMobileDropdownOpen(false);
+                        }}
+                      >
+                        <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
+                         My Profile
                         </DropdownMenuLabel>
                       </Link>
                       <Link
