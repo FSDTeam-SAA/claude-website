@@ -148,7 +148,7 @@ export interface AttackingStats {
   shotsOffTarget: number
 
   passesAccuracy: number
-  takeOn: number
+  takeOn: string
 
   createdAt: string
   updatedAt: string
@@ -160,6 +160,7 @@ export interface AttackingStats {
 export interface Rating {
   _id: string
   gk: string
+  date: string
   rating: number
   position: string[]
   numberOfGames: number
@@ -214,8 +215,8 @@ export interface DefensiveStats {
   shotBlocked: number
   crossBlocked: number
   mistakes: number
-  aerialDuels: number
-  phvsicalDuels: number
+  aerialDuels: string
+  phvsicalDuels: string
   ownGoals: number
   createdAt: string
   updatedAt: string
@@ -291,26 +292,26 @@ export interface DistributionStats {
   _id: string
   player: string
 
-  passes: number
-  passesinFinalThird: number
-  passesinMiddleThird: number
-  passesinOerensiveThird: number
+  passes: string
+  passesinFinalThird: string
+  passesinMiddleThird: string
+  passesinOerensiveThird: string
 
-  kevPasses: number
-  longPasses: number
-  mediumPasses: number
-  shortPasses: number
+  kevPasses: string
+  longPasses: string
+  mediumPasses: string
+  shortPasses: string
 
-  passesForward: number
-  passesSidewavs: number
-  passesBackward: number
+  passesForward: string
+  passesSidewavs: string
+  passesBackward: string
 
-  passesReceived: number
-  crosses: number
-  stepIn: number
-  turnoverConceded: number
+  passesReceived: string
+  crosses: string
+  stepIn: string
+  turnoverConceded: string
 
-  mostPassesPlayerBetween: number
+  mostPassesPlayerBetween: string
   passTheMost: string
   ballTheMost: string
 
