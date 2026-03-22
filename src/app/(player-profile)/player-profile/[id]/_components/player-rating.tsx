@@ -119,7 +119,7 @@ const PlayerRating = ({
               <CartesianGrid vertical={false} />
 
               <XAxis
-                dataKey="updatedAt"
+                dataKey="date"
                 tickLine={false}
                 tickMargin={10}
                 axisLine={false}
