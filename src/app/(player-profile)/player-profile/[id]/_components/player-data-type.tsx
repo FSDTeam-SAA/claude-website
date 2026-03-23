@@ -137,17 +137,17 @@ export interface AttackingStats {
   _id: string
   gk: string
 
-  goals: number
-  assists: number
+  goals: string
+  assists: string
 
-  shotsNsidePr: number
-  shotsOutsidePa: number
-  totalShots: number
-  shotsOnTarget: number
-  shootingAccuracy: number
-  shotsOffTarget: number
+  shotsNsidePr: string
+  shotsOutsidePa: string
+  totalShots: string
+  shotsOnTarget: string
+  shootingAccuracy: string
+  shotsOffTarget: string
 
-  passesAccuracy: number
+  passesAccuracy: string
   takeOn: string
 
   createdAt: string
@@ -190,11 +190,11 @@ export interface GKStats {
 export interface FoulsStats {
   _id: string
   gk: string
-  fouls: number
-  foulswon: number
-  redCards: number
-  yellowCards: number
-  offside: number
+  fouls: string
+  foulswon: string
+  redCards: string
+  yellowCards: string
+  offside: string
   createdAt: string
   updatedAt: string
   __v: number
@@ -203,21 +203,21 @@ export interface FoulsStats {
 export interface DefensiveStats {
   _id: string
   gk: string
-  tackleAttempts: number
-  tackleSucceededPossession: number
-  tackleSucceededNOPossession: number
-  tackleFailed: number
-  turnoverwon: number
-  interceptions: number
-  recoveries: number
-  clearance: number
-  totalBlocked: number
-  shotBlocked: number
-  crossBlocked: number
-  mistakes: number
+  tackleAttempts: string
+  tackleSucceededPossession: string
+  tackleSucceededNOPossession: string
+  tackleFailed: string
+  turnoverwon: string
+  interceptions: string
+  recoveries: string
+  clearance: string
+  totalBlocked: string
+  shotBlocked: string
+  crossBlocked: string
+  mistakes: string
   aerialDuels: string
   phvsicalDuels: string
-  ownGoals: number
+  ownGoals: string
   createdAt: string
   updatedAt: string
   __v: number
@@ -227,10 +227,10 @@ export interface DefensiveStats {
 export interface SetPiecesStats {
   _id: string
   gk: string
-  freekicks: number
-  freekicksShots: number
-  freekicksShotsonTarget: number
-  penaltyKicks: number
+  freekicks: string
+  freekicksShots: string
+  freekicksShotsonTarget: string
+  penaltyKicks: string
   createdAt: string
   updatedAt: string
   __v: number
@@ -242,8 +242,8 @@ export interface NationalStats {
   flag: string
   teamName: string
   debut: string
-  match: number
-  goals: number
+  match: string
+  goals: string
   category: string
   createdAt: string
   updatedAt: string
