@@ -47,7 +47,11 @@ const ProfileContainer = () => {
           <VideoUpload videos={user?.playingVideo || []} />
         </div>
 
-        <div className="md:col-span-2">
+        <div
+          className="md:col-span-2 notranslate"
+          translate="no"
+          data-google-translate-ignore="true"
+        >
           <h1 className="text-2xl md:text-[28px] lg:text-[32px] text-[#131313] font-normal">
             Profile Settings
           </h1>
@@ -148,7 +152,6 @@ export default ProfileContainer
 // }
 
 // export default ProfileContainer
-
 
 
 
