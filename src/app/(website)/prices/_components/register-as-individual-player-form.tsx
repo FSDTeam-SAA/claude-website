@@ -302,12 +302,12 @@ const RegisterAsIndividualPlayerForm = ({
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-base text-[#424242] leading-[150%] font-normal">
-                        Leauge *
+                        League *
                       </FormLabel>
                       <FormControl>
                         <Input
                           className="h-[42px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] "
-                          placeholder="Enter your leauge..."
+                          placeholder="Enter your league..."
                           {...field}
                         />
                       </FormControl>
