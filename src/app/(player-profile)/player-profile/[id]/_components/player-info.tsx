@@ -79,28 +79,28 @@ const PlayerInfo = ({
         <div className="md:col-span-3">
           <ul className="grid grid-cols-2 gap-x-4 gap-y-5 md:grid-cols-2 lg:grid-cols-3 md:gap-4">
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Nationality
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] capitalize break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] capitalize break-words">
                 {personalInfo?.nationality || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Place of Birth
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] capitalize break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] capitalize break-words">
                 {personalInfo?.birthdayPlace || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Age
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] break-words">
                 {personalInfo?.dob
                   ? `${moment(personalInfo.dob).format("DD MMM YYYY")} (${personalInfo.age || 0})`
                   : "N/A"}
@@ -108,73 +108,73 @@ const PlayerInfo = ({
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Gender
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] capitalize break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] capitalize break-words">
                 {personalInfo?.gender || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Citizenship
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] capitalize break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] capitalize break-words">
                 {personalInfo?.citizenship || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Weight
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] break-words">
                 {personalInfo?.weight || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Height
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] break-words">
                 {personalInfo?.hight || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 League
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] uppercase break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] uppercase break-words">
                 {personalInfo?.league || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Preferred Foot
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] capitalize break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] capitalize break-words">
                 {personalInfo?.foot || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Category
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] break-words">
                 {personalInfo?.category || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Position
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] break-words">
                 {personalInfo?.position
                   ?.map((p) => p.toUpperCase())
                   .join("-") || "N/A"}
@@ -182,52 +182,52 @@ const PlayerInfo = ({
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Current Club
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] break-words">
                 {personalInfo?.currentClub || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Agent
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] capitalize break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] capitalize break-words">
                 {personalInfo?.agent || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 School Name
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] break-words">
                 {personalInfo?.schoolName || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 GPA
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] break-words">
                 {personalInfo?.gpa || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Jersey Number
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] break-words">
                 {personalInfo?.jerseyNumber || "N/A"}
               </span>
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Social Media
               </span>
 
@@ -240,24 +240,24 @@ const PlayerInfo = ({
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[15px] md:text-xl text-white font-semibold leading-[120%] hover:underline break-words"
+                      className="text-lg md:text-xl text-white font-semibold leading-[120%] hover:underline break-words"
                     >
                       {item.name}
                     </a>
                   ))}
                 </div>
               ) : (
-                <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%]">
+                <span className="text-lg md:text-xl text-white font-semibold leading-[120%]">
                   N/A
                 </span>
               )}
             </li>
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
-              <span className="text-[11px] md:text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
+              <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
                 Followers
               </span>
-              <span className="text-[15px] md:text-xl text-white font-semibold leading-[120%] break-words">
+              <span className="text-lg md:text-xl text-white font-semibold leading-[120%] break-words">
                 {personalInfo?.followers?.length || "N/A"}
               </span>
             </li>
