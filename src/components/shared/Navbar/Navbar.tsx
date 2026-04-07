@@ -51,7 +51,6 @@ const Navbar = () => {
 
   const userId = data?.data?.user?._id;
 
-
   // Replace with your actual base URL
   const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "";
 
@@ -106,17 +105,18 @@ const Navbar = () => {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-4">
-              <Link
-                href="/"
+              <button
+                onClick={() =>
+                  handleProtectedRoute("/analytic-soccer-coming-soon")
+                }
                 className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
-                  pathname === "/"
+                  pathname === "/analytic-soccer-coming-soon"
                     ? "border-b-[2px] border-primary"
                     : "border-0"
                 }`}
               >
-                Home
-              </Link>
-
+                Player Evaluation Program
+              </button>
               <button
                 onClick={() => handleProtectedRoute("/services")}
                 className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
@@ -139,18 +139,16 @@ const Navbar = () => {
                 Profiles
               </button>
 
-              <button
-                onClick={() =>
-                  handleProtectedRoute("/analytic-soccer-coming-soon")
-                }
+              <Link
+                href="/"
                 className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
-                  pathname === "/analytic-soccer-coming-soon"
+                  pathname === "/"
                     ? "border-b-[2px] border-primary"
                     : "border-0"
                 }`}
               >
-                Player Evaluation Program
-              </button>
+                Data
+              </Link>
 
               <button
                 onClick={() => handleProtectedRoute("/prices")}
@@ -187,9 +185,9 @@ const Navbar = () => {
                         Profile Settings
                       </DropdownMenuLabel>
                     </Link>
-                     <Link href={`/player-profile/${userId}`}>
+                    <Link href={`/player-profile/${userId}`}>
                       <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
-                       My Profile
+                        My Profile
                       </DropdownMenuLabel>
                     </Link>
                     <Link href="/password-change">
@@ -246,16 +244,19 @@ const Navbar = () => {
                 <SearchBox baseUrl={BASE_URL} />
               </div>
 
-              <Link
-                href="/"
+              <button
                 className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
-                  pathname === "/"
+                  pathname === "/analytic-soccer-coming-soon"
                     ? "border-b-[2px] border-primary"
                     : "border-0"
                 }`}
+                onClick={() => {
+                  setIsOpen(false);
+                  handleProtectedRoute("/analytic-soccer-coming-soon");
+                }}
               >
-                Home
-              </Link>
+                Player Evaluation Program
+              </button>
 
               <button
                 className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
@@ -285,19 +286,16 @@ const Navbar = () => {
                 Profiles
               </button>
 
-              <button
+              <Link
+                href="/"
                 className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
-                  pathname === "/analytic-soccer-coming-soon"
+                  pathname === "/"
                     ? "border-b-[2px] border-primary"
                     : "border-0"
                 }`}
-                onClick={() => {
-                  setIsOpen(false);
-                  handleProtectedRoute("/analytic-soccer-coming-soon");
-                }}
               >
-                Player Evaluation Program
-              </button>
+                Data
+              </Link>
 
               <button
                 className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
@@ -355,7 +353,7 @@ const Navbar = () => {
                         }}
                       >
                         <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
-                         My Profile
+                          My Profile
                         </DropdownMenuLabel>
                       </Link>
                       <Link
