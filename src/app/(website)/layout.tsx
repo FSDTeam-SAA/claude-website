@@ -8,7 +8,8 @@ const WebsiteLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="">
       <Navbar />
-      <main className="min-h-screen">
+      {/* <main className="min-h-screen"> */}
+      <main >
         {children}
         <ScrollToTopComponent />
       </main>

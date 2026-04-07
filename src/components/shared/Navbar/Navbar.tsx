@@ -107,10 +107,10 @@ const Navbar = () => {
             <div className="hidden md:flex items-center gap-4">
               <button
                 onClick={() =>
-                  handleProtectedRoute("/analytic-soccer-coming-soon")
+                  handleProtectedRoute("/player-evaluation-program")
                 }
                 className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
-                  pathname === "/analytic-soccer-coming-soon"
+                  pathname === "/player-evaluation-program"
                     ? "border-b-[2px] border-primary"
                     : "border-0"
                 }`}
@@ -246,13 +246,13 @@ const Navbar = () => {
 
               <button
                 className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
-                  pathname === "/analytic-soccer-coming-soon"
+                  pathname === "/player-evaluation-program"
                     ? "border-b-[2px] border-primary"
                     : "border-0"
                 }`}
                 onClick={() => {
                   setIsOpen(false);
-                  handleProtectedRoute("/analytic-soccer-coming-soon");
+                  handleProtectedRoute("/player-evaluation-program");
                 }}
               >
                 Player Evaluation Program
