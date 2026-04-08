@@ -9,8 +9,8 @@ import { FaSquareInstagram } from "react-icons/fa6";
 const Footer = () => {
   return (
     <div className="bg-white border-t border-[#8E959F]/50">
-      <div className="py-10 md:py-12 lg:py-14 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-10 gap-5 md:gap-6 lg:gap-6">
-        <div className="md:col-span-3">
+      <div className="py-10 md:py-12 lg:py-14 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 gap-5 md:gap-6 lg:gap-6">
+        <div className="md:col-span-2">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -69,9 +69,15 @@ const Footer = () => {
         </div>
 
         <div className="md:col-span-2">
-          <h4 className="hidden md:block text-lg md:text-xl font-normal text-[#131313] leading-[120%] pb-4 md:pb-6 lg:pb-8">
-            Useful Links
-          </h4>
+          {/* <h4 className="hidden md:block text-lg md:text-xl font-normal text-[#131313] leading-[120%] pb-4 md:pb-6 lg:pb-8">
+            General website FAQ
+          </h4> */}
+           <Link href="/faq">
+              <p className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary pb-4 md:pb-6 lg:pb-8">
+                
+                General website FAQ
+              </p>
+            </Link>
           <ul>
             <Link href="/services">
               <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary">
@@ -86,9 +92,10 @@ const Footer = () => {
                 Contact Us
               </li>
             </Link>
-            <Link href="/faq">
+            <Link href="#">
               <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary">
-                FAQ
+                
+                Player Evaluation Program FAQ
               </li>
             </Link>
           </ul>
@@ -108,6 +115,7 @@ const Footer = () => {
                 Privacy Policy
               </li>
             </Link>
+            
           </ul>
           <p className=" text-base md:text-lg leading-[120%] text-[#131313] hover:text-primary font-normal ">
             {/* <strong className='text-[#131313]'>Email :</strong>  */}

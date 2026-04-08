@@ -1,17 +1,16 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Autoplay from "embla-carousel-autoplay";
-
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 
 const PlayerEvaluationProgramContainer = () => {
+
+  const session = useSession();
+    const isLogin = session?.data?.user?.accessToken;
+
+
   const pepImages = [
     "/assets/images/pep/pep1.svg",
     "/assets/images/pep/pep2.svg",
@@ -23,46 +22,50 @@ const PlayerEvaluationProgramContainer = () => {
     "/assets/images/pep/pep8.svg",
   ];
 
-  return (
-    <div className="py-6 md:py-8 lg:py-14 xl:py-20">
-      <div className="container">
-        <Carousel
-          plugins={[
-            Autoplay({
-              delay: 3000,
-            }),
-          ]}
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
-        >
-          <CarouselContent>
-            {pepImages.map((img, index) => (
-              <CarouselItem key={index} className="basis-full">
-                <div className="overflow-hidden">
-                  <Image
-                    src={img}
-                    alt={`PEP Image ${index + 1}`}
-                    width={1400}
-                    height={900}
-                    className="h-[28vh] min-h-[240px] w-full object-contain md:h-[58vh] lg:h-[62vh]"
-                    priority={index === 0}
-                  />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+  const BookNowButton = () => (
 
-        <div className="flex justify-center pt-6 md:pt-10 lg:pt-12 pb-6">
-          <Link
-            href="#"
-            className="inline-flex min-w-[180px] items-center justify-center rounded-full bg-primary px-8 py-3 text-base font-semibold text-black transition-opacity hover:opacity-90"
-          >
-            Book Now
-          </Link>
+    
+    <div className="flex justify-center py-6 md:py-10 lg:py-12">
+      <Link
+        href={`${isLogin ? "/prices" : "/sign-up"}`}
+        className="inline-flex min-w-[180px] items-center justify-center rounded-full bg-primary px-8 py-3 text-base font-semibold text-black transition-opacity hover:opacity-90"
+      >
+        Book Now
+      </Link>
+    </div>
+  );
+
+  return (
+    <div className="bg-white py-6 md:py-8 lg:py-14 xl:py-20">
+      <div className="container">
+        <div className="flex flex-col gap-6 md:gap-10">
+          {pepImages.map((img, index) => (
+            <React.Fragment key={index}>
+              <div className="relative overflow-hidden bg-white">
+                <Image
+                  src={img}
+                  alt={`PEP Image ${index + 1}`}
+                  width={1400}
+                  height={900}
+                  className="h-auto w-full object-contain"
+                  priority={index === 0}
+                />
+                {/* For the first image, overlay the Book Now button on the left */}
+                {index === 0 && (
+                  <div className="absolute left-[10%] top-[82%] -translate-y-1/2 md:left-[18%] lg:left-[20%]">
+                    <Link
+                      href={`${isLogin ? "/prices" : "/sign-up"}`}
+                      className="inline-flex min-w-[140px] items-center justify-center rounded-full bg-primary px-6 py-2 text-sm font-semibold text-black transition-opacity hover:opacity-90 md:min-w-[180px] md:px-8 md:py-3 md:text-base"
+                    >
+                      Book Now
+                    </Link>
+                  </div>
+                )}
+              </div>
+              {/* After the last image (index 7), show the button at the bottom/center */}
+              {index === pepImages.length - 1 && <BookNowButton />}
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </div>
