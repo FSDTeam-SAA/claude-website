@@ -92,7 +92,7 @@ const Footer = () => {
                 Contact Us
               </li>
             </Link>
-            <Link href="#">
+            <Link href="/player-evaluation-program-faq">
               <li className="text-base md:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary">
                 
                 Player Evaluation Program FAQ
