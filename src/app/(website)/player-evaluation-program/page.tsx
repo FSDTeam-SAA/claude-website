@@ -3,7 +3,7 @@ import PlayerEvaluationProgramContainer from './_components/player-evaluation-pr
 
 const PlayerEvaluationProgramPage = () => {
   return (
-    <div>
+    <div className="bg-white">
         <PlayerEvaluationProgramContainer/>
     </div>
   )
