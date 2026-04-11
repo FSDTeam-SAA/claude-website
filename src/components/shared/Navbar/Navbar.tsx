@@ -117,7 +117,7 @@ const Navbar = () => {
               >
                 Player Evaluation Program
               </button>
-              <button
+              {/* <button
                 onClick={() => handleProtectedRoute("/services")}
                 className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
                   pathname === "/services"
@@ -126,7 +126,7 @@ const Navbar = () => {
                 }`}
               >
                 Services
-              </button>
+              </button> */}
 
               <button
                 onClick={() => handleProtectedRoute("/profiles")}
@@ -258,7 +258,7 @@ const Navbar = () => {
                 Player Evaluation Program
               </button>
 
-              <button
+              {/* <button
                 className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
                   pathname === "/services"
                     ? "border-b-[2px] border-primary"
@@ -270,7 +270,7 @@ const Navbar = () => {
                 }}
               >
                 Services
-              </button>
+              </button> */}
 
               <button
                 className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
