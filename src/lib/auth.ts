@@ -120,7 +120,8 @@ export const authOptions: NextAuthOptions = {
 
       try {
         // Handle relative URLs by making them absolute
-        const absoluteUrl = url.startsWith("/profile") ? `${baseUrl}${url}` : url;
+        const absoluteUrl = url.startsWith("/") ? `${baseUrl}${url}` : url;
+          // const absoluteUrl = url.startsWith("/profile") ? `${baseUrl}${url}` : url;
         const redirectUrl = new URL(absoluteUrl);
 
         console.log("Parsed redirect URL:", redirectUrl.href);
