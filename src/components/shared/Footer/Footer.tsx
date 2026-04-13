@@ -79,7 +79,7 @@ const Footer = () => {
               </p>
             </Link>
           <ul>
-            <Link href="/services">
+            <Link href="/contact-us/#about-us">
               <li className="text-sm lg:text-base xl:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary">
                 About Us
               </li>
