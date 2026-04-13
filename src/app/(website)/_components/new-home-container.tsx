@@ -1,3 +1,5 @@
+
+
 "use client";
 
 import { useSession } from "next-auth/react";
@@ -5,36 +7,31 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const PlayerEvaluationProgramContainer = () => {
+const NewHomeContainer = () => {
 
   const session = useSession();
   const isLogin = session?.data?.user?.accessToken;
 
 
-  // desktop version images for player evaluation program page
+//   desktop version images for the home page
   const pepImages = [
-    "/assets/images/pep/pep1.svg",
-    "/assets/images/pep/pep2.svg",
-    "/assets/images/pep/pep3.svg",
-    "/assets/images/pep/pep4.svg",
-    "/assets/images/pep/pep5.svg",
-    "/assets/images/pep/pep6.svg",
-    "/assets/images/pep/pep7.svg",
-    "/assets/images/pep/pep8.svg",
-    "/assets/images/pep/pep9.svg",
+    "/assets/images/home_page/desk_1.svg",
+    "/assets/images/home_page/desk_2.svg",
+    "/assets/images/home_page/desk_3.svg",
+    "/assets/images/home_page/desk_4.svg",
+    "/assets/images/home_page/desk_5.svg",
+    "/assets/images/home_page/desk_6.svg",
   ];
 
-  // mobile version images for player evaluation program page
+
+//   mobile version images for the home page
   const mobilePepImages = [
-    "/assets/images/pep/sm_pep1.svg",
-    "/assets/images/pep/sm_pep2.svg",
-    "/assets/images/pep/sm_pep3.svg",
-    "/assets/images/pep/sm_pep4.svg",
-    "/assets/images/pep/sm_pep5.svg",
-    "/assets/images/pep/sm_pep6.svg",
-    "/assets/images/pep/sm_pep7.svg",
-    "/assets/images/pep/sm_pep8.svg",
-    "/assets/images/pep/sm_pep9.svg",
+    "/assets/images/home_page/sm_1.svg",
+    "/assets/images/home_page/sm_2.svg",
+    "/assets/images/home_page/sm_3.svg",
+    "/assets/images/home_page/sm_4.svg",
+    "/assets/images/home_page/sm_5.svg",
+    "/assets/images/home_page/sm_6.svg",
   ];
 
   return (
@@ -62,12 +59,12 @@ const PlayerEvaluationProgramContainer = () => {
                 />
                 {/* For the first image, overlay the Book Now button on the left */}
                 {index === 0 && (
-                  <div className="absolute left-[10%] top-[90%] md:top-[82%] -translate-y-1/2 md:left-[18%] lg:left-[20%]">
+                  <div className="absolute left-[10%] top-[93%] md:top-[88%] -translate-y-1/2 md:left-[18%] lg:left-[20%]">
                     <Link
                       href={`${isLogin ? "/prices" : "/sign-up"}`}
                       className="h-8 md:h-12 inline-flex min-w-[140px] items-center justify-center rounded-full bg-primary px-6  text-sm font-semibold text-black transition-opacity hover:opacity-90 md:min-w-[180px] md:px-8 py-1 md:py-2 lg:py-3 md:text-base"
                     >
-                      Book Now
+                        Get Your Report
                     </Link>
                   </div>
                 )}
@@ -75,12 +72,12 @@ const PlayerEvaluationProgramContainer = () => {
                <div className="">
 
                  {index === pepImages.length - 1 && (
-                  <div className="absolute left-[10%] top-[91%] md:top-[88%] -translate-y-1/2 md:left-[24%] lg:left-[30%] ">
+                  <div className="absolute left-[10%] top-[93%] md:top-[88%] -translate-y-1/2 md:left-[24%] lg:left-[30%] ">
                     <Link
                       href={`${isLogin ? "/prices" : "/sign-up"}`}
                       className="h-8 md:h-12 inline-flex min-w-[140px] items-center justify-center rounded-full bg-primary px-6  text-sm font-semibold text-black transition-opacity hover:opacity-90 md:min-w-[180px] md:px-8 py-1 md:py-2 lg:py-3 md:text-base"
                     >
-                      Book Now
+                      Get Your Report
                     </Link>
                   </div>
                 )}
@@ -95,4 +92,4 @@ const PlayerEvaluationProgramContainer = () => {
   );
 };
 
-export default PlayerEvaluationProgramContainer;
+export default NewHomeContainer;

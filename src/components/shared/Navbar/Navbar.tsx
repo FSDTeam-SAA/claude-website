@@ -105,7 +105,7 @@ const Navbar = () => {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-4">
-              <button
+              {/* <button
                 onClick={() =>
                   handleProtectedRoute("/player-evaluation-program")
                 }
@@ -116,7 +116,19 @@ const Navbar = () => {
                 }`}
               >
                 Player Evaluation Program
-              </button>
+              </button> */}
+
+              <Link
+                href="/"
+                className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
+                  pathname === "/"
+                    ? "border-b-[2px] border-primary"
+                    : "border-0"
+                }`}
+              >
+                Player Evaluation Program
+              </Link>
+
               {/* <button
                 onClick={() => handleProtectedRoute("/services")}
                 className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
@@ -140,9 +152,9 @@ const Navbar = () => {
               </button>
 
               <Link
-                href="/"
+                href="/data"
                 className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
-                  pathname === "/"
+                  pathname === "/data"
                     ? "border-b-[2px] border-primary"
                     : "border-0"
                 }`}
@@ -244,7 +256,7 @@ const Navbar = () => {
                 <SearchBox baseUrl={BASE_URL} />
               </div>
 
-              <button
+              {/* <button
                 className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
                   pathname === "/player-evaluation-program"
                     ? "border-b-[2px] border-primary"
@@ -256,7 +268,18 @@ const Navbar = () => {
                 }}
               >
                 Player Evaluation Program
-              </button>
+              </button> */}
+
+                <Link
+                href="/"
+                className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
+                  pathname === "/"
+                    ? "border-b-[2px] border-primary"
+                    : "border-0"
+                }`}
+              >
+                Player Evaluation Program
+              </Link>
 
               {/* <button
                 className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
@@ -287,9 +310,9 @@ const Navbar = () => {
               </button>
 
               <Link
-                href="/"
+                href="/data"
                 className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
-                  pathname === "/"
+                  pathname === "/data"
                     ? "border-b-[2px] border-primary"
                     : "border-0"
                 }`}
