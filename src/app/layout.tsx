@@ -4,7 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import AuthProvider from "@/components/providers/AuthProvider";
 import AppProvider from "@/components/providers/AppProvider";
-import ProfileImageGuard from "./(website)/profile/_components/profile-image-guard";
+// import ProfileImageGuard from "./(website)/profile/_components/profile-image-guard";
 import { Suspense } from "react";
 import LangConfig from "./lang-config";
 import Script from "next/script";
@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className={`font-dagger antialiased`}>
         <AuthProvider>
           <AppProvider>
-            <ProfileImageGuard>
+            {/* <ProfileImageGuard> */}
               {/* ✅ Google translate container */}
               {/* <div id="google_translate_element"></div> */}
               <div id="google_translate_element" style={{ display: "none" }}></div>
@@ -49,7 +49,7 @@ export default function RootLayout({
                 src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
                 strategy="afterInteractive"
               />
-            </ProfileImageGuard>
+            {/* </ProfileImageGuard> */}
 
             <Toaster />
           </AppProvider>
