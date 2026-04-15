@@ -8,15 +8,16 @@ import IndividualPricingSkeleton from './individual-pricing-skeleton';
 import ErrorContainer from '@/components/shared/ErrorContainer/ErrorContainer';
 
 const IndividualPlayer = () => {
+    const currentPage = 1;
     const [isOpen, setIsOpen] = useState(false);
     const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
     const session = useSession();
     const token = (session?.data?.user as { accessToken: string })?.accessToken;
 
     const { data, isLoading, error, isError } = useQuery<SubscriptionApiResponse>({
-        queryKey: ["subscription-all"],
+        queryKey: ["subscription-all", currentPage],
         queryFn: async () => {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/subscription`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/subscription?page=${currentPage}&limit=20`, {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -53,8 +54,8 @@ const IndividualPlayer = () => {
         // <div className="bg-[#EBEBEB] py-10 md:py-16 lg:py-24">
          <div className="bg_color py-7 md:py-16 lg:py-24 ">
             <div className="container ">
+                <p className='bg-black rounded-[14px] text-xl md:text-2xl lg:text-3xl xl:text-[33px] font-normal text-primary leading-[120%] text-center py-6 md:py-8 lg:py-10 mb-8 md:mb-10 lg:mb-24'>Make sure to set up your profile in the profile settings  before making a payment</p>
                 <h3 className='text-2xl md:text-3xl lg:text-[40px] text-primary h_underline leading-[120%] font-normal text-center'>Pricing For Individual Player</h3>
-                {/* <p className='text-base text-[#424242] leading-[150%] font-normal text-center pt-4'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> */}
                 <div className='w-full flex items-center justify-center gap-6 pt-2 md:pt-9 lg:pt-12'>
                     {
                         subscriptionData?.map((item) => {

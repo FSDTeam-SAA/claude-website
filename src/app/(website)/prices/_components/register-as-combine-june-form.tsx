@@ -50,7 +50,7 @@ interface RegisterAsIndividualPlayerFormProps {
   subscriptionId?: string;
 }
 
-const RegisterAsPlayerEvaluationForm = ({
+const RegisterAsCombineJuneForm = ({
   open,
   onOpenChange,
   subscriptionId,
@@ -92,7 +92,7 @@ const RegisterAsPlayerEvaluationForm = ({
 
       /* 2️⃣ STRIPE PAYMENT */
       const paymentRes = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/subscription/evaluation/${subscriptionId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/subscription/combine-2026/${subscriptionId}`,
         {
           method: "POST",
           headers: {
@@ -146,7 +146,7 @@ const RegisterAsPlayerEvaluationForm = ({
             />
           </Link>
           <h4 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] leading-[120%] font-normal text-center pb-2">
-            Register As Player Evaluation Program
+            Register As Combine June 6/7 - 2026
           </h4>
           <div className="bg-white border-[2px] border-[#E7E7E7] shadow-[0px_0px_32px_0px_#0000001F] p-3 rounded-[16px]">
             <h4 className="text-xl md:text-2xl lg:text-3xl text-[#131313] leading-[120%] font-normal text-center pb-1">
@@ -302,4 +302,4 @@ const RegisterAsPlayerEvaluationForm = ({
   );
 };
 
-export default RegisterAsPlayerEvaluationForm;
+export default RegisterAsCombineJuneForm;

@@ -3,24 +3,25 @@ import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { SubscriptionApiResponse } from "./subscription-data-type";
 import { useSession } from "next-auth/react";
-import IndividualPricingSkeleton from "./individual-pricing-skeleton";
 import ErrorContainer from "@/components/shared/ErrorContainer/ErrorContainer";
-import RegisterAsPlayerEvaluationForm from "./register-as-player-evaluation-form";
 import { CircleCheckBig } from "lucide-react";
+import RegisterAsDevelopmentPlanForm from "./register-as-development-plan-form";
+import TeamPricingSkeleton from "./team-pricing-skeleton";
 
-const PlayerEvaluationProgram = () => {
+const DevelopmentPlan = () => {
   const [isOpen, setIsOpen] = useState(false);
   const currentPage = 1;
+  const type = "Development";
   const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
   const session = useSession();
   const token = (session?.data?.user as { accessToken: string })?.accessToken;
 
   const { data, isLoading, error, isError } = useQuery<SubscriptionApiResponse>(
     {
-      queryKey: ["subscription-all", currentPage],
+      queryKey: ["subscription-all", currentPage, type],
       queryFn: async () => {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/subscription?page=${currentPage}&limit=20`,
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/subscription?paymentType=${type}&sortOrder=asc&page=${currentPage}&limit=20`,
           {
             method: "GET",
             headers: {
@@ -35,16 +36,18 @@ const PlayerEvaluationProgram = () => {
 
   // console.log(data)
 
-  const subscriptionData = data?.data?.filter(
-    (item) => item?.paymentType === "Evaluation",
-  );
+//   const subscriptionData = data?.data?.filter(
+//     (item) => item?.paymentType === "Development",
+//   );
+
+const subscriptionData = data?.data;
 
   // console.log(subscriptionData)
 
   if (isLoading) {
     return (
       <div className="container py-6">
-        <IndividualPricingSkeleton />
+        <TeamPricingSkeleton />
       </div>
     );
   }
@@ -64,7 +67,7 @@ const PlayerEvaluationProgram = () => {
     <div className="bg_color py-7 md:py-16 lg:py-24">
       <div className="container ">
         <h3 className="text-2xl md:text-3xl lg:text-[40px] text-primary h_underline leading-[120%] font-normal text-center">
-          Player Evaluation Program
+          Development Plan
         </h3>
 
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 pt-2 md:pt-9 lg:pt-12">
@@ -74,19 +77,19 @@ const PlayerEvaluationProgram = () => {
                 key={item?._id}
                 className="w-full border-[1.5px] border-primary rounded-[16px]"
               >
-                <div className="bg-primary rounded-t-[14px] py-4 md:py-6 lg:py-8">
+                <div className="h-[120px] bg-primary rounded-t-[14px] py-4 md:py-6 lg:py-8">
                   <h4 className="text-lg md:text-xl lg:text-2xl font-normal text-white leading-[120%] text-center ">
                     {item?.title} 
                   </h4>
                   <p className=" text-base md:text-lg  font-normal text-white leading-[120%] text-center ">
-                    {item?.evaluationLimit || 0} Evaluations / Year
+                    {item?.description || ""}
                   </p>
                 </div>
                 <div className="pt-5 pb-5 md:pb-6 px-6 md:px-7 lg:px-8">
                   <h5 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-2">
                     ${item?.price}
                   </h5>
-                  <ul>
+                  <ul className="min-h-[74px]">
                     {item?.features?.map((feature, index) => (
                       <li key={index} className="flex items-center justify-start gap-2 py-1">
                         <CircleCheckBig className="w-4 h-4 text-green-600" />
@@ -112,7 +115,7 @@ const PlayerEvaluationProgram = () => {
 
       {/* modal open  */}
       {isOpen && subscriptionId && (
-        <RegisterAsPlayerEvaluationForm
+        <RegisterAsDevelopmentPlanForm
           open={isOpen}
           onOpenChange={setIsOpen}
           subscriptionId={subscriptionId}
@@ -122,4 +125,4 @@ const PlayerEvaluationProgram = () => {
   );
 };
 
-export default PlayerEvaluationProgram;
+export default DevelopmentPlan;
