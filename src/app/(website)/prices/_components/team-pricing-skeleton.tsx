@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function TeamPricingSkeleton() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {Array.from({ length: 5 }).map((_, index) => (
+      {Array.from({ length: 3 }).map((_, index) => (
         <div
           key={index}
           className="border rounded-xl p-5 shadow-sm bg-white flex flex-col items-center gap-4"

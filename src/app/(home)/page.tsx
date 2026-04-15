@@ -1,5 +1,5 @@
-import React from 'react'
-import PlayerEvaluationProgramContainer from '../(website)/_components/test'
+import React from "react";
+import PlayerEvaluationProgramContainer from "../(website)/player-evaluation-program/_components/player-evaluation-program-container";
 // import HeroSection from '../(website)/_components/hero-section'
 // import OurPartners from './_components/our-partners'
 // import { FaqSection } from './_components/faq-section'
@@ -13,30 +13,28 @@ import PlayerEvaluationProgramContainer from '../(website)/_components/test'
 // import NewHomeContainer from '../(website)/_components/new-home-container'
 
 const HomePage = () => {
-    return (
-        <div>
-            <>
-                {/* <HeroSection /> */}
-                {/* <NewHomeContainer/> */}
+  return (
+    <div>
+      <>
+        {/* <HeroSection /> */}
+        {/* <NewHomeContainer/> */}
 
-<PlayerEvaluationProgramContainer/>
+        <PlayerEvaluationProgramContainer />
 
-                {/* <OurMission/>
+        {/* <OurMission/>
                 <WhatDoWeOffer/>
                 <HowOurAnalytics/>
                 <WhyWeAreUnique/>
                 <WhyYouNeedAProfile/>
                 <WhyDataMatters/> */}
 
+        {/* <AccessThePlatform/> */}
 
+        {/* <OurPartners/> */}
+        {/* <FaqSection /> */}
+      </>
+    </div>
+  );
+};
 
-                {/* <AccessThePlatform/> */}
-            
-                {/* <OurPartners/> */}
-                {/* <FaqSection /> */}
-            </>
-        </div>
-    )
-}
-
-export default HomePage
+export default HomePage;
