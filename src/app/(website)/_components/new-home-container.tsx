@@ -15,6 +15,7 @@ const NewHomeContainer = () => {
 
 //   desktop version images for the home page
   const pepImages = [
+   
     "/assets/images/home_page/desk_1.svg",
     "/assets/images/home_page/desk_2.svg",
     "/assets/images/home_page/desk_3.svg",
