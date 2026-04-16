@@ -54,7 +54,7 @@ const IndividualPlayer = () => {
         // <div className="bg-[#EBEBEB] py-10 md:py-16 lg:py-24">
          <div className="bg_color py-7 md:py-16 lg:py-24 ">
             <div className="container ">
-                <p className='bg-black rounded-[14px] text-xl md:text-2xl lg:text-3xl xl:text-[33px] font-normal text-primary leading-[120%] text-center py-6 md:py-8 lg:py-10 mb-8 md:mb-10 lg:mb-24'>Make sure to set up your profile in the profile settings  before making a payment</p>
+                <p className='bg-black rounded-[14px] text-xl md:text-2xl lg:text-3xl xl:text-[33px] font-normal text-primary leading-[120%] text-center py-6 md:py-8 lg:py-10 mb-8 md:mb-10 lg:mb-24'>Make sure to set up your profile in the Profile Settings  before making a payment</p>
                 <h3 className='text-2xl md:text-3xl lg:text-[40px] text-primary h_underline leading-[120%] font-normal text-center'>Pricing For Individual Player</h3>
                 <div className='w-full flex items-center justify-center gap-6 pt-2 md:pt-9 lg:pt-12'>
                     {
