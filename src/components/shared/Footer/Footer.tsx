@@ -43,7 +43,7 @@ const Footer = () => {
             </Link>
           </div> */}
 
-          <div className="pt-6 md:pt-8 lg:pt-10 flex items-center gap-4">
+          <div className="pt-6 md:pt-8 lg:pt-10 flex items-center gap-4 pb-6 md:pb-8 lg:pb-12">
             {/* Facebook */}
             <Link
               href="https://www.facebook.com/profile.php?id=61583972953701"
@@ -66,6 +66,17 @@ const Footer = () => {
               </span>
             </Link>
           </div>
+
+          {/* Logo */}
+          {/* <Link href="/" className="flex items-center gap-2"> */}
+            <Image
+              src="/assets/images/footer_logo.jpg"
+              alt="logo"
+              width={1000}
+              height={1000}
+              className="w-[222px] h-[66px] object-cover rounded-[12px]"
+            />
+          {/* </Link> */}
         </div>
 
         <div className="md:col-span-3">
@@ -132,10 +143,13 @@ const Footer = () => {
             Subscribe To Our <span className="text-primary">NEWSLETTER</span>
           </h4>
           {/* <p className="text-sm lg:text-base xl:text-lg leading-[120%] text-[#131313] font-normal">Connect with us on social media and <br /> stay in the loop :</p> */}
-          <div>
+          <div className="">
             <NewsletterSubscribe />
             {/* <p className="text-sm lg:text-base xl:text-lg  pt-4 leading-[120%] text-[#131313] font-normal"><strong className='text-[#131313]'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}
           </div>
+          
+
+
         </div>
       </div>
       {/* footer bottom  */}
