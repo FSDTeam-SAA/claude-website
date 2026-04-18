@@ -61,7 +61,7 @@ const PlayerEvaluationProgram = () => {
 
   return (
     // <div className="bg-[#EBEBEB] py-10 md:py-16 lg:py-24">
-    <div className="bg_color py-7 md:py-16 lg:py-24">
+    <div id="player-evaluation-program" className="bg_color py-7 md:py-16 lg:py-24">
       <div className="container ">
         <h3 className="text-2xl md:text-3xl lg:text-[40px] text-primary h_underline leading-[120%] font-normal text-center">
           Player Evaluation Program
@@ -84,7 +84,7 @@ const PlayerEvaluationProgram = () => {
                 </div>
                 <div className="pt-5 pb-5 md:pb-6 px-6 md:px-7 lg:px-8">
                   <h5 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-2">
-                    ${item?.price}
+                    ${item?.price} / Each
                   </h5>
                   <ul>
                     {item?.features?.map((feature, index) => (

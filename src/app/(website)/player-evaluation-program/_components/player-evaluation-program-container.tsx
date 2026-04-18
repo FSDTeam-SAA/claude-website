@@ -64,7 +64,7 @@ const PlayerEvaluationProgramContainer = () => {
                 {index === 0 && (
                   <div className="absolute left-[10%] top-[91%] md:top-[88%] -translate-y-1/2 md:left-[18%] lg:left-[20%]">
                     <Link
-                      href={`${isLogin ? "/prices" : "/sign-up"}`}
+                      href={`${isLogin ? "/prices#player-evaluation-program" : "/sign-up"}`}
                       className="h-8 md:h-12 inline-flex min-w-[140px] items-center justify-center rounded-full bg-primary px-6  text-sm font-semibold text-black transition-opacity hover:opacity-90 md:min-w-[180px] md:px-8 py-1 md:py-2 lg:py-3 md:text-base"
                     >
                       Book Now
@@ -75,7 +75,7 @@ const PlayerEvaluationProgramContainer = () => {
                 {index === pepImages.length - 1 && (
                   <div className="absolute left-[10%] top-[91%] md:top-[88%] -translate-y-1/2 md:left-[24%] lg:left-[30%] ">
                     <Link
-                      href={`${isLogin ? "/prices" : "/sign-up"}`}
+                      href={`${isLogin ? "/prices#player-evaluation-program" : "/sign-up"}`}
                       className="h-8 md:h-12 inline-flex min-w-[140px] items-center justify-center rounded-full bg-primary px-6  text-sm font-semibold text-black transition-opacity hover:opacity-90 md:min-w-[180px] md:px-8 py-1 md:py-2 lg:py-3 md:text-base"
                     >
                       Book Now
