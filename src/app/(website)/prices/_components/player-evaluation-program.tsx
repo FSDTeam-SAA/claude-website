@@ -43,8 +43,10 @@ const PlayerEvaluationProgram = () => {
 
   if (isLoading) {
     return (
-      <div className="container py-6">
-        <IndividualPricingSkeleton />
+      <div id="player-evaluation-program" className="scroll-mt-28 bg_color py-7 md:py-16 lg:py-24">
+        <div className="container py-6">
+          <IndividualPricingSkeleton />
+        </div>
       </div>
     );
   }
@@ -53,15 +55,17 @@ const PlayerEvaluationProgram = () => {
     const message =
       error instanceof Error ? error.message : "Something went wrong!";
     return (
-      <div className="pb-8">
-        <ErrorContainer message={message} />
+      <div id="player-evaluation-program" className="bg_color py-7 md:py-16 lg:py-24">
+        <div className="pb-8">
+          <ErrorContainer message={message} />
+        </div>
       </div>
     );
   }
 
   return (
     // <div className="bg-[#EBEBEB] py-10 md:py-16 lg:py-24">
-    <div id="player-evaluation-program" className="bg_color py-7 md:py-16 lg:py-24">
+    <div id="player-evaluation-program" className="scroll-mt-28 bg_color py-7 md:py-16 lg:py-24">
       <div className="container ">
         <h3 className="text-2xl md:text-3xl lg:text-[40px] text-primary h_underline leading-[120%] font-normal text-center">
           Player Evaluation Program
