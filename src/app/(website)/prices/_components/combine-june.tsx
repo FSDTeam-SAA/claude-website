@@ -83,9 +83,9 @@ const CombineJune = () => {
                     <h4 className="text-lg md:text-xl lg:text-2xl font-normal text-white leading-[120%] text-center ">
                       {item?.title}
                     </h4>
-                    <p className=" text-base md:text-lg  font-normal text-white leading-[120%] text-center ">
+                    {/* <p className=" text-base md:text-lg  font-normal text-white leading-[120%] text-center ">
                       {item?.evaluationLimit || 0} Evaluations / Year
-                    </p>
+                    </p> */}
                   </div>
                   <div className="pt-5 pb-5 md:pb-6 px-6 md:px-7 lg:px-8">
                     <h5 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-2">
