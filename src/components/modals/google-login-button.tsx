@@ -17,48 +17,22 @@ const GoogleLoginButton = ({ context = "login" }: GoogleLoginButtonProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showUserTypeModal, setShowUserTypeModal] = useState(false);
 
-  console.log("button context", context)
-
   // ✅ Google sign-in handler
-  const handleGoogleSignIn = (role?: string) => {
+  const handleGoogleSignIn = (role: "player" | "gk" | "guest") => {
     setIsLoading(true);
-
-    // Create callback URL with role parameter
-    let callbackUrl = "/";
-
-    if (role && context === "signup") {
-      // For signup, pass role through callback URL
-      // This will be accessible in the redirect callback
-      callbackUrl = `/?google_signup_role=${role}`;
-
-      console.log("📝 Google signup with role:", role);
-      console.log("📍 Callback URL:", callbackUrl);
-    }
-
-    console.log("🚀 Starting Google OAuth with:");
-    console.log("- Role:", role || "none (login)");
-    console.log("- Callback URL:", callbackUrl);
-    console.log("- Context:", context);
 
     // Start Google OAuth flow
     signIn("google", {
-      callbackUrl: callbackUrl,
+      callbackUrl: `/?google_role=${role}`,
       redirect: true,
     });
   };
 
   const handleButtonClick = () => {
-    if (context === "signup") {
-      // Signup → open role modal
-      setShowUserTypeModal(true);
-    } else {
-      // Login → no role needed
-      handleGoogleSignIn();
-    }
+    setShowUserTypeModal(true);
   };
 
-  const handleUserTypeSelect = (type: "player" | "gk") => {
-    console.log("🎯 User selected role:", type);
+  const handleUserTypeSelect = (type: "player" | "gk" | "guest") => {
     setShowUserTypeModal(false);
     handleGoogleSignIn(type);
   };
@@ -105,5 +79,3 @@ const GoogleLoginButton = ({ context = "login" }: GoogleLoginButtonProps) => {
 };
 
 export default GoogleLoginButton;
-
-

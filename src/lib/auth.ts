@@ -112,65 +112,39 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
 
-    // 🔥 CRITICAL FIX: Extract role from callback URL
     async redirect({ url, baseUrl }) {
-      // console.log("=== REDIRECT CALLBACK ===");
-      // console.log("Redirect URL:", url);
-      // console.log("Base URL:", baseUrl);
-
       try {
-        // Handle relative URLs by making them absolute
         const absoluteUrl = url.startsWith("/") ? `${baseUrl}${url}` : url;
-          // const absoluteUrl = url.startsWith("/profile") ? `${baseUrl}${url}` : url;
         const redirectUrl = new URL(absoluteUrl);
+        const role = redirectUrl.searchParams.get("google_role");
 
-        console.log("Parsed redirect URL:", redirectUrl.href);
-        console.log("Search params:", redirectUrl.searchParams.toString());
-
-        // Extract role from query parameter
-        const role = redirectUrl.searchParams.get("google_signup_role");
-        console.log("Role from redirect URL:", role);
-
-        if (role && ["player", "gk", "coach", "admin"].includes(role)) {
-          console.log("🎯 Valid role found in redirect URL:", role);
-          // Store in a global variable that can be accessed in signIn callback
-          // This is a workaround since we can't pass data between callbacks easily
-          (global as any).__GOOGLE_SIGNUP_ROLE__ = role;
-          console.log("✅ Stored role in global variable");
+        if (role && ["player", "gk", "guest", "coach", "admin"].includes(role)) {
+          (global as any).__GOOGLE_ROLE__ = role;
         }
       } catch (error) {
-        console.log("❌ Error parsing redirect URL:", error);
+        console.error("Redirect callback parsing error:", error);
       }
 
       return url;
     },
 
-    // 🔥 FIXED: Get role from global variable (set by redirect) or backend check
+    // Selected Google role has top priority.
+    // If not selected, existing backend role is used; otherwise default "player".
     async signIn({ user, account, profile }) {
-      console.log("=== SIGNIN CALLBACK START ===");
-      console.log("Account provider:", account?.provider);
-      console.log("Profile email:", profile?.email);
-
       if (account?.provider === "google") {
         try {
-          let role = "player"; // Default role
-          let roleSource = "default";
+          let role = "player";
+          const selectedRole = (global as any).__GOOGLE_ROLE__;
+          const hasValidSelectedRole =
+            !!selectedRole &&
+            ["player", "gk", "guest", "coach", "admin"].includes(selectedRole);
 
-          // METHOD 1: Try to get role from global variable (set by redirect callback)
-          const globalRole = (global as any).__GOOGLE_SIGNUP_ROLE__;
-          if (
-            globalRole &&
-            ["player", "gk", "coach", "admin"].includes(globalRole)
-          ) {
-            role = globalRole;
-            roleSource = "redirect_callback";
-            console.log("✅ Got role from redirect callback:", role);
-            // Clean up
-            delete (global as any).__GOOGLE_SIGNUP_ROLE__;
+          if (hasValidSelectedRole) {
+            role = selectedRole;
+            delete (global as any).__GOOGLE_ROLE__;
           }
 
-          // METHOD 2: Check if user already exists in backend
-          if (profile?.email) {
+          if (!hasValidSelectedRole && profile?.email) {
             try {
               const checkRes = await fetch(
                 `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/check-user?email=${encodeURIComponent(profile.email)}`,
@@ -183,35 +157,14 @@ export const authOptions: NextAuthOptions = {
               );
 
               const checkResponse = await checkRes.json();
-              console.log("User check response:", checkResponse);
-
-              // If user exists, use their existing role (LOGIN scenario)
-              // This overrides the role from redirect callback
               if (checkResponse?.success && checkResponse?.data?.exists) {
                 role = checkResponse.data.role || role;
-                roleSource = "existing_user";
-                console.log("✅ User exists, using existing role:", role);
-              } else if (roleSource === "default") {
-                // User doesn't exist and no role from redirect (shouldn't happen in signup flow)
-                console.log(
-                  "ℹ️ New user with no role specified, using default:",
-                  role,
-                );
-                roleSource = "new_user_default";
               }
             } catch (error) {
-              console.log("❌ Error checking user:", error);
+              console.error("Error checking user:", error);
             }
           }
 
-          console.log(
-            "🎯 Final role to send to backend:",
-            role,
-            `(source: ${roleSource})`,
-          );
-
-          // Call backend Google login endpoint
-          console.log("📤 Calling backend with role:", role);
           const response = await fetch(
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/google-login`,
             {
@@ -221,20 +174,15 @@ export const authOptions: NextAuthOptions = {
               },
               body: JSON.stringify({
                 idToken: account.id_token,
-                role: role,
+                role,
               }),
             },
           );
 
           const data = await response.json();
-          console.log("📥 Backend response:", {
-            success: data?.success,
-            message: data?.message,
-            userRole: data?.data?.user?.role,
-          });
 
           if (!response.ok || !data?.success) {
-            console.error("❌ Backend Google login failed:", data);
+            console.error("Backend Google login failed:", data);
             return false;
           }
 
@@ -247,12 +195,9 @@ export const authOptions: NextAuthOptions = {
           user.profileImage = data.data.user.profileImage;
           user.accessToken = data.data.accessToken;
 
-          console.log("✅ Google signIn successful!");
-          console.log("User role:", user.role);
-
           return true;
         } catch (error) {
-          console.error("❌ Google signIn callback error:", error);
+          console.error("Google signIn callback error:", error);
           return false;
         }
       }

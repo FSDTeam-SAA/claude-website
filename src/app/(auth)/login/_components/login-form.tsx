@@ -214,7 +214,7 @@ const LoginForm = () => {
              <div className="w-full flex items-center gap-2">
               <span className="hidden md:block w-1/3 border-b border-[#6C6C6C]"/>
               <span className="w-full md:w-1/3 text-base md:text-lg font-normal text-[#424242] leading-[120%] text-center">
-                Or Sign Up with
+                Or Continue with
               </span>
               <span className="hidden md:block w-1/3 border-b border-[#6C6C6C]"/>
             </div>

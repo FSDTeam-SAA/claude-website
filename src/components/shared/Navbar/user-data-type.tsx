@@ -1,4 +1,4 @@
-export type UserRole = "admin" | "player" | "gk";
+export type UserRole = "admin" | "player" | "gk" | "guest";
 export type AuthProvider = "credentials" | "google";
 
 
@@ -77,7 +77,6 @@ export interface UsersApiResponse {
 //   meta: Meta
 //   data: T[]
 // }
-
 
 
 

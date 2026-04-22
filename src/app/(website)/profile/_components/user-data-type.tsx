@@ -37,7 +37,7 @@ export interface User {
   email: string;
   password: string;
 
-  role: "admin" | "player" | "gk";
+  role: "admin" | "player" | "gk" | "guest";
   provider: "credentials" | "google" | "facebook";
 
   profileImage: string;
