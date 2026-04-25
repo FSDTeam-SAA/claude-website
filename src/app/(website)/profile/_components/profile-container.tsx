@@ -141,7 +141,7 @@ const ProfileContainer = () => {
 
         <div className="md:col-span-2">
           <h1 className="text-2xl md:text-[28px] lg:text-[32px] text-[#131313] font-normal">
-            Profile Setting
+            Profile Settings
           </h1>
           <PersonalInformationForm user={user} />
         </div>
