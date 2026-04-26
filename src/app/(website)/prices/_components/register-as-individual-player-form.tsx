@@ -214,6 +214,7 @@ const RegisterAsIndividualPlayerForm = ({
 
       setAppliedCouponCode(trimmedCode);
       setPriceSummary(data?.data ?? null);
+      setShowCouponSection(true);
       toast.success("Coupon applied successfully");
     } catch (error) {
       const errorMessage =
@@ -407,18 +408,16 @@ const RegisterAsIndividualPlayerForm = ({
                   )}
                 />
 
-                {!showCouponSection && !hasDiscount && (
-                  <Button
-                    type="button"
-                    variant="outline"
-                    className="w-full mt-5 h-[44px] rounded-[8px] border-[#6C6C6C] text-base"
-                    onClick={() => setShowCouponSection(true)}
-                  >
-                    Have a coupon code?
-                  </Button>
-                )}
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full mt-5 h-[44px] rounded-[8px] border-[#6C6C6C] text-base"
+                  onClick={() => setShowCouponSection((prev) => !prev)}
+                >
+                  {showCouponSection ? "Hide coupon section" : "Have a coupon code?"}
+                </Button>
 
-                {(showCouponSection || hasDiscount) && (
+                {showCouponSection && (
                 <div
                   className="bg-white border-[2px] border-[#E7E7E7] p-3 rounded-[16px] mt-5"
                   aria-label={subscriptionTitle || "Coupon section"}
