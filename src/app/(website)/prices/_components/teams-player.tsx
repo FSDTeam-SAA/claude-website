@@ -2,7 +2,7 @@
 import { CircleCheckBig } from "lucide-react";
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { SubscriptionApiResponse } from "./subscription-data-type";
+import { Subscription, SubscriptionApiResponse } from "./subscription-data-type";
 import { useSession } from "next-auth/react";
 import RegisterAsTeamPlayerForm from "./register-as-team-player-form";
 import TeamPricingSkeleton from "./team-pricing-skeleton";
@@ -12,6 +12,7 @@ const TeamsPlayer = () => {
   const currentPage = 1;
   const [teamIsOpen, setTeamIsOpen] = useState(false);
   const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
+  const [selectedSubscription, setSelectedSubscription] = useState<Subscription | null>(null);
 
   const session = useSession();
   const token = (session?.data?.user as { accessToken: string })?.accessToken;
@@ -107,6 +108,7 @@ const TeamsPlayer = () => {
                     onClick={() => {
                       setTeamIsOpen(true);
                       setSubscriptionId(item._id);
+                      setSelectedSubscription(item);
                     }}
                     className="w-full h-[51px] bg-[#424242] rounded-[8px] text-base text-white leading-[120%] font-medium "
                   >
@@ -125,6 +127,12 @@ const TeamsPlayer = () => {
           open={teamIsOpen}
           onOpenChange={setTeamIsOpen}
           subscriptionId={subscriptionId}
+          subscriptionTitle={
+            selectedSubscription?.title ||
+            `${selectedSubscription?.numberOfGames || ""} games`
+          }
+          subscriptionPrice={selectedSubscription?.price}
+          subscriptionPaymentType={selectedSubscription?.paymentType}
         />
       )}
     </div>

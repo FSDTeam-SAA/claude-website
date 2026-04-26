@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import RegisterAsIndividualPlayerForm from './register-as-individual-player-form';
 import { useQuery } from '@tanstack/react-query';
-import { SubscriptionApiResponse } from './subscription-data-type';
+import { Subscription, SubscriptionApiResponse } from './subscription-data-type';
 import { useSession } from 'next-auth/react';
 import IndividualPricingSkeleton from './individual-pricing-skeleton';
 import ErrorContainer from '@/components/shared/ErrorContainer/ErrorContainer';
@@ -11,6 +11,7 @@ const IndividualPlayer = () => {
     const currentPage = 1;
     const [isOpen, setIsOpen] = useState(false);
     const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
+    const [selectedSubscription, setSelectedSubscription] = useState<Subscription | null>(null);
     const session = useSession();
     const token = (session?.data?.user as { accessToken: string })?.accessToken;
 
@@ -63,7 +64,7 @@ const IndividualPlayer = () => {
                                 <h4 className='bg-primary rounded-t-[14px] text-lg md:text-xl lg:text-[22px] font-normal text-white leading-[120%] text-center py-6 md:py-8 lg:py-10'>{item?.description}</h4>
                                 <div className='pt-5 pb-6 md:pb-8 lg:pb-10 px-6 md:px-7 lg:px-8'>
                                     <h5 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-5">${item?.price}</h5>
-                                    <button onClick={() => {setIsOpen(true); setSubscriptionId(item?._id)}} className='w-full h-[51px] bg-[#424242] rounded-[8px] text-base text-white leading-[120%] font-medium '>Continue</button>
+                                    <button onClick={() => {setIsOpen(true); setSubscriptionId(item?._id); setSelectedSubscription(item)}} className='w-full h-[51px] bg-[#424242] rounded-[8px] text-base text-white leading-[120%] font-medium '>Continue</button>
                                 </div>
 
 
@@ -77,7 +78,14 @@ const IndividualPlayer = () => {
             {/* modal open  */}
             {
                 isOpen && subscriptionId && (
-                    <RegisterAsIndividualPlayerForm open={isOpen} onOpenChange={setIsOpen} subscriptionId={subscriptionId} />
+                    <RegisterAsIndividualPlayerForm
+                      open={isOpen}
+                      onOpenChange={setIsOpen}
+                      subscriptionId={subscriptionId}
+                      subscriptionTitle={selectedSubscription?.title || selectedSubscription?.description}
+                      subscriptionPrice={selectedSubscription?.price}
+                      subscriptionPaymentType={selectedSubscription?.paymentType}
+                    />
                 )
             }
         </div>

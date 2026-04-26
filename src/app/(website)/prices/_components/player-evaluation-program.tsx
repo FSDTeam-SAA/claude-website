@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { SubscriptionApiResponse } from "./subscription-data-type";
+import { Subscription, SubscriptionApiResponse } from "./subscription-data-type";
 import { useSession } from "next-auth/react";
 import IndividualPricingSkeleton from "./individual-pricing-skeleton";
 import ErrorContainer from "@/components/shared/ErrorContainer/ErrorContainer";
@@ -12,6 +12,7 @@ const PlayerEvaluationProgram = () => {
   const [isOpen, setIsOpen] = useState(false);
   const currentPage = 1;
   const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
+  const [selectedSubscription, setSelectedSubscription] = useState<Subscription | null>(null);
   const session = useSession();
   const token = (session?.data?.user as { accessToken: string })?.accessToken;
 
@@ -102,6 +103,7 @@ const PlayerEvaluationProgram = () => {
                     onClick={() => {
                       setIsOpen(true);
                       setSubscriptionId(item?._id);
+                      setSelectedSubscription(item);
                     }}
                     className="w-full h-[51px] bg-[#424242] rounded-[8px] text-base text-white leading-[120%] font-medium mt-4"
                   >
@@ -120,6 +122,9 @@ const PlayerEvaluationProgram = () => {
           open={isOpen}
           onOpenChange={setIsOpen}
           subscriptionId={subscriptionId}
+          subscriptionTitle={selectedSubscription?.title}
+          subscriptionPrice={selectedSubscription?.price}
+          subscriptionPaymentType={selectedSubscription?.paymentType}
         />
       )}
     </div>
