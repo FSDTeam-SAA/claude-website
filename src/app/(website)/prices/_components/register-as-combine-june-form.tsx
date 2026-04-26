@@ -66,6 +66,7 @@ const RegisterAsCombineJuneForm = ({
   const [couponCode, setCouponCode] = useState("");
   const [appliedCouponCode, setAppliedCouponCode] = useState<string | null>(null);
   const [isApplyingCoupon, setIsApplyingCoupon] = useState(false);
+  const [showCouponSection, setShowCouponSection] = useState(false);
   const [priceSummary, setPriceSummary] = useState<{
     originalPrice: number;
     discountedPrice: number;
@@ -344,7 +345,19 @@ const RegisterAsCombineJuneForm = ({
                 />
                 </div>
 
-               <div className="bg-white border-[2px] border-[#E7E7E7] p-3 rounded-[16px] mt-5">
+                {!showCouponSection && !hasDiscount && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="w-full mt-5 h-[44px] rounded-[8px] border-[#6C6C6C] text-base"
+                    onClick={() => setShowCouponSection(true)}
+                  >
+                    Have a coupon code?
+                  </Button>
+                )}
+
+               {(showCouponSection || hasDiscount) && (
+                <div className="bg-white border-[2px] border-[#E7E7E7] p-3 rounded-[16px] mt-5">
                  <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <p className="text-base text-[#424242]">Original price</p>
@@ -366,7 +379,7 @@ const RegisterAsCombineJuneForm = ({
                 </div>
 
                 <div className="pt-3 space-y-2">
-                  <p className="text-base text-[#424242] font-medium">Have a coupon code?</p>
+                  <p className="text-base text-[#424242] font-medium">Coupon code</p>
                   <div className="flex items-center gap-2">
                     <Input
                       value={couponCode}
@@ -401,6 +414,7 @@ const RegisterAsCombineJuneForm = ({
                   </div>
                 </div>
                </div>
+               )}
 
                 <div className="pt-4">
                   <Button
