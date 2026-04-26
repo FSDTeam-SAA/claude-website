@@ -3,7 +3,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFieldArray } from "react-hook-form";
 import { z } from "zod";
-import { LockKeyhole, Plus, X } from "lucide-react";
+import { Loader2, LockKeyhole, Plus, X } from "lucide-react";
+import { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -60,15 +61,30 @@ interface RegisterAsTeamPlayerFormProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   subscriptionId?: string;
+  subscriptionTitle?: string;
+  subscriptionPrice?: number;
+  subscriptionPaymentType?: string;
 }
 
 const RegisterAsTeamPlayerForm = ({
   open,
   onOpenChange,
   subscriptionId,
+  subscriptionTitle,
+  subscriptionPrice = 0,
+  subscriptionPaymentType,
 }: RegisterAsTeamPlayerFormProps) => {
   const session = useSession();
   const token = (session?.data?.user as { accessToken: string })?.accessToken;
+  const [couponCode, setCouponCode] = useState("");
+  const [appliedCouponCode, setAppliedCouponCode] = useState<string | null>(null);
+  const [isApplyingCoupon, setIsApplyingCoupon] = useState(false);
+  const [showCouponSection, setShowCouponSection] = useState(false);
+  const [priceSummary, setPriceSummary] = useState<{
+    originalPrice: number;
+    discountedPrice: number;
+    savedAmount: number;
+  } | null>(null);
 
   console.log("Subscription ID:", subscriptionId);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -90,7 +106,13 @@ const RegisterAsTeamPlayerForm = ({
 
   const { mutate, isPending } = useMutation({
     mutationKey: ["team-payment"],
-    mutationFn: async (values: z.infer<typeof formSchema>) => {
+    mutationFn: async ({
+      values,
+      couponCode,
+    }: {
+      values: z.infer<typeof formSchema>;
+      couponCode?: string;
+    }) => {
       /* 1️⃣ PROFILE UPDATE */
       const teamRes = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/team`,
@@ -113,12 +135,14 @@ const RegisterAsTeamPlayerForm = ({
 
       /* 2️⃣ STRIPE PAYMENT */
       const paymentRes = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/subscription/${teamId}/pay/${subscriptionId}`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/subscription/team/${teamId}/pay/${subscriptionId}`,
         {
           method: "POST",
           headers: {
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
+          body: JSON.stringify(couponCode ? { couponCode } : {}),
         },
       );
 
@@ -136,21 +160,89 @@ const RegisterAsTeamPlayerForm = ({
         toast.message(data?.message || "Payment initiation failed");
         return;
       }
+
+      if (!data?.data?.approvalUrl) {
+        toast.success(data?.message || "Payment processed successfully");
+        onOpenChange(false);
+        return;
+      }
+
       toast.success("Redirecting to payment...");
       window.location.href = data.data.approvalUrl;
     },
 
-    // onError: (error: Error) => {
-    //   toast.error(error.message || "Something went wrong")
-    // },
+    onError: (error: Error) => {
+      toast.error(error.message || "Something went wrong");
+    },
   });
+
+  const applyCoupon = async () => {
+    const trimmedCode = couponCode.trim().toUpperCase();
+
+    if (!trimmedCode) {
+      toast.error("Please enter a coupon code");
+      return;
+    }
+
+    if (!token) {
+      toast.error("Please login first");
+      return;
+    }
+
+    try {
+      setIsApplyingCoupon(true);
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/copon/apply-copon`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            code: trimmedCode,
+            originalPrice: subscriptionPrice,
+            paymentType: subscriptionPaymentType,
+          }),
+        },
+      );
+
+      const data = await res.json();
+      if (!data?.success) {
+        throw new Error(data?.message || "Failed to apply coupon");
+      }
+
+      setAppliedCouponCode(trimmedCode);
+      setPriceSummary(data?.data ?? null);
+      setShowCouponSection(true);
+      toast.success("Coupon applied successfully");
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Failed to apply coupon";
+      setAppliedCouponCode(null);
+      setPriceSummary(null);
+      toast.error(errorMessage);
+    } finally {
+      setIsApplyingCoupon(false);
+    }
+  };
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    const fallbackCouponCode = couponCode.trim().toUpperCase();
+    const resolvedCouponCode = appliedCouponCode ?? fallbackCouponCode;
 
-    mutate(values);
+    mutate({
+      values,
+      couponCode: resolvedCouponCode || undefined,
+    });
   }
+
+  const originalPrice = priceSummary?.originalPrice ?? subscriptionPrice;
+  const totalPrice = priceSummary?.discountedPrice ?? subscriptionPrice;
+  const savedAmount = priceSummary?.savedAmount ?? 0;
+  const hasDiscount = !!priceSummary && savedAmount > 0;
   return (
     <div>
       <Dialog open={open} onOpenChange={onOpenChange}>
@@ -427,12 +519,84 @@ const RegisterAsTeamPlayerForm = ({
                 </div>
 
                 <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full mt-5 h-[44px] rounded-[8px] border-[#6C6C6C] text-base"
+                  onClick={() => setShowCouponSection((prev) => !prev)}
+                >
+                  {showCouponSection ? "Hide coupon section" : "Have a coupon code?"}
+                </Button>
+
+                {showCouponSection && (
+                <div
+                  className="bg-white border-[2px] border-[#E7E7E7] p-3 rounded-[16px] mt-5"
+                  aria-label={subscriptionTitle || "Coupon section"}
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <p className="text-base text-[#424242]">Original price</p>
+                      <p
+                        className={`text-lg font-semibold text-[#131313] ${hasDiscount ? "line-through text-[#7A7A7A]" : ""}`}
+                      >
+                        ${originalPrice}
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <p className="text-base text-[#424242]">Total</p>
+                      <p className="text-2xl font-semibold text-primary">${totalPrice}</p>
+                    </div>
+                    {hasDiscount && (
+                      <p className="text-sm text-primary">
+                        You saved ${savedAmount.toFixed(2)} with coupon {appliedCouponCode}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="pt-3 space-y-2">
+                    <p className="text-base text-[#424242] font-medium">Coupon code</p>
+                    <div className="flex items-center gap-2">
+                      <Input
+                        value={couponCode}
+                        onChange={(event) => {
+                          const nextValue = event.target.value;
+                          setCouponCode(nextValue);
+                          if (
+                            appliedCouponCode &&
+                            nextValue.trim().toUpperCase() !== appliedCouponCode
+                          ) {
+                            setAppliedCouponCode(null);
+                            setPriceSummary(null);
+                          }
+                        }}
+                        placeholder="Enter coupon code"
+                        className="h-[44px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292]"
+                      />
+                      <Button
+                        type="button"
+                        onClick={applyCoupon}
+                        disabled={isApplyingCoupon || !couponCode.trim()}
+                        className="h-[44px] min-w-[100px] rounded-[8px] border-[#6C6C6C]"
+                      >
+                        {isApplyingCoupon ? (
+                          <>
+                            <Loader2 className="h-4 w-4 animate-spin" /> Applying
+                          </>
+                        ) : (
+                          "Apply"
+                        )}
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+                )}
+
+                <Button
                   disabled={isPending}
                   className="w-full h-[47px] rounded-[8px] text-[#F2F2F2] text-base "
                   type="submit"
                 >
                   <LockKeyhole />{" "}
-                  {isPending ? "Processing..." : "Make Your Payment"}
+                  {isPending ? "Processing..." : "Continue to Payment"}
                 </Button>
               </form>
             </Form>
