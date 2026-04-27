@@ -342,25 +342,55 @@ const RegisterAsTeamPlayerForm = ({
                           <SelectTrigger className="w-full h-[42px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
                             <SelectValue placeholder="Select Category" />
                           </SelectTrigger>
-                          <SelectContent className="h-[200px] overflow-y-auto">
-                            <SelectItem value="semi-professional">
-                              Semi Professional
-                            </SelectItem>
-                            <SelectItem value="professional">
-                              Professional
-                            </SelectItem>
-                            <SelectItem value="adult">Adult</SelectItem>
-                            <SelectItem value="U9">U9</SelectItem>
-                            <SelectItem value="U10">U10</SelectItem>
-                            <SelectItem value="U11">U11</SelectItem>
-                            <SelectItem value="U12">U12</SelectItem>
-                            <SelectItem value="U13">U13</SelectItem>
-                            <SelectItem value="U14">U14</SelectItem>
-                            <SelectItem value="U15">U15</SelectItem>
-                            <SelectItem value="U16">U16</SelectItem>
-                            <SelectItem value="U17">U17</SelectItem>
-                            <SelectItem value="U18">U18</SelectItem>
-                            <SelectItem value="U19">U19</SelectItem>
+                          <SelectContent className="h-[200px] overflow-y-auto bg-white border-none">
+                            <SelectItem
+                            className="cursor-pointer"
+                            value="semi-professional"
+                          >
+                            Semi Professional
+                          </SelectItem>
+                          <SelectItem
+                            className="cursor-pointer"
+                            value="professional"
+                          >
+                            Professional
+                          </SelectItem>
+                          <SelectItem className="cursor-pointer" value="adult">
+                            Adult
+                          </SelectItem>
+                          <SelectItem className="cursor-pointer" value="U9">
+                            U9
+                          </SelectItem>
+                          <SelectItem className="cursor-pointer" value="U10">
+                            U10
+                          </SelectItem>
+                          <SelectItem className="cursor-pointer" value="U11">
+                            U11
+                          </SelectItem>
+                          <SelectItem className="cursor-pointer" value="U12">
+                            U12
+                          </SelectItem>
+                          <SelectItem className="cursor-pointer" value="U13">
+                            U13
+                          </SelectItem>
+                          <SelectItem className="cursor-pointer" value="U14">
+                            U14
+                          </SelectItem>
+                          <SelectItem className="cursor-pointer" value="U15">
+                            U15
+                          </SelectItem>
+                          <SelectItem className="cursor-pointer" value="U16">
+                            U16
+                          </SelectItem>
+                          <SelectItem className="cursor-pointer" value="U17">
+                            U17
+                          </SelectItem>
+                          <SelectItem className="cursor-pointer" value="U18">
+                            U18
+                          </SelectItem>
+                          <SelectItem className="cursor-pointer" value="U19">
+                            U19
+                          </SelectItem>
                           </SelectContent>
                         </Select>
                       </FormControl>
