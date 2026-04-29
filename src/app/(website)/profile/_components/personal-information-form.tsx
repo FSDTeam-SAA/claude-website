@@ -53,8 +53,10 @@ const formSchema = z
       message: "Last Name must be at least 2 characters.",
     }),
     schoolName: z.string().optional(),
-    phoneCode: z.string().min(1),
-    phone: z.string().min(6),
+    // phoneCode: z.string().min(1),
+    // phone: z.string().min(6),
+    phoneCode: z.string().optional(),
+    phone: z.string().optional(),
     jerseyNumber: z.string().min(1, {
       message: "Jersey Number must be at least 1 characters.",
     }),
@@ -508,7 +510,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                         <Input
                           {...field}
                           placeholder="1712345678"
-                          className="flex-1 h-[47px] border border-[#645949] rounded-[8px]"
+                          className="flex-1 h-[47px] border border-[#645949] rounded-[8px] placeholder:text-[#616161]"
                         />
                       </FormControl>
                     </div>
