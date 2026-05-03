@@ -20,7 +20,7 @@ import SearchBox from "./SearchBox";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { UserProfileApiResponse } from "@/app/(player-profile)/player-profile/[id]/_components/player-data-type";
-// import LanguageSwitcher from "@/components/ui/language-switcher";
+import LanguageSwitcher from "@/components/ui/language-switcher";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -173,9 +173,9 @@ const Navbar = () => {
                 Prices
               </button>
 
-              {/* <div>
+              <div>
                 <LanguageSwitcher />
-              </div> */}
+              </div>
             </div>
 
             {/* CTA Buttons */}
