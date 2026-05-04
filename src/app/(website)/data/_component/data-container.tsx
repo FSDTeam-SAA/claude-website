@@ -9,7 +9,7 @@ import HowToBook from "./how-to-book";
 
 const DataContainer = () => {
   return (
-    <div className="py-20">
+    <div className="py-6 md:py-10 lg:py-14">
       <OurMission />
       <WhatDoWeOffer />
       <HowOurAnalytics />
