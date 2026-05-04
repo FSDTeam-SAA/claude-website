@@ -46,8 +46,9 @@ const OurMission = () => {
       <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-10 lg:gap-12 pt-10 md:pt-16 lg:pt-20 ">
         {
           missionData?.map((item)=>{
-            return <div key={item?.id}>
-              <Image src={item?.img} alt={item?.title} width={1000} height={1000} className="w-[145px] md:w-[200px] h-auto object-contain"/>
+            return <div key={item?.id} className="bg-white rounded-tl-[70px] rounded-br-[70px] border-[6px] border-primary p-4 md:p-5">
+              <Image src={item?.img} alt={item?.title} width={1000} height={1000} className="w-[145px] md:w-[210px] h-[140px] object-contain"/>
+               <p className="text-center text-sm md:text-base font-medium text-[#131313] mt-3">{item?.title}</p>
             </div>
           })
         }
