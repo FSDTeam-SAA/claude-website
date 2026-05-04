@@ -188,6 +188,17 @@ const SignupForm = () => {
                       >
                         Guest
                       </button>
+                       {/* <button
+                        type="button"
+                        onClick={() => field.onChange("coach")}
+                        className={`flex-1 text-sm font-medium py-3 rounded-full transition-all ease-in-out duration-300
+                          ${field.value === "coach"
+                            ? "bg-primary text-white"
+                            : "text-[#2A2A2A]"
+                          }`}
+                      >
+                        Coach
+                      </button> */}
                     </div>
                   </FormControl>
                   <FormMessage className="text-red-500" />

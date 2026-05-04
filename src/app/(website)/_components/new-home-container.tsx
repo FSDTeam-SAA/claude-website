@@ -16,8 +16,8 @@ const NewHomeContainer = () => {
 //   desktop version images for the home page
   const pepImages = [
    
-    "/assets/images/home_page/desk_1.svg",
-    "/assets/images/home_page/desk_2.svg",
+    // "/assets/images/home_page/desk_1.svg",
+    // "/assets/images/home_page/desk_2.svg",
     "/assets/images/home_page/desk_3.svg",
     "/assets/images/home_page/desk_4.svg",
     "/assets/images/home_page/desk_5.svg",
@@ -27,8 +27,8 @@ const NewHomeContainer = () => {
 
 //   mobile version images for the home page
   const mobilePepImages = [
-    "/assets/images/home_page/sm_1.svg",
-    "/assets/images/home_page/sm_2.svg",
+    // "/assets/images/home_page/sm_1.svg",
+    // "/assets/images/home_page/sm_2.svg",
     "/assets/images/home_page/sm_3.svg",
     "/assets/images/home_page/sm_4.svg",
     "/assets/images/home_page/sm_5.svg",
@@ -59,7 +59,7 @@ const NewHomeContainer = () => {
                   priority={index === 0}
                 />
                 {/* For the first image, overlay the Book Now button on the left */}
-                {index === 0 && (
+                {/* {index === 0 && (
                   <div className="absolute left-[10%] top-[93%] md:top-[88%] -translate-y-1/2 md:left-[18%] lg:left-[20%]">
                     <Link
                       href={`${isLogin ? "/prices" : "/sign-up"}`}
@@ -68,7 +68,7 @@ const NewHomeContainer = () => {
                         Get Your Report
                     </Link>
                   </div>
-                )}
+                )} */}
                 {/* For the last image, overlay the Book Now button further down on the left */}
                <div className="">
 

@@ -11,56 +11,70 @@ const OurMission = () => {
 
   const missionData = [
     {
-      id : 1,
+      id: 1,
       img: "/assets/images/home_page/om1.svg",
-      title: "Get rated every game"
+      title: "Get rated every game",
     },
     {
-      id : 2,
+      id: 2,
       img: "/assets/images/home_page/om2.svg",
-      title: "Get rated every game"
+      title: "Compete with teammates",
     },
     {
-      id : 3,
+      id: 3,
       img: "/assets/images/home_page/om3.svg",
-      title: "Get rated every game"
+      title: "Build your data identity",
     },
     {
-      id : 4,
+      id: 4,
       img: "/assets/images/home_page/om4.svg",
-      title: "Get rated every game"
-    }
+      title: "Unlock new opportunities",
+    },
+  ];
 
-  ]
   return (
-    <div className="relative container bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat h-[800px] rounded-[50px] w-auto">
-      <div className="absolute left-[8%] top-[50%] -translate-y-1/2 md:left-[12%] lg:left-[15%]">
-        <div className="">
-        <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-normal text-primary">
-          Our Mission
-        </h1>
-        <p className="text-base md:text-lg lg:text-xl font-medium text-white leading-normal mt-2">
-          Four pillars that drive everything we do:
-        </p>
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 lg:gap-12 pt-10 md:pt-16 lg:pt-20">
-        {
-          missionData?.map((item)=>{
-            return <div key={item?.id}>
-              <Image src={item?.img} alt={item?.title} width={1000} height={1000} className="w-[145px] md:w-[200px] h-auto object-contain"/>
-            </div>
-          })
-        }
-      </div>
-      </div>
+    <div className="relative max-w-[1400px] mx-auto w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[650px] md:h-[850px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
+      <div className="relative z-10 px-4 md:px-8 lg:px-12 flex flex-col items-center w-full max-w-[1080px] mx-auto">
+        <div className="w-full text-left mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-dagger font-bold text-primary mb-3 md:mb-4">
+            Our Mission
+          </h1>
+          <p className="text-white text-base md:text-lg lg:text-xl font-medium opacity-90">
+            Four pillars that drive everything we do:
+          </p>
+        </div>
 
-      <div className="absolute left-[10%] top-[93%] md:top-[88%] -translate-y-1/2 md:left-[18%] lg:left-[20%]">
-        <Link
-          href={`${isLogin ? "/prices" : "/sign-up"}`}
-          className="h-8 md:h-12 inline-flex min-w-[140px] items-center justify-center rounded-full bg-primary px-6  text-sm font-semibold text-black transition-opacity hover:opacity-90 md:min-w-[180px] md:px-8 py-1 md:py-2 lg:py-3 md:text-base"
-        >
-          Get Your Report
-        </Link>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-10 w-full max-w-[1200px] mb-10 md:mb-16">
+          {missionData?.map((item) => {
+            return (
+              <div
+                key={item?.id}
+                className="bg-white rounded-tl-[40px] rounded-br-[40px] md:rounded-tl-[60px] md:rounded-br-[60px] border-[3px] md:border-[5px] border-primary p-4 md:p-6 flex flex-col items-center justify-between h-full hover:scale-105 transition-transform duration-300 shadow-xl"
+              >
+                <div className="w-full h-[100px] md:h-[160px] relative mb-4">
+                  <Image
+                    src={item?.img}
+                    alt={item?.title}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <h3 className="text-center text-[12px] md:text-lg lg:text-xl font-dagger font-bold text-[#131313] leading-tight">
+                  {item?.title}
+                </h3>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="w-full flex justify-center md:justify-start max-w-[1200px]">
+          <Link
+            href={`${isLogin ? "/prices" : "/sign-up"}`}
+            className="h-10 md:h-14 inline-flex items-center justify-center rounded-full bg-primary px-8 md:px-12 text-sm md:text-lg font-dagger font-bold text-black transition-all hover:opacity-90 hover:scale-105 shadow-[0_0_15px_rgba(16,230,7,0.4)]"
+          >
+            Get Your Report
+          </Link>
+        </div>
       </div>
     </div>
   );
