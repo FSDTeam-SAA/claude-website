@@ -33,17 +33,17 @@ const OurMission = () => {
 
   ]
   return (
-    <div className="relative container bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat h-[800px] rounded-[50px] w-auto">
-      <div className="absolute left-[8%] top-[50%] -translate-y-1/2 md:left-[12%] lg:left-[15%]">
+    <div className="relative container bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat h-[700px] md:h-[800px] rounded-[50px] w-auto">
+      <div className="absolute left-[8%] top-[44%] md:top-[50%] -translate-y-1/2 md:left-[12%] lg:left-[15%]">
         <div className="">
         <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-normal text-primary">
           Our Mission
         </h1>
-        <p className="text-base md:text-lg lg:text-xl font-medium text-white leading-normal mt-2">
+        <p className="text-base md:text-lg lg:text-xl font-medium text-white leading-normal mt-3">
           Four pillars that drive everything we do:
         </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 lg:gap-12 pt-10 md:pt-16 lg:pt-20">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-10 lg:gap-12 pt-10 md:pt-16 lg:pt-20 ">
         {
           missionData?.map((item)=>{
             return <div key={item?.id}>
