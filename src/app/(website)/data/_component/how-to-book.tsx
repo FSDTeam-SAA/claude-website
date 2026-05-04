@@ -1,34 +1,37 @@
 "use client";
-
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const OurMission = () => {
+const HowToBook = () => {
   const session = useSession();
   const isLogin = session?.data?.user?.accessToken;
 
   const missionData = [
     {
       id: 1,
-      img: "/assets/images/home_page/om1.svg",
-      title: "Get rated every game",
+      img: "/assets/images/home_page/htb1.svg",
+      title: "Register",
+      step: "1",
     },
     {
       id: 2,
-      img: "/assets/images/home_page/om2.svg",
-      title: "Compete with teammates",
+      img: "/assets/images/home_page/htb2.svg",
+      title: "Player Settings (Create your Profile)",
+      step: "2",
     },
     {
       id: 3,
-      img: "/assets/images/home_page/om3.svg",
-      title: "Build your data identity",
+      img: "/assets/images/home_page/htb3.svg",
+      title: "Payment",
+      step: "3",
     },
     {
       id: 4,
-      img: "/assets/images/home_page/om4.svg",
-      title: "Unlock new opportunities",
+      img: "/assets/images/home_page/htb4.svg",
+      title: "Send us your game video",
+      step: "4",
     },
   ];
 
@@ -37,11 +40,8 @@ const OurMission = () => {
       <div className="relative z-10 px-4 md:px-8 lg:px-12 flex flex-col items-center">
         <div className="w-full text-left mb-8 md:mb-12 max-w-[1200px]">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-dagger font-bold text-primary mb-3 md:mb-4">
-            Our Mission
+            How to book your video analysis !
           </h1>
-          <p className="text-white text-base md:text-lg lg:text-xl font-medium opacity-90">
-            Four pillars that drive everything we do:
-          </p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-10 w-full max-w-[1200px] mb-10 md:mb-16">
@@ -49,9 +49,9 @@ const OurMission = () => {
             return (
               <div
                 key={item?.id}
-                className="bg-white rounded-tl-[40px] rounded-br-[40px] md:rounded-tl-[60px] md:rounded-br-[60px] border-[3px] md:border-[5px] border-primary p-4 md:p-6 flex flex-col items-center justify-between h-full hover:scale-105 transition-transform duration-300 shadow-xl"
+                className="bg-transparent border-[2px] md:border-[3px] border-primary rounded-[25px] md:rounded-[40px] p-4 md:p-8 flex flex-col items-center justify-between h-full hover:shadow-[0_0_20px_rgba(16,230,7,0.2)] transition-all duration-300"
               >
-                <div className="w-full h-[100px] md:h-[160px] relative mb-4">
+                <div className="w-full h-[80px] md:h-[140px] relative mb-6">
                   <Image
                     src={item?.img}
                     alt={item?.title}
@@ -59,9 +59,14 @@ const OurMission = () => {
                     className="object-contain"
                   />
                 </div>
-                <h3 className="text-center text-[12px] md:text-lg lg:text-xl font-dagger font-bold text-[#131313] leading-tight">
-                  {item?.title}
-                </h3>
+                <div className="text-center flex flex-col gap-3 md:gap-5">
+                  <h3 className="text-white text-[12px] md:text-xl lg:text-2xl font-dagger font-bold leading-tight">
+                    {item?.title}
+                  </h3>
+                  <span className="text-primary text-xl md:text-3xl lg:text-4xl font-dagger font-bold">
+                    {item?.step}
+                  </span>
+                </div>
               </div>
             );
           })}
@@ -80,4 +85,4 @@ const OurMission = () => {
   );
 };
 
-export default OurMission;
+export default HowToBook;
