@@ -76,9 +76,8 @@ const WhyDataMatters = () => {
           {dataCategories.map((category, idx) => (
             <div
               key={idx}
-              className={`flex flex-col ${
-                idx === 2 ? "col-span-2 lg:col-span-1 items-center" : ""
-              }`}
+              className={`flex flex-col ${idx === 2 ? "col-span-2 lg:col-span-1 items-center" : ""
+                }`}
             >
               <h2 className="text-primary text-xs md:text-3xl font-dagger font-bold mb-3 md:mb-6 text-center">
                 {category.title}

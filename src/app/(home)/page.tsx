@@ -1,6 +1,10 @@
 import React from "react";
 import PlayerEvaluationProgramContainer from "../(website)/player-evaluation-program/_components/player-evaluation-program-container";
 import PepHero from "../(website)/player-evaluation-program/_components/pep-hero";
+import StopGuessing from "../(website)/player-evaluation-program/_components/stop-guessing";
+import HowToBook from "../(website)/player-evaluation-program/_components/how-to-book";
+import ItTimeFor from "../(website)/player-evaluation-program/_components/it-time-for";
+import TheThreeFlaws from "../(website)/player-evaluation-program/_components/the-three-flaws";
 // import HeroSection from '../(website)/_components/hero-section'
 // import OurPartners from './_components/our-partners'
 // import { FaqSection } from './_components/faq-section'
@@ -18,13 +22,21 @@ const HomePage = () => {
     <div>
       <>
         {/* <HeroSection /> */}
+
         {/* <NewHomeContainer/> */}
 
 
 
         {/* new page start  */}
 
-         <PepHero/>
+        <PepHero />
+        <TheThreeFlaws />
+        <ItTimeFor />
+
+
+
+        <StopGuessing />
+        <HowToBook />
 
         {/* new page end  */}
 
