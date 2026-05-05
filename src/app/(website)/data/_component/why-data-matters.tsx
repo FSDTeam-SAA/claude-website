@@ -61,10 +61,10 @@ const WhyDataMatters = () => {
   ];
 
   return (
-    <div className="relative max-w-[1400px] mx-auto w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[650px] md:h-[850px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
+    <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[750px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
       <div className="relative z-10 px-4 md:px-8 lg:px-12 w-full max-w-[1080px] mx-auto">
-        <div className="max-w-[1000px] mb-10 md:mb-14">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl  font-bold text-primary mb-4 md:mb-6 leading-tight">
+        <div className="max-w-[1000px] mb-8 md:mb-10">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-dagger font-bold text-primary mb-4 md:mb-6 leading-tight">
             Why Data Matters
           </h1>
           <p className="text-white text-base md:text-lg font-medium opacity-90 leading-relaxed max-w-[800px]">
@@ -72,22 +72,21 @@ const WhyDataMatters = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {dataCategories.map((category, idx) => (
             <div
               key={idx}
-              className={`flex flex-col ${
-                idx === 2 ? "col-span-2 lg:col-span-1 md:max-w-[50%] lg:max-w-full mx-auto w-full lg:mx-0" : ""
-              }`}
+              className={`flex flex-col ${idx === 2 ? "col-span-2 lg:col-span-1 items-center" : ""
+                }`}
             >
-              <h2 className="text-primary text-[12px] md:text-3xl  font-bold mb-2 md:mb-6 px-1 md:px-2 text-center md:text-left">
+              <h2 className="text-primary text-xs md:text-3xl font-dagger font-bold mb-3 md:mb-6 text-center">
                 {category.title}
               </h2>
-              <div className="flex-grow border-[1.5px] md:border-[2px] border-primary rounded-[20px] md:rounded-[30px] p-2 md:p-5 bg-transparent hover:shadow-[0_0_20px_rgba(16,230,7,0.2)] transition-all duration-300">
+              <div className={`flex-grow border-2 border-primary rounded-[20px] md:rounded-[30px] p-3 md:p-5 bg-transparent hover:shadow-[0_0_20px_rgba(16,230,7,0.2)] transition-all duration-300 ${idx === 2 ? "w-[calc(100%-1rem)] max-w-[200px] md:max-w-full md:w-full" : "w-full"}`}>
                 <div className="flex flex-col gap-3">
                   {category.items.map((item, itemIdx) => (
                     <div key={itemIdx} className="flex flex-col gap-1">
-                      <h3 className="text-primary text-xs md:text-lg lg:text-xl font-medium md:font-bold  leading-tight">
+                      <h3 className="text-primary text-[11px] md:text-lg lg:text-xl font-dagger font-bold leading-tight">
                         {item.label}
                       </h3>
                       <p className="text-white text-[10px] md:text-base font-medium opacity-80 leading-tight md:leading-relaxed">
