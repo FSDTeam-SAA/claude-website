@@ -25,9 +25,9 @@ const HowOurAnalytics = () => {
   ];
 
   return (
-    <div className="relative max-w-[1400px] mx-auto w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[650px] md:h-[850px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
+    <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[750px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
       <div className="relative z-10 px-4 md:px-8 lg:px-12 w-full max-w-[1080px] mx-auto">
-        <h1 className="text-2xl md:text-4xl lg:text-5xl font-dagger font-bold text-primary mb-10 md:mb-16 leading-tight">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl font-dagger font-bold text-primary mb-8 md:mb-12 leading-tight">
           How Our Analytics Process Works
         </h1>
 
@@ -39,7 +39,7 @@ const HowOurAnalytics = () => {
                 className="flex flex-row items-center bg-transparent border-[1.5px] md:border-[3px] border-primary rounded-[15px] md:rounded-[30px] p-1 md:p-0 gap-3 md:gap-6 hover:shadow-[0_0_20px_rgba(16,230,7,0.3)] transition-all duration-300"
               >
                 {/* Icon Container */}
-                <div className="bg-white rounded-[10px] md:rounded-[25px] p-1 flex-shrink-0 w-[80px] h-[65px] md:w-[180px] md:h-[130px] flex items-center justify-center shadow-lg">
+                <div className="bg-white rounded-[10px] md:rounded-[25px] p-1 flex-shrink-0 w-[90px] h-[75px] md:w-[180px] md:h-[130px] flex items-center justify-center shadow-lg">
                   <Image
                     src={item?.img}
                     alt={item?.title}
@@ -51,10 +51,10 @@ const HowOurAnalytics = () => {
 
                 {/* Text Content */}
                 <div className="flex-grow text-left">
-                  <h2 className="text-[12px] md:text-2xl lg:text-3xl font-dagger font-bold text-primary mb-1 md:mb-3">
+                  <h2 className="text-sm md:text-2xl lg:text-3xl font-dagger font-bold text-primary mb-1 md:mb-3">
                     {item?.title}
                   </h2>
-                  <p className="text-white text-[9px] md:text-base lg:text-lg font-medium opacity-90 leading-tight">
+                  <p className="text-white text-xs md:text-base lg:text-lg font-medium opacity-90 leading-tight">
                     {item?.desc}
                   </p>
                 </div>

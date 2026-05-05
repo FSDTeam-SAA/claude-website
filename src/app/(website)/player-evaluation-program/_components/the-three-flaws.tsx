@@ -1,7 +1,7 @@
 
 import React from "react";
 
-const WhyChooseAnalytic = () => {
+const TheThreeFlaws = () => {
   const chooseData = [
     {
       id: 1,
@@ -26,13 +26,13 @@ const WhyChooseAnalytic = () => {
   ];
 
   return (
-    <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[700px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
+    <div className="relative max-w-[1400px] mx-auto w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[650px] md:h-[850px] py-8 md:py-16 lg:py-20 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
       <div className="relative z-10 px-2 md:px-8 lg:px-12 w-full max-w-[1080px] mx-auto">
-        <div className="max-w-[1000px] mb-6 md:mb-12">
+        <div className="max-w-[1000px] mb-8 md:mb-16">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-dagger font-bold text-primary mb-3 md:mb-6 leading-tight">
             Why Choose Analytic Soccer
           </h1>
-          <p className="text-white text-sm md:text-lg font-medium leading-relaxed md:leading-relaxed opacity-90">
+          <p className="text-white text-[11px] md:text-lg font-medium leading-relaxed md:leading-relaxed opacity-90">
             There is no global platform where amateur players can access verified performance data until now. Analytic Soccer is the first platform to deliver all of this, giving every amateur player the same digital tools and visibility used by professionals.
           </p>
         </div>
@@ -44,10 +44,10 @@ const WhyChooseAnalytic = () => {
                 key={item?.id}
                 className="bg-transparent border-[1.5px] md:border-[2px] border-primary rounded-[20px] md:rounded-[30px] p-3 md:p-3 flex flex-col gap-2 md:gap-4 hover:shadow-[0_0_15px_rgba(16,230,7,0.2)] transition-all duration-300"
               >
-                <h3 className="text-primary text-sm md:text-2xl font-bold font-dagger leading-tight">
+                <h3 className="text-primary text-[12px] md:text-2xl font-bold font-dagger leading-tight">
                   {item?.title}
                 </h3>
-                <p className="text-white text-xs md:text-base font-medium opacity-80 leading-snug md:leading-normal">
+                <p className="text-white text-[10px] md:text-base font-medium opacity-80 leading-snug md:leading-normal">
                   {item?.desc}
                 </p>
               </div>
@@ -59,4 +59,4 @@ const WhyChooseAnalytic = () => {
   );
 };
 
-export default WhyChooseAnalytic;
+export default TheThreeFlaws;

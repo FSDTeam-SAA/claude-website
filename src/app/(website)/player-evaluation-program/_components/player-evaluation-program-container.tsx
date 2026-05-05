@@ -43,7 +43,7 @@ const PlayerEvaluationProgramContainer = () => {
         <div className="flex flex-col gap-6 md:gap-10">
           {pepImages.map((img, index) => (
             <React.Fragment key={index}>
-              <div className="relative overflow-hidden bg-white">
+              <div className="relative overflow-hidden bg-white px-4 md:px-0">
                 <Image
                   src={mobilePepImages[index]}
                   alt={`PEP Image ${index + 1}`}

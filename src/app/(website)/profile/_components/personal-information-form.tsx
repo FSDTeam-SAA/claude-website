@@ -231,14 +231,14 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
       schoolName: user?.schoolName || "",
       socialMedia: user?.socialMedia
         ? user.socialMedia.map((item) => ({
-            name: item.name as
-              | "Facebook"
-              | "Instagram"
-              | "Twitter"
-              | "YouTube"
-              | "TikTok",
-            url: item.url,
-          }))
+          name: item.name as
+            | "Facebook"
+            | "Instagram"
+            | "Twitter"
+            | "YouTube"
+            | "TikTok",
+          url: item.url,
+        }))
         : [],
       citizenship: user?.citizenship?.trim() || "",
       nationality: user?.nationality?.trim() || "",
@@ -637,9 +637,8 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                         <FormControl>
                           <Button
                             variant="outline"
-                            className={`w-full justify-start text-left h-[47px] border border-[#645949] ${
-                              !field.value && "text-muted-foreground"
-                            }`}
+                            className={`w-full justify-start text-left h-[47px] border border-[#645949] ${!field.value && "text-muted-foreground"
+                              }`}
                           >
                             {field.value
                               ? format(field.value, "dd MMM yyyy")
@@ -960,12 +959,12 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                           >
                             {field.value?.length
                               ? field.value
-                                  .map(
-                                    (v) =>
-                                      POSITIONS.find((p) => p.value === v)
-                                        ?.label,
-                                  )
-                                  .join(", ")
+                                .map(
+                                  (v) =>
+                                    POSITIONS.find((p) => p.value === v)
+                                      ?.label,
+                                )
+                                .join(", ")
                               : "Select position"}
 
                             <span className="ml-2">▾</span>
@@ -983,11 +982,10 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                             return (
                               <label
                                 key={pos.value}
-                                className={`flex items-center gap-3 text-sm cursor-pointer ${
-                                  disabled
+                                className={`flex items-center gap-3 text-sm cursor-pointer ${disabled
                                     ? "opacity-50 cursor-not-allowed"
                                     : ""
-                                }`}
+                                  }`}
                               >
                                 <input
                                   type="checkbox"
@@ -1073,7 +1071,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                             <SelectTrigger className="h-[47px] border border-[#645949] rounded-[8px]">
                               <SelectValue placeholder="Select platform" />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent className="bg-white">
                               {SOCIAL_MEDIA_OPTIONS.map((option) => (
                                 <SelectItem key={option} value={option}>
                                   {option}
@@ -1245,28 +1243,28 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 {["high school", "college / university"].includes(
                   form.watch("institute") ?? "",
                 ) && (
-                  <div className="md:col-span-1 -mt-9">
-                    <FormField
-                      control={form.control}
-                      name="gpa"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                            GPA
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Enter GPA"
-                              {...field}
-                              className="w-full h-[47px] border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292]"
-                            />
-                          </FormControl>
-                          <FormMessage className="text-red-500" />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                )}
+                    <div className="md:col-span-1 -mt-9">
+                      <FormField
+                        control={form.control}
+                        name="gpa"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
+                              GPA
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                placeholder="Enter GPA"
+                                {...field}
+                                className="w-full h-[47px] border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292]"
+                              />
+                            </FormControl>
+                            <FormMessage className="text-red-500" />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                  )}
               </div>
             )}
 

@@ -1,5 +1,6 @@
 import React from "react";
 import PlayerEvaluationProgramContainer from "../(website)/player-evaluation-program/_components/player-evaluation-program-container";
+import PepHero from "../(website)/player-evaluation-program/_components/pep-hero";
 // import HeroSection from '../(website)/_components/hero-section'
 // import OurPartners from './_components/our-partners'
 // import { FaqSection } from './_components/faq-section'
@@ -18,6 +19,14 @@ const HomePage = () => {
       <>
         {/* <HeroSection /> */}
         {/* <NewHomeContainer/> */}
+
+
+
+        {/* new page start  */}
+
+         <PepHero/>
+
+        {/* new page end  */}
 
         <PlayerEvaluationProgramContainer />
 
