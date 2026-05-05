@@ -5,6 +5,7 @@ import StopGuessing from "../(website)/player-evaluation-program/_components/sto
 import HowToBook from "../(website)/player-evaluation-program/_components/how-to-book";
 import ItTimeFor from "../(website)/player-evaluation-program/_components/it-time-for";
 import TheThreeFlaws from "../(website)/player-evaluation-program/_components/the-three-flaws";
+import OurCommitment from "../(website)/player-evaluation-program/_components/our-commitment";
 // import HeroSection from '../(website)/_components/hero-section'
 // import OurPartners from './_components/our-partners'
 // import { FaqSection } from './_components/faq-section'
@@ -32,6 +33,7 @@ const HomePage = () => {
         <PepHero />
         <TheThreeFlaws />
         <ItTimeFor />
+        <OurCommitment/>
 
 
 
