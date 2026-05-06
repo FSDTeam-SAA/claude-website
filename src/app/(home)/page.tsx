@@ -1,16 +1,16 @@
 import React from "react";
-import PlayerEvaluationProgramContainer from "../(website)/player-evaluation-program/_components/player-evaluation-program-container";
+// import PlayerEvaluationProgramContainer from "../(website)/player-evaluation-program/_components/player-evaluation-program-container";
 
 
-// import PepHero from "../(website)/player-evaluation-program/_components/pep-hero";
-// import StopGuessing from "../(website)/player-evaluation-program/_components/stop-guessing";
-// import HowToBook from "../(website)/player-evaluation-program/_components/how-to-book";
-// import ItTimeFor from "../(website)/player-evaluation-program/_components/it-time-for";
-// import TheThreeFlaws from "../(website)/player-evaluation-program/_components/the-three-flaws";
-// import OurCommitment from "../(website)/player-evaluation-program/_components/our-commitment";
-// import AProgramFor from "../(website)/player-evaluation-program/_components/a-program-for";
-// import TheBenefits from "../(website)/player-evaluation-program/_components/the-benefits";
-// import WhatDoWeOffer from "../(website)/player-evaluation-program/_components/what-do-we-offer";
+import PepHero from "../(website)/player-evaluation-program/_components/pep-hero";
+import StopGuessing from "../(website)/player-evaluation-program/_components/stop-guessing";
+import HowToBook from "../(website)/player-evaluation-program/_components/how-to-book";
+import ItTimeFor from "../(website)/player-evaluation-program/_components/it-time-for";
+import TheThreeFlaws from "../(website)/player-evaluation-program/_components/the-three-flaws";
+import OurCommitment from "../(website)/player-evaluation-program/_components/our-commitment";
+import AProgramFor from "../(website)/player-evaluation-program/_components/a-program-for";
+import TheBenefits from "../(website)/player-evaluation-program/_components/the-benefits";
+import WhatDoWeOffer from "../(website)/player-evaluation-program/_components/what-do-we-offer";
 
 
 // import HeroSection from '../(website)/_components/hero-section'
@@ -37,7 +37,7 @@ const HomePage = () => {
 
         {/* new page start  */}
 
-        {/* <PepHero />
+        <PepHero />
         <TheThreeFlaws />
         <ItTimeFor />
         <OurCommitment/>
@@ -45,11 +45,11 @@ const HomePage = () => {
         <TheBenefits/>
         <AProgramFor/>
         <StopGuessing />
-        <HowToBook /> */}
+        <HowToBook />
 
         {/* new page end  */}
 
-        <PlayerEvaluationProgramContainer />
+        {/* <PlayerEvaluationProgramContainer /> */}
 
         {/* <OurMission/>
                 <WhatDoWeOffer/>

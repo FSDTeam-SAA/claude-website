@@ -31,20 +31,20 @@ const TheBenefits = () => {
 
   return (
     <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[600px] md:h-[750px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center items-center">
-      <div className="relative z-10 px-6 md:px-12 lg:px-20 w-full max-w-[1200px] mx-auto">
+      <div className="relative z-10 px-6 md:px-12 lg:px-20 w-full max-w-[1300px] mx-auto">
         <div className="w-full text-center mb-10 md:mb-16">
-          <h1 className="text-2xl md:text-5xl lg:text-6xl font-dagger font-bold text-white leading-tight mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-medium text-primary md:text-white leading-normal pb-4">
             The Benefits of an Objective System
-          </h1>
-          <p className="text-white text-xs md:text-xl font-medium max-w-[900px] mx-auto leading-relaxed">
+          </h2>
+          <p className="text-white text-xs md:text-xl lg:text-[22px] font-medium max-w-[950px] mx-auto leading-normal">
             By replacing guesswork with a structured process, we create a healthier and more effective development environment for everyone.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-24 gap-y-10 md:gap-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 gap-y-10 md:gap-y-16">
           {benefitsData.map((item) => (
             <div key={item.id} className="flex items-center gap-6 md:gap-8 group">
-              <div className="shrink-0 transition-transform duration-300 group-hover:scale-110">
+              {/* <div className="shrink-0 transition-transform duration-300 group-hover:scale-110">
                 <div className="relative w-12 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24">
                   <Image
                     src={item.img}
@@ -53,12 +53,19 @@ const TheBenefits = () => {
                     className="object-contain"
                   />
                 </div>
-              </div>
+              </div> */}
+               <Image
+                    src={item.img}
+                    alt={item.title}
+                    width={300}
+                    height={300}
+                    className="object-contain w-auto h-[170px]"
+                  />
               <div className="flex flex-col gap-1 md:gap-2">
-                <h3 className="text-primary font-dagger font-bold text-lg md:text-2xl lg:text-3xl leading-tight">
+                <h3 className="text-primary  font-medium text-lg md:text-2xl lg:text-3xl leading-normal">
                   {item.title}
                 </h3>
-                <p className="text-white text-xs md:text-base lg:text-lg font-medium leading-relaxed">
+                <p className="text-white text-xs md:text-base lg:text-lg xl:text-xl font-medium leading-normal">
                   {item.desc}
                 </p>
               </div>

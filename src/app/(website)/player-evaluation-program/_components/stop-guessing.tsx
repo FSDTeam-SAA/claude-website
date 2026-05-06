@@ -6,13 +6,13 @@ const StopGuessing = () => {
       {/* Dark overlay for text contrast */}
       <div className="absolute inset-0 bg-black/40 z-0"></div>
 
-      <div className="relative z-10 px-6 md:px-12 lg:px-20 w-full max-w-[1200px] mx-auto">
+      <div className="relative z-10 px-6 md:px-12 lg:px-20 w-full max-w-[1300px] mx-auto">
         <div className="flex flex-col gap-3 md:gap-6">
-          <h1 className="text-primary text-[24px] md:text-5xl xl:text-6xl font-dagger font-bold leading-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-[70px] font-medium text-primary leading-normal pb-1">
             Stop Guessing. Start Developing.
-          </h1>
+          </h2>
           
-          <p className="text-white text-sm md:text-2xl lg:text-3xl font-dagger font-bold leading-tight max-w-[1000px] mx-auto">
+          <p className="text-white text-sm md:text-2xl lg:text-3xl  font-medium leading-tight max-w-[1000px] mx-auto">
             Unlock Your <span className="text-primary">True Potential</span> with the <br className="md:hidden" />
             <span className="text-primary">Player Evaluation</span> Program
           </p>

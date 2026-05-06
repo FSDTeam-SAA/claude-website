@@ -33,9 +33,9 @@ const OurCommitment = () => {
     <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[600px] md:h-[850px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center items-center">
       <div className="relative z-10 px-4 md:px-8 lg:px-12 w-full max-w-[1200px] mx-auto">
         <div className="w-full text-center mb-10 md:mb-16">
-          <h1 className="text-2xl md:text-5xl lg:text-6xl font-dagger font-bold text-white leading-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-primary md:text-white leading-normal">
             Our Commitment to Fair <br className="hidden md:block" /> and Accurate Assessment
-          </h1>
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-4 md:gap-6 lg:gap-6 items-stretch">
@@ -67,7 +67,7 @@ const CommitmentCard = ({ item }: { item: any }) => {
 
       {/* Middle Part: White Title Bar (Full Width, connected) */}
       <div className="bg-white w-full py-3 md:py-4 px-2 text-center shadow-md z-10 border-x-4 border-white">
-        <h3 className="text-primary font-dagger font-bold text-lg md:text-xl lg:text-2xl uppercase tracking-tighter">
+        <h3 className="text-primary font-medium text-lg md:text-xl lg:text-2xl uppercase tracking-tighter">
           {item.title}
         </h3>
       </div>
