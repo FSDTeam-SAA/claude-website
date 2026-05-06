@@ -4,32 +4,32 @@ import React from "react";
 
 const evaluationAreas = [
   { 
-    title: "TECHNICAL", 
+    title: "Technical", 
     side: "left", 
     img: "/assets/images/pep/wdwo1.svg" 
   },
   { 
-    title: "TACTICAL", 
+    title: "Tactical", 
     side: "right", 
     img: "/assets/images/pep/wdwo2.svg" 
   },
   { 
-    title: "DIETETIC", 
+    title: "Dietetic", 
     side: "left", 
     img: "/assets/images/pep/wdwo3.svg" 
   },
   { 
-    title: "PHYSICAL", 
+    title: "Physical", 
     side: "right", 
     img: "/assets/images/pep/wdwo4.svg" 
   },
   { 
-    title: "FAMILY & ENVIRONMENT", 
+    title: "Family & Environment", 
     side: "left", 
     img: "/assets/images/pep/wdwo5.svg" 
   },
   { 
-    title: "PSYCHOLOGICAL / MENTAL", 
+    title: "Psychological / Mental", 
     side: "right", 
     img: "/assets/images/pep/wdwo6.svg" 
   },
@@ -37,17 +37,17 @@ const evaluationAreas = [
 
 const WhatDoWeOffer = () => {
   return (
-    <section className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/pep/sm_wdwo_bg.svg')] md:bg-[url('/assets/images/pep/lg_wdwo_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[520px] md:h-[750px] py-16 md:py-7 lg:py-8 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col items-center">
+    <section className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/pep/sm_wdwo_bg.svg')] md:bg-[url('/assets/images/pep/lg_wdwo_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[750px] py-16 md:py-7 lg:py-8 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col items-center">
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-2 md:px-12 flex flex-col h-full">
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-5 lg:mb-6">
           <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-medium text-primary md:text-white leading-normal">
             What Do We Offer
           </h2>
-          <h3 className="text-white text-base sm:text-xl md:text-3xl lg:text-4xl  font-medium mb-3 md:mb-4 tracking-tight pt-1">
+          <h3 className="text-primary md:text-white text-base sm:text-xl md:text-3xl lg:text-4xl  font-medium mb-1 md:mb-4 tracking-tight pt-1">
             The 360° Player Evaluation
           </h3>
-          <p className="text-white text-[10px] md:text-base lg:text-lg xl:text-2xl max-w-[1200px] text-left opacity-100 leading-normal font-medium px-2">
+          <p className="text-white text-xs md:text-base lg:text-lg xl:text-2xl max-w-[1200px] text-center md:text-left opacity-100 leading-normal font-medium px-2">
             We build a complete, multifactorial profile that sees the whole player, not just a single skill. 
             No more bias, no more random opinions. The data will show exactly where you stand.
           </p>
@@ -65,7 +65,7 @@ const WhatDoWeOffer = () => {
             >
               {/* Text Container */}
               <div className={`flex flex-col flex-1 px-1 md:px-2 ${area.side === "left" ? "text-left" : "text-left md:text-right"}`}>
-                <span className="text-black font-medium text-[7px] sm:text-[10px] md:text-xl lg:text-2xl xl:text-3xl leading-tight uppercase">
+                <span className="text-black font-medium text-[10px] md:text-xl lg:text-2xl xl:text-3xl leading-normal capitalize">
                   {area.title}
                 </span>
               </div>

@@ -30,10 +30,10 @@ const HowToBook = () => {
   ];
 
   return (
-    <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[500px] md:h-[750px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
+    <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[600px] md:h-[750px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
       <div className="relative z-10 px-6 md:px-12 lg:px-20 flex flex-col items-center w-full max-w-[950px] mx-auto">
         <div className="w-full mb-6 md:mb-12">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-medium text-primary leading-normal mb-3 md:mb-4">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-medium text-center md:text-left text-primary leading-normal mb-3 md:mb-4">
             How to Book Your Spot !
           </h1>
         </div>
@@ -61,7 +61,7 @@ const HowToBook = () => {
                     alt={item?.title}
                     width={600}
                     height={600}
-                    className="object-cover w-auto h-[180px]"
+                    className="object-cover w-auto h-[120px] md:h-[180px]"
                   />
                 <div className="text-center flex flex-col justify-end gap-2 w-full mt-auto">
                   <h3 className="text-white text-[11px] md:text-lg font-bold leading-tight">
