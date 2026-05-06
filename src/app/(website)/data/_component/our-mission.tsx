@@ -44,22 +44,29 @@ const OurMission = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-7 w-full max-w-[1200px] mb-8 md:mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10 w-full max-w-[1200px] mb-8 md:mb-12">
           {missionData?.map((item) => {
             return (
               <div
                 key={item?.id}
-                className="bg-white rounded-tl-[40px] rounded-br-[40px] md:rounded-tl-[60px] md:rounded-br-[60px] border-[3px] md:border-[5px] border-primary p-4 md:p-6 flex flex-col items-center justify-between h-full hover:scale-105 transition-transform duration-300 shadow-xl"
+                className="bg-white rounded-tl-[40px] rounded-br-[40px] md:rounded-tl-[60px] md:rounded-br-[60px] border-[3px] md:border-[5px] border-primary p-2 flex flex-col items-center justify-between h-full hover:scale-105 transition-transform duration-300 shadow-xl"
               >
-                <div className="w-full h-[100px] md:h-[160px] relative mb-4">
+                {/* <div className="w-full h-[100px] md:h-[160px] relative mb-4">
                   <Image
                     src={item?.img}
                     alt={item?.title}
                     fill
                     className="object-contain"
                   />
-                </div>
-                <h3 className="text-center text-sm md:text-base lg:text-lg font-dagger font-bold text-[#131313] leading-tight">
+                </div> */}
+                 <Image
+                    src={item?.img}
+                    alt={item?.title}
+                    width={200}
+                    height={200}
+                    className="object-contain w-auto h-[110px] md:h-[180px] "
+                  />
+                <h3 className="text-center text-xs md:text-base lg:text-lg font-semibold text-[#131313] leading-tight pb-3">
                   {item?.title}
                 </h3>
               </div>
