@@ -30,7 +30,7 @@ const HowToBook = () => {
     {
       id: 4,
       img: "/assets/images/home_page/htb4.svg",
-      title: "Send us your game video (Team sheet if applicable)",
+      title: "Send us your game video",
       step: "4",
     },
   ];
@@ -49,20 +49,22 @@ const HowToBook = () => {
             return (
               <div
                 key={item?.id}
-                className="bg-transparent border-2 md:border-[3px] border-primary rounded-[30px] md:rounded-[40px] p-2 flex flex-col items-center justify-between h-full hover:shadow-[0_0_20px_rgba(16,230,7,0.2)] transition-all duration-300"
+                className="bg-transparent border-2 md:border-[3px] border-primary rounded-[30px] md:rounded-[40px] p-2 flex flex-col items-center h-full hover:shadow-[0_0_20px_rgba(16,230,7,0.2)] transition-all duration-300"
               >
-                <Image
-                  src={item?.img}
-                  alt={item?.title}
-                  width={600}
-                  height={600}
-                  className="object-cover w-auto h-[120px] md:h-[180px]"
-                />
-                <div className="text-center flex flex-col justify-center gap-2 w-full mt-auto">
+                <div className="">
+                  <Image
+                    src={item?.img}
+                    alt={item?.title}
+                    width={600}
+                    height={600}
+                    className="object-cover w-auto h-[120px] md:h-[190px]"
+                  />
+                </div>
+                <div className="text-center flex flex-col justify-start gap-2 w-full">
                   <h3 className="text-white text-[11px] md:text-lg font-bold leading-normal">
                     {item?.title}
                   </h3>
-                  <span className="text-primary text-xl md:text-3xl font-dagger font-bold">
+                  <span className="text-primary text-xl md:text-3xl  font-bold">
                     {item?.step}
                   </span>
                 </div>

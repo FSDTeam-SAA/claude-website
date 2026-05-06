@@ -43,7 +43,7 @@ const HowToBook = () => {
             return (
               <div
                 key={item?.id}
-                className={`bg-transparent border-2 md:border-[3px] border-primary rounded-[30px] md:rounded-[40px] p-2 flex flex-col items-center justify-between h-full hover:shadow-[0_0_20px_rgba(16,230,7,0.2)] transition-all duration-300 ${
+                className={`bg-transparent border-2 md:border-[3px] border-primary rounded-[30px] md:rounded-[40px] p-2 flex flex-col items-center h-full hover:shadow-[0_0_20px_rgba(16,230,7,0.2)] transition-all duration-300 ${
                   idx === 0 ? "col-span-2 lg:col-span-1 w-[calc(50%-6px)] mx-auto lg:w-full" : "w-full"
                 }`}
               >
@@ -56,14 +56,16 @@ const HowToBook = () => {
                     className="object-contain w-full h-full border-2 border-red-500"
                   />
                 </div> */}
-                 <Image
+                 <div>
+                  <Image
                     src={item?.img}
                     alt={item?.title}
                     width={600}
                     height={600}
-                    className="object-cover w-auto h-[120px] md:h-[180px]"
+                    className="object-cover w-auto h-[120px] md:h-[190px]"
                   />
-                <div className="text-center flex flex-col justify-end gap-2 w-full mt-auto">
+                 </div>
+                <div className="text-center flex flex-col justify-start gap-2 w-full">
                   <h3 className="text-white text-[11px] md:text-lg font-bold leading-normal">
                     {item?.title}
                   </h3>
