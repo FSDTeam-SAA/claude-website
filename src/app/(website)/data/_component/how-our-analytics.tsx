@@ -39,13 +39,13 @@ const HowOurAnalytics = () => {
                 className="flex flex-row items-center bg-transparent border-[1.5px] md:border-[3px] border-primary rounded-[15px] md:rounded-[30px] p-1 md:p-0 gap-3 md:gap-6 hover:shadow-[0_0_20px_rgba(16,230,7,0.3)] transition-all duration-300"
               >
                 {/* Icon Container */}
-                <div className="bg-white rounded-[10px] md:rounded-[25px] p-1 flex-shrink-0 w-[90px] h-[75px] md:w-[180px] md:h-[130px] flex items-center justify-center shadow-lg">
+                <div className="bg-white rounded-[10px] md:rounded-[25px] p-1 flex-shrink-0 flex items-center justify-center shadow-lg">
                   <Image
                     src={item?.img}
                     alt={item?.title}
                     width={200}
                     height={200}
-                    className="w-full h-full object-contain"
+                    className="w-auto h-[80px] md:h-[100px] object-contain "
                   />
                 </div>
 

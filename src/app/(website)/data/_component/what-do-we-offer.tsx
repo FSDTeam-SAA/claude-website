@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import React from "react";
 
@@ -43,25 +42,16 @@ const WhatDoWeOffer = () => {
             return (
               <div
                 key={item?.id}
-                className="bg-white rounded-[30px] md:rounded-[40px] border-[3px] md:border-[4px] border-primary p-2 flex flex-col items-center justify-between h-full hover:scale-105 transition-transform duration-300 shadow-xl"
+                className="bg-white rounded-[30px] md:rounded-[40px] border-[3px] md:border-[4px] border-primary p-1 flex flex-col items-center h-full hover:scale-105 transition-transform duration-300 shadow-xl"
               >
-              {/* <Image
-                    src={item?.img}
-                    alt={item?.title}
-                    width={300}
-                    height={300}
-                    className="object-contain w-auto h-auto"
-                  /> */}
-                  <div className="shrink-0 w-6 h-6 sm:w-8 sm:h-8 md:w-14 md:h-14 lg:w-20 xl:w-40 lg:h-20 xl:h-40 relative">
-                                  <Image
-                                    src={item?.img}
-                                    alt={item?.title}
-                                    width={250}
-                                    height={250}
-                                    className="object-contain w-auto h-auto"
-                                  />
-                                </div>
-                <h3 className="text-center text-sm md:text-base lg:text-lg  font-medium text-[#131313] leading-normal py-5">
+                <Image
+                  src={item?.img}
+                  alt={item?.title}
+                  width={200}
+                  height={200}
+                  className="object-contain w-auto h-[110px] md:h-[180px]"
+                />
+                <h3 className="text-center text-xs md:text-base lg:text-[17px]  font-medium text-[#131313] leading-normal pb-3 md:py-5 px-2">
                   {item?.title}
                 </h3>
               </div>
