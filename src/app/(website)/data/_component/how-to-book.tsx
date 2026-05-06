@@ -49,22 +49,20 @@ const HowToBook = () => {
             return (
               <div
                 key={item?.id}
-                className="bg-transparent border-2 md:border-[3px] border-primary rounded-[30px] md:rounded-[40px] p-3 md:p-4 flex flex-col items-center justify-between h-full hover:shadow-[0_0_20px_rgba(16,230,7,0.2)] transition-all duration-300"
+                className="bg-transparent border-2 md:border-[3px] border-primary rounded-[30px] md:rounded-[40px] p-2 flex flex-col items-center justify-between h-full hover:shadow-[0_0_20px_rgba(16,230,7,0.2)] transition-all duration-300"
               >
-                <div className="w-full h-[110px] md:h-[150px] relative mb-2">
-                  <Image
-                    src={item?.img}
-                    alt={item?.title}
-                    width={300}
-                    height={300}
-                    className="object-contain w-auto h-auto"
-                  />
-                </div>
-                <div className="text-center flex flex-col justify-end gap-2 w-full mt-auto">
-                  <h3 className="text-white text-[11px] md:text-lg font-bold leading-tight">
+                <Image
+                  src={item?.img}
+                  alt={item?.title}
+                  width={600}
+                  height={600}
+                  className="object-cover w-auto h-[120px] md:h-[180px]"
+                />
+                <div className="text-center flex flex-col justify-center gap-2 w-full mt-auto">
+                  <h3 className="text-white text-[11px] md:text-lg font-bold leading-normal">
                     {item?.title}
                   </h3>
-                  <span className="text-primary text-xl md:text-4xl font-dagger font-bold">
+                  <span className="text-primary text-xl md:text-3xl font-dagger font-bold">
                     {item?.step}
                   </span>
                 </div>

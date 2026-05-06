@@ -64,7 +64,7 @@ const HowToBook = () => {
                     className="object-cover w-auto h-[120px] md:h-[180px]"
                   />
                 <div className="text-center flex flex-col justify-end gap-2 w-full mt-auto">
-                  <h3 className="text-white text-[11px] md:text-lg font-bold leading-tight">
+                  <h3 className="text-white text-[11px] md:text-lg font-bold leading-normal">
                     {item?.title}
                   </h3>
                   <span className="text-primary text-xl md:text-3xl  font-bold">
