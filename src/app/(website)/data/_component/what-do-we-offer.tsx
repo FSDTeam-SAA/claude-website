@@ -42,7 +42,7 @@ const WhatDoWeOffer = () => {
             return (
               <div
                 key={item?.id}
-                className="bg-white rounded-[30px] md:rounded-[40px] border-[3px] md:border-[4px] border-primary p-1 flex flex-col items-center h-full hover:scale-105 transition-transform duration-300 shadow-xl"
+                className="bg-white rounded-[30px] md:rounded-[40px] border-[3px] md:border-[4px] border-primary p-[1px] flex flex-col items-center h-full hover:scale-105 transition-transform duration-300 shadow-xl"
               >
                 <Image
                   src={item?.img}
@@ -51,7 +51,7 @@ const WhatDoWeOffer = () => {
                   height={200}
                   className="object-contain w-auto h-[110px] md:h-[180px]"
                 />
-                <h3 className="text-center text-xs md:text-base lg:text-[17px]  font-medium text-[#131313] leading-normal pb-3 md:py-5 px-2">
+                <h3 className="text-center text-xs md:text-base lg:text-[17px] font-semibold text-[#131313] leading-normal pb-3 md:py-5 px-2">
                   {item?.title}
                 </h3>
               </div>

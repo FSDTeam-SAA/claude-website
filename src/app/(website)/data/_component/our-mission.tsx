@@ -49,16 +49,8 @@ const OurMission = () => {
             return (
               <div
                 key={item?.id}
-                className="bg-white rounded-tl-[40px] rounded-br-[40px] md:rounded-tl-[60px] md:rounded-br-[60px] border-[3px] md:border-[5px] border-primary p-2 flex flex-col items-center justify-between h-full hover:scale-105 transition-transform duration-300 shadow-xl"
+                className="bg-white rounded-tl-[40px] rounded-br-[40px] md:rounded-tl-[60px] md:rounded-br-[60px] border-[3px] md:border-[5px] border-primary p-2 flex flex-col items-center h-full hover:scale-105 transition-transform duration-300 shadow-xl"
               >
-                {/* <div className="w-full h-[100px] md:h-[160px] relative mb-4">
-                  <Image
-                    src={item?.img}
-                    alt={item?.title}
-                    fill
-                    className="object-contain"
-                  />
-                </div> */}
                  <Image
                     src={item?.img}
                     alt={item?.title}
