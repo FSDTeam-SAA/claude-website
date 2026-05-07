@@ -8,7 +8,7 @@ const StopGuessing = () => {
 
       <div className="relative z-10 px-6 md:px-12 lg:px-20 w-full max-w-[1300px] mx-auto">
         <div className="flex flex-col gap-3 md:gap-6">
-          <h2 className="text-lg md:text-3xl lg:text-4xl xl:text-[70px] font-medium text-primary leading-normal pb-1">
+          <h2 className="text-lg md:text-3xl lg:text-4xl xl:text-6xl font-medium text-primary md:text-white leading-normal pb-1">
             Stop Guessing. Start Developing.
           </h2>
           

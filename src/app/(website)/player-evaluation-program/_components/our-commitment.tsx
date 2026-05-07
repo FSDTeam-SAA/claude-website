@@ -33,7 +33,7 @@ const OurCommitment = () => {
     <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[600px] md:h-[750px] py-8 md:py-16 lg:py-20 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center items-center">
       <div className="relative z-10 px-4 md:px-8 lg:px-12 w-full max-w-[1200px] mx-auto">
         <div className="w-full text-center mb-4 md:mb-16">
-          <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-medium text-primary md:text-white leading-normal">
+          <h2 className="text-lg md:text-3xl lg:text-4xl xl:text-6xl font-medium text-primary md:text-white leading-normal">
             Our Commitment to Fair <br className="hidden md:block" /> and Accurate Assessment
           </h2>
         </div>
@@ -72,7 +72,7 @@ const CommitmentCard = ({ item }: { item: any }) => {
 
       {/* Bottom Part: Green Description Box (Full Width, Rounded Bottom, connected) */}
       <div className="bg-primary rounded-b-[30px] px-1 md:px-4 pt-3 md:pt-4 pb-4 md:pb-8 flex-grow flex items-center justify-center shadow-xl mt-2">
-        <p className="text-white text-xs md:text-base font-medium leading-relaxed text-center">
+        <p className="text-white text-xs md:text-base font-medium leading-normal text-center">
           {item.desc}
         </p>
       </div>

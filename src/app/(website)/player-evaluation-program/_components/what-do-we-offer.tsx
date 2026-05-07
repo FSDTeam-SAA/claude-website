@@ -41,10 +41,10 @@ const WhatDoWeOffer = () => {
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-2 md:px-12 flex flex-col h-full">
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-5 lg:mb-6">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-6xl font-medium text-primary md:text-white leading-normal">
+          <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-6xl font-medium text-primary md:text-white leading-normal">
             What Do We Offer
           </h2>
-          <h3 className="text-primary md:text-white text-base sm:text-xl md:text-3xl lg:text-4xl  font-medium mb-1 md:mb-4 tracking-tight pt-1">
+          <h3 className="text-primary md:text-white text-lg md:text-3xl lg:text-4xl  font-medium mb-1 md:mb-4 tracking-tight pt-1">
             The 360° Player Evaluation
           </h3>
           <p className="text-white text-xs md:text-base lg:text-lg xl:text-2xl max-w-[1200px] text-center md:text-left opacity-100 leading-normal font-medium px-2">

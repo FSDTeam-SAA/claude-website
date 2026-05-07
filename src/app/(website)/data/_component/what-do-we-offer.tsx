@@ -29,10 +29,10 @@ const WhatDoWeOffer = () => {
     <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[700px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
       <div className="relative z-10 px-4 md:px-8 lg:px-12 flex flex-col items-center w-full max-w-[1080px] mx-auto">
         <div className="w-full text-left mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-primary mb-3 md:mb-4">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-primary mb-3 md:mb-4">
             What Do We Offer
           </h2>
-          <p className="text-white text-base md:text-lg lg:text-xl xl:text-2xl font-medium opacity-90 leading-normal">
+          <p className="text-white text-sm md:text-lg lg:text-xl xl:text-2xl font-medium opacity-90 leading-normal">
             Everything you need to stand out as a player – all in one place.
           </p>
         </div>

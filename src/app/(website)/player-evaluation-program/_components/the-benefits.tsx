@@ -33,7 +33,7 @@ const TheBenefits = () => {
     <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[600px] md:h-[750px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center items-center">
       <div className="relative z-10 px-6 md:px-12 lg:px-20 w-full max-w-[1300px] mx-auto">
         <div className="w-full text-center mb-10 md:mb-16">
-          <h2 className="text-base md:text-3xl lg:text-4xl xl:text-5xl font-medium text-primary md:text-white leading-normal pb-1 md:pb-4">
+          <h2 className="text-lg md:text-3xl lg:text-4xl xl:text-6xl font-medium text-primary md:text-white leading-normal pb-1 md:pb-4">
             The Benefits of an Objective System
           </h2>
           <p className="text-white text-xs md:text-xl lg:text-[22px] font-medium max-w-[950px] mx-auto leading-normal">
@@ -62,7 +62,7 @@ const TheBenefits = () => {
                     className="object-contain w-auto h-20 md:h-[170px]"
                   />
               <div className="flex flex-col gap-[1px] md:gap-2">
-                <h3 className="text-primary  font-medium text-lg md:text-2xl lg:text-3xl leading-normal">
+                <h3 className="text-primary  font-medium text-base md:text-2xl lg:text-3xl leading-normal">
                   {item.title}
                 </h3>
                 <p className="text-white text-xs md:text-base lg:text-lg xl:text-xl font-medium leading-normal">
