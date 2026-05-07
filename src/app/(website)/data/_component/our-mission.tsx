@@ -36,11 +36,11 @@ const OurMission = () => {
     <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[700px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
       <div className="relative z-10 px-4 md:px-8 lg:px-12 flex flex-col items-center w-full max-w-[1080px] mx-auto">
         <div className="w-full text-left mb-8 md:mb-12">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-dagger font-bold text-primary mb-3 md:mb-4">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-dagger font-bold text-primary mb-3 md:mb-4">
             Our Mission
           </h1>
-          <p className="text-white text-base md:text-lg lg:text-xl font-medium opacity-90">
-            Four pillars that drive everything we do:
+          <p className="text-white text-sm md:text-lg lg:text-xl font-medium opacity-90">
+            Four pillars that drive everything we do :
           </p>
         </div>
 
@@ -49,16 +49,8 @@ const OurMission = () => {
             return (
               <div
                 key={item?.id}
-                className="bg-white rounded-tl-[40px] rounded-br-[40px] md:rounded-tl-[60px] md:rounded-br-[60px] border-[3px] md:border-[5px] border-primary p-2 flex flex-col items-center justify-between h-full hover:scale-105 transition-transform duration-300 shadow-xl"
+                className="bg-white rounded-tl-[40px] rounded-br-[40px] md:rounded-tl-[60px] md:rounded-br-[60px] border-[3px] md:border-[5px] border-primary p-2 flex flex-col items-center h-full hover:scale-105 transition-transform duration-300 shadow-xl"
               >
-                {/* <div className="w-full h-[100px] md:h-[160px] relative mb-4">
-                  <Image
-                    src={item?.img}
-                    alt={item?.title}
-                    fill
-                    className="object-contain"
-                  />
-                </div> */}
                  <Image
                     src={item?.img}
                     alt={item?.title}
