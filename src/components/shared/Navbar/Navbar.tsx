@@ -335,9 +335,9 @@ const Navbar = () => {
               </button>
 
               {/* ✅ Language Switcher for Mobile */}
-              {/* <div className="pt-2">
+              <div className="pt-2">
                 <LanguageSwitcher />
-              </div> */}
+              </div>
 
               <div className="flex items-center justify-between gap-4 pt-2">
                 {status === "authenticated" && user ? (

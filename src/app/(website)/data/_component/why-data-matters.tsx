@@ -1,7 +1,10 @@
-
+"use client"
+import { parseCookies } from "nookies";
 import React from "react";
-
+const COOKIE_NAME = "googtrans";
 const WhyDataMatters = () => {
+      const cookie = parseCookies()[COOKIE_NAME];
+      const lang = cookie?.split("/")?.[2] || "en";
   const dataCategories = [
     {
       title: "For Teams",
@@ -21,7 +24,7 @@ const WhyDataMatters = () => {
       ],
     },
     {
-      title: "For Staff",
+      title: `${lang === "fr" ? "Pour le staff" : "For Staff"}`,
       items: [
         {
           label: "Objective Evaluation",
@@ -62,7 +65,7 @@ const WhyDataMatters = () => {
 
   return (
     <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[750px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
-      <div className="relative z-10 px-4 md:px-8 lg:px-12 w-full max-w-[1080px] mx-auto">
+      <div className="relative z-10 px-4 md:px-8 lg:px-12 w-full max-w-[1140px] mx-auto">
         <div className="max-w-[1000px] mb-6 md:mb-7">
           <h1 className="text-2xl md:text-4xl lg:text-5xl  font-bold text-primary mb-2 md:mb-4 leading-tight">
             Why Data Matters

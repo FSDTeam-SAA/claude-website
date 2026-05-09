@@ -1,7 +1,15 @@
+
+"use client"
 import Image from "next/image";
+import { parseCookies } from "nookies";
 import React from "react";
 
+const COOKIE_NAME = "googtrans";
+
 const OurCommitment = () => {
+  const cookie = parseCookies()[COOKIE_NAME];
+      const lang = cookie?.split("/")?.[2] || "en";
+      // console.log( "language", lang)
   const commitmentData = [
     {
       id: 1,
@@ -24,7 +32,7 @@ const OurCommitment = () => {
     {
       id: 4,
       img: "/assets/images/pep/oc4.svg",
-      title: "Inclusive",
+      title: `${lang === "fr" ? "Inclusif" : "Inclusive"}`,
       desc: "Our process is designed to be fair, protecting and identifying late developers by accounting for biological age.",
     },
   ];

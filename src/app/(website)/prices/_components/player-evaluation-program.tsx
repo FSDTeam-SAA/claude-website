@@ -7,8 +7,12 @@ import IndividualPricingSkeleton from "./individual-pricing-skeleton";
 import ErrorContainer from "@/components/shared/ErrorContainer/ErrorContainer";
 import RegisterAsPlayerEvaluationForm from "./register-as-player-evaluation-form";
 import { CircleCheckBig } from "lucide-react";
+import { parseCookies } from "nookies";
+const COOKIE_NAME = "googtrans";
 
 const PlayerEvaluationProgram = () => {
+    const cookie = parseCookies()[COOKIE_NAME];
+    const lang = cookie?.split("/")?.[2] || "en";
   const [isOpen, setIsOpen] = useState(false);
   const currentPage = 1;
   const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
@@ -89,7 +93,7 @@ const PlayerEvaluationProgram = () => {
                 </div>
                 <div className="pt-5 pb-5 md:pb-6 px-6 md:px-7 lg:px-8">
                   <h5 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-2">
-                    ${item?.price} / Each
+                    ${item?.price} / {`${lang === "fr" ? "Chaque" : "Each"}`}
                   </h5>
                   <ul>
                     {item?.features?.map((feature, index) => (

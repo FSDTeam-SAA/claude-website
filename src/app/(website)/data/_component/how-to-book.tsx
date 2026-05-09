@@ -2,17 +2,24 @@
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { parseCookies } from "nookies";
 import React from "react";
+
+const COOKIE_NAME = "googtrans";
 
 const HowToBook = () => {
   const session = useSession();
   const isLogin = session?.data?.user?.accessToken;
 
+    const cookie = parseCookies()[COOKIE_NAME];
+        const lang = cookie?.split("/")?.[2] || "en";
+        // console.log( "language", lang)
+
   const missionData = [
     {
       id: 1,
       img: "/assets/images/home_page/htb1.svg",
-      title: "Register",
+      title: `${lang === "fr" ? "Enregistrement" : "Register"}`,
       step: "1",
     },
     {
@@ -37,7 +44,7 @@ const HowToBook = () => {
 
   return (
     <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[500px] md:h-[700px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
-      <div className="relative z-10 px-4 md:px-8 lg:px-12 flex flex-col items-center w-full max-w-[1080px] mx-auto">
+      <div className="relative z-10 px-4 md:px-8 lg:px-12 flex flex-col items-center w-full max-w-[1100px] mx-auto">
         <div className="w-full text-left mb-6 md:mb-12">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-dagger font-bold text-primary mb-3 md:mb-4">
             How to book your video analysis !

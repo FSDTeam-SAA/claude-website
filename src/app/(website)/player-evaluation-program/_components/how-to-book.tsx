@@ -2,17 +2,23 @@
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { parseCookies } from "nookies";
 import React from "react";
+
+const COOKIE_NAME = "googtrans";
 
 const HowToBook = () => {
   const session = useSession();
   const isLogin = session?.data?.user?.accessToken;
+      const cookie = parseCookies()[COOKIE_NAME];
+          const lang = cookie?.split("/")?.[2] || "en";
+          console.log( "language", lang)
 
   const missionData = [
     {
       id: 1,
       img: "/assets/images/home_page/htb1.svg",
-      title: "Register",
+      title: `${lang === "fr" ? "Enregistrement" : "Register"}`,
       step: "1",
     },
     {

@@ -1,95 +1,131 @@
-"use client"
-import React, { useState } from 'react'
-import RegisterAsIndividualPlayerForm from './register-as-individual-player-form';
-import { useQuery } from '@tanstack/react-query';
-import { Subscription, SubscriptionApiResponse } from './subscription-data-type';
-import { useSession } from 'next-auth/react';
-import IndividualPricingSkeleton from './individual-pricing-skeleton';
-import ErrorContainer from '@/components/shared/ErrorContainer/ErrorContainer';
+"use client";
+import React, { useState } from "react";
+import RegisterAsIndividualPlayerForm from "./register-as-individual-player-form";
+import { useQuery } from "@tanstack/react-query";
+import {
+  Subscription,
+  SubscriptionApiResponse,
+} from "./subscription-data-type";
+import { useSession } from "next-auth/react";
+import IndividualPricingSkeleton from "./individual-pricing-skeleton";
+import ErrorContainer from "@/components/shared/ErrorContainer/ErrorContainer";
+import { parseCookies } from "nookies";
+const COOKIE_NAME = "googtrans";
 
 const IndividualPlayer = () => {
-    const currentPage = 1;
-    const [isOpen, setIsOpen] = useState(false);
-    const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
-    const [selectedSubscription, setSelectedSubscription] = useState<Subscription | null>(null);
-    const session = useSession();
-    const token = (session?.data?.user as { accessToken: string })?.accessToken;
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
+  const currentPage = 1;
+  const [isOpen, setIsOpen] = useState(false);
+  const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
+  const [selectedSubscription, setSelectedSubscription] =
+    useState<Subscription | null>(null);
+  const session = useSession();
+  const token = (session?.data?.user as { accessToken: string })?.accessToken;
 
-    const { data, isLoading, error, isError } = useQuery<SubscriptionApiResponse>({
-        queryKey: ["subscription-all", currentPage],
-        queryFn: async () => {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/subscription?page=${currentPage}&limit=20`, {
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
-            return res.json();
-        }
-    })
+  const { data, isLoading, error, isError } = useQuery<SubscriptionApiResponse>(
+    {
+      queryKey: ["subscription-all", currentPage],
+      queryFn: async () => {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/subscription?page=${currentPage}&limit=20`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+        return res.json();
+      },
+    },
+  );
 
-    // console.log(data)
+  // console.log(data)
 
-    const subscriptionData = data?.data?.filter(
-        (item) => item?.paymentType === "Individual"
-    )
+  const subscriptionData = data?.data?.filter(
+    (item) => item?.paymentType === "Individual",
+  );
 
-    // console.log(subscriptionData)
+  // console.log(subscriptionData)
 
-       if (isLoading) {
-            return <div className=" container py-6">
-                <IndividualPricingSkeleton />
-            </div>
-        }
-    
-        if (isError) {
-            const message =
-                error instanceof Error ? error.message : "Something went wrong!";
-            return <div className="pb-8">
-                <ErrorContainer message={message} />
-            </div>
-        }
-
-
+  if (isLoading) {
     return (
-        // <div className="bg-[#EBEBEB] py-10 md:py-16 lg:py-24">
-         <div className="bg_color py-7 md:py-16 lg:py-24 ">
-            <div className="container ">
-                <p className='bg-black rounded-[14px] text-xl md:text-2xl lg:text-3xl xl:text-[33px] font-normal text-primary leading-[120%] text-center py-6 md:py-8 lg:py-10 mb-8 md:mb-10 lg:mb-24'>Make sure to set up your profile in the Profile Settings  before making a payment</p>
-                <h3 className='text-2xl md:text-3xl lg:text-[40px] text-primary h_underline leading-[120%] font-normal text-center'>Pricing For Individual Player</h3>
-                <div className='w-full flex items-center justify-center gap-6 pt-2 md:pt-9 lg:pt-12'>
-                    {
-                        subscriptionData?.map((item) => {
-                            return <div key={item?._id} className="w-full md:w-1/3 border-[1.5px] border-primary rounded-[16px]">
-                                <h4 className='bg-primary rounded-t-[14px] text-lg md:text-xl lg:text-[22px] font-normal text-white leading-[120%] text-center py-6 md:py-8 lg:py-10'>{item?.description}</h4>
-                                <div className='pt-5 pb-6 md:pb-8 lg:pb-10 px-6 md:px-7 lg:px-8'>
-                                    <h5 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-5">${item?.price}</h5>
-                                    <button onClick={() => {setIsOpen(true); setSubscriptionId(item?._id); setSelectedSubscription(item)}} className='w-full h-[51px] bg-[#424242] rounded-[8px] text-base text-white leading-[120%] font-medium '>Continue</button>
-                                </div>
+      <div className=" container py-6">
+        <IndividualPricingSkeleton />
+      </div>
+    );
+  }
 
+  if (isError) {
+    const message =
+      error instanceof Error ? error.message : "Something went wrong!";
+    return (
+      <div className="pb-8">
+        <ErrorContainer message={message} />
+      </div>
+    );
+  }
 
-                            </div>
-                        })
-                    }
-
+  return (
+    // <div className="bg-[#EBEBEB] py-10 md:py-16 lg:py-24">
+    <div className="bg_color py-7 md:py-16 lg:py-24 ">
+      <div className="container ">
+        <p className="bg-black rounded-[14px] text-xl md:text-2xl lg:text-3xl xl:text-[33px] font-normal text-primary leading-[120%] text-center py-6 md:py-8 lg:py-10 mb-8 md:mb-10 lg:mb-24">
+          Make sure to set up your profile in the Profile Settings before making
+          a payment
+        </p>
+        <h3 className="text-2xl md:text-3xl lg:text-[40px] text-primary h_underline leading-[120%] font-normal text-center">
+          {" "}
+          {`${lang === "fr" ? "Prix pour un joueur." : "Pricing For Individual Player"}`}
+        </h3>
+        <div className="w-full flex items-center justify-center gap-6 pt-2 md:pt-9 lg:pt-12">
+          {subscriptionData?.map((item) => {
+            return (
+              <div
+                key={item?._id}
+                className="w-full md:w-1/3 border-[1.5px] border-primary rounded-[16px]"
+              >
+                <h4 className="bg-primary rounded-t-[14px] text-lg md:text-xl lg:text-[22px] font-normal text-white leading-[120%] text-center py-6 md:py-8 lg:py-10">
+                  {/* {item?.description} */}
+                  {`${lang === "fr" ? "Rapport des données, meilleurs moments, commentaires." : "Data report, Highlights & Feedback"}`}
+                </h4>
+                <div className="pt-5 pb-6 md:pb-8 lg:pb-10 px-6 md:px-7 lg:px-8">
+                  <h5 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-5">
+                    ${item?.price}
+                  </h5>
+                  <button
+                    onClick={() => {
+                      setIsOpen(true);
+                      setSubscriptionId(item?._id);
+                      setSelectedSubscription(item);
+                    }}
+                    className="w-full h-[51px] bg-[#424242] rounded-[8px] text-base text-white leading-[120%] font-medium "
+                  >
+                    Continue
+                  </button>
                 </div>
-            </div>
-
-            {/* modal open  */}
-            {
-                isOpen && subscriptionId && (
-                    <RegisterAsIndividualPlayerForm
-                      open={isOpen}
-                      onOpenChange={setIsOpen}
-                      subscriptionId={subscriptionId}
-                      subscriptionTitle={selectedSubscription?.title || selectedSubscription?.description}
-                      subscriptionPrice={selectedSubscription?.price}
-                      subscriptionPaymentType={selectedSubscription?.paymentType}
-                    />
-                )
-            }
+              </div>
+            );
+          })}
         </div>
-    )
-}
+      </div>
 
-export default IndividualPlayer
+      {/* modal open  */}
+      {isOpen && subscriptionId && (
+        <RegisterAsIndividualPlayerForm
+          open={isOpen}
+          onOpenChange={setIsOpen}
+          subscriptionId={subscriptionId}
+          subscriptionTitle={
+            selectedSubscription?.title || selectedSubscription?.description
+          }
+          subscriptionPrice={selectedSubscription?.price}
+          subscriptionPaymentType={selectedSubscription?.paymentType}
+        />
+      )}
+    </div>
+  );
+};
+
+export default IndividualPlayer;
