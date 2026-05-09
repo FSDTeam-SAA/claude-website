@@ -2,17 +2,25 @@
 import { CircleCheckBig } from "lucide-react";
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Subscription, SubscriptionApiResponse } from "./subscription-data-type";
+import {
+  Subscription,
+  SubscriptionApiResponse,
+} from "./subscription-data-type";
 import { useSession } from "next-auth/react";
 import RegisterAsTeamPlayerForm from "./register-as-team-player-form";
 import TeamPricingSkeleton from "./team-pricing-skeleton";
 import ErrorContainer from "@/components/shared/ErrorContainer/ErrorContainer";
+import { parseCookies } from "nookies";
+const COOKIE_NAME = "googtrans";
 
 const TeamsPlayer = () => {
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
   const currentPage = 1;
   const [teamIsOpen, setTeamIsOpen] = useState(false);
   const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
-  const [selectedSubscription, setSelectedSubscription] = useState<Subscription | null>(null);
+  const [selectedSubscription, setSelectedSubscription] =
+    useState<Subscription | null>(null);
 
   const session = useSession();
   const token = (session?.data?.user as { accessToken: string })?.accessToken;
@@ -90,7 +98,8 @@ const TeamsPlayer = () => {
                                 `}
               >
                 <div className="bg-primary rounded-t-[14px] text-lg md:text-xl lg:text-2xl font-normal text-white leading-[120%] text-center py-6">
-                  {item?.numberOfGames} games
+                  {item?.numberOfGames}{" "}
+                  {`${lang === "fr" ? "matchs" : "games"}`}
                 </div>
 
                 <div className="p-6 text-center">
