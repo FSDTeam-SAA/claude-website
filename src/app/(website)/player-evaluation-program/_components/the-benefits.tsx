@@ -44,28 +44,18 @@ const TheBenefits = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 lg:gap-16 gap-y-3 md:gap-y-16">
           {benefitsData.map((item) => (
             <div key={item.id} className="flex items-center gap-2 md:gap-8 group">
-              {/* <div className="shrink-0 transition-transform duration-300 group-hover:scale-110">
-                <div className="relative w-12 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24">
-                  <Image
-                    src={item.img}
-                    alt={item.title}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div> */}
                <Image
                     src={item.img}
                     alt={item.title}
                     width={300}
                     height={300}
-                    className="object-contain w-auto h-20 md:h-[170px]"
+                    className="object-contain w-auto h-20 md:h-[120px] xl:h-[170px]"
                   />
               <div className="flex flex-col gap-[1px] md:gap-2">
-                <h3 className="text-primary  font-medium text-base md:text-2xl lg:text-3xl leading-normal">
+                <h3 className="text-primary  font-medium text-base md:text-2xl xl:text-3xl leading-normal">
                   {item.title}
                 </h3>
-                <p className="text-white text-xs md:text-base lg:text-lg xl:text-xl font-medium leading-normal">
+                <p className="text-white text-xs md:text-base xl:text-lg font-medium leading-normal">
                   {item.desc}
                 </p>
               </div>

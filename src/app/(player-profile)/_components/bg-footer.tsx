@@ -11,7 +11,7 @@ const BgFooter = () => {
     <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] border-t border-[#8E959F]/50'>
       <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
       <div className="py-10 md:py-12 lg:py-14 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-10 gap-5 md:gap-6 lg:gap-6">
-        <div className="md:col-span-3">
+        <div className="md:col-span-2">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image src="/assets/images/Profile_new_logo.png" alt="logo" width={1000} height={1000} className="w-[202px] h-[56px] object-cover" />
@@ -31,7 +31,7 @@ const BgFooter = () => {
             </Link>
           </div> */}
 
-          <div className="pt-6 md:pt-8 lg:pt-10 flex items-center gap-4">
+          <div className="pt-6 md:pt-8 lg:pt-10 flex items-center gap-4 pb-6 md:pb-8 lg:pb-12">
             {/* Facebook */}
             <Link
               href="https://www.facebook.com/profile.php?id=61583972953701"
@@ -54,24 +54,44 @@ const BgFooter = () => {
               </span>
             </Link>
           </div>
+          <Image
+                        src="/assets/images/footer_logo.jpg"
+                        alt="logo"
+                        width={1000}
+                        height={1000}
+                        className="w-[222px] h-[66px] object-cover rounded-[12px]"
+                      />
 
         </div>
-        <div className="md:col-span-2">
-          <h4 className="hidden md:block text-lg md:text-xl font-normal text-white leading-[120%] pb-4 md:pb-6 lg:pb-8">
-            Useful Links
-          </h4>
+       <div className="md:col-span-3">
+          {/* <h4 className="hidden md:block text-lg md:text-xl font-normal text-white leading-[120%] pb-4 md:pb-6 lg:pb-8">
+            General website FAQ
+          </h4> */}
+           <Link href="/faq">
+              <p className="text-sm lg:text-base xl:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary pb-4 md:pb-6 lg:pb-8">
+                
+                General website FAQ
+              </p>
+            </Link>
           <ul>
-            <Link href="/services">
-              <li className="text-base md:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary">Services</li>
+            <Link href="/contact-us/#about-us">
+              <li className="text-sm lg:text-base xl:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary">
+                About Us
+              </li>
             </Link>
             {/* <Link href="/about-us">
-              <li className="text-base md:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary py-3 md:py-4">About Us</li>
+              <li className="text-sm lg:text-base xl:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary py-3 md:py-4">About Us</li>
             </Link> */}
             <Link href="/contact-us">
-              <li className="text-base md:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary py-4">Contact Us</li>
+              <li className="text-sm lg:text-base xl:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary py-4">
+                Contact Us
+              </li>
             </Link>
-              <Link href="/faq">
-              <li className="text-base md:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary">FAQ</li>
+            <Link href="/player-evaluation-program-faq">
+              <li className="text-sm lg:text-base xl:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary">
+                
+                Player Evaluation Program FAQ
+              </li>
             </Link>
           </ul>
         </div>

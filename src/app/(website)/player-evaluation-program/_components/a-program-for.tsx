@@ -62,16 +62,7 @@ const AProgramFor = () => {
 const EcosystemCard = ({ item }: { item: any }) => {
   return (
     <div className="bg-white rounded-[12px] border border-primary flex flex-col h-full shadow-2xl transition-all duration-300 hover:translate-y-[-5px]">
-      {/* Top Image */}
-      {/* <div className="relative w-full aspect-[16/10] rounded-[15px] md:rounded-[20px] overflow-hidden mb-4 md:mb-6">
-        <Image
-          src={item.img}
-          alt={item.title}
-          width={400}
-          height={450}
-          className="object-cover w-full h-[250px] border-2 border-red-500"
-        />
-      </div> */}
+   
        <Image
           src={item.img}
           alt={item.title}
@@ -86,11 +77,11 @@ const EcosystemCard = ({ item }: { item: any }) => {
           {item.title}
         </h3>
         
-        <ul className="flex flex-col gap-2 md:gap-3 lg:gap-4 flex-grow">
+        <ul className="flex flex-col gap-2 md:gap-3 xl:gap-4 flex-grow">
           {item.features.map((feature: string, idx: number) => (
             <li key={idx} className="flex items-start gap-2 md:gap-3">
               <CircleCheck className="w-4 h-4 md:w-5 md:h-5 text-black shrink-0 mt-0.5" />
-              <p className="text-black text-[11px] md:text-sm lg:text-base font-normal leading-normal">
+              <p className="text-black text-[11px] md:text-sm xl:text-base font-normal leading-normal">
                 {feature}
               </p>
             </li>
