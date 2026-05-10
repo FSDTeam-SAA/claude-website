@@ -88,7 +88,7 @@ const FlawCard = ({ item }: { item: any }) => {
         <h3 className="text-primary font-dagger font-bold text-sm md:text-xl mb-1 md:mb-2 leading-tight">
           {item.title}
         </h3>
-        <p className="text-[#4b4b4b] text-[10px] md:text-sm lg:text-base font-medium leading-normal">
+        <p className="text-[#4b4b4b] text-[10px] md:text-sm xl:text-base font-medium leading-normal">
           {item.desc}
         </p>
       </div>
