@@ -68,7 +68,7 @@ const Footer = () => {
           </div>
 
           {/* Logo */}
-          {/* <Link href="/" className="flex items-center gap-2"> */}
+          <Link href="https://geniusdatasport.com" target="_blank" className="flex items-center gap-2">
             <Image
               src="/assets/images/footer_logo.jpg"
               alt="logo"
@@ -76,7 +76,7 @@ const Footer = () => {
               height={1000}
               className="w-[222px] h-[66px] object-cover rounded-[12px]"
             />
-          {/* </Link> */}
+          </Link>
         </div>
 
         <div className="md:col-span-3">

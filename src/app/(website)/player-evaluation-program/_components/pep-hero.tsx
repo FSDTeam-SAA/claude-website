@@ -35,7 +35,7 @@ const PepHero = () => {
 
           <div className="mt-2 md:mt-16 lg:mt-24">
             <Link
-              href={`${isLogin ? "/prices" : "/sign-up"}`}
+              href={`${isLogin ? "/prices#player-evaluation-program" : "/sign-up"}`}
               className="h-10 md:h-14 inline-flex items-center justify-center rounded-full bg-primary px-12 md:px-16 text-base md:text-xl font-bold text-black transition-all hover:opacity-90 hover:scale-105 shadow-[0_0_20px_rgba(16,230,7,0.5)]"
             >
               Book Now

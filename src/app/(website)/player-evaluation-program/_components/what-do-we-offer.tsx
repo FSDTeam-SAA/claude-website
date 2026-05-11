@@ -29,7 +29,7 @@ const evaluationAreas = [
     img: "/assets/images/pep/wdwo5.svg" 
   },
   { 
-    title: "Psychological / Mental", 
+    title: "Psychological & Mental", 
     side: "right", 
     img: "/assets/images/pep/wdwo6.svg" 
   },

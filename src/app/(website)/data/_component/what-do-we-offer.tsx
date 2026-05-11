@@ -30,7 +30,7 @@ const WhatDoWeOffer = () => {
       <div className="relative z-10 px-4 md:px-8 lg:px-12 flex flex-col items-center w-full max-w-[1080px] mx-auto">
         <div className="w-full text-left mb-8 md:mb-12">
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-primary mb-3 md:mb-4">
-            What Do We Offer
+            What Do We Offer ?
           </h2>
           <p className="text-white text-sm md:text-lg lg:text-xl xl:text-2xl font-medium opacity-90 leading-normal">
             Everything you need to stand out as a player – all in one place.

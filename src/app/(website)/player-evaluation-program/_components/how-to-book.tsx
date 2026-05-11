@@ -86,7 +86,7 @@ const HowToBook = () => {
 
         <div className="w-full flex justify-center max-w-[950px]">
           <Link
-            href={`${isLogin ? "/prices" : "/sign-up"}`}
+            href={`${isLogin ? "/prices#player-evaluation-program" : "/sign-up"}`}
             className="h-10 md:h-12 inline-flex items-center justify-center rounded-full bg-primary px-12 md:px-16 text-sm md:text-lg  font-bold text-black transition-all hover:opacity-90 hover:scale-105 shadow-[0_0_15px_rgba(16,230,7,0.4)]"
           >
             Book Now

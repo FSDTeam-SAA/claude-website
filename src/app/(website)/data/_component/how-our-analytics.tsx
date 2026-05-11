@@ -33,7 +33,7 @@ const HowOurAnalytics = () => {
     <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[750px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
       <div className="relative z-10 px-4 md:px-8 lg:px-12 w-full max-w-[1140px] mx-auto">
         <h1 className="text-2xl md:text-4xl lg:text-5xl  font-bold text-primary mb-8 md:mb-12 leading-tight">
-          How Our Analytics Process Works
+          How Our Analytics Process Works ?
         </h1>
 
         <div className="flex flex-col gap-4 md:gap-5">

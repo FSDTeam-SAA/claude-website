@@ -68,7 +68,7 @@ const WhyDataMatters = () => {
       <div className="relative z-10 px-4 md:px-8 lg:px-12 w-full max-w-[1140px] mx-auto">
         <div className="max-w-[1000px] mb-6 md:mb-7">
           <h1 className="text-2xl md:text-4xl lg:text-5xl  font-bold text-primary mb-2 md:mb-4 leading-tight">
-            Why Data Matters
+            Why Data Matters ?
           </h1>
           <p className="text-white text-[13px] md:text-lg font-medium opacity-90 leading-relaxed max-w-[800px]">
             Data creates fairness, clarity and opportunity for everyone in the game.
