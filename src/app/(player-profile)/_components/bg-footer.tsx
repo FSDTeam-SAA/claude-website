@@ -1,10 +1,10 @@
-import React from 'react'
-import Link from "next/link"
-import Image from "next/image"
-import { Mail } from 'lucide-react'
-import BgNewsletterSubscribe from './bg-newsletter-subscribe'
-import { SiFacebook } from 'react-icons/si'
-import { FaSquareInstagram } from 'react-icons/fa6'
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Mail } from "lucide-react";
+import BgNewsletterSubscribe from "./bg-newsletter-subscribe";
+import { SiFacebook } from "react-icons/si";
+import { FaSquareInstagram } from "react-icons/fa6";
 
 const BgFooter = () => {
   return (
@@ -14,7 +14,13 @@ const BgFooter = () => {
         <div className="md:col-span-2">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/assets/images/Profile_new_logo.png" alt="logo" width={1000} height={1000} className="w-[202px] h-[56px] object-cover" />
+            <Image
+              src="/assets/images/Profile_new_logo.png"
+              alt="logo"
+              width={1000}
+              height={1000}
+              className="w-[202px] h-[56px] object-cover"
+            />
           </Link>
           {/* <p className="text-base md:text-lg leading-[120%] text-white font-normal pt-4 md:pt-5 lg:pt-6">Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit?</p> */}
           {/* <p className="text-base md:text-lg leading-[120%] text-white font-normal pt-2"><strong className='text-white'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}
@@ -54,25 +60,25 @@ const BgFooter = () => {
               </span>
             </Link>
           </div>
-          <Image
-                        src="/assets/images/footer_logo.jpg"
-                        alt="logo"
-                        width={1000}
-                        height={1000}
-                        className="w-[222px] h-[66px] object-cover rounded-[12px]"
-                      />
-
+          <Link href="https://geniusdatasport.com" target="_blank">
+            <Image
+              src="/assets/images/footer_logo.jpg"
+              alt="logo"
+              width={1000}
+              height={1000}
+              className="w-[222px] h-[66px] object-cover rounded-[12px]"
+            />
+          </Link>
         </div>
-       <div className="md:col-span-3">
+        <div className="md:col-span-3">
           {/* <h4 className="hidden md:block text-lg md:text-xl font-normal text-white leading-[120%] pb-4 md:pb-6 lg:pb-8">
             General website FAQ
           </h4> */}
-           <Link href="/faq">
-              <p className="text-sm lg:text-base xl:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary pb-4 md:pb-6 lg:pb-8">
-                
-                General website FAQ
-              </p>
-            </Link>
+          <Link href="/faq">
+            <p className="text-sm lg:text-base xl:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary pb-4 md:pb-6 lg:pb-8">
+              General website FAQ
+            </p>
+          </Link>
           <ul>
             <Link href="/contact-us/#about-us">
               <li className="text-sm lg:text-base xl:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary">
@@ -89,7 +95,6 @@ const BgFooter = () => {
             </Link>
             <Link href="/player-evaluation-program-faq">
               <li className="text-sm lg:text-base xl:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary">
-                
                 Player Evaluation Program FAQ
               </li>
             </Link>
@@ -101,31 +106,43 @@ const BgFooter = () => {
           </h4>
           <ul>
             <Link href="/terms-of-use">
-              <li className="text-base md:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary">Terms Of Use</li>
+              <li className="text-base md:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary">
+                Terms Of Use
+              </li>
             </Link>
             <Link href="/privacy-policy">
-              <li className="text-base md:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary py-4">Privacy Policy</li>
+              <li className="text-base md:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary py-4">
+                Privacy Policy
+              </li>
             </Link>
           </ul>
           <p className=" text-base md:text-lg leading-[120%] text-white hover:text-primary font-normal ">
             {/* <strong className='text-white'>Email :</strong>  */}
-            <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold flex items-center gap-2'><Mail className='w-5 h-5'/> info@analyticsoccer.com</Link></p>
+            <Link
+              href="mailto:info@analyticsoccer.com"
+              className="hover:font-semibold flex items-center gap-2"
+            >
+              <Mail className="w-5 h-5" /> info@analyticsoccer.com
+            </Link>
+          </p>
         </div>
         <div className="md:col-span-3">
-          <h4 className="text-lg md:text-xl font-semibold leading-[120%] text-white pb-3 lg:pb-4">Subscribe To Our <span className="text-primary">NEWSLETTER</span></h4>
+          <h4 className="text-lg md:text-xl font-semibold leading-[120%] text-white pb-3 lg:pb-4">
+            Subscribe To Our <span className="text-primary">NEWSLETTER</span>
+          </h4>
           {/* <p className="text-base md:text-lg leading-[120%] text-white font-normal">Connect with us on social media and <br /> stay in the loop :</p> */}
           <div>
             <BgNewsletterSubscribe />
             {/* <p className="text-base md:text-lg  pt-4 leading-[120%] text-white font-normal"><strong className='text-white'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}
           </div>
         </div>
-
-
       </div>
       {/* footer bottom  */}
-      <p className="container text-base md:text-lg font-normal text-center text-white leading-[120%] py-4 ">@ {new Date().getFullYear()}. All Rights Reserved</p>
+      <p className="container text-base md:text-lg font-normal text-center text-white leading-[120%] py-4 ">
+        @ {new Date().getFullYear()}. All Rights Reserved
+      </p>
     </div>
-  )
-}
+  );
+};
 
-export default BgFooter
+export default BgFooter;
