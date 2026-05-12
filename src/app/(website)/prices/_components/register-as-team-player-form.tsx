@@ -50,7 +50,10 @@ const formSchema = z.object({
   category: z.string().min(1, {
     message: "Category is required.",
   }),
-  players: z.array(playerSchema).min(1, "At least 1 player is required"),
+  players: z
+    .array(playerSchema)
+    .min(10, "Please add at least 10 players to continue to payment")
+    .max(15, "You can add up to 15 players"),
 });
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useSession } from "next-auth/react";
@@ -103,6 +106,9 @@ const RegisterAsTeamPlayerForm = ({
     control: form.control,
     name: "players",
   });
+  const playerCount = fields.length;
+  const playersNeeded = Math.max(0, 10 - playerCount);
+  const isMinimumPlayersMet = playerCount >= 10;
 
   const { mutate, isPending } = useMutation({
     mutationKey: ["team-payment"],
@@ -455,7 +461,14 @@ const RegisterAsTeamPlayerForm = ({
 
                 {/* PLAYERS */}
                 <div className="bg-[#E9F6E9] p-4 rounded-xl space-y-4">
-                  <p className="font-medium">Player names (15 names) *</p>
+                  <p className="font-medium">
+                    Player list (minimum 10, maximum 15) *
+                  </p>
+                  <p className="text-sm text-[#424242]">
+                    Added: <span className="font-semibold">{playerCount}</span>/10
+                    {!isMinimumPlayersMet &&
+                      ` · Add ${playersNeeded} more player${playersNeeded > 1 ? "s" : ""} to continue to payment.`}
+                  </p>
 
                   {fields.map((field, index) => (
                     <div
@@ -538,14 +551,25 @@ const RegisterAsTeamPlayerForm = ({
                   <div className="flex items-center justify-center">
                     <button
                       type="button"
+                      disabled={playerCount >= 15}
                       onClick={() =>
                         append({ name: "", email: "", role: "player" })
                       }
-                      className="flex items-center gap-2 text-green-700 text-base font-semibold"
+                      className="flex items-center gap-2 text-green-700 text-base font-semibold disabled:text-[#8E8E8E] disabled:cursor-not-allowed"
                     >
                       <Plus /> Add Player
                     </button>
                   </div>
+                  {playerCount >= 15 && (
+                    <p className="text-sm text-[#6C6C6C] text-center">
+                      You have reached the maximum of 15 players.
+                    </p>
+                  )}
+                  {form.formState.errors.players?.message && (
+                    <p className="text-sm text-red-500">
+                      {form.formState.errors.players.message}
+                    </p>
+                  )}
                 </div>
 
                 <Button
@@ -621,13 +645,18 @@ const RegisterAsTeamPlayerForm = ({
                 )}
 
                 <Button
-                  disabled={isPending}
+                  disabled={isPending || !isMinimumPlayersMet}
                   className="w-full h-[47px] rounded-[8px] text-[#F2F2F2] text-base "
                   type="submit"
                 >
                   <LockKeyhole />{" "}
                   {isPending ? "Processing..." : "Continue to Payment"}
                 </Button>
+                {!isMinimumPlayersMet && (
+                  <p className="text-sm text-[#B42318] text-center">
+                    Team registration requires at least 10 players before payment.
+                  </p>
+                )}
               </form>
             </Form>
           </div>

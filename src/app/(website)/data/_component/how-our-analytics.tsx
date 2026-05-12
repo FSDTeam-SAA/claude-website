@@ -41,7 +41,7 @@ const HowOurAnalytics = () => {
             return (
               <div
                 key={item?.id}
-                className="flex flex-row items-center bg-transparent border-[1.5px] md:border-[3px] border-primary rounded-[15px] md:rounded-[30px] p-1 md:p-0 gap-3 md:gap-4 hover:shadow-[0_0_20px_rgba(16,230,7,0.3)] transition-all duration-300"
+                className="flex flex-row items-center bg-transparent border-[1.5px] md:border-[3px] border-primary rounded-[15px] md:rounded-[30px] p-0 gap-2 md:gap-4 hover:shadow-[0_0_20px_rgba(16,230,7,0.3)] transition-all duration-300"
               >
                 {/* Icon Container */}
                 <div className="bg-white rounded-[10px] md:rounded-[25px] p-[1px] flex-shrink-0 flex items-center justify-center shadow-lg">
@@ -59,7 +59,7 @@ const HowOurAnalytics = () => {
                   <h2 className={`${lang === "fr" ? "text-sm md:text-2xl" : lang === "es" ? "text-sm md:text-2xl lg:text-3xl" : "text-sm md:text-2xl"}   font-bold text-primary mb-1 md:mb-3`}>
                     {item?.title}
                   </h2>
-                  <p className="text-white text-xs md:text-base lg:text-lg font-medium opacity-90 leading-tight">
+                  <p className="text-white text-[10px] md:text-base lg:text-lg font-medium opacity-90 leading-tight">
                     {item?.desc}
                   </p>
                 </div>
