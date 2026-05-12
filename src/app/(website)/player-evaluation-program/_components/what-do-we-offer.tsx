@@ -77,9 +77,9 @@ const WhatDoWeOffer = () => {
               </div>
 
               {area.side === "left" ? (
-                <span className="absolute right-[-16px] md:right-[-55px] top-1/2 -translate-y-1/2 h-[8px] md:h-[14px] w-4 md:w-[55px] bg-white rounded-r-[6px]" />
+                <span className="absolute right-[-16px] md:right-[-55px] top-1/2 -translate-y-1/2 h-[8px] md:h-[14px] w-4 md:w-[55px] bg-white " />
               ) : (
-                <span className="absolute left-[-16px] md:left-[-55px] top-1/2 -translate-y-1/2 h-[8px] md:h-[14px] w-4 md:w-[55px] bg-white rounded-l-[6px]" />
+                <span className="absolute left-[-16px] md:left-[-55px] top-1/2 -translate-y-1/2 h-[8px] md:h-[14px] w-4 md:w-[55px] bg-white " />
               )}
             </div>
           ))}
