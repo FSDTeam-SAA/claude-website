@@ -3,7 +3,7 @@ import DataContainer from './_component/data-container'
 
 const DataPage = () => {
   return (
-    <div>
+    <div className='bg-white'>
         <DataContainer/>
     </div>
   )

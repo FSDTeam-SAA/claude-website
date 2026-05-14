@@ -51,12 +51,12 @@ const WhatDoWeOffer = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-x-1.5 sm:gap-x-2 md:gap-x-0 gap-y-3 sm:gap-y-4 md:gap-y-3 items-center w-full max-w-[1100px] mx-auto pt-3">
+        <div className="grid grid-cols-3 gap-x-1.5 sm:gap-x-2 md:gap-x-0 gap-y-3 sm:gap-y-4 md:gap-y-6 items-center w-full max-w-[1100px] mx-auto pt-3">
           {evaluationAreas.map((area, index) => (
             <div
               key={index}
               className={`
-                relative bg-white rounded-[10px] md:rounded-[25px] p-1.5 md:p-2 flex items-center shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:scale-105 transition-all duration-300
+                relative bg-white rounded-[10px] md:rounded-[25px] p-1 flex items-center shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300
                 ${area.side === "left" ? "flex-row col-start-1" : "flex-row-reverse col-start-3"}
               `}
             >
@@ -77,9 +77,9 @@ const WhatDoWeOffer = () => {
               </div>
 
               {area.side === "left" ? (
-                <span className="absolute right-[-24px] lg:right-[-75px] xl:right-[-90px] top-1/2 -translate-y-1/2 h-[8px] md:h-[14px] w-[18px] lg:w-[60px] xl:w-[70px] bg-white " />
+                <span className="absolute right-[-24px] lg:right-[-75px] xl:right-[-90px] top-1/2 -translate-y-1/2 h-[6px] md:h-[12px] w-[18px] lg:w-[60px] xl:w-[70px] bg-white " />
               ) : (
-                <span className="absolute left-[-24px] lg:left-[-75px] xl:left-[-90px] top-1/2 -translate-y-1/2 h-[8px] md:h-[14px] w-[18px] lg:w-[60px] xl:w-[70px] bg-white " />
+                <span className="absolute left-[-24px] lg:left-[-75px] xl:left-[-90px] top-1/2 -translate-y-1/2 h-[6px] md:h-[12px] w-[18px] lg:w-[60px] xl:w-[70px] bg-white " />
               )}
             </div>
           ))}

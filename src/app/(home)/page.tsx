@@ -27,7 +27,7 @@ import WhatDoWeOffer from "../(website)/player-evaluation-program/_components/wh
 
 const HomePage = () => {
   return (
-    <div className="pb-10 md:pb-14 lg:pb-16">
+    <div className="pb-10 md:pb-14 lg:pb-16 bg-white border-2 border-transparent">
       <>
         {/* <HeroSection /> */}
 

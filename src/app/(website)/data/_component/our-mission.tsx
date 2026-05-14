@@ -12,7 +12,7 @@ const OurMission = () => {
   const missionData = [
     {
       id: 1,
-      img: "/assets/images/home_page/om1.svg",
+      img: "/assets/images/home_page/1 11 1.svg",
       title: "Get rated every game",
     },
     {
@@ -49,7 +49,7 @@ const OurMission = () => {
             return (
               <div
                 key={item?.id}
-                className="bg-white rounded-tl-[40px] rounded-br-[40px] md:rounded-tl-[60px] md:rounded-br-[60px] border-[3px] md:border-[5px] border-primary p-2 flex flex-col items-center h-full hover:scale-105 transition-transform duration-300 shadow-xl"
+                className="bg-white rounded-tl-[40px] rounded-br-[40px] md:rounded-tl-[60px] md:rounded-br-[60px] border-[3px] md:border-[5px] border-primary p-2 flex flex-col items-center h-full hover:scale-105 transition-transform duration-300 "
               >
                  <Image
                     src={item?.img}
