@@ -56,7 +56,7 @@ const OurMission = () => {
                     alt={item?.title}
                     width={200}
                     height={200}
-                    className="object-contain w-auto h-[110px] md:h-[180px] "
+                    className="object-contain w-full md:w-auto h-[110px] md:h-[180px]"
                   />
                 <h3 className="text-center text-xs md:text-base lg:text-lg font-semibold text-[#131313] leading-tight pb-3">
                   {item?.title}
