@@ -15,6 +15,7 @@ const ScrollToTopComponent = () => {
           border: "2px solid #079201",
           background: "white",
           padding: "5px",
+          zIndex: 1000,
         }}
         smooth
         component={
