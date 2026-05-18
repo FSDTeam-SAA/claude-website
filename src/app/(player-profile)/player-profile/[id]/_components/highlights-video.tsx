@@ -72,7 +72,7 @@ const HighlightsVideo = ({
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {videos?.map((videoUrl, index) => (
-            <div key={`${videoUrl}-${index}`} className="space-y-3">
+            <div key={`${videoUrl}-${index}`} className="space-y-3 max-h-[400px]">
               <video
                 src={videoUrl}
                 controls

@@ -67,7 +67,7 @@ const Footer = () => {
             </Link>
           </div>
 
-          {/* Logo */}
+          {/*brand Logo */}
           <Link href="https://geniusdatasport.com" target="_blank" className="flex items-center gap-2">
             <Image
               src="/assets/images/footer_logo.jpg"
@@ -142,10 +142,20 @@ const Footer = () => {
           <h4 className="text-lg md:text-xl font-semibold leading-[120%] text-[#131313] pb-3 lg:pb-4">
             Subscribe To Our <span className="text-primary">NEWSLETTER</span>
           </h4>
-          {/* <p className="text-sm lg:text-base xl:text-lg leading-[120%] text-[#131313] font-normal">Connect with us on social media and <br /> stay in the loop :</p> */}
           <div className="">
             <NewsletterSubscribe />
-            {/* <p className="text-sm lg:text-base xl:text-lg  pt-4 leading-[120%] text-[#131313] font-normal"><strong className='text-[#131313]'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}
+                {/*brand Logo */}
+         <div className="pt-8 md:pt-10 lg:pt-12 xl:pt-14 w-full flex items-center justify-center">
+           <Link href="#" target="_blank" >
+            <Image
+              src="/assets/images/spl.png"
+              alt="logo"
+              width={1000}
+              height={1000}
+              className="w-[100px] h-[86px] object-cover rounded-[12px]"
+            />
+          </Link>
+         </div>
           </div>
           
 
@@ -153,7 +163,7 @@ const Footer = () => {
         </div>
       </div>
       {/* footer bottom  */}
-      <p className="container text-sm lg:text-base xl:text-lg font-normal text-center text-[#131313] leading-[120%] py-4 ">
+      <p className="container text-sm lg:text-base xl:text-lg font-normal text-center text-[#131313] leading-[120%] pb-4 ">
         @ {new Date().getFullYear()}. All Rights Reserved
       </p>
     </div>
