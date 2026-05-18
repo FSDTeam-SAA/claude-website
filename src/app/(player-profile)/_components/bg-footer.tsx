@@ -130,15 +130,25 @@ const BgFooter = () => {
           <h4 className="text-lg md:text-xl font-semibold leading-[120%] text-white pb-3 lg:pb-4">
             Subscribe To Our <span className="text-primary">NEWSLETTER</span>
           </h4>
-          {/* <p className="text-base md:text-lg leading-[120%] text-white font-normal">Connect with us on social media and <br /> stay in the loop :</p> */}
           <div>
             <BgNewsletterSubscribe />
-            {/* <p className="text-base md:text-lg  pt-4 leading-[120%] text-white font-normal"><strong className='text-white'>Email :</strong> <Link href="mailto:info@analyticsoccer.com" className='hover:font-semibold'>info@analyticsoccer.com</Link></p> */}
+            {/*brand Logo */}
+         <div className="pt-8 md:pt-10 lg:pt-12 xl:pt-14 w-full flex items-center justify-center">
+           <Link href="#" target="_blank" >
+            <Image
+              src="/assets/images/spl.png"
+              alt="logo"
+              width={1000}
+              height={1000}
+              className="w-[100px] h-[86px] object-cover rounded-[12px]"
+            />
+          </Link>
+         </div>
           </div>
         </div>
       </div>
       {/* footer bottom  */}
-      <p className="container text-base md:text-lg font-normal text-center text-white leading-[120%] py-4 ">
+      <p className="container text-base md:text-lg font-normal text-center text-white leading-[120%] pb-4 ">
         @ {new Date().getFullYear()}. All Rights Reserved
       </p>
     </div>
