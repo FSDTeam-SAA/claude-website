@@ -17,17 +17,17 @@ const OurMission = () => {
     },
     {
       id: 2,
-      img: "/assets/images/home_page/om2.svg",
+      img: "/assets/images/home_page/2.svg",
       title: "Compete with teammates",
     },
     {
       id: 3,
-      img: "/assets/images/home_page/om3.svg",
+      img: "/assets/images/home_page/3.svg",
       title: "Build your data identity",
     },
     {
       id: 4,
-      img: "/assets/images/home_page/om4.svg",
+      img: "/assets/images/home_page/4.svg",
       title: "Unlock new opportunities",
     },
   ];
