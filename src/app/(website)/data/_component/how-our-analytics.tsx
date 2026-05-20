@@ -23,7 +23,7 @@ const HowOurAnalytics = () => {
     },
     {
       id: 3,
-      img: "/assets/images/home_page/hoa3.svg",
+      img: "/assets/images/home_page/5.svg",
       title: "Receive your report and highlight within 72 hours",
       desc: "You get a full performance report and personalized highlight video – ready to share.",
     },

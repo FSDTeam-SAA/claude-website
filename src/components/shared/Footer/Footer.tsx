@@ -9,7 +9,7 @@ import { FaSquareInstagram } from "react-icons/fa6";
 const Footer = () => {
   return (
     <div className="bg-white border-t border-[#8E959F]/50">
-      <div className="py-10 md:py-12 lg:py-14 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-10 gap-5 md:gap-6 lg:gap-6">
+      <div className="py-6 md:py-12 lg:py-14 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-10 gap-5 md:gap-6 lg:gap-6">
         <div className="md:col-span-2">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
@@ -68,7 +68,7 @@ const Footer = () => {
           </div>
 
           {/*brand Logo */}
-          <Link href="https://geniusdatasport.com" target="_blank" className="flex items-center gap-2">
+          {/* <Link href="https://geniusdatasport.com" target="_blank" className="flex items-center gap-2">
             <Image
               src="/assets/images/footer_logo.jpg"
               alt="logo"
@@ -76,7 +76,7 @@ const Footer = () => {
               height={1000}
               className="w-[222px] h-[66px] object-cover rounded-[12px]"
             />
-          </Link>
+          </Link> */}
         </div>
 
         <div className="md:col-span-3">
@@ -140,12 +140,12 @@ const Footer = () => {
         </div>
         <div className="md:col-span-3">
           <h4 className="text-lg md:text-xl font-semibold leading-[120%] text-[#131313] pb-3 lg:pb-4">
-            Subscribe To Our <span className="text-primary">NEWSLETTER</span>
+            Subscribe To Our <span className="text-primary">Newsletter</span>
           </h4>
           <div className="">
             <NewsletterSubscribe />
                 {/*brand Logo */}
-         <div className="pt-8 md:pt-10 lg:pt-12 xl:pt-14 w-full flex items-center justify-center">
+         {/* <div className="pt-8 md:pt-10 lg:pt-12 xl:pt-14 w-full flex items-center justify-center">
            <Link href="#" target="_blank" >
             <Image
               src="/assets/images/spl.png"
@@ -155,12 +155,37 @@ const Footer = () => {
               className="w-[100px] h-[86px] object-cover rounded-[12px]"
             />
           </Link>
-         </div>
+         </div> */}
           </div>
           
 
 
         </div>
+      </div>
+      <div className="container w-full flex items-center justify-between gap-6 pb-6 md:pb-2">
+ {/*brand Logo */}
+          <Link href="https://geniusdatasport.com" target="_blank" className="flex items-center gap-2">
+            <Image
+              src="/assets/images/footer_logo.jpg"
+              alt="logo"
+              width={1000}
+              height={1000}
+              className="w-[222px] h-[66px] object-cover rounded-[12px]"
+            />
+          </Link>
+
+                {/*brand Logo */}
+           <Link href="#" target="_blank" >
+            <Image
+              src="/assets/images/spl.png"
+              alt="logo"
+              width={1000}
+              height={1000}
+              className="w-[100px] h-[86px] object-cover rounded-[12px]"
+            />
+          </Link>
+
+
       </div>
       {/* footer bottom  */}
       <p className="container text-sm lg:text-base xl:text-lg font-normal text-center text-[#131313] leading-[120%] pb-4 ">
