@@ -60,15 +60,6 @@ const BgFooter = () => {
               </span>
             </Link>
           </div>
-          <Link href="https://geniusdatasport.com" target="_blank">
-            <Image
-              src="/assets/images/footer_logo.jpg"
-              alt="logo"
-              width={1000}
-              height={1000}
-              className="w-[222px] h-[66px] object-cover rounded-[12px]"
-            />
-          </Link>
         </div>
         <div className="md:col-span-3">
           {/* <h4 className="hidden md:block text-lg md:text-xl font-normal text-white leading-[120%] pb-4 md:pb-6 lg:pb-8">
@@ -132,20 +123,36 @@ const BgFooter = () => {
           </h4>
           <div>
             <BgNewsletterSubscribe />
-            {/*brand Logo */}
-         <div className="pt-8 md:pt-10 lg:pt-12 xl:pt-14 w-full flex items-center justify-center">
-           <Link href="#" target="_blank" >
-            <Image
-              src="/assets/images/spl.png"
-              alt="logo"
-              width={1000}
-              height={1000}
-              className="w-[100px] h-[86px] object-cover rounded-[12px]"
-            />
-          </Link>
-         </div>
           </div>
         </div>
+      </div>
+
+       <div className="container w-full flex items-center justify-between gap-6 pb-6 md:pb-2">
+        {/*brand Logo */}
+        <Link
+          href="https://geniusdatasport.com"
+          target="_blank"
+          className="flex items-center gap-2"
+        >
+          <Image
+            src="/assets/images/footer_logo.jpg"
+            alt="logo"
+            width={1000}
+            height={1000}
+            className="w-[222px] h-[66px] object-cover rounded-[12px]"
+          />
+        </Link>
+
+        {/*brand Logo */}
+        <Link href="#" target="_blank">
+          <Image
+            src="/assets/images/spl.png"
+            alt="logo"
+            width={1000}
+            height={1000}
+            className="w-[100px] h-[86px] object-cover rounded-[12px]"
+          />
+        </Link>
       </div>
       {/* footer bottom  */}
       <p className="container text-base md:text-lg font-normal text-center text-white leading-[120%] pb-4 ">

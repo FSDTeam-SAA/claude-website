@@ -83,12 +83,11 @@ const Footer = () => {
           {/* <h4 className="hidden md:block text-lg md:text-xl font-normal text-[#131313] leading-[120%] pb-4 md:pb-6 lg:pb-8">
             General website FAQ
           </h4> */}
-           <Link href="/faq">
-              <p className="text-sm lg:text-base xl:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary pb-4 md:pb-6 lg:pb-8">
-                
-                General website FAQ
-              </p>
-            </Link>
+          <Link href="/faq">
+            <p className="text-sm lg:text-base xl:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary pb-4 md:pb-6 lg:pb-8">
+              General website FAQ
+            </p>
+          </Link>
           <ul>
             <Link href="/contact-us/#about-us">
               <li className="text-sm lg:text-base xl:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary">
@@ -105,7 +104,6 @@ const Footer = () => {
             </Link>
             <Link href="/player-evaluation-program-faq">
               <li className="text-sm lg:text-base xl:text-lg font-normal text-[#131313] leading-[120%] hover:underline hover:text-primary">
-                
                 Player Evaluation Program FAQ
               </li>
             </Link>
@@ -126,7 +124,6 @@ const Footer = () => {
                 Privacy Policy
               </li>
             </Link>
-            
           </ul>
           <p className=" text-sm lg:text-base xl:text-lg leading-[120%] text-[#131313] hover:text-primary font-normal ">
             {/* <strong className='text-[#131313]'>Email :</strong>  */}
@@ -144,8 +141,8 @@ const Footer = () => {
           </h4>
           <div className="">
             <NewsletterSubscribe />
-                {/*brand Logo */}
-         {/* <div className="pt-8 md:pt-10 lg:pt-12 xl:pt-14 w-full flex items-center justify-center">
+            {/*brand Logo */}
+            {/* <div className="pt-8 md:pt-10 lg:pt-12 xl:pt-14 w-full flex items-center justify-center">
            <Link href="#" target="_blank" >
             <Image
               src="/assets/images/spl.png"
@@ -157,35 +154,34 @@ const Footer = () => {
           </Link>
          </div> */}
           </div>
-          
-
-
         </div>
       </div>
       <div className="container w-full flex items-center justify-between gap-6 pb-6 md:pb-2">
- {/*brand Logo */}
-          <Link href="https://geniusdatasport.com" target="_blank" className="flex items-center gap-2">
-            <Image
-              src="/assets/images/footer_logo.jpg"
-              alt="logo"
-              width={1000}
-              height={1000}
-              className="w-[222px] h-[66px] object-cover rounded-[12px]"
-            />
-          </Link>
+        {/*brand Logo */}
+        <Link
+          href="https://geniusdatasport.com"
+          target="_blank"
+          className="flex items-center gap-2"
+        >
+          <Image
+            src="/assets/images/footer_logo.jpg"
+            alt="logo"
+            width={1000}
+            height={1000}
+            className="w-[222px] h-[66px] object-cover rounded-[12px]"
+          />
+        </Link>
 
-                {/*brand Logo */}
-           <Link href="#" target="_blank" >
-            <Image
-              src="/assets/images/spl.png"
-              alt="logo"
-              width={1000}
-              height={1000}
-              className="w-[100px] h-[86px] object-cover rounded-[12px]"
-            />
-          </Link>
-
-
+        {/*brand Logo */}
+        <Link href="#" target="_blank">
+          <Image
+            src="/assets/images/spl.png"
+            alt="logo"
+            width={1000}
+            height={1000}
+            className="w-[100px] h-[86px] object-cover rounded-[12px]"
+          />
+        </Link>
       </div>
       {/* footer bottom  */}
       <p className="container text-sm lg:text-base xl:text-lg font-normal text-center text-[#131313] leading-[120%] pb-4 ">
