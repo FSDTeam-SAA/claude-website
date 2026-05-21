@@ -49,7 +49,7 @@ const WhatDoWeOffer = () => {
                   alt={item?.title}
                   width={200}
                   height={200}
-                  className="object-contain w-auto h-[110px] md:h-[180px]"
+                  className="object-contain w-full h-[110px] md:h-[180px]"
                 />
                 <h3 className="text-center text-xs md:text-base lg:text-[17px] font-semibold text-[#131313] leading-normal pb-3 md:py-5 px-2">
                   {item?.title}

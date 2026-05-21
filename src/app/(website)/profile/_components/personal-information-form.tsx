@@ -1141,7 +1141,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 <FormItem className="space-y-3">
                   <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
                     Are you in Middle School or High School or
-                    College/University? (Only for US & Canadiens residents)
+                    College/University? <span className="text-primary">(If you are not US or Canadians resident, your answer you be NO)</span>
                   </FormLabel>
                   <FormControl>
                     <RadioGroup
