@@ -29,7 +29,8 @@ import { Input } from "@/components/ui/input";
 const playerSchema = z.object({
   name: z.string().min(2, "Player name is required"),
   email: z.string().email("Invalid email"),
-  role: z.enum(["player", "gk"]),
+  position: z.string().min(2, "Player position is required"),
+  jerseyNumber: z.string().min(2, "Player jersey number is required"),
 });
 
 const formSchema = z.object({
@@ -98,7 +99,7 @@ const RegisterAsTeamPlayerForm = ({
       teamName: "",
       league: "",
       category: "",
-      players: [{ name: "", email: "", role: "player" }],
+      players: [{ name: "", email: "", position: "", jerseyNumber: "" }], 
     },
   });
 
@@ -266,7 +267,7 @@ const RegisterAsTeamPlayerForm = ({
           <h4 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] leading-[120%] font-normal text-center pb-2">
             Register As Team
           </h4>
-          <div className="h-[250px] md:h-[280px] lg:h-[320px] overflow-auto bg-white border-[2px] border-[#E7E7E7] shadow-[0px_0px_32px_0px_#0000001F] p-6 rounded-[16px]">
+          <div className="h-[250px] md:h-[280px] lg:h-[400px] overflow-auto bg-white border-[2px] border-[#E7E7E7] shadow-[0px_0px_32px_0px_#0000001F] p-6 rounded-[16px]">
             {/* <h4 className="text-xl md:text-2xl lg:text-3xl text-[#131313] leading-[120%] font-normal text-center pb-6">Personal Information</h4> */}
             <Form {...form}>
               <form
@@ -404,40 +405,6 @@ const RegisterAsTeamPlayerForm = ({
                     </FormItem>
                   )}
                 />
-                {/* <FormField
-                  control={form.control}
-                  name="league"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-base text-[#424242] leading-[150%] font-normal">
-                        Which league do you play?
-                      </FormLabel>
-                      <FormControl>
-                        <Select
-                          onValueChange={field.onChange}
-                          value={field.value}
-                        >
-                          <SelectTrigger className="w-full h-[42px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
-                            <SelectValue placeholder="Select League" />
-                          </SelectTrigger>
-                          <SelectContent className="h-[200px] overflow-y-auto">
-                            <SelectItem value="nwsl">NWSL</SelectItem>
-                            <SelectItem value="ecnl">ECNL</SelectItem>
-                            <SelectItem value="usl super league">USL Super League</SelectItem>
-                            <SelectItem value="travel">Travel</SelectItem>
-                            <SelectItem value="ecnl rl">ECNL RL</SelectItem>
-                            <SelectItem value="mls next">MLS NEXT</SelectItem>
-                            <SelectItem value="npl">NPL</SelectItem>
-                            <SelectItem value="pdl">PDL</SelectItem>
-                            <SelectItem value="upsl">UPSL</SelectItem>
-                            <SelectItem value="usl academy">USL Academy</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </FormControl>
-                      <FormMessage className="text-red-500" />
-                    </FormItem>
-                  )}
-                /> */}
 
                 <FormField
                   control={form.control}
@@ -512,29 +479,42 @@ const RegisterAsTeamPlayerForm = ({
                         )}
                       />
 
-                      <FormField
+                       <FormField
                         control={form.control}
-                        name={`players.${index}.role`}
+                        name={`players.${index}.position`}
                         render={({ field }) => (
                           <FormItem>
-                            <Select
-                              onValueChange={field.onChange}
-                              value={field.value}
-                            >
-                              <FormControl>
-                                <SelectTrigger className="h-[44px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] ">
-                                  <SelectValue placeholder="Select role" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent>
-                                <SelectItem value="player">Player</SelectItem>
-                                <SelectItem value="gk">Goalkeeper</SelectItem>
-                              </SelectContent>
-                            </Select>
+                            <FormControl>
+                              <Input
+                                className="h-[44px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] "
+                                placeholder="Player Position"
+                                {...field}
+                              />
+                            </FormControl>
                             <FormMessage className="text-red-500" />
                           </FormItem>
                         )}
                       />
+
+                      <FormField
+                        control={form.control}
+                        name={`players.${index}.jerseyNumber`}
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                className="h-[44px] text-base leading-[120%] text-[#131313] font-normal border border-[#6C6C6C] rounded-[8px] placeholder:text-[#929292] "
+                                type="string"
+                                placeholder="Player Jersey Number"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage className="text-red-500" />
+                          </FormItem>
+                        )}
+                      />
+
+                     
 
                       {fields.length > 1 && (
                         <button
@@ -553,7 +533,7 @@ const RegisterAsTeamPlayerForm = ({
                       type="button"
                       disabled={playerCount >= 15}
                       onClick={() =>
-                        append({ name: "", email: "", role: "player" })
+                        append({ name: "", email: "", position: "", jerseyNumber: "" })
                       }
                       className="flex items-center gap-2 text-green-700 text-base font-semibold disabled:text-[#8E8E8E] disabled:cursor-not-allowed"
                     >
