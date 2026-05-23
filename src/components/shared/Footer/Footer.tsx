@@ -156,7 +156,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="container w-full flex items-center justify-between gap-6 pb-6 md:pb-2">
+      <div className="container w-full flex items-center justify-center gap-6 pb-6 md:pb-2">
         {/*brand Logo */}
         <Link
           href="https://geniusdatasport.com"
