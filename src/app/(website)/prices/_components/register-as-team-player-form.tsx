@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, useFieldArray } from "react-hook-form";
 import { z } from "zod";
 import { Loader2, LockKeyhole, Plus, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Select,
   SelectContent,
@@ -111,6 +111,18 @@ const RegisterAsTeamPlayerForm = ({
   const playersNeeded = Math.max(0, 10 - playerCount);
   const isMinimumPlayersMet = playerCount >= 10;
 
+  const calculatedSubscriptionPrice = subscriptionPrice * playerCount;
+
+  console.log("Calculated Subscription Price:", calculatedSubscriptionPrice);
+
+  useEffect(() => {
+    if (appliedCouponCode) {
+      setAppliedCouponCode(null);
+      setPriceSummary(null);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [playerCount]);
+
   const { mutate, isPending } = useMutation({
     mutationKey: ["team-payment"],
     mutationFn: async ({
@@ -209,7 +221,7 @@ const RegisterAsTeamPlayerForm = ({
           },
           body: JSON.stringify({
             code: trimmedCode,
-            originalPrice: subscriptionPrice,
+            originalPrice: calculatedSubscriptionPrice,
             paymentType: subscriptionPaymentType,
           }),
         },
@@ -246,8 +258,8 @@ const RegisterAsTeamPlayerForm = ({
     });
   }
 
-  const originalPrice = priceSummary?.originalPrice ?? subscriptionPrice;
-  const totalPrice = priceSummary?.discountedPrice ?? subscriptionPrice;
+  const originalPrice = priceSummary?.originalPrice ?? calculatedSubscriptionPrice;
+  const totalPrice = priceSummary?.discountedPrice ?? calculatedSubscriptionPrice;
   const savedAmount = priceSummary?.savedAmount ?? 0;
   const hasDiscount = !!priceSummary && savedAmount > 0;
   return (
