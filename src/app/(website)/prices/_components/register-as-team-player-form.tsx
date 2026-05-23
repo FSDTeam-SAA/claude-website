@@ -27,10 +27,10 @@ import {
 import { Input } from "@/components/ui/input";
 
 const playerSchema = z.object({
-  name: z.string().min(2, "Player name is required"),
+  name: z.string().min(1, "Player name is required"),
   email: z.string().email("Invalid email"),
-  position: z.string().min(2, "Player position is required"),
-  jerseyNumber: z.string().min(2, "Player jersey number is required"),
+  position: z.string().min(1, "Player position is required"),
+  jerseyNumber: z.string().min(1, "Player jersey number is required"),
 });
 
 const formSchema = z.object({
