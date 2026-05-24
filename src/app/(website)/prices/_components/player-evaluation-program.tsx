@@ -73,8 +73,9 @@ const PlayerEvaluationProgram = () => {
     <div id="player-evaluation-program" className="scroll-mt-28 bg_color py-7 md:py-16 lg:py-24">
       <div className="container ">
         <h3 className="text-2xl md:text-3xl lg:text-[40px] text-primary h_underline leading-[120%] font-normal text-center">
-          Player Evaluation Program
+          Player Evaluation Program May 29th & 30th
         </h3>
+
 
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 pt-2 md:pt-9 lg:pt-12">
           {subscriptionData?.map((item) => {

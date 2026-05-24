@@ -8,6 +8,7 @@ import ErrorContainer from "@/components/shared/ErrorContainer/ErrorContainer";
 import { UserProfile } from "./player-data-type";
 import ProfileFollow from "./profile-follow";
 import SocialShareContent from "@/components/ui/social-share-content";
+// import { Eye } from "lucide-react";
 
 const PlayerInfo = ({
   data,
@@ -51,7 +52,7 @@ const PlayerInfo = ({
         <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
 
         {/* Left side - unchanged */}
-        <div className="md:col-span-1 w-full flex flex-col justify-center items-center">
+        <div className="md:col-span-1 w-full flex flex-col justify-start items-center">
           <Image
             src={personalInfo?.profileImage || "/assets/images/no-user.jpg"}
             alt={personalInfo?.firstName || "profile image"}
@@ -71,6 +72,9 @@ const PlayerInfo = ({
                 id={personalInfo?._id}
                 followers={personalInfo?.followers}
               />
+              {/* <button className="w-full h-[40px] bg-primary flex items-center justify-center gap-2 rounded-full text-base md:text-lg font-medium text-white px-6">
+                <Eye className="w-6 h-6"/> 10
+              </button> */}
             </div>
           </div>
         </div>
