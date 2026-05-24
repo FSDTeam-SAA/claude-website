@@ -144,7 +144,7 @@ const BgFooter = () => {
         </Link>
 
         {/*brand Logo */}
-        <Link href="#" target="_blank">
+        <Link href="https://www.soccerpremierleague.us" target="_blank">
           <Image
             src="/assets/images/spl.png"
             alt="logo"
