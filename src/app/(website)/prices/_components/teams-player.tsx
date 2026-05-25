@@ -108,7 +108,7 @@ const TeamsPlayer = () => {
                     <span className="text-sm font-normal"> / player</span>
                   </h4>
 
-                  <p className="flex items-center justify-center gap-2 text-sm text-[#131313] py-4">
+                  <p className="flex items-start md:items-center justify-center gap-2 text-sm text-[#131313] py-4">
                     <CircleCheckBig className="w-4 h-4 text-green-600" />
                     {item?.description}
                   </p>
