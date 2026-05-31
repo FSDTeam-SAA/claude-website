@@ -105,6 +105,18 @@ const POSITION_IMAGES: Record<string, string> = {
   "lw-striker": "/assets/grounds/lw_st.png",
   "lw-10": "/assets/grounds/lw_10.png",
 
+  "lb-aml": "/assets/grounds/lb_aml.png",
+  "lb-amr": "/assets/grounds/lb_amr.png",
+  "lb-cbl": "/assets/grounds/lb_cbl.png",
+  "lb-cbr": "/assets/grounds/lb_cbr.png",
+  "lb-cm": "/assets/grounds/lb_cm.png",
+  "lb-lw": "/assets/grounds/lb_lb.png",
+  "lb-gk": "/assets/grounds/lb_gk.png",
+  "lb-rb": "/assets/grounds/lb_rb.png",
+  "lb-rw": "/assets/grounds/lb_rw.png",
+  "lb-striker": "/assets/grounds/lb_st.png",
+  "lb-10": "/assets/grounds/lb_10.png",
+
   "rb-aml": "/assets/grounds/rb_aml.png",
   "rb-amr": "/assets/grounds/rb_amr.png",
   "rb-cbl": "/assets/grounds/rb_cbl.png",
