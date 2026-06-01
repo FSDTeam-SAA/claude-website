@@ -12,7 +12,7 @@ const HowToBook = () => {
   const isLogin = session?.data?.user?.accessToken;
       const cookie = parseCookies()[COOKIE_NAME];
           const lang = cookie?.split("/")?.[2] || "en";
-          console.log( "language", lang)
+          // console.log( "language", lang)
 
   const missionData = [
     {
