@@ -37,7 +37,7 @@ const HowToBook = () => {
     {
       id: 4,
       img: "/assets/images/home_page/htb4.svg",
-      title: "Send us your game video",
+      title: "Upload and send us your game",
       step: "4",
     },
   ];
