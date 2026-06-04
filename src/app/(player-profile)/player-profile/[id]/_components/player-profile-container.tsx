@@ -29,11 +29,11 @@ const PlayerProfileContainer = ({id}:{id:string}) => {
         },
     })
 
-    console.log(data)
+    console.log(data )
 
     const playerRole =   data?.data?.user?.role;
 
-    console.log(playerRole)
+    // console.log(playerRole)
 
   return (
     <div className='bg-white'>
@@ -119,7 +119,7 @@ const PlayerProfileContainer = ({id}:{id:string}) => {
 
       {/* similar players  */}
       <section>
-        <SimilarPlayers data={data?.data } isLoading={isLoading} error={error} isError={isError} />
+        <SimilarPlayers id={data?.data?.user?._id || ""} />
       </section>
 
       
