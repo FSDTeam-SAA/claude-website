@@ -21,7 +21,7 @@ export interface UserProfile {
   transferHistory: TransferHistory[]
   gkDistributionStats: GKDistributionStats[]
   avarageRatting: AvarageRatting 
-  semelierPlayer: SimilarPlayer[];
+  // semelierPlayer: SimilarPlayer[];
   marketValue: MarketValueItem[];
 }
 
@@ -36,25 +36,25 @@ export interface MarketValueItem {
 }
 
 
-export interface SimilarPlayer {
-  _id: string;
-  name: string;
-  profileImage: string;
+// export interface SimilarPlayer {
+//   _id: string;
+//   name: string;
+//   profileImage: string;
 
-  position: string[];
+//   position: string[];
 
-  game: number;
-  avgRating: number;
-  similarity: number;
-  nationality: string;
-  age: number;
+//   game: number;
+//   avgRating: number;
+//   similarity: number;
+//   nationality: string;
+//   age: number;
 
-  goals: number;
-  assists: number;
+//   goals: number;
+//   assists: number;
 
-  nationalTeam: NationalTeam;
-  lastTransfer: LastTransfer;
-}
+//   nationalTeam: NationalTeam;
+//   lastTransfer: LastTransfer;
+// }
 
 export interface LastTransfer {
   season: string;
