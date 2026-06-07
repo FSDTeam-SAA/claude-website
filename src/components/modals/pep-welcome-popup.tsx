@@ -1,99 +1,43 @@
 "use client";
 
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { Dialog, DialogClose, DialogOverlay, DialogPortal } from "@/components/ui/dialog";
 import Image from "next/image";
 import React from "react";
+import { X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const PepWelcomePopup = () => {
   const [open, setOpen] = React.useState(true);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent
-        className="max-h-auto w-auto gap-0 overflow-y-auto rounded-xl border-none bg-white p-0 shadow-2xl [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden [&>button]:right-0 md:[&>button]:right-3 [&>button]:top-0 md:[&>button]:top-3 [&>button]:flex [&>button]:h-9 [&>button]:w-9 [&>button]:items-center [&>button]:justify-center [&>button]:rounded-full [&>button]:bg-black/80 [&>button]:p-0 [&>button]:text-white [&>button]:opacity-100 [&>button]:ring-1 [&>button]:ring-white/50 hover:[&>button]:bg-black [&>button>svg]:h-5 [&>button>svg]:w-5"
-        aria-describedby="pep-popup-description"
-      >
-        <div className="w-full">
-          <Image
-            // src="/assets/images/popup/new_popup.png"
-            src="/assets/images/popup/new_popup.svg"
-            alt="popup"
-            width={1024}
-            height={836}
-            className="h-auto md:h-[500px] lg:h-[570px] xl:h-[620px] w-full object-contain"
-            priority
-          />
-        </div>
-      </DialogContent>
+      <DialogPortal>
+        <DialogOverlay className="bg-black/5 backdrop-blur-[0.5px]" />
+        <DialogPrimitive.Content
+          className={cn(
+            "fixed left-1/2 top-1/2 z-50 grid w-[calc(100vw-1rem)] max-w-none -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[16px] border-0 bg-white shadow-2xl outline-none sm:w-[min(calc(100vw-2rem),420px)] sm:rounded-[18px] md:w-[min(calc(100vw-3rem),430px)] lg:w-[min(calc(100vw-4rem),460px)]"
+          )}
+        >
+          <DialogClose className="absolute right-3 top-3 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/80 text-white opacity-100 ring-1 ring-white/40 transition-colors hover:bg-black focus:outline-none focus:ring-2 focus:ring-black/40">
+            <X className="h-5 w-5" />
+            <span className="sr-only">Close</span>
+          </DialogClose>
+
+          <div className="aspect-[1086/1448] h-auto w-full">
+            <Image
+              src="/assets/images/popup/new_popup.svg"
+              alt="popup"
+              width={1024}
+              height={836}
+              priority
+              className="block h-full w-full object-contain"
+            />
+          </div>
+        </DialogPrimitive.Content>
+      </DialogPortal>
     </Dialog>
   );
 };
 
 export default PepWelcomePopup;
-
-
-
-
-
-
-
-
-
-
-
-
-// "use client";
-
-// import { Dialog, DialogContent } from "@/components/ui/dialog";
-// import { useSession } from "next-auth/react";
-// import Image from "next/image";
-// import Link from "next/link";
-// import React from "react";
-
-// const PepWelcomePopup = () => {
-//   const [open, setOpen] = React.useState(true);
-
-//    const session = useSession();
-//    const isLogin = session?.data?.user?.accessToken;
-
-//   return (
-//     <Dialog open={open} onOpenChange={setOpen}>
-//       <DialogContent
-//         className="max-h-[87vh] w-[80vw] max-w-[760px] gap-0 overflow-y-auto rounded-xl border-none bg-white p-0 shadow-2xl [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden [&>button]:right-3 [&>button]:top-3 [&>button]:flex [&>button]:h-9 [&>button]:w-9 [&>button]:items-center [&>button]:justify-center [&>button]:rounded-full [&>button]:bg-black/80 [&>button]:p-0 [&>button]:text-white [&>button]:opacity-100 [&>button]:ring-1 [&>button]:ring-white/50 hover:[&>button]:bg-black [&>button>svg]:h-5 [&>button>svg]:w-5"
-//         aria-describedby="pep-popup-description"
-//       >
-//         <div className="w-full">
-//           <Image
-//             src="/assets/images/pep/popup_1.svg"
-//             alt="Tryouts banner"
-//             width={1024}
-//             height={1536}
-//             className="block h-auto w-full"
-//             priority
-//           />
-//         </div>
-
-//         <div className="relative w-full">
-//           <Image
-//             src="/assets/images/pep/popup_2.svg"
-//             alt="Tryouts schedule"
-//             width={1024}
-//             height={1536}
-//             className="block h-auto w-full"
-//           />
-
-//           <div className="absolute inset-x-0 bottom-[6.5%] flex justify-center px-4">
-//             <Link
-//                  href={`${isLogin ? "/prices#combine-june" : "/sign-up"}`}
-//               className="inline-flex h-8 min-w-[140px] items-center justify-center rounded-full bg-primary px-6 py-1 text-sm font-semibold text-black transition-opacity hover:opacity-90 md:h-12 md:min-w-[180px] md:px-8 md:py-2 md:text-base lg:py-3"
-//             >
-//               Reserve your spot
-//             </Link>
-//           </div>
-//         </div>
-//       </DialogContent>
-//     </Dialog>
-//   );
-// };
-
-// export default PepWelcomePopup;
