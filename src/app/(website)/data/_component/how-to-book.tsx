@@ -37,7 +37,8 @@ const HowToBook = () => {
     {
       id: 4,
       img: "/assets/images/home_page/htb4.svg",
-      title: "Upload and send us your game",
+      title: `${lang === "fr" ? "Télécharger et envoyer-nous votre vidéo" : "Download and send us your video"}`,
+      // title: "Upload and send us your game",
       step: "4",
     },
   ];

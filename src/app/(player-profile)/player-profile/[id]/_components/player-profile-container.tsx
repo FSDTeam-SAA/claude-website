@@ -7,7 +7,7 @@ import GroundField from './ground-field'
 import NationalTeam from './national-team-career'
 import TransferHistory from './transfer-history'
 import DefensiveStats from './defensive-stats'
-import Fouls from './fouls'
+// import Fouls from './fouls'
 import LastPlayerReport from './last-player-report'
 import HighlightsVideo from './highlights-video'
 import { useQuery } from '@tanstack/react-query'
@@ -15,7 +15,7 @@ import { UserProfileApiResponse } from './player-data-type'
 import AttackingStats from './attacking-stats'
 import DistributionGkStats from './distribution-gk-stats'
 import DistributionPlayerStats from './distribution-player-stats'
-import SetPieces from './set-pieces'
+// import SetPieces from './set-pieces'
 import GkStats from './gk-stats'
 import SimilarPlayers from './similar-players'
 
@@ -90,20 +90,20 @@ const PlayerProfileContainer = ({id}:{id:string}) => {
       </section>
 
       {/* set pieces section  */}
-      <section>
+      {/* <section>
         {
           playerRole == "player" && <SetPieces data={data?.data } isLoading={isLoading} error={error} isError={isError} />
         }
         
-      </section>
+      </section> */}
 
       {/* fouls section  */}
-      <section>
+      {/* <section>
         {
           playerRole == "player" && <Fouls data={data?.data } isLoading={isLoading} error={error} isError={isError} />
         }
         
-      </section>
+      </section> */}
 
       
 
