@@ -23,7 +23,7 @@ const ContactInformation = () => {
                             </div>
                             <div>
                                 <h4 className='text-base lg:text-lg font-normal leading-[120%] text-[#131313]'>Phone Number</h4>
-                                <p className='text-sm lg:text-base leading-[150%] text-[#616161] font-normal'>+1 954 549 6906</p>
+                                <p className='text-sm lg:text-base leading-[150%] text-[#616161] font-normal'>+1 561 724 1119</p>
                                 <p className='text-sm lg:text-base leading-[150%] text-[#616161] font-normal'>+1 786 543 6418</p>
                             </div>
                         </div>
