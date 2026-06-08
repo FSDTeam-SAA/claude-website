@@ -31,7 +31,7 @@ const HowOurAnalytics = () => {
 
   return (
     <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[750px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
-      <div className="relative z-10 px-4 md:px-8 lg:px-12 w-full max-w-[1140px] mx-auto">
+      <div className="relative z-10 px-3 sm:px-4 md:px-8 lg:px-12 w-full max-w-[1140px] mx-auto">
         <h1 className="text-2xl md:text-4xl lg:text-5xl  font-bold text-primary mb-8 md:mb-12 leading-tight">
           How Our Analytics Process Works ?
         </h1>
@@ -50,16 +50,16 @@ const HowOurAnalytics = () => {
                     alt={item?.title}
                     width={200}
                     height={200}
-                    className="w-auto h-[80px] md:h-[100px] object-contain"
+                    className="w-auto h-[90px] md:h-[100px] object-contain"
                   />
                 </div>
 
                 {/* Text Content */}
                 <div className="flex-grow text-left">
-                  <h2 className={`${lang === "fr" ? "text-sm md:text-2xl" : lang === "es" ? "text-sm md:text-2xl lg:text-3xl" : "text-sm md:text-2xl"}   font-bold text-primary mb-1 md:mb-3`}>
+                  <h2 className={`${lang === "fr" ? "text-[11px] md:text-sm lg:text-2xl" : lang === "es" ? "text-xs md:text-sm lg:text-2xl xl:text-3xl" : "text-xs md:text-sm lg:text-2xl"}   font-bold leading-normal text-primary mb-[2px] md:mb-1 lg:mb-3`}>
                     {item?.title}
                   </h2>
-                  <p className="text-white text-[10px] md:text-base lg:text-lg font-medium opacity-90 leading-tight">
+                  <p className="text-white text-[9px] md:text-[10px] lg:text-base xl:text-lg font-medium opacity-90 leading-tight">
                     {item?.desc}
                   </p>
                 </div>
