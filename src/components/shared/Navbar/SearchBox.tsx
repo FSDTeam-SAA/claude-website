@@ -40,7 +40,7 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
     const fetchUsers = async () => {
       setIsLoading(true)
       try {
-        const res = await fetch(`${baseUrl}/user/all-user`, {
+        const res = await fetch(`${baseUrl}/user/all-user?limit=100000`, {
           headers: {
             "Content-Type": "application/json",
             // ...(token && { Authorization: `Bearer ${token}` }),
@@ -76,7 +76,7 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
 
       try {
         const res = await fetch(
-          `${baseUrl}/user/all-user?searchTerm=${encodeURIComponent(searchTerm)}`,
+          `${baseUrl}/user/all-user?searchTerm=${encodeURIComponent(searchTerm)}&limit=100000`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -126,9 +126,7 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
     setFilteredUsers([])
   }
 
-  const displayUsers = searchTerm.trim()
-    ? filteredUsers
-    : users.slice(0, 5)
+  const displayUsers = searchTerm.trim() ? filteredUsers : users
 
   /* ----------------------------------
      UI
@@ -206,6 +204,5 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
 }
 
 export default SearchBox
-
 
 
