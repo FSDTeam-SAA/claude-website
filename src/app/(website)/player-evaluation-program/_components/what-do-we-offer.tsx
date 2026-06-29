@@ -10,22 +10,22 @@ const evaluationAreas = [
   {
     title: "Tactical",
     side: "right",
-    img: "/assets/images/pep/wdwo2.svg",
+    img: "/assets/images/pep/wdwo4.svg",
   },
   {
     title: "Dietetic",
     side: "left",
-    img: "/assets/images/pep/wdwo3.svg",
+    img: "/assets/images/pep/wdwo2.svg",
   },
   {
     title: "Physical",
     side: "right",
-    img: "/assets/images/pep/wdwo4.svg",
+    img: "/assets/images/pep/wdwo5.svg",
   },
   {
     title: "Family & Environment",
     side: "left",
-    img: "/assets/images/pep/wdwo5.svg",
+    img: "/assets/images/pep/wdwo3.svg",
   },
   {
     title: "Psychological & Mental",
@@ -46,8 +46,9 @@ const WhatDoWeOffer = () => {
             The 360° Player Evaluation
           </h3>
           <p className="text-white text-xs md:text-base lg:text-lg xl:text-2xl max-w-[1200px] text-center md:text-left opacity-100 leading-normal font-medium px-2">
-            We build a complete, multifactorial profile that sees the whole player, not just a single skill.
-            No more bias, no more random opinions. The data will show exactly where you stand.
+            We build a complete, multifactorial profile that sees the whole
+            player, not just a single skill. No more bias, no more random
+            opinions. The data will show exactly where you stand.
           </p>
         </div>
 
@@ -60,7 +61,9 @@ const WhatDoWeOffer = () => {
                 ${area.side === "left" ? "flex-row col-start-1" : "flex-row-reverse col-start-3"}
               `}
             >
-              <div className={`flex flex-col flex-1 px-1 md:px-2 min-w-0 ${area.side === "left" ? "text-left" : "text-left md:text-right"}`}>
+              <div
+                className={`flex flex-col flex-1 px-1 md:px-2 min-w-0 ${area.side === "left" ? "text-left" : "text-left md:text-right"}`}
+              >
                 <span className="text-black font-medium text-[10px] md:text-xl lg:text-2xl xl:text-3xl leading-normal capitalize">
                   {area.title}
                 </span>
