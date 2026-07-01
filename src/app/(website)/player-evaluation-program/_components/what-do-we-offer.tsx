@@ -32,6 +32,16 @@ const evaluationAreas = [
     side: "right",
     img: "/assets/images/pep/wdwo6.svg",
   },
+    {
+    title: "Personal evaluation",
+    side: "left",
+    img: "/assets/images/pep/wdwo3.svg",
+  },
+  {
+    title: "Game evaluation",
+    side: "right",
+    img: "/assets/images/pep/wdwo6.svg",
+  },
 ];
 
 const WhatDoWeOffer = () => {
@@ -50,11 +60,6 @@ const WhatDoWeOffer = () => {
             player, not just a single skill. No more bias, no more random
             opinions. The data will show exactly where you stand.
           </p>
-             {/* <p className="text-white text-xs md:text-base lg:text-lg xl:text-2xl max-w-[1200px] text-center md:text-left opacity-100 leading-normal font-medium px-2">
-            We build a complete, multifactorial profile that sees the whole
-            player, not just a single skill. No more bias, no more random
-            opinions. The data will show exactly where you stand.
-          </p> */}
         </div>
 
         <div className="grid grid-cols-3 gap-x-1.5 sm:gap-x-2 md:gap-x-0 gap-y-3 sm:gap-y-4 md:gap-y-6 items-center w-full max-w-[1100px] mx-auto pt-3">
@@ -74,7 +79,7 @@ const WhatDoWeOffer = () => {
                 </span>
               </div>
 
-              <div className="shrink-0 w-6 h-6 sm:w-8 sm:h-8 md:w-14 md:h-14 lg:w-20 xl:w-32 lg:h-20 xl:h-32 relative">
+              <div className="shrink-0 w-6 h-6 sm:w-8 sm:h-8 md:w-14 md:h-14 lg:w-20 xl:w-24 lg:h-20 xl:h-24 relative">
                 <Image
                   src={area.img}
                   alt={area.title}

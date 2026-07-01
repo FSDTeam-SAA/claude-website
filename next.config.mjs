@@ -1,10 +1,8 @@
-import { createRequire } from 'module';
 
-const require = createRequire(import.meta.url);
 
 const nextConfig = {
   images: {
-    domains: ["example.com", "res.cloudinary.com", "res.cloudinary.com", "avatar.iran.liara.run"],
+    domains: ["example.com", "res.cloudinary.com", "avatar.iran.liara.run"],
     remotePatterns: [
       {
         protocol: "https",
