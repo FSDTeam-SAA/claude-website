@@ -31,7 +31,7 @@ const PepHero = () => {
             <p className="text-white text-xs md:text-xl lg:text-2xl font-medium leading-tight">
               A Modern Approach to Talent Development
             </p>
-            <p className="text-white text-xs md:text-xl lg:text-2xl font-medium leading-tight">
+            <p className="text-primary text-xs md:text-xl lg:text-2xl font-medium leading-tight">
               From U9 to U18
             </p>
           </div>
