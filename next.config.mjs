@@ -1,8 +1,18 @@
+<<<<<<< kongkon
 
 
 const nextConfig = {
   images: {
     domains: ["example.com", "res.cloudinary.com", "avatar.iran.liara.run"],
+=======
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
+
+const nextConfig = {
+  images: {
+    domains: ["example.com", "res.cloudinary.com", "res.cloudinary.com", "avatar.iran.liara.run"],
+>>>>>>> main
     remotePatterns: [
       {
         protocol: "https",
