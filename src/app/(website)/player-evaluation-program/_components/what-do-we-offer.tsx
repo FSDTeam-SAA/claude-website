@@ -46,9 +46,9 @@ const evaluationAreas = [
 
 const WhatDoWeOffer = () => {
   return (
-    <section className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/pep/sm_wdwo_bg.svg')] md:bg-[url('/assets/images/pep/lg_wdwo_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[680px] xl:h-[760px] py-16 md:py-7 lg:py-8 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col items-center">
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-2 md:px-12 flex flex-col h-full">
-        <div className="text-center mb-8 md:mb-5 lg:mb-9 xl:mb-6 mt-0 lg:mt-4 xl:mt-0">
+    <section className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/pep/sm_wdwo_bg.png')] md:bg-[url('/assets/images/pep/lg_wdwo_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[680px] xl:h-[760px] py-16 md:py-7 lg:py-8 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-[1300px] mx-auto px-2 md:px-12 flex flex-col h-full">
+        <div className="text-center mb-8 md:mb-5 lg:mb-9 xl:mb-6 mt-8 lg:mt-4 xl:mt-0">
           <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-6xl font-medium text-primary md:text-white leading-normal">
             What Do We Offer
           </h2>
@@ -62,12 +62,12 @@ const WhatDoWeOffer = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-x-1.5 sm:gap-x-2 md:gap-x-0 gap-y-3 sm:gap-y-4 md:gap-y-6 items-center w-full max-w-[1100px] mx-auto pt-3">
-          {evaluationAreas.map((area, index) => (
+        <div className="grid grid-cols-3 gap-x-1.5 sm:gap-x-2 md:gap-x-0 gap-y-2 sm:gap-y-3 md:gap-y-4 items-center w-full max-w-[1300px] mx-auto pt-1 md:pt-3">
+          {evaluationAreas?.map((area, index) => (
             <div
               key={index}
               className={`
-                relative bg-white rounded-[10px] md:rounded-[25px] p-1 flex items-center shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300
+                relative bg-white rounded-[10px] md:rounded-[25px] px-1.5 md:px-2 py-1.5 flex items-center shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300
                 ${area.side === "left" ? "flex-row col-start-1" : "flex-row-reverse col-start-3"}
               `}
             >
@@ -79,7 +79,7 @@ const WhatDoWeOffer = () => {
                 </span>
               </div>
 
-              <div className="shrink-0 w-6 h-6 sm:w-8 sm:h-8 md:w-14 md:h-14 lg:w-20 xl:w-24 lg:h-20 xl:h-24 relative">
+              <div className="shrink-0 w-6 h-6 sm:w-8 sm:h-8 md:w-14 md:h-14 lg:w-20 xl:w-20 lg:h-20 xl:h-20 relative">
                 <Image
                   src={area.img}
                   alt={area.title}
