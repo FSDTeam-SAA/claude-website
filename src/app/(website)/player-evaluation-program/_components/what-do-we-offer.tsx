@@ -35,12 +35,12 @@ const evaluationAreas = [
     {
     title: "Personal evaluation",
     side: "left",
-    img: "/assets/images/pep/wdwo3.svg",
+    img: "/assets/images/pep/wdwo7.svg",
   },
   {
     title: "Game evaluation",
     side: "right",
-    img: "/assets/images/pep/wdwo6.svg",
+    img: "/assets/images/pep/wdwo8.svg",
   },
 ];
 
@@ -74,8 +74,8 @@ const WhatDoWeOffer = () => {
               <div
                 className={`flex flex-col flex-1 px-1 md:px-2 min-w-0 ${area.side === "left" ? "text-left" : "text-left md:text-right"}`}
               >
-                <span className="text-black font-medium text-[10px] md:text-xl lg:text-2xl xl:text-3xl leading-normal capitalize">
-                  {area.title}
+                <span className="text-black font-medium text-[10px] md:text-xl lg:text-2xl xl:text-[28px] leading-normal capitalize">
+                  {area?.title}
                 </span>
               </div>
 
