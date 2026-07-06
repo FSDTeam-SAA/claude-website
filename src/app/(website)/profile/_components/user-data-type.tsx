@@ -63,7 +63,7 @@ export interface User {
   currentClub: string | null;
 
   dob: string | null; // ISO string
-  age: number;
+  // age: number;
 
   foot: "left" | "right" | "both";
   gender: "male" | "female" | "other";

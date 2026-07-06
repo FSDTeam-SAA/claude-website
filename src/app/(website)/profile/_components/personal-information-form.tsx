@@ -91,7 +91,7 @@ const formSchema = z
     currentClub: z.string().trim().min(2, {
       message: "Current Club must be at least 2 characters.",
     }),
-    age: z.number().min(1, { message: "Age must be at least 1" }),
+    dob: z.string().min(1, { message: "Age must be at least 1" }),
     // dob: z
     //   .date()
     //   .nullable()
@@ -243,7 +243,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
       position: user?.position || [],
       birthdayPlace: user?.birthdayPlace || "",
       // dob: user?.dob ? new Date(user.dob) : null,
-      age: user?.age || 0,
+      dob: user?.dob || "",
       inSchoolOrCollege:
         user?.inSchoolOrCollege === true
           ? "yes"
@@ -295,6 +295,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
       citizenship: values.citizenship?.trim(),
       nationality: values.nationality?.trim(),
       currentClub: values.currentClub?.trim(),
+      age: Number(values.dob), // Convert dob to a number for age
     };
 
     mutate(cleanedValues);
@@ -624,23 +625,18 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
 
               <FormField
                 control={form.control}
-                name="age"
+                name="dob"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
                       Age
                     </FormLabel>
 
-                    <FormControl>
+                     <FormControl>
                       <Input
-                        type="number"
-                        placeholder="Enter Age"
-                        value={field.value ?? ""}
-                        onChange={(e) =>
-                          field.onChange(
-                            e.target.value === "" ? 0 : Number(e.target.value),
-                          )
-                        }
+                        className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]"
+                        placeholder="Enter Jersey Number"
+                        {...field}
                       />
                     </FormControl>
 
