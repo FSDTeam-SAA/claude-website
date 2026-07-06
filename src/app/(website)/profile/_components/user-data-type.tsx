@@ -62,7 +62,7 @@ export interface User {
   citizenship: string | null;
   currentClub: string | null;
 
-  dob: string; // ISO string
+  dob: string | null; // ISO string
   age: number;
 
   foot: "left" | "right" | "both";

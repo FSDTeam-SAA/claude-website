@@ -31,9 +31,14 @@ import {
 import { useSession } from "next-auth/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { format } from "date-fns";
-import { CalendarIcon, X } from "lucide-react";
-import { Calendar } from "@/components/ui/calendar";
+
+
+// import { format } from "date-fns";
+// import { Calendar } from "@/components/ui/calendar";
+
+import {  X } from "lucide-react";
+
+
 import { User } from "./user-data-type";
 
 const socialMediaNameEnum = z.enum([
@@ -58,7 +63,7 @@ const formSchema = z
     phoneCode: z.string().optional(),
     phone: z.string().optional(),
     jerseyNumber: z.string().min(1, {
-      message: "Jersey Number must be at least 1 characters.",
+      message: "Jersey Number must be at least 1 number.",
     }),
     email: z.string().min(2, {
       message: "Email must be at least 2 characters.",
@@ -88,13 +93,15 @@ const formSchema = z
     currentClub: z.string().trim().min(2, {
       message: "Current Club must be at least 2 characters.",
     }),
-    // dob: z.date().nullable(),
-    dob: z
-      .date()
-      .nullable()
-      .refine((val) => val !== null, {
-        message: "Date of Birth is required",
-      }),
+    dob: z.string().min(1, {
+      message: "Age must be at least 1 character.",
+    }),
+    // dob: z
+    //   .date()
+    //   .nullable()
+    //   .refine((val) => val !== null, {
+    //     message: "Date of Birth is required",
+    //   }),
 
     birthdayPlace: z.string().min(2, {
       message: "Place Of Birth must be at least 2 characters.",
@@ -118,7 +125,7 @@ const formSchema = z
       .max(2, "Maximum 2 positions"),
     inSchoolOrCollege: z.enum(["yes", "no"], {
       message: "Please select if you are in school/college.",
-    }),
+    }).optional(),
     institute: z.string().optional(),
     gpa: z.string().optional(),
   })
@@ -248,7 +255,8 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
       foot: user?.foot || "",
       position: user?.position || [],
       birthdayPlace: user?.birthdayPlace || "",
-      dob: user?.dob ? new Date(user.dob) : null,
+      // dob: user?.dob ? new Date(user.dob) : null,
+      dob: user?.dob || "",
       inSchoolOrCollege:
         user?.inSchoolOrCollege === true
           ? "yes"
@@ -629,10 +637,18 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Date of Birth
+                      Age
                     </FormLabel>
 
-                    <Popover>
+                      <FormControl>
+                      <Input
+                        className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]"
+                        placeholder="Enter Age"
+                        {...field}
+                      />
+                    </FormControl>
+
+                    {/* <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
                           <Button
@@ -664,7 +680,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                           initialFocus
                         />
                       </PopoverContent>
-                    </Popover>
+                    </Popover> */}
 
                     <FormMessage className="text-red-500" />
                   </FormItem>
