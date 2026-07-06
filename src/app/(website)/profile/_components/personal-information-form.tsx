@@ -32,12 +32,10 @@ import { useSession } from "next-auth/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 
-
 // import { format } from "date-fns";
 // import { Calendar } from "@/components/ui/calendar";
 
-import {  X } from "lucide-react";
-
+import { X } from "lucide-react";
 
 import { User } from "./user-data-type";
 
@@ -93,9 +91,7 @@ const formSchema = z
     currentClub: z.string().trim().min(2, {
       message: "Current Club must be at least 2 characters.",
     }),
-    dob: z.string().min(1, {
-      message: "Age must be at least 1 character.",
-    }),
+    age: z.number().min(1, { message: "Age must be at least 1" }),
     // dob: z
     //   .date()
     //   .nullable()
@@ -123,24 +119,15 @@ const formSchema = z
       .array(z.string())
       .min(1, "Select at least one position")
       .max(2, "Maximum 2 positions"),
-    inSchoolOrCollege: z.enum(["yes", "no"], {
-      message: "Please select if you are in school/college.",
-    }).optional(),
+    inSchoolOrCollege: z
+      .enum(["yes", "no"], {
+        message: "Please select if you are in school/college.",
+      })
+      .optional(),
     institute: z.string().optional(),
     gpa: z.string().optional(),
   })
   .superRefine((data, ctx) => {
-    // ✅ School Name required ONLY if yes
-    if (data.inSchoolOrCollege === "yes") {
-      if (!data.schoolName || data.schoolName.trim().length === 0) {
-        ctx.addIssue({
-          path: ["schoolName"],
-          message: "School Name is required",
-          code: z.ZodIssueCode.custom,
-        });
-      }
-    }
-
     // ✅ Institute required if yes
     if (data.inSchoolOrCollege === "yes") {
       if (!data.institute) {
@@ -238,14 +225,14 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
       schoolName: user?.schoolName || "",
       socialMedia: user?.socialMedia
         ? user.socialMedia.map((item) => ({
-          name: item.name as
-            | "Facebook"
-            | "Instagram"
-            | "Twitter"
-            | "YouTube"
-            | "TikTok",
-          url: item.url,
-        }))
+            name: item.name as
+              | "Facebook"
+              | "Instagram"
+              | "Twitter"
+              | "YouTube"
+              | "TikTok",
+            url: item.url,
+          }))
         : [],
       citizenship: user?.citizenship?.trim() || "",
       nationality: user?.nationality?.trim() || "",
@@ -256,7 +243,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
       position: user?.position || [],
       birthdayPlace: user?.birthdayPlace || "",
       // dob: user?.dob ? new Date(user.dob) : null,
-      dob: user?.dob || "",
+      age: user?.age || 0,
       inSchoolOrCollege:
         user?.inSchoolOrCollege === true
           ? "yes"
@@ -314,7 +301,11 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
   }
 
   return (
-    <div className="notranslate" translate="no" data-google-translate-ignore="true">
+    <div
+      className="notranslate"
+      translate="no"
+      data-google-translate-ignore="true"
+    >
       <div className="pt-6">
         <Form {...form}>
           <form
@@ -633,18 +624,23 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
 
               <FormField
                 control={form.control}
-                name="dob"
+                name="age"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
                       Age
                     </FormLabel>
 
-                      <FormControl>
+                    <FormControl>
                       <Input
-                        className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]"
+                        type="number"
                         placeholder="Enter Age"
-                        {...field}
+                        value={field.value ?? ""}
+                        onChange={(e) =>
+                          field.onChange(
+                            e.target.value === "" ? 0 : Number(e.target.value),
+                          )
+                        }
                       />
                     </FormControl>
 
@@ -750,7 +746,6 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
-
               <FormField
                 control={form.control}
                 name="league"
@@ -845,8 +840,6 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                   </FormItem>
                 )}
               /> */}
-
-
 
               <FormField
                 control={form.control}
@@ -975,12 +968,12 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                           >
                             {field.value?.length
                               ? field.value
-                                .map(
-                                  (v) =>
-                                    POSITIONS.find((p) => p.value === v)
-                                      ?.label,
-                                )
-                                .join(", ")
+                                  .map(
+                                    (v) =>
+                                      POSITIONS.find((p) => p.value === v)
+                                        ?.label,
+                                  )
+                                  .join(", ")
                               : "Select position"}
 
                             <span className="ml-2">▾</span>
@@ -998,10 +991,11 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                             return (
                               <label
                                 key={pos.value}
-                                className={`flex items-center gap-3 text-sm cursor-pointer ${disabled
+                                className={`flex items-center gap-3 text-sm cursor-pointer ${
+                                  disabled
                                     ? "opacity-50 cursor-not-allowed"
                                     : ""
-                                  }`}
+                                }`}
                               >
                                 <input
                                   type="checkbox"
@@ -1157,7 +1151,11 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 <FormItem className="space-y-3">
                   <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
                     Are you in Middle School or High School or
-                    College/University? <span className="text-primary">(If you are not US or Canadians resident, your answer should be NO)</span>
+                    College/University?{" "}
+                    <span className="text-primary">
+                      (If you are not US or Canadians resident, your answer
+                      should be NO)
+                    </span>
                   </FormLabel>
                   <FormControl>
                     <RadioGroup
@@ -1259,28 +1257,28 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 {["high school", "college / university"].includes(
                   form.watch("institute") ?? "",
                 ) && (
-                    <div className="md:col-span-1 -mt-9">
-                      <FormField
-                        control={form.control}
-                        name="gpa"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                              GPA
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="Enter GPA"
-                                {...field}
-                                className="w-full h-[47px] border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292]"
-                              />
-                            </FormControl>
-                            <FormMessage className="text-red-500" />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  )}
+                  <div className="md:col-span-1 -mt-9">
+                    <FormField
+                      control={form.control}
+                      name="gpa"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
+                            GPA
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Enter GPA"
+                              {...field}
+                              className="w-full h-[47px] border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292]"
+                            />
+                          </FormControl>
+                          <FormMessage className="text-red-500" />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                )}
               </div>
             )}
 
