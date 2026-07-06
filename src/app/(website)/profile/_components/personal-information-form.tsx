@@ -31,9 +31,12 @@ import {
 import { useSession } from "next-auth/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { format } from "date-fns";
-import { CalendarIcon, X } from "lucide-react";
-import { Calendar } from "@/components/ui/calendar";
+
+// import { format } from "date-fns";
+// import { Calendar } from "@/components/ui/calendar";
+
+import { X } from "lucide-react";
+
 import { User } from "./user-data-type";
 
 const socialMediaNameEnum = z.enum([
@@ -58,7 +61,7 @@ const formSchema = z
     phoneCode: z.string().optional(),
     phone: z.string().optional(),
     jerseyNumber: z.string().min(1, {
-      message: "Jersey Number must be at least 1 characters.",
+      message: "Jersey Number must be at least 1 number.",
     }),
     email: z.string().min(2, {
       message: "Email must be at least 2 characters.",
@@ -88,13 +91,13 @@ const formSchema = z
     currentClub: z.string().trim().min(2, {
       message: "Current Club must be at least 2 characters.",
     }),
-    // dob: z.date().nullable(),
-    dob: z
-      .date()
-      .nullable()
-      .refine((val) => val !== null, {
-        message: "Date of Birth is required",
-      }),
+    dob: z.string().min(1, { message: "Age must be at least 1" }),
+    // dob: z
+    //   .date()
+    //   .nullable()
+    //   .refine((val) => val !== null, {
+    //     message: "Date of Birth is required",
+    //   }),
 
     birthdayPlace: z.string().min(2, {
       message: "Place Of Birth must be at least 2 characters.",
@@ -116,24 +119,15 @@ const formSchema = z
       .array(z.string())
       .min(1, "Select at least one position")
       .max(2, "Maximum 2 positions"),
-    inSchoolOrCollege: z.enum(["yes", "no"], {
-      message: "Please select if you are in school/college.",
-    }),
+    inSchoolOrCollege: z
+      .enum(["yes", "no"], {
+        message: "Please select if you are in school/college.",
+      })
+      .optional(),
     institute: z.string().optional(),
     gpa: z.string().optional(),
   })
   .superRefine((data, ctx) => {
-    // ✅ School Name required ONLY if yes
-    if (data.inSchoolOrCollege === "yes") {
-      if (!data.schoolName || data.schoolName.trim().length === 0) {
-        ctx.addIssue({
-          path: ["schoolName"],
-          message: "School Name is required",
-          code: z.ZodIssueCode.custom,
-        });
-      }
-    }
-
     // ✅ Institute required if yes
     if (data.inSchoolOrCollege === "yes") {
       if (!data.institute) {
@@ -231,14 +225,14 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
       schoolName: user?.schoolName || "",
       socialMedia: user?.socialMedia
         ? user.socialMedia.map((item) => ({
-          name: item.name as
-            | "Facebook"
-            | "Instagram"
-            | "Twitter"
-            | "YouTube"
-            | "TikTok",
-          url: item.url,
-        }))
+            name: item.name as
+              | "Facebook"
+              | "Instagram"
+              | "Twitter"
+              | "YouTube"
+              | "TikTok",
+            url: item.url,
+          }))
         : [],
       citizenship: user?.citizenship?.trim() || "",
       nationality: user?.nationality?.trim() || "",
@@ -248,7 +242,8 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
       foot: user?.foot || "",
       position: user?.position || [],
       birthdayPlace: user?.birthdayPlace || "",
-      dob: user?.dob ? new Date(user.dob) : null,
+      // dob: user?.dob ? new Date(user.dob) : null,
+      dob: user?.dob || "",
       inSchoolOrCollege:
         user?.inSchoolOrCollege === true
           ? "yes"
@@ -300,13 +295,18 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
       citizenship: values.citizenship?.trim(),
       nationality: values.nationality?.trim(),
       currentClub: values.currentClub?.trim(),
+      age: Number(values.dob), // Convert dob to a number for age
     };
 
     mutate(cleanedValues);
   }
 
   return (
-    <div className="notranslate" translate="no" data-google-translate-ignore="true">
+    <div
+      className="notranslate"
+      translate="no"
+      data-google-translate-ignore="true"
+    >
       <div className="pt-6">
         <Form {...form}>
           <form
@@ -629,10 +629,18 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Date of Birth
+                      Age
                     </FormLabel>
 
-                    <Popover>
+                     <FormControl>
+                      <Input
+                        className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]"
+                        placeholder="Enter Jersey Number"
+                        {...field}
+                      />
+                    </FormControl>
+
+                    {/* <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
                           <Button
@@ -664,7 +672,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                           initialFocus
                         />
                       </PopoverContent>
-                    </Popover>
+                    </Popover> */}
 
                     <FormMessage className="text-red-500" />
                   </FormItem>
@@ -734,7 +742,6 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
-
               <FormField
                 control={form.control}
                 name="league"
@@ -829,8 +836,6 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                   </FormItem>
                 )}
               /> */}
-
-
 
               <FormField
                 control={form.control}
@@ -959,12 +964,12 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                           >
                             {field.value?.length
                               ? field.value
-                                .map(
-                                  (v) =>
-                                    POSITIONS.find((p) => p.value === v)
-                                      ?.label,
-                                )
-                                .join(", ")
+                                  .map(
+                                    (v) =>
+                                      POSITIONS.find((p) => p.value === v)
+                                        ?.label,
+                                  )
+                                  .join(", ")
                               : "Select position"}
 
                             <span className="ml-2">▾</span>
@@ -982,10 +987,11 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                             return (
                               <label
                                 key={pos.value}
-                                className={`flex items-center gap-3 text-sm cursor-pointer ${disabled
+                                className={`flex items-center gap-3 text-sm cursor-pointer ${
+                                  disabled
                                     ? "opacity-50 cursor-not-allowed"
                                     : ""
-                                  }`}
+                                }`}
                               >
                                 <input
                                   type="checkbox"
@@ -1141,7 +1147,11 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 <FormItem className="space-y-3">
                   <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
                     Are you in Middle School or High School or
-                    College/University? <span className="text-primary">(If you are not US or Canadians resident, your answer should be NO)</span>
+                    College/University?{" "}
+                    <span className="text-primary">
+                      (If you are not US or Canadians resident, your answer
+                      should be NO)
+                    </span>
                   </FormLabel>
                   <FormControl>
                     <RadioGroup
@@ -1243,28 +1253,28 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 {["high school", "college / university"].includes(
                   form.watch("institute") ?? "",
                 ) && (
-                    <div className="md:col-span-1 -mt-9">
-                      <FormField
-                        control={form.control}
-                        name="gpa"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                              GPA
-                            </FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="Enter GPA"
-                                {...field}
-                                className="w-full h-[47px] border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292]"
-                              />
-                            </FormControl>
-                            <FormMessage className="text-red-500" />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                  )}
+                  <div className="md:col-span-1 -mt-9">
+                    <FormField
+                      control={form.control}
+                      name="gpa"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
+                            GPA
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Enter GPA"
+                              {...field}
+                              className="w-full h-[47px] border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292]"
+                            />
+                          </FormControl>
+                          <FormMessage className="text-red-500" />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                )}
               </div>
             )}
 
