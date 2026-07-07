@@ -32,10 +32,10 @@ import { useSession } from "next-auth/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 
-// import { format } from "date-fns";
-// import { Calendar } from "@/components/ui/calendar";
+import { format } from "date-fns";
+import { Calendar } from "@/components/ui/calendar";
 
-import { X } from "lucide-react";
+import { CalendarIcon, X } from "lucide-react";
 
 import { User } from "./user-data-type";
 
@@ -91,13 +91,13 @@ const formSchema = z
     currentClub: z.string().trim().min(2, {
       message: "Current Club must be at least 2 characters.",
     }),
-    dob: z.string().min(1, { message: "Age must be at least 1" }),
-    // dob: z
-    //   .date()
-    //   .nullable()
-    //   .refine((val) => val !== null, {
-    //     message: "Date of Birth is required",
-    //   }),
+    // dob: z.string().min(1, { message: "Age must be at least 1" }),
+    dob: z
+      .date()
+      .nullable()
+      .refine((val) => val !== null, {
+        message: "Date of Birth is required",
+      }),
 
     birthdayPlace: z.string().min(2, {
       message: "Place Of Birth must be at least 2 characters.",
@@ -242,8 +242,8 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
       foot: user?.foot || "",
       position: user?.position || [],
       birthdayPlace: user?.birthdayPlace || "",
-      // dob: user?.dob ? new Date(user.dob) : null,
-      dob: user?.dob || "",
+      dob: user?.dob ? new Date(user.dob) : null,
+      // dob: user?.dob || "",
       inSchoolOrCollege:
         user?.inSchoolOrCollege === true
           ? "yes"
@@ -295,7 +295,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
       citizenship: values.citizenship?.trim(),
       nationality: values.nationality?.trim(),
       currentClub: values.currentClub?.trim(),
-      age: Number(values.dob), // Convert dob to a number for age
+      // age: Number(values.dob), 
     };
 
     mutate(cleanedValues);
@@ -632,15 +632,15 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                       Age
                     </FormLabel>
 
-                     <FormControl>
+                    {/* <FormControl>
                       <Input
                         className="w-full h-[47px]  border border-[#645949] rounded-[8px] text-[#131313] placeholder:text-[#929292] text-sm font-normal leading-[150%]"
-                        placeholder="Enter Jersey Number"
+                        placeholder="Enter Age"
                         {...field}
                       />
-                    </FormControl>
+                    </FormControl> */}
 
-                    {/* <Popover>
+                    <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
                           <Button
@@ -672,7 +672,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                           initialFocus
                         />
                       </PopoverContent>
-                    </Popover> */}
+                    </Popover>
 
                     <FormMessage className="text-red-500" />
                   </FormItem>
