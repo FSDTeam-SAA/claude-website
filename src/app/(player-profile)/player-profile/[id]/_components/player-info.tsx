@@ -1,5 +1,5 @@
 import Image from "next/image";
-import moment from "moment";
+// import moment from "moment";
 import React from "react";
 
 import RatingCard from "./rating-card";
@@ -105,9 +105,10 @@ const PlayerInfo = ({
                 Age
               </span>
               <span className="text-lg md:text-xl text-white font-semibold leading-[120%] break-words">
-                {personalInfo?.dob
+                {personalInfo?.age || 0}
+                {/* {personalInfo?.dob
                   ? `${moment(personalInfo.dob).format("DD MMM YYYY")} (${personalInfo.age || 0})`
-                  : "N/A"}
+                  : "N/A"} */}
               </span>
             </li>
 
