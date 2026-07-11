@@ -4,8 +4,8 @@ import React from 'react'
 import PlayerInfo from './player-info'
 import PlayerRating from './player-rating'
 import GroundField from './ground-field'
-import NationalTeam from './national-team-career'
-import TransferHistory from './transfer-history'
+// import NationalTeam from './national-team-career'
+// import TransferHistory from './transfer-history'
 import DefensiveStats from './defensive-stats'
 // import Fouls from './fouls'
 import LastPlayerReport from './last-player-report'
@@ -50,15 +50,15 @@ const PlayerProfileContainer = ({id}:{id:string}) => {
       </div>
 
       {/* Transfer History */}
-      <section>
+      {/* <section>
         <TransferHistory data={data?.data } isLoading={isLoading} error={error} isError={isError} />
-      </section>
+      </section> */}
 
 
       {/* national team */}
-      <section>
+      {/* <section>
         <NationalTeam data={data?.data } isLoading={isLoading} error={error} isError={isError} />
-      </section>
+      </section> */}
 
       {/* GK Stats  */}
       <section>

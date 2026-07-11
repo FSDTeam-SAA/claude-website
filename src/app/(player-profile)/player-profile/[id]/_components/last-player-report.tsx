@@ -100,7 +100,8 @@ const LastPlayerReport = ({
                   </li>
                 </ul>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 pt-5">
-                  <div>
+
+                  {/* <div>
                     <h4 className="text-xl md:text-2xl lg:text-3xl font-normal text-primary leading-[150%]">
                       Defensive summary
                     </h4>
@@ -125,7 +126,7 @@ const LastPlayerReport = ({
                     <p className="text-base md:text-lg text-white font-normal leading-[150%] pt-1">
                       {info?.distributionSummary || "N/A"}
                     </p>
-                  </div>
+                  </div> */}
 
                    <div>
                     <h4 className="text-xl md:text-2xl lg:text-3xl font-normal text-primary leading-[150%]">
