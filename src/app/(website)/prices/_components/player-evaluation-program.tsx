@@ -73,7 +73,7 @@ const PlayerEvaluationProgram = () => {
     <div id="player-evaluation-program" className="scroll-mt-28 bg_color py-7 md:py-16 lg:py-24">
       <div className="container ">
         <h3 className="text-2xl md:text-3xl lg:text-[40px] text-primary h_underline leading-normal font-normal text-center">
-          Player Evaluation Program July 10th & 11th
+          Player Evaluation Program July 24th & 25th
         </h3>
 
 
