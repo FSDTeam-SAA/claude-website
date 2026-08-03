@@ -38,6 +38,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { CalendarIcon, X } from "lucide-react";
 
 import { User } from "./user-data-type";
+import { useEffect } from "react";
 
 const socialMediaNameEnum = z.enum([
   "Facebook",
@@ -257,6 +258,54 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
 
   const inSchoolOrCollege = form.watch("inSchoolOrCollege");
 
+  // Google Translate rewrites text nodes inside the form. Letting Next.js
+  // client-side navigation unmount that rewritten tree can throw a DOM
+  // removeChild error. Use a normal document navigation for links while this
+  // translated form is mounted so the browser disposes of the tree safely.
+  useEffect(() => {
+    const handleTranslatedNavigation = (event: MouseEvent) => {
+      const translationCookie = document.cookie
+        .split("; ")
+        .find((cookie) => cookie.startsWith("googtrans="));
+      const language = translationCookie?.split("/").pop();
+
+      if (!language || language === "en") return;
+
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+      const link = (event.target as Element | null)?.closest("a[href]");
+      if (!(link instanceof HTMLAnchorElement)) return;
+      if (link.target && link.target !== "_self") return;
+      if (link.hasAttribute("download")) return;
+
+      const url = new URL(link.href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+      if (
+        url.pathname === window.location.pathname &&
+        url.search === window.location.search
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      window.location.assign(url.href);
+    };
+
+    document.addEventListener("click", handleTranslatedNavigation, true);
+    return () =>
+      document.removeEventListener("click", handleTranslatedNavigation, true);
+  }, []);
+
   const { mutate, isPending } = useMutation({
     mutationKey: ["update-profile"],
     mutationFn: async (values: z.infer<typeof formSchema>) => {
@@ -302,18 +351,12 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
   }
 
   return (
-    <div
-      // className="notranslate"
-      // translate="no"
-      // data-google-translate-ignore="true"
-    >
+    <div>
       <div className="pt-6">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-4"
-            // translate="no"
-            // data-google-translate-ignore="true"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
               <FormField
