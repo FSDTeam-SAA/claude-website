@@ -59,8 +59,25 @@ const Navbar = () => {
   }, [pathname]);
 
   const handleProtectedRoute = (path: string) => {
+    const translationCookie = document.cookie
+      .split("; ")
+      .find((cookie) => cookie.startsWith("googtrans="));
+    const language = translationCookie?.split("/").pop();
+    const isTranslated = !!language && language !== "en";
+
     if (status !== "authenticated") {
+      if (pathname === "/profile" && isTranslated) {
+        window.location.assign("/sign-up");
+        return;
+      }
       router.push("/sign-up");
+      return;
+    }
+
+    // The profile form is translated by Google Translate, which mutates its
+    // DOM. A full navigation avoids React unmounting that external DOM shape.
+    if (pathname === "/profile" && isTranslated) {
+      window.location.assign(path);
       return;
     }
 
