@@ -21,6 +21,9 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart";
 import PlayerRatingSkeleton from "./player-rating-skeleton";
+import { parseCookies } from "nookies";
+
+const COOKIE_NAME = "googtrans";
 
 const CustomBarLabel: React.FC<LabelProps> = ({ x, y, width, value }) => {
   if (
@@ -60,6 +63,9 @@ const PlayerRating = ({
   isError: boolean;
 }) => {
   const [barLimit, setBarLimit] = useState(5);
+
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
 
   // detect device size
   useEffect(() => {
@@ -105,7 +111,11 @@ const PlayerRating = ({
       <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
 
       <h5 className="text-[17px] md:text-3xl lg:text-4xl font-normal leading-[120%] text-primary text-center md:text-left pb-2">
-        PLAYER RATINGS FROM LAST {gameCount} GAME{gameCount > 1 ? "S" : ""}
+        {lang === "fr"
+          ? gameCount === 1
+            ? `Notes du joueur des ${gameCount} derniers matchs` 
+            : "Notes du joueur du dernier match"
+          : `PLAYER RATINGS FROM LAST ${gameCount} GAME${gameCount > 1 ? "S" : ""}`}
       </h5>
 
       <Card className="border-none">

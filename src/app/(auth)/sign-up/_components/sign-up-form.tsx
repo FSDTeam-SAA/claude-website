@@ -91,7 +91,17 @@ const SignupForm = () => {
         toast.error(data?.message || "Something went wrong");
         return;
       }
-      toast.success(data?.message || "Registration successful");
+      toast.success(data?.message || "Registration successful!", {
+        description:
+          "Please check your confirmation email and verify your account before completing your profile.",
+        duration: 8000,
+        classNames: {
+          toast: "!border-green-300 !bg-green-50 !p-5",
+          title: "!text-lg !font-bold !text-green-800 md:!text-xl",
+          description: "!text-base !font-medium !text-green-700",
+          icon: "!text-green-600",
+        },
+      });
       router.push("/login");
     },
     onError: (error) => {
@@ -397,5 +407,4 @@ const SignupForm = () => {
 };
 
 export default SignupForm;
-
 

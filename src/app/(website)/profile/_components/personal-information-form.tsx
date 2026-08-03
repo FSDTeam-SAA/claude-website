@@ -303,17 +303,17 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
 
   return (
     <div
-      className="notranslate"
-      translate="no"
-      data-google-translate-ignore="true"
+      // className="notranslate"
+      // translate="no"
+      // data-google-translate-ignore="true"
     >
       <div className="pt-6">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-4"
-            translate="no"
-            data-google-translate-ignore="true"
+            // translate="no"
+            // data-google-translate-ignore="true"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
               <FormField

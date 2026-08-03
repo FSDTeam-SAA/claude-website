@@ -78,7 +78,7 @@ const LoginForm = () => {
       router.refresh();
     } catch (error) {
       console.error("Login failed:", error);
-      toast.error("Login failed. Please try again.");
+      toast.error("Please verify your email then Login again. If you have not received the verification email, please check your spam folder or request a new one.");
     } finally {
       setIsLoading(false);
     }

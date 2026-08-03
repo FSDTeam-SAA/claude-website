@@ -10,6 +10,10 @@ import ProfileFollow from "./profile-follow";
 import SocialShareContent from "@/components/ui/social-share-content";
 // import { Eye } from "lucide-react";
 
+import { parseCookies } from "nookies";
+
+const COOKIE_NAME = "googtrans";
+
 const PlayerInfo = ({
   data,
   isLoading,
@@ -40,8 +44,12 @@ const PlayerInfo = ({
   }
 
   const personalInfo = data?.user;
-  console.log(data);
+  // console.log(data);
 
+  
+
+    const cookie = parseCookies()[COOKIE_NAME];
+    const lang = cookie?.split("/")?.[2] || "en";
   if (!personalInfo) return null;
 
   const averageRatings = data?.avarageRatting;
@@ -141,7 +149,8 @@ const PlayerInfo = ({
 
             <li className="flex flex-col gap-1 md:grid md:grid-cols-1 md:gap-2">
               <span className="text-base font-semibold uppercase tracking-[0.04em] text-primary leading-[140%]">
-                Height
+                {lang === "fr" ? "Taille" : "Height"} 
+                
               </span>
               <span className="text-lg md:text-xl text-white font-semibold leading-[120%] break-words">
                 {personalInfo?.hight || "N/A"}
