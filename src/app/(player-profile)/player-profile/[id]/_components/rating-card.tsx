@@ -2,6 +2,9 @@
 
 // import { getStarCount } from "@/components/utils/getStarCount";
 import { Star } from "lucide-react";
+import { parseCookies } from "nookies";
+
+const COOKIE_NAME = "googtrans";
 
 type RatingCardProps = {
   averageRating: number;
@@ -12,14 +15,17 @@ type RatingCardProps = {
 export default function RatingCard({
   averageRating,
   totalGames,
-  stars
+  stars,
 }: RatingCardProps) {
   // const stars = getStarCount(averageRating);
+
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
 
   return (
     <div className="w-auto rounded-[16px] bg-primary py-6 px-5 text-white shadow-lg">
       <h3 className="text-lg md:text-xl text-white leading-[120%] font-normal italic">
-        Average of the <br/> ratings :
+        Average of the <br /> ratings :
       </h3>
 
       <p className="mt-2 text-4xl md:text-[35px] lg:text-[40px] leading-[120%] font-normal text-white">
@@ -41,7 +47,7 @@ export default function RatingCard({
       </div>
 
       <p className="mt-4 text-base md:text-lg text-white leading-[120%] italic">
-        Number of Game : {totalGames}
+        {lang === "fr" ? "Nombre de match" : "Number of Game"} : {totalGames}
       </p>
     </div>
   );
