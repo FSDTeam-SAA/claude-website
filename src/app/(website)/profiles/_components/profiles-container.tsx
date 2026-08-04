@@ -27,7 +27,7 @@ const ProfilesContainer = () => {
     const { data, isLoading, isError, error } = useQuery<UsersApiResponse>({
         queryKey: ["all-users", currentPage],
         queryFn: async () => {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/all-user?emailVerified=true&page=${currentPage}&limit=7`)
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/all-user?emailVerified=true&sortOrder=desc&page=${currentPage}&limit=7`)
             return res.json();
         },
     })
