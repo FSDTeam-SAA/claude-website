@@ -40,7 +40,7 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
     const fetchUsers = async () => {
       setIsLoading(true)
       try {
-        const res = await fetch(`${baseUrl}/user/all-user?emailVerified=true&limit=100000`, {
+        const res = await fetch(`${baseUrl}/user/all-user?emailVerified=true&sortOrder=desc&limit=100000`, {
           headers: {
             "Content-Type": "application/json",
             // ...(token && { Authorization: `Bearer ${token}` }),

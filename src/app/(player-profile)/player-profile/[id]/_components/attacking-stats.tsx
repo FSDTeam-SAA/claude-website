@@ -20,7 +20,7 @@ const AttackingStats = ({
   const cookie = parseCookies()[COOKIE_NAME];
   const lang = cookie?.split("/")?.[2] || "en";
 
-  console.log("Lang", lang)
+  // console.log("Lang", lang)
 
   if (isLoading) {
     return (
