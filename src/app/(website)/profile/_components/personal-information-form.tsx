@@ -39,6 +39,7 @@ import { CalendarIcon, X } from "lucide-react";
 
 import { User } from "./user-data-type";
 import { useEffect } from "react";
+import { parseCookies } from "nookies";
 
 const socialMediaNameEnum = z.enum([
   "Facebook",
@@ -177,6 +178,9 @@ interface PersonalInformationFormProps {
   user?: User;
 }
 
+
+const COOKIE_NAME = "googtrans";
+
 // const PersonalInformationForm = () => {
 const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
   user,
@@ -184,6 +188,9 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
   const session = useSession();
   const token = (session?.data?.user as { accessToken: string })?.accessToken;
   const queryClient = useQueryClient();
+
+    const cookie = parseCookies()[COOKIE_NAME];
+    const lang = cookie?.split("/")?.[2] || "en";
 
   const POSITIONS = [
     { label: "GK", value: "gk" },
@@ -593,7 +600,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Hight
+                     {lang === "fr" ? "Taille" : lang === "es" ? "Altura" : "Height"}
                     </FormLabel>
                     <FormControl>
                       <Input
