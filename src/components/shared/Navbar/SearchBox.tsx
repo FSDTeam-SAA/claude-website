@@ -77,8 +77,18 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
       setError(null)
 
       try {
+        const nameParts = searchTerm.trim().split(/\s+/)
+        const queryParams = new URLSearchParams({ limit: "100000" })
+
+        if (nameParts.length > 1) {
+          queryParams.set("firstName", nameParts[0])
+          queryParams.set("lastName", nameParts.slice(1).join(" "))
+        } else {
+          queryParams.set("searchTerm", nameParts[0])
+        }
+
         const res = await fetch(
-          `${baseUrl}/user/all-user?searchTerm=${encodeURIComponent(searchTerm)}&limit=100000`,
+          `${baseUrl}/user/all-user?${queryParams.toString()}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -206,5 +216,4 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
 }
 
 export default SearchBox
-
 
