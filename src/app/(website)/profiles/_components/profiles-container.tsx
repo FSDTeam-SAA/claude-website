@@ -19,7 +19,7 @@ import { PlayersTableSkeleton } from './profile-skeleton';
 import ClaudePagination from '@/components/ui/claude-pagination';
 import NotFound from '@/components/shared/NotFound/NotFound';
 
-
+// emailVerified=true&sortOrder=desc&
 const ProfilesContainer = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const router = useRouter();
@@ -27,7 +27,7 @@ const ProfilesContainer = () => {
     const { data, isLoading, isError, error } = useQuery<UsersApiResponse>({
         queryKey: ["all-users", currentPage],
         queryFn: async () => {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/all-user?emailVerified=true&sortOrder=desc&page=${currentPage}&limit=7`)
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/all-user?page=${currentPage}&limit=7`)
             return res.json();
         },
     })
