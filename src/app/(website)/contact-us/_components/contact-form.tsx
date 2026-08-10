@@ -18,6 +18,9 @@ import {
 import { Input } from "@/components/ui/input"
 import { useMutation } from "@tanstack/react-query"
 import { toast } from "sonner"
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
+import type { FormEvent } from "react"
 
 const formSchema = z.object({
   fullName: z
@@ -42,6 +45,13 @@ const formSchema = z.object({
 
 
 const ContactForm = () => {
+
+    const { status } = useSession();
+    const router = useRouter();
+    const isLogin = status === "authenticated";
+
+
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -76,13 +86,29 @@ const ContactForm = () => {
     })
     // 2. Define a submit handler.
     function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values)
         mutate(values)
     }
+
+    function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
+        if (status === "loading") {
+            event.preventDefault();
+            return;
+        }
+
+        if (!isLogin) {
+            event.preventDefault();
+            toast.error("Please log in first to contact us.");
+            router.push("/login?callbackUrl=/contact-us");
+            return;
+        }
+
+        void form.handleSubmit(onSubmit)(event);
+    }
+
     return (
         <div className="">
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+                <form onSubmit={handleFormSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <FormField
                             control={form.control}
@@ -138,7 +164,7 @@ const ContactForm = () => {
                             </FormItem>
                         )}
                     />
-                    <Button disabled={isPending} className="w-full h-[48px]  text-base text-white font-normal leading-[120%] rounded-[8px] bg-primary " type="submit"> <Send /> {isPending ? "Sending..." : "Send Message"}</Button>
+                    <Button disabled={isPending || status === "loading"} className="w-full h-[48px]  text-base text-white font-normal leading-[120%] rounded-[8px] bg-primary " type="submit"> <Send /> {isPending ? "Sending..." : "Send Message"}</Button>
                 </form>
             </Form>
         </div>
