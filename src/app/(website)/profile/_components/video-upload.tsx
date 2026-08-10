@@ -133,14 +133,14 @@ export default function VideoUpload({ videos }: { videos: string[] }) {
   };
 
   return (
-    <Card className="w-full p-6 space-y-5 rounded-xl mt-24">
+    <Card className="w-full p-4 space-y-4 rounded-xl mt-20">
       <h3 className="text-lg md:text-xl font-bold text-center">
         Upload your highlights videos
       </h3>
 
       <div
         onClick={() => inputRef.current?.click()}
-        className={`border-4 border-dashed border-gray-300 rounded-xl p-5 text-center cursor-pointer bg-gray-50 ${
+        className={`border-4 border-dashed border-gray-300 rounded-xl p-3 text-center cursor-pointer bg-gray-50 ${
           isPending ? "opacity-50 cursor-not-allowed" : ""
         }`}
       >
@@ -167,7 +167,7 @@ export default function VideoUpload({ videos }: { videos: string[] }) {
         disabled={isPending}
       />
 
-      <div className="grid grid-cols-2 gap-4 mt-5">
+      <div className="grid grid-cols-2 gap-4 mt-3">
         {keptExistingVideos.map((url) => (
           <div key={url} className="relative">
             <video src={url} controls className="w-full h-24 rounded-xl" />

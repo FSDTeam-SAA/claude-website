@@ -93,6 +93,8 @@ export interface User {
   position: string[];
   playingVideo: string[];
 
+  hilightedUrl: string[];
+
   isSubscription: boolean;
   subscription: string;
   subscriptionExpiry: string; // ISO date string
