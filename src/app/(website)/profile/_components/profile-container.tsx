@@ -101,6 +101,7 @@ import PersonalInformationForm from "./personal-information-form"
 import { UserProfileApiResponse } from "./user-data-type"
 import VideoUpload from "./video-upload"
 import ProfileSettingSkeleton from "./personal-info-page-skeleton"
+import VideoLinkUpload from "./video-link-upload"
 
 const ProfileContainer = () => {
   const { data: session } = useSession()
@@ -137,6 +138,7 @@ const ProfileContainer = () => {
         <div className="md:col-span-1 border border-[#E7E7E7] rounded-[16px] p-6">
           <ProfilePicture user={user} />
           <VideoUpload videos={user?.playingVideo || []} />
+          <VideoLinkUpload userId={user?._id || ""}/>
         </div>
 
         <div className="md:col-span-2">
