@@ -9,6 +9,8 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
+const MAX_VIDEO_LINKS = 2;
+
 type UserDetailResponse = {
   success: boolean;
   message?: string;
@@ -270,11 +272,16 @@ const VideoLinkUpload = ({ userId }: { userId: string }) => {
   });
 
   const handleAddLink = () => {
+    if (highlightedUrls.length >= MAX_VIDEO_LINKS) {
+      toast.warning(`Only ${MAX_VIDEO_LINKS} video links allowed`);
+      return;
+    }
+
     const url = videoLink.trim();
 
     try {
       const parsedUrl = new URL(url);
-      if (!['http:', 'https:'].includes(parsedUrl.protocol)) throw new Error();
+      if (!["http:", "https:"].includes(parsedUrl.protocol)) throw new Error();
     } catch {
       toast.error("Please enter a valid video URL");
       return;
@@ -336,9 +343,9 @@ const VideoLinkUpload = ({ userId }: { userId: string }) => {
           {addMutation.isPending ? "Adding..." : "Add Video Link"}
         </Button>
 
-        {/* <p className="mt-3 text-xs leading-5 text-gray-500">
-          Supports public YouTube, Facebook, Instagram, TikTok, Vimeo and direct video links
-        </p> */}
+        <p className="mt-3 text-xs font-semibold text-gray-500">
+          Only {MAX_VIDEO_LINKS} video links allowed
+        </p>
       </div>
 
       {isLoading ? (
