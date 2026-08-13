@@ -6,13 +6,14 @@ import TheBenefits from "../../player-evaluation-program/_components/the-benefit
 import OurCommitment from "../../player-evaluation-program/_components/our-commitment";
 import WhatDoWeOffer from "../../player-evaluation-program/_components/what-do-we-offer";
 import HowToBookYourSpot from "./how-to-book-your-spot";
+import FiveStepsToGuide from "./five-steps-to-guide";
 
 const U19ToU23Container = () => {
   return (
     <div className="!bg-white ">
       <U19ToU23Hero />
 
-      {/* <FiveStepsToGuide/> */}
+      <FiveStepsToGuide/>
 
       <OurCommitment />
       <WhatDoWeOffer />
