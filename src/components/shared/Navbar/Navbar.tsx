@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { LogOut, Menu, X } from "lucide-react";
+import { ChevronDown, LogOut, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -10,9 +10,9 @@ import { signOut, useSession } from "next-auth/react";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-  // DropdownMenuItem
 } from "@/components/ui/dropdown-menu";
 import LogoutModal from "@/components/modals/LogoutModal";
 import { toast } from "sonner";
@@ -28,6 +28,7 @@ const Navbar = () => {
   const [logoutModalOpen, setLogoutModalOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const [evaluationMenuOpen, setEvaluationMenuOpen] = useState(false);
   const router = useRouter();
 
   const session = useSession();
@@ -135,16 +136,45 @@ const Navbar = () => {
                 Player Evaluation Program
               </button> */}
 
-              <Link
-                href="/"
-                className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
-                  pathname === "/"
-                    ? "border-b-[2px] border-primary"
-                    : "border-0"
-                }`}
-              >
-                Player Evaluation Program
-              </Link>
+              <DropdownMenu modal={false}>
+                <DropdownMenuTrigger
+                  className={`flex items-center gap-1 text-sm md:text-[15px] hover:text-primary leading-[150%] font-normal transition-all ease-in-out duration-300 outline-none ${
+                    pathname === "/player-evaluation-program" ||
+                    pathname === "/u19-u23"
+                      ? "border-b-[2px] border-primary text-primary"
+                      : "border-0 text-[#131313]"
+                  }`}
+                >
+                  Player Evaluation Program
+                  <ChevronDown className="h-4 w-4" aria-hidden="true" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="bg-white">
+                  <DropdownMenuItem asChild>
+                    <Link
+                      href="/player-evaluation-program"
+                      className={`cursor-pointer ${
+                        pathname === "/player-evaluation-program"
+                          ? "font-medium text-primary"
+                          : "text-[#131313]"
+                      }`}
+                    >
+                      U9/U18
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link
+                      href="/u19-u23"
+                      className={`cursor-pointer ${
+                        pathname === "/u19-u23"
+                          ? "font-medium text-primary"
+                          : "text-[#131313]"
+                      }`}
+                    >
+                      U19/U23
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
 
               {/* <button
                 onClick={() => handleProtectedRoute("/services")}
@@ -287,16 +317,54 @@ const Navbar = () => {
                 Player Evaluation Program
               </button> */}
 
-                <Link
-                href="/"
-                className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
-                  pathname === "/"
-                    ? "border-b-[2px] border-primary"
-                    : "border-0"
-                }`}
-              >
-                Player Evaluation Program
-              </Link>
+              <div className="flex flex-col items-start gap-2">
+                <button
+                  type="button"
+                  onClick={() => setEvaluationMenuOpen((current) => !current)}
+                  aria-expanded={evaluationMenuOpen}
+                  className={`flex w-fit items-center gap-1 text-sm md:text-base hover:text-primary leading-[150%] font-normal transition-all ease-in-out duration-300 ${
+                    pathname === "/player-evaluation-program" ||
+                    pathname === "/u19-u23"
+                      ? "border-b-[2px] border-primary text-primary"
+                      : "border-0 text-[#131313]"
+                  }`}
+                >
+                  Player Evaluation Program
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${
+                      evaluationMenuOpen ? "rotate-180" : ""
+                    }`}
+                    aria-hidden="true"
+                  />
+                </button>
+
+                {evaluationMenuOpen && (
+                  <div className="ml-4 flex flex-col gap-2 border-l border-gray-200 pl-3">
+                    <Link
+                      href="/player-evaluation-program"
+                      onClick={() => setIsOpen(false)}
+                      className={`text-sm transition-colors hover:text-primary ${
+                        pathname === "/player-evaluation-program"
+                          ? "font-medium text-primary"
+                          : "text-[#131313]"
+                      }`}
+                    >
+                      U9/U18
+                    </Link>
+                    <Link
+                      href="/u19-u23"
+                      onClick={() => setIsOpen(false)}
+                      className={`text-sm transition-colors hover:text-primary ${
+                        pathname === "/u19-u23"
+                          ? "font-medium text-primary"
+                          : "text-[#131313]"
+                      }`}
+                    >
+                      U19/U23
+                    </Link>
+                  </div>
+                )}
+              </div>
 
               {/* <button
                 className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
