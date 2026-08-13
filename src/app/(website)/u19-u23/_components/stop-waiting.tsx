@@ -1,0 +1,32 @@
+"use client";
+
+// import { parseCookies } from "nookies";
+// const COOKIE_NAME = "googtrans";
+import React from "react";
+
+const StopWaiting = () => {
+  //  const cookie = parseCookies()[COOKIE_NAME];
+  //         const lang = cookie?.split("/")?.[2] || "en";
+  return (
+    <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/u19_u23/stop-waiting.svg')] bg-cover bg-center bg-no-repeat min-h-[600px] md:h-[750px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center items-center text-center">
+      {/* Dark overlay for text contrast */}
+      {/* <div className="absolute inset-0 bg-black/40 z-0"></div> */}
+
+      <div className="relative z-10 px-6 md:px-12 lg:px-20 w-full max-w-[1320px] mx-auto">
+        <div className="flex flex-col gap-3 md:gap-6">
+          <h2 className="text-lg md:text-3xl lg:text-4xl xl:text-[52px] font-medium text-primary md:text-white leading-normal pb-1">
+            Stop Waiting. <span className="text-primary">Start Proving.</span>
+            {/* {lang === "fr" ? "Commencez à former." : "Start Developing."} */}
+          </h2>
+
+          <p className="text-white text-sm md:text-2xl lg:text-3xl  font-medium leading-tight max-w-[1000px] mx-auto">
+            Your evaluation - <span className="text-primary">Your data</span> -
+            Your proof !
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default StopWaiting;

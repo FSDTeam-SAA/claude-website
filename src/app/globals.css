@@ -2,15 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scrollbar-gutter: stable;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
 
-body{
+/* body{
   @apply bg-[#F4FFF4]
-}
+} */
 
 .bg_color{
   background-color: #FFFFFF
