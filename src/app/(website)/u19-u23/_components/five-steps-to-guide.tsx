@@ -1,96 +1,169 @@
-import Image from "next/image";
 import React from "react";
-import { CircleCheck } from "lucide-react";
+
+const steps = [
+  {
+    id: 1,
+    title: "Questionnaire",
+    description:
+      "We start by understanding who you are, your background, your goals, and where you want to go.",
+  },
+  {
+    id: 2,
+    title: "Player Profile",
+    description:
+      "Powered by Analytic Soccer your complete professional profile built on real data, not opinions.",
+  },
+  {
+    id: 3,
+    title: "Evaluation",
+    description:
+      "The full PEP evaluation: technical, tactical, physical, mental, nutrition and game analysis. Objective proof of your level.",
+  },
+  {
+    id: 4,
+    title: "Agency",
+    description:
+      "FIFA-licensed representation MFH connects you with the right clubs, trials and opportunities worldwide.",
+  },
+  {
+    id: 5,
+    title: "Opportunity",
+    description:
+      "Your profile, your data and your evaluation in front of the right people at the right time.",
+  },
+];
 
 const FiveStepsToGuide = () => {
-  const ecosystemData = [
-    {
-      id: 1,
-      img: "/assets/images/u19_u23/bfep1.png",
-      title: "For Players (U19-U23)",
-      features: [
-        "Objective proof of your performance level.",
-        "A professional profile ready to share with clubs and scouts.",
-        "A clear gap analysis – what you need to reach the next level.",
-      ],
-    },
-
-    
-    {
-      id: 2,
-      img: "/assets/images/u19_u23/bfep2.png",
-      title: "For Agents & Representatives",
-      features: [
-        "Structured, verified player profiles to present to clubs.",
-        "Objective data to support transfer and trial negotiations.",
-        "PEP reports as professional supporting documentation.",
-        "Direct access to player database via Scouting Account."
-      ],
-    },
-    {
-      id: 3,
-      img: "/assets/images/u19_u23/bfep3.png",
-      title: "For Clubs & Professional Teams",
-      features: [
-        "Pre-screened players evaluated against professional benchmarks.",
-        "Objective data to reduce trial risk and selection errors.",
-        "Long-term progression data – not just a one-time snapshot.",
-        "Direct pipeline access to MFH Global Football Agency network."
-      ],
-    },
-  ];
-
   return (
-    <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[600px] md:h-[750px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center items-center">
-      <div className="relative z-10 px-4 md:px-8 lg:px-12 w-full max-w-[1300px] mx-auto">
-        <div className="w-full text-center mb-8 md:mb-10">
-          <h2 className="text-lg md:text-3xl lg:text-4xl xl:text-5xl font-medium text-primary md:text-white leading-normal">
-            Built for Every Player in the Professional Window
-          </h2>
-        </div>
+    <section className="relative mx-auto mt-6 flex w-[95%] max-w-[1400px] flex-col items-center justify-center overflow-hidden rounded-[30px] bg-[#080b09] bg-[url('/assets/images/home_page/sm_bg.svg')] bg-cover bg-center bg-no-repeat pb-8 pt-10 text-white md:mt-8 md:w-full md:rounded-[70px] md:bg-[url('/assets/images/home_page/lg_bg.svg')] md:pb-16 md:pt-28 lg:mt-10 xl:mt-12 xl:h-[750px] xl:py-12">
+      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-1.5 md:px-8 lg:px-12">
+        <h2 className="font-dagger text-center md:text-left text-xl font-medium leading-none md:text-3xl lg:text-4xl xl:text-[43px] xl:leading-none">
+          Five Steps to Guide Your Development
+        </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-3 items-stretch">
-          {ecosystemData.map((item, idx) => (
-            <div key={item.id} className={`${idx === 2 ? "sm:col-span-2 lg:col-span-1 sm:w-1/2 sm:mx-auto lg:w-full" : "w-full"}`}>
-              <EcosystemCard item={item} />
-            </div>
-          ))}
+        <div className="mt-6 md:mt-[54px] grid items-center gap-9 md:mt-10 xl:grid-cols-[700px_minmax(0,1fr)] xl:gap-[34px]">
+          <div className="order-1 grid grid-cols-6 gap-1.5 md:gap-3 xl:grid-cols-6 xl:gap-x-4 xl:gap-y-6">
+            {steps?.map((step, index) => (
+              <article
+                key={step.id}
+                className={`relative col-span-2 min-h-[150px] overflow-hidden rounded-[11px] bg-white p-2 text-[#0a0a0a] xl:h-[215px] xl:min-h-0 xl:px-[10px] ${
+                  index === 3 ? "col-start-2 xl:col-start-2" : ""
+                }`}
+              >
+                <span className="absolute inset-x-0 top-0 h-1 bg-[#00ed28]" />
+                <span className="font-dagger block text-2xl font-semibold leading-none md:text-[38px] xl:text-[40px]">
+                  {step.id}
+                </span>
+                <h3 className="font-dagger mt-2 text-sm sm:text-base font-medium leading-none text-[#00dc25] md:text-[22px]">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-[10px] font-medium leading-[1.08] md:text-[15px] xl:text-[16px]">
+                  {step.description}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <EcosystemDiagram />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const EcosystemCard = ({ item }: { item: any }) => {
+const EcosystemDiagram = () => {
   return (
-    <div className="bg-white rounded-[12px] border border-primary flex flex-col h-full shadow-2xl transition-all duration-300 hover:translate-y-[-5px]">
-   
-       <Image
-          src={item.img}
-          alt={item.title}
-          width={800}
-          height={550}
-          className="object-cover w-full h-[190px] rounded-[24px] px-3 pt-2"
-        />
+    <div className="order-2 mx-auto w-full max-w-[410px] py-0 xl:max-w-[550px] xl:px-0 xl:py-0">
+      <svg
+        role="img"
+        aria-labelledby="ecosystem-title ecosystem-description"
+        className="h-auto w-full overflow-visible"
+        viewBox="0 0 684 630"
+        fill="none"
+        style={{ fontFamily: "var(--font-dagger-square)" }}
+      >
+        <title id="ecosystem-title">Our Ecosystem</title>
+        <desc id="ecosystem-description">Five connected steps from questionnaire to opportunity.</desc>
+        <defs>
+          <marker
+            id="ecosystem-arrow"
+            markerWidth="7"
+            markerHeight="7"
+            refX="3.5"
+            refY="3.5"
+            orient="auto"
+            markerUnits="strokeWidth"
+          >
+            <path d="M0 0L7 3.5L0 7Z" fill="#00ed28" />
+          </marker>
+        </defs>
 
-      {/* Content */}
-      <div className="px-4 flex flex-col h-full py-3 md:py-4">
-        <h3 className="text-primary  font-medium text-sm md:text-xl lg:text-[22px] mb-4 leading-normal">
-          {item.title}
-        </h3>
-        
-        <ul className="flex flex-col gap-2  flex-grow">
-          {item?.features?.map((feature: string, idx: number) => (
-            <li key={idx} className="flex items-start gap-2 md:gap-3">
-              <CircleCheck className="w-4 h-4 md:w-5 md:h-5 text-black shrink-0 mt-0.5" />
-              <p className="text-black text-[11px] md:text-sm xl:text-base font-normal leading-normal">
-                {feature}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </div>
+        <g stroke="#00ed28" strokeWidth="4" strokeLinecap="round">
+          <path
+            d="M128 168C151 130 170 111 190 101C211 86 237 75 264 67"
+            markerMid="url(#ecosystem-arrow)"
+          />
+          <path
+            d="M421 67C450 75 477 87 502 105C526 124 544 147 559 168"
+            markerMid="url(#ecosystem-arrow)"
+          />
+          <path
+            d="M599 308C599 342 593 371 586 391C577 425 558 454 532 475"
+            markerMid="url(#ecosystem-arrow)"
+          />
+          <path
+            d="M445 550C411 562 379 567 344 567C306 567 271 562 239 550"
+            markerMid="url(#ecosystem-arrow)"
+          />
+          <path
+            d="M156 475C130 450 113 422 103 391C94 365 89 338 89 308"
+            markerMid="url(#ecosystem-arrow)"
+          />
+        </g>
+
+        <g stroke="#00ed28" strokeWidth="3" strokeLinecap="round">
+          <path d="M342 112V154" />
+          <path d="M562 240L490 264" />
+          <path d="M464 489L429 434" />
+          <path d="M220 489L256 434" />
+          <path d="M124 240L196 264" />
+          <circle cx="342" cy="308" r="143" />
+        </g>
+
+        <g fill="#00ed28">
+          <path d="M342 13L368 32L358 70H326L316 32L342 13Z" />
+          <path d="M598 190L624 209L614 247H582L572 209L598 190Z" />
+          <path d="M486 486L512 505L502 543H470L460 505L486 486Z" />
+          <path d="M198 486L224 505L214 543H182L172 505L198 486Z" />
+          <path d="M86 190L112 209L102 247H70L60 209L86 190Z" />
+        </g>
+
+        <g fill="white" textAnchor="middle" fontWeight="600">
+          <text x="342" y="53" fontSize="29">1</text>
+          <text x="598" y="230" fontSize="29">2</text>
+          <text x="486" y="526" fontSize="29">3</text>
+          <text x="198" y="526" fontSize="29">4</text>
+          <text x="86" y="230" fontSize="29">5</text>
+        </g>
+
+        <g fill="white" textAnchor="middle" fontSize="17" fontWeight="500">
+          <text x="342" y="95">Questionnaire</text>
+          <text x="598" y="278">Player Profile</text>
+          <text x="486" y="582">Evaluation</text>
+          <text x="198" y="582">Agency</text>
+          <text x="86" y="278">Opportunity</text>
+        </g>
+
+        <text x="342" y="298" fill="#00ed28" textAnchor="middle" fontSize="30" fontWeight="500">
+          Our Ecosystem
+        </text>
+        <text fill="white" textAnchor="middle" fontSize="14" fontWeight="500">
+          <tspan x="342" y="326">MFH Global Football Agency &amp; Analytic</tspan>
+          <tspan x="342" y="343">Soccer – two platforms, one</tspan>
+          <tspan x="342" y="360">mission: get you where you</tspan>
+          <tspan x="342" y="377">deserve to be.</tspan>
+        </text>
+      </svg>
     </div>
   );
 };

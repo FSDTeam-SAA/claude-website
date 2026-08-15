@@ -9,7 +9,7 @@ const U19ToU23Hero = () => {
   const isLogin = session?.data?.user?.accessToken;
 
   return (
-    <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/u19_u23/u19-u23-hero.svg')] bg-cover bg-center bg-no-repeat min-h-[600px] md:h-[750px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-end pb-12 md:pb-0 md:justify-center">
+    <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/u19_u23/sm_u19-u23-hero.svg')] md:bg-[url('/assets/images/u19_u23/u19-u23-hero.svg')] bg-cover bg-center bg-no-repeat min-h-[600px] md:h-[750px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-end pb-12 md:pb-0 md:justify-center">
       {/* Bottom gradient for text readability on mobile */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent md:bg-none z-0"></div>
 

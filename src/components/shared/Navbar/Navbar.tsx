@@ -125,10 +125,10 @@ const Navbar = () => {
             <div className="hidden md:flex items-center gap-4">
               {/* <button
                 onClick={() =>
-                  handleProtectedRoute("/player-evaluation-program")
+                  handleProtectedRoute("/")
                 }
                 className={`text-sm md:text-[15px] hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
-                  pathname === "/player-evaluation-program"
+                  pathname === "/"
                     ? "border-b-[2px] border-primary"
                     : "border-0"
                 }`}
@@ -139,7 +139,7 @@ const Navbar = () => {
               <DropdownMenu modal={false}>
                 <DropdownMenuTrigger
                   className={`flex items-center gap-1 text-sm md:text-[15px] hover:text-primary leading-[150%] font-normal transition-all ease-in-out duration-300 outline-none ${
-                    pathname === "/player-evaluation-program" ||
+                    pathname === "/" ||
                     pathname === "/u19-u23"
                       ? "border-b-[2px] border-primary text-primary"
                       : "border-0 text-[#131313]"
@@ -151,9 +151,9 @@ const Navbar = () => {
                 <DropdownMenuContent align="start" className="bg-white">
                   <DropdownMenuItem asChild>
                     <Link
-                      href="/player-evaluation-program"
+                      href="/"
                       className={`cursor-pointer ${
-                        pathname === "/player-evaluation-program"
+                        pathname === "/"
                           ? "font-medium text-primary"
                           : "text-[#131313]"
                       }`}
@@ -305,13 +305,13 @@ const Navbar = () => {
 
               {/* <button
                 className={`w-fit text-sm md:text-base hover:text-primary leading-[150%] text-[#131313] font-normal transition-all ease-in-out duration-300 ${
-                  pathname === "/player-evaluation-program"
+                  pathname === "/"
                     ? "border-b-[2px] border-primary"
                     : "border-0"
                 }`}
                 onClick={() => {
                   setIsOpen(false);
-                  handleProtectedRoute("/player-evaluation-program");
+                  handleProtectedRoute("/");
                 }}
               >
                 Player Evaluation Program
@@ -323,7 +323,7 @@ const Navbar = () => {
                   onClick={() => setEvaluationMenuOpen((current) => !current)}
                   aria-expanded={evaluationMenuOpen}
                   className={`flex w-fit items-center gap-1 text-sm md:text-base hover:text-primary leading-[150%] font-normal transition-all ease-in-out duration-300 ${
-                    pathname === "/player-evaluation-program" ||
+                    pathname === "/" ||
                     pathname === "/u19-u23"
                       ? "border-b-[2px] border-primary text-primary"
                       : "border-0 text-[#131313]"
@@ -341,10 +341,10 @@ const Navbar = () => {
                 {evaluationMenuOpen && (
                   <div className="ml-4 flex flex-col gap-2 border-l border-gray-200 pl-3">
                     <Link
-                      href="/player-evaluation-program"
+                      href="/"
                       onClick={() => setIsOpen(false)}
                       className={`text-sm transition-colors hover:text-primary ${
-                        pathname === "/player-evaluation-program"
+                        pathname === "/"
                           ? "font-medium text-primary"
                           : "text-[#131313]"
                       }`}

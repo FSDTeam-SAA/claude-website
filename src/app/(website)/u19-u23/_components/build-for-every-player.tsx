@@ -41,17 +41,17 @@ const BuildForEveryPlayer = () => {
   ];
 
   return (
-    <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[600px] md:h-[750px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center items-center">
-      <div className="relative z-10 px-4 md:px-8 lg:px-12 w-full max-w-[1300px] mx-auto">
-        <div className="w-full text-center mb-8 md:mb-10">
-          <h2 className="text-lg md:text-3xl lg:text-4xl xl:text-5xl font-medium text-primary md:text-white leading-normal">
+    <div className="relative mx-auto mt-6 flex min-h-[480px] w-[95%] max-w-[1400px] flex-col items-center justify-center overflow-hidden rounded-[30px] bg-[url('/assets/images/home_page/sm_bg.svg')] bg-cover bg-center bg-no-repeat pb-8 pt-16 md:mt-8 md:h-[600px] md:w-full md:rounded-[70px] md:bg-[url('/assets/images/home_page/lg_bg.svg')] md:py-12 lg:mt-10 lg:py-16 xl:mt-12">
+      <div className="relative z-10 mx-auto w-full max-w-[1300px] px-4 md:px-8 lg:px-12">
+        <div className="mb-12 w-full text-center md:mb-10">
+          <h2 className="font-dagger mx-auto max-w-[440px] text-2xl font-medium leading-[1.15] text-white md:max-w-none md:text-3xl md:leading-normal lg:text-4xl xl:text-5xl">
             Built for Every Player in the Professional Window
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-3 items-stretch">
+        <div className="grid grid-cols-2 items-stretch gap-2 md:gap-3 lg:grid-cols-3">
           {ecosystemData.map((item, idx) => (
-            <div key={item.id} className={`${idx === 2 ? "sm:col-span-2 lg:col-span-1 sm:w-1/2 sm:mx-auto lg:w-full" : "w-full"}`}>
+            <div key={item.id} className={idx === 2 ? "col-span-2 mx-auto w-1/2 lg:col-span-1 lg:w-full" : "w-full"}>
               <EcosystemCard item={item} />
             </div>
           ))}
@@ -64,27 +64,27 @@ const BuildForEveryPlayer = () => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const EcosystemCard = ({ item }: { item: any }) => {
   return (
-    <div className="bg-white rounded-[12px] border border-primary flex flex-col h-full shadow-2xl transition-all duration-300 hover:translate-y-[-5px]">
+    <div className="flex h-full min-h-[220px] flex-col rounded-[18px] border-2 border-primary bg-white shadow-2xl transition-all duration-300 hover:translate-y-[-5px] md:min-h-0 md:rounded-[12px] md:border">
    
        <Image
           src={item.img}
           alt={item.title}
           width={800}
           height={550}
-          className="object-cover w-full h-[190px] rounded-[24px] px-3 pt-2"
+          className="h-[100px] w-full rounded-[15px] object-cover px-1.5 pt-1.5 md:h-[150px] md:rounded-[24px] md:px-3 md:pt-2"
         />
 
       {/* Content */}
-      <div className="px-4 flex flex-col h-full py-3 md:py-4">
-        <h3 className="text-primary  font-medium text-sm md:text-xl lg:text-[22px] mb-4 leading-normal">
+      <div className="flex h-auto flex-col px-2 py-2 md:px-4 md:py-3">
+        <h3 className="font-dagger mb-2 text-[13px] font-medium leading-none text-primary md:mb-4 md:text-xl md:leading-normal lg:text-[22px]">
           {item.title}
         </h3>
         
-        <ul className="flex flex-col gap-2  flex-grow">
+        <ul className="flex flex-grow flex-col gap-1 md:gap-1">
           {item?.features?.map((feature: string, idx: number) => (
-            <li key={idx} className="flex items-start gap-2 md:gap-3">
-              <CircleCheck className="w-4 h-4 md:w-5 md:h-5 text-black shrink-0 mt-0.5" />
-              <p className="text-black text-[11px] md:text-sm xl:text-base font-normal leading-normal">
+            <li key={idx} className="flex items-center gap-1 md:gap-2">
+              <CircleCheck className="h-3 w-3 shrink-0 text-black md:h-5 md:w-5" />
+              <p className="text-[9px] font-normal leading-[1.1] text-black md:text-sm md:leading-normal xl:text-base">
                 {feature}
               </p>
             </li>
