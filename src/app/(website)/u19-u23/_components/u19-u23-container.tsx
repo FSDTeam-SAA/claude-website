@@ -7,7 +7,7 @@ import OurCommitment from "../../player-evaluation-program/_components/our-commi
 import WhatDoWeOffer from "../../player-evaluation-program/_components/what-do-we-offer";
 import HowToBookYourSpot from "./how-to-book-your-spot";
 
-// import FiveStepsToGuide from "./five-steps-to-guide";
+import FiveStepsToGuide from "./five-steps-to-guide";
 
 const U19ToU23Container = () => {
   return (
@@ -18,7 +18,7 @@ const U19ToU23Container = () => {
       <OurCommitment />
       <WhatDoWeOffer />
 
-      {/* <FiveStepsToGuide/> */}
+      <FiveStepsToGuide/>
 
       <TheBenefits />
 
