@@ -35,29 +35,29 @@ const steps = [
 
 const FiveStepsToGuide = () => {
   return (
-    <section className="relative mx-auto mt-6 flex w-[95%] max-w-[1400px] flex-col items-center justify-center overflow-hidden rounded-[30px] bg-[#080b09] bg-[url('/assets/images/home_page/sm_bg.svg')] bg-cover bg-center bg-no-repeat py-10 text-white md:mt-8 md:w-full md:rounded-[70px] md:bg-[url('/assets/images/home_page/lg_bg.svg')] md:py-16 lg:mt-10 xl:mt-12 xl:h-[750px] xl:py-12">
-      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4 md:px-8 lg:px-12">
-        <h2 className="text-center text-lg font-medium leading-normal md:text-3xl lg:text-4xl xl:text-left xl:text-[43px] xl:leading-none">
+    <section className="relative mx-auto mt-6 flex w-[95%] max-w-[1400px] flex-col items-center justify-center overflow-hidden rounded-[30px] bg-[#080b09] bg-[url('/assets/images/home_page/sm_bg.svg')] bg-cover bg-center bg-no-repeat pb-8 pt-10 text-white md:mt-8 md:w-full md:rounded-[70px] md:bg-[url('/assets/images/home_page/lg_bg.svg')] md:pb-16 md:pt-28 lg:mt-10 xl:mt-12 xl:h-[750px] xl:py-12">
+      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-1.5 md:px-8 lg:px-12">
+        <h2 className="font-dagger text-center md:text-left text-xl font-medium leading-none md:text-3xl lg:text-4xl xl:text-[43px] xl:leading-none">
           Five Steps to Guide Your Development
         </h2>
 
-        <div className="mt-8 grid items-center gap-10 md:mt-10 xl:grid-cols-[700px_minmax(0,1fr)] xl:gap-[34px]">
-          <div className="order-2 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:order-1 xl:grid-cols-6 xl:gap-x-4 xl:gap-y-6">
-            {steps.map((step, index) => (
+        <div className="mt-6 md:mt-[54px] grid items-center gap-9 md:mt-10 xl:grid-cols-[700px_minmax(0,1fr)] xl:gap-[34px]">
+          <div className="order-1 grid grid-cols-6 gap-1.5 md:gap-3 xl:grid-cols-6 xl:gap-x-4 xl:gap-y-6">
+            {steps?.map((step, index) => (
               <article
                 key={step.id}
-                className={`relative min-h-[190px] overflow-hidden rounded-[15px] bg-white px-4 pb-4 pt-3 text-[#0a0a0a] sm:min-h-[205px] xl:col-span-2 xl:h-[215px] xl:min-h-0 xl:px-[10px] ${
-                  index === 3 ? "xl:col-start-2" : ""
+                className={`relative col-span-2 min-h-[150px] overflow-hidden rounded-[11px] bg-white p-2 text-[#0a0a0a] xl:h-[215px] xl:min-h-0 xl:px-[10px] ${
+                  index === 3 ? "col-start-2 xl:col-start-2" : ""
                 }`}
               >
                 <span className="absolute inset-x-0 top-0 h-1 bg-[#00ed28]" />
-                <span className="block text-[34px] font-semibold leading-none md:text-[38px] xl:text-[40px]">
+                <span className="font-dagger block text-2xl font-semibold leading-none md:text-[38px] xl:text-[40px]">
                   {step.id}
                 </span>
-                <h3 className="mt-3 text-[20px] font-medium leading-none text-[#00dc25] md:text-[22px]">
+                <h3 className="font-dagger mt-2 text-sm sm:text-base font-medium leading-none text-[#00dc25] md:text-[22px]">
                   {step.title}
                 </h3>
-                <p className="mt-3.5 text-[14px] font-medium leading-[1.16] md:text-[15px] xl:text-[16px]">
+                <p className="mt-2 text-[10px] font-medium leading-[1.08] md:text-[15px] xl:text-[16px]">
                   {step.description}
                 </p>
               </article>
@@ -73,7 +73,7 @@ const FiveStepsToGuide = () => {
 
 const EcosystemDiagram = () => {
   return (
-    <div className="order-1 mx-auto w-full max-w-[550px] py-2 sm:px-3 xl:order-2 xl:px-0 xl:py-0">
+    <div className="order-2 mx-auto w-full max-w-[410px] py-0 xl:max-w-[550px] xl:px-0 xl:py-0">
       <svg
         role="img"
         aria-labelledby="ecosystem-title ecosystem-description"
