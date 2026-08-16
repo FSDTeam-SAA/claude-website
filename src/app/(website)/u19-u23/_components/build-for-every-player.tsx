@@ -41,7 +41,7 @@ const BuildForEveryPlayer = () => {
   ];
 
   return (
-    <div className="relative mx-auto mt-6 flex min-h-[480px] w-[95%] max-w-[1400px] flex-col items-center justify-center overflow-hidden rounded-[30px] bg-[url('/assets/images/home_page/sm_bg.svg')] bg-cover bg-center bg-no-repeat pb-8 pt-16 md:mt-8 md:h-[600px] md:w-full md:rounded-[70px] md:bg-[url('/assets/images/home_page/lg_bg.svg')] md:py-12 lg:mt-10 lg:py-16 xl:mt-12">
+    <div className="relative mx-auto mt-6 flex min-h-[600px] w-[95%] max-w-[1400px] flex-col items-center justify-center overflow-hidden rounded-[30px] bg-[url('/assets/images/home_page/sm_bg.svg')] bg-cover bg-center bg-no-repeat py-10 md:mt-8 md:h-[750px] md:w-full md:rounded-[70px] md:bg-[url('/assets/images/home_page/lg_bg.svg')] md:py-16 lg:mt-10 lg:py-20 xl:mt-12">
       <div className="relative z-10 mx-auto w-full max-w-[1300px] px-4 md:px-8 lg:px-12">
         <div className="mb-12 w-full text-center md:mb-10">
           <h2 className="font-dagger mx-auto max-w-[440px] text-2xl font-medium leading-[1.15] text-white md:max-w-none md:text-3xl md:leading-normal lg:text-4xl xl:text-5xl">
