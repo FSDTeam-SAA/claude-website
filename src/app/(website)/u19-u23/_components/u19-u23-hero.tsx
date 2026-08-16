@@ -11,7 +11,7 @@ const U19ToU23Hero = () => {
   return (
     <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/u19_u23/sm_u19-u23-hero.svg')] md:bg-[url('/assets/images/u19_u23/u19-u23-hero.svg')] bg-cover bg-center bg-no-repeat min-h-[600px] md:h-[750px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-end pb-12 md:pb-0 md:justify-center">
       {/* Bottom gradient for text readability on mobile */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent md:bg-none z-0"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent md:bg-none z-0"></div> */}
 
       <div className="relative z-10 px-4 w-full max-w-[1340px] mx-auto">
         <div className="flex flex-col gap-4 md:gap-12">
@@ -36,7 +36,7 @@ const U19ToU23Hero = () => {
             </p>
           </div>
 
-          <div className="mt-2 md:mt-16 lg:mt-20">
+          <div className="max-w-[1200px] mt-2 md:mt-16 lg:mt-20 ml-0 md:ml-[100px] lg:ml-[120px]">
             <Link
               href={`${isLogin ? "/prices#player-evaluation-program" : "/sign-up"}`}
               className="h-10 md:h-14 inline-flex items-center justify-center rounded-full bg-primary px-12 md:px-16 text-base md:text-xl font-bold text-black transition-all hover:opacity-90 hover:scale-105 shadow-[0_0_20px_rgba(16,230,7,0.5)]"
