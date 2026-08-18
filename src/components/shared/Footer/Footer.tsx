@@ -175,11 +175,11 @@ const Footer = () => {
         {/*brand Logo */}
         <Link href="https://www.soccerpremierleague.us" target="_blank">
           <Image
-            src="/assets/images/spl.png"
+            src="/assets/images/mfh.png"
             alt="logo"
             width={1000}
             height={1000}
-            className="w-[100px] h-[86px] object-cover rounded-[12px]"
+            className="w-[150px] h-[86px] object-contain rounded-[12px]"
           />
         </Link>
       </div>

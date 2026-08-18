@@ -14,10 +14,11 @@ const U19ToU23Hero = () => {
       {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent md:bg-none z-0"></div> */}
 
       <div className="relative z-10 px-4 w-full max-w-[1340px] mx-auto">
-        <div className="flex flex-col gap-4 md:gap-12">
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-32 md:gap-12">
+          <div className="flex flex-col gap-2 md:gap-4">
+            <div className="flex flex-col gap-2">
             <div className="flex items-center gap-4">
-              <div className="w-1.5 md:w-2 h-16 md:h-32 lg:h-40 bg-primary"></div>
+              <div className="w-[5px] md:w-2 h-[70px] md:h-32 lg:h-40 bg-primary"></div>
               <h1 className="text-[42px] md:text-6xl lg:text-8xl font-medium text-white leading-none md:leading-normal ">
                 Elite <br/> Performance
               </h1>
@@ -34,6 +35,7 @@ const U19ToU23Hero = () => {
             <p className="text-primary text-xs md:text-xl lg:text-2xl font-medium leading-tight">
               From U19 to U23
             </p>
+          </div>
           </div>
 
           <div className="max-w-[1200px] mt-2 md:mt-16 lg:mt-20 ml-0 md:ml-[100px] lg:ml-[120px]">

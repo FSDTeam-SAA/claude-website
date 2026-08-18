@@ -1,4 +1,45 @@
+"use client";
+
+import { parseCookies } from "nookies";
 import React from "react";
+
+const COOKIE_NAME = "googtrans";
+
+const ecosystemTranslations = {
+  en: {
+    title: "Our Ecosystem",
+    description: "Five connected steps from questionnaire to opportunity.",
+    labels: ["Questionnaire", "Player Profile", "Evaluation", "Agency", "Opportunity"],
+    body: [
+      "MFH Global Football Agency & Analytic",
+      "Soccer – two platforms, one",
+      "mission: get you where you",
+      "deserve to be.",
+    ],
+  },
+  fr: {
+    title: "Notre écosystème",
+    description: "Cinq étapes reliées, du questionnaire à l'opportunité.",
+    labels: ["Questionnaire", "Profil du joueur", "Évaluation", "Agence", "Opportunité"],
+    body: [
+      "MFH Global Football Agency & Analytic",
+      "Soccer – deux plateformes, une",
+      "mission : vous mener là où vous",
+      "méritez d'être.",
+    ],
+  },
+  es: {
+    title: "Nuestro ecosistema",
+    description: "Cinco pasos conectados, del cuestionario a la oportunidad.",
+    labels: ["Cuestionario", "Perfil del jugador", "Evaluación", "Agencia", "Oportunidad"],
+    body: [
+      "MFH Global Football Agency & Analytic",
+      "Soccer: dos plataformas, una",
+      "misión: llevarte adonde",
+      "mereces estar.",
+    ],
+  },
+} as const;
 
 const steps = [
   {
@@ -41,7 +82,7 @@ const FiveStepsToGuide = () => {
           Five Steps to Guide Your Development
         </h2>
 
-        <div className="mt-6 md:mt-[54px] grid items-center gap-9 md:mt-10 xl:grid-cols-[700px_minmax(0,1fr)] xl:gap-[34px]">
+        <div className="mt-6 md:mt-[54px] grid items-center gap-9 md:mt-10 xl:grid-cols-[630px_minmax(0,1fr)] xl:gap-[34px]">
           <div className="order-1 grid grid-cols-6 gap-1.5 md:gap-3 xl:grid-cols-6 xl:gap-x-4 xl:gap-y-6">
             {steps?.map((step, index) => (
               <article
@@ -72,8 +113,12 @@ const FiveStepsToGuide = () => {
 };
 
 const EcosystemDiagram = () => {
+  const cookie = parseCookies()[COOKIE_NAME];
+  const language = cookie?.split("/")[2] || "en";
+  const copy = ecosystemTranslations[language as keyof typeof ecosystemTranslations] ?? ecosystemTranslations.en;
+
   return (
-    <div className="order-2 mx-auto w-full max-w-[410px] py-0 xl:max-w-[550px] xl:px-0 xl:py-0">
+    <div className="order-2 mx-auto w-full max-w-[600px] py-0 xl:max-w-[640px] xl:px-0 xl:py-0">
       <svg
         role="img"
         aria-labelledby="ecosystem-title ecosystem-description"
@@ -82,8 +127,8 @@ const EcosystemDiagram = () => {
         fill="none"
         style={{ fontFamily: "var(--font-dagger-square)" }}
       >
-        <title id="ecosystem-title">Our Ecosystem</title>
-        <desc id="ecosystem-description">Five connected steps from questionnaire to opportunity.</desc>
+        <title id="ecosystem-title">{copy.title}</title>
+        <desc id="ecosystem-description">{copy.description}</desc>
         <defs>
           <marker
             id="ecosystem-arrow"
@@ -147,21 +192,21 @@ const EcosystemDiagram = () => {
         </g>
 
         <g fill="white" textAnchor="middle" fontSize="17" fontWeight="500">
-          <text x="342" y="95">Questionnaire</text>
-          <text x="598" y="278">Player Profile</text>
-          <text x="486" y="582">Evaluation</text>
-          <text x="198" y="582">Agency</text>
-          <text x="86" y="278">Opportunity</text>
+          <text x="342" y="95">{copy.labels[0]}</text>
+          <text x="598" y="278">{copy.labels[1]}</text>
+          <text x="486" y="582">{copy.labels[2]}</text>
+          <text x="198" y="582">{copy.labels[3]}</text>
+          <text x="86" y="278">{copy.labels[4]}</text>
         </g>
 
         <text x="342" y="298" fill="#00ed28" textAnchor="middle" fontSize="30" fontWeight="500">
-          Our Ecosystem
+          {copy.title}
         </text>
         <text fill="white" textAnchor="middle" fontSize="14" fontWeight="500">
-          <tspan x="342" y="326">MFH Global Football Agency &amp; Analytic</tspan>
-          <tspan x="342" y="343">Soccer – two platforms, one</tspan>
-          <tspan x="342" y="360">mission: get you where you</tspan>
-          <tspan x="342" y="377">deserve to be.</tspan>
+          <tspan x="342" y="326">{copy.body[0]}</tspan>
+          <tspan x="342" y="343">{copy.body[1]}</tspan>
+          <tspan x="342" y="360">{copy.body[2]}</tspan>
+          <tspan x="342" y="377">{copy.body[3]}</tspan>
         </text>
       </svg>
     </div>
