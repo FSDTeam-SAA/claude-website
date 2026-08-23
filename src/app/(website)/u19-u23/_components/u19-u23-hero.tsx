@@ -20,7 +20,7 @@ const U19ToU23Hero = () => {
             <div className="flex items-center gap-4">
               <div className="w-[5px] md:w-2 h-[70px] md:h-32 lg:h-40 bg-primary"></div>
               <h1 className="text-[42px] md:text-6xl lg:text-8xl font-medium text-white leading-none md:leading-normal ">
-                Elite <br/> Performance
+                Elite <br/> Performance    
               </h1>
             </div>
           </div>
@@ -38,7 +38,7 @@ const U19ToU23Hero = () => {
           </div>
           </div>
 
-          <div className="max-w-[1200px] mt-2 md:mt-16 lg:mt-20 ml-0 md:ml-[100px] lg:ml-[120px]">
+          <div className="max-w-[1200px] mb-10 sm:mb-12 md:mt-16 lg:mt-20 ml-0 md:ml-[100px] lg:ml-[120px] ">
             <Link
               href={`${isLogin ? "/prices#player-evaluation-program" : "/sign-up"}`}
               className="h-10 md:h-14 inline-flex items-center justify-center rounded-full bg-primary px-12 md:px-16 text-base md:text-xl font-bold text-black transition-all hover:opacity-90 hover:scale-105 shadow-[0_0_20px_rgba(16,230,7,0.5)]"
