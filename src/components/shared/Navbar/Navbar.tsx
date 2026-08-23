@@ -35,8 +35,7 @@ const Navbar = () => {
   const status = session?.status;
   const id = session?.data?.user?.id;
   const user = session?.data?.user;
-
-  console.log("id", id);
+  const hasValidUserId = Boolean(id && /^[a-f\d]{24}$/i.test(id));
 
   const { data } = useQuery<UserProfileApiResponse>({
     queryKey: ["user-profile", id],
@@ -46,9 +45,8 @@ const Navbar = () => {
       );
       return res.json();
     },
+    enabled: status === "authenticated" && hasValidUserId,
   });
-
-  console.log(data);
 
   const userId = data?.data?.user?._id;
 
@@ -98,8 +96,6 @@ const Navbar = () => {
   const profileImg = data?.data?.user?.profileImage
     ? data?.data?.user?.profileImage
     : "/assets/images/no-user.jpg";
-  console.log("image", profileImg);
-
   return (
     <div className="sticky top-0 z-50">
       <header className="w-full border-b border-border border-gray-200 bg-white">
@@ -244,11 +240,13 @@ const Navbar = () => {
                         Profile Settings
                       </DropdownMenuLabel>
                     </Link>
-                    <Link href={`/player-profile/${userId}`}>
-                      <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
-                        My Profile
-                      </DropdownMenuLabel>
-                    </Link>
+                    {userId && (
+                      <Link href={`/player-profile/${userId}`}>
+                        <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
+                          My Profile
+                        </DropdownMenuLabel>
+                      </Link>
+                    )}
                     <Link href="/password-change">
                       <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
                         Password Change
@@ -453,17 +451,19 @@ const Navbar = () => {
                         </DropdownMenuLabel>
                       </Link>
 
-                      <Link
-                        href={`/player-profile/${userId}`}
-                        onClick={() => {
-                          setIsOpen(false);
-                          setMobileDropdownOpen(false);
-                        }}
-                      >
-                        <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
-                          My Profile
-                        </DropdownMenuLabel>
-                      </Link>
+                      {userId && (
+                        <Link
+                          href={`/player-profile/${userId}`}
+                          onClick={() => {
+                            setIsOpen(false);
+                            setMobileDropdownOpen(false);
+                          }}
+                        >
+                          <DropdownMenuLabel className="cursor-pointer text-base md:text-lg text-[#131313] leading-[120%] font-medium hover:text-primary">
+                            My Profile
+                          </DropdownMenuLabel>
+                        </Link>
+                      )}
                       <Link
                         href="/password-change"
                         onClick={() => {
