@@ -153,6 +153,7 @@ const getVideoPreview = (url: string) => {
 const VideoLinkUpload = ({ userId }: { userId: string }) => {
   const { data: session } = useSession();
   const token = (session?.user as { accessToken?: string })?.accessToken;
+  const hasValidUserId = /^[a-f\d]{24}$/i.test(userId);
   const queryClient = useQueryClient();
   const [videoLink, setVideoLink] = useState("");
   const queryKey = ["user-highlighted-urls", userId];
@@ -175,7 +176,7 @@ const VideoLinkUpload = ({ userId }: { userId: string }) => {
 
       return result;
     },
-    enabled: !!userId && !!token,
+    enabled: hasValidUserId && !!token,
   });
 
   const highlightedUrls = data?.data?.user?.hilightedUrl || [];

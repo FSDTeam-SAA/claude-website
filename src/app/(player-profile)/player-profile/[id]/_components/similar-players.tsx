@@ -9,6 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import { SimilarPlayersApiResponse } from "./similar-players-data-type";
 
 const SimilarPlayers = ({ id }: { id: string }) => {
+  const hasValidUserId = /^[a-f\d]{24}$/i.test(id);
   const { data, isLoading, isError, error } =
     useQuery<SimilarPlayersApiResponse>({
       queryKey: ["similar-players", id],
@@ -18,6 +19,7 @@ const SimilarPlayers = ({ id }: { id: string }) => {
         );
         return res.json();
       },
+      enabled: hasValidUserId,
     });
 
   if (isLoading) {

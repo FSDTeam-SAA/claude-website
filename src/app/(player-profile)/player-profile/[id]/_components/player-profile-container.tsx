@@ -20,6 +20,7 @@ import GkStats from './gk-stats'
 import SimilarPlayers from './similar-players'
 
 const PlayerProfileContainer = ({id}:{id:string}) => {
+   const hasValidUserId = /^[a-f\d]{24}$/i.test(id);
 
    const { data, isLoading, isError, error } = useQuery<UserProfileApiResponse>({
         queryKey: ["profile-info", id],
@@ -27,6 +28,7 @@ const PlayerProfileContainer = ({id}:{id:string}) => {
             const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/detail/${id}`)
             return res.json();
         },
+        enabled: hasValidUserId,
     })
 
     console.log(data )
