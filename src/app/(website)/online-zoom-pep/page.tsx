@@ -11,8 +11,8 @@ const OnlineZoomPepPage = () => {
       <OnlineZoomPepHero/>
       <ChooseYourEvaluation/>
       <HowItWorks/>
-      <OnlinePlayerEvaluationProgram/>
       <WhatYouReceive/>
+      <OnlinePlayerEvaluationProgram/>
     </div>
   )
 }
