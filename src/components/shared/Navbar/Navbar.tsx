@@ -136,7 +136,8 @@ const Navbar = () => {
                 <DropdownMenuTrigger
                   className={`flex items-center gap-1 text-sm md:text-[15px] hover:text-primary leading-[150%] font-normal transition-all ease-in-out duration-300 outline-none ${
                     pathname === "/" ||
-                    pathname === "/u19-u23"
+                    pathname === "/u19-u23" ||
+                    pathname === "/online-zoom-pep"
                       ? "border-b-[2px] border-primary text-primary"
                       : "border-0 text-[#131313]"
                   }`}
@@ -167,6 +168,18 @@ const Navbar = () => {
                       }`}
                     >
                       U19/U23
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link
+                      href="/online-zoom-pep"
+                      className={`cursor-pointer ${
+                        pathname === "/online-zoom-pep"
+                          ? "font-medium text-primary"
+                          : "text-[#131313]"
+                      }`}
+                    >
+                      Online Zoom PEP
                     </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -322,7 +335,8 @@ const Navbar = () => {
                   aria-expanded={evaluationMenuOpen}
                   className={`flex w-fit items-center gap-1 text-sm md:text-base hover:text-primary leading-[150%] font-normal transition-all ease-in-out duration-300 ${
                     pathname === "/" ||
-                    pathname === "/u19-u23"
+                    pathname === "/u19-u23" ||
+                    pathname === "/online-zoom-pep"
                       ? "border-b-[2px] border-primary text-primary"
                       : "border-0 text-[#131313]"
                   }`}
@@ -359,6 +373,17 @@ const Navbar = () => {
                       }`}
                     >
                       U19/U23
+                    </Link>
+                    <Link
+                      href="/online-zoom-pep"
+                      onClick={() => setIsOpen(false)}
+                      className={`text-sm transition-colors hover:text-primary ${
+                        pathname === "/online-zoom-pep"
+                          ? "font-medium text-primary"
+                          : "text-[#131313]"
+                      }`}
+                    >
+                      Online Zoom PEP
                     </Link>
                   </div>
                 )}
