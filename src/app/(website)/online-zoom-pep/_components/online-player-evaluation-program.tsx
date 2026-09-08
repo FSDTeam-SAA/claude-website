@@ -18,7 +18,7 @@ const OnlinePlayerEvaluationProgram = () => {
   return (
     <section
       aria-labelledby="online-player-evaluation-title"
-      className="relative mx-auto mt-3 aspect-[686/1216] w-[95%] max-w-[1400px] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_opep.svg')] bg-cover bg-center bg-no-repeat sm:mt-5 sm:aspect-[1447/814] sm:rounded-[34px] sm:bg-[url('/assets/images/online_zoom_pep/lg_opep.svg')] md:mt-8 md:w-full md:rounded-[52px] lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]"
+      className="relative mx-auto mt-3 aspect-[686/1216] w-[95%] max-w-[1400px] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_opep.svg')] bg-cover bg-center bg-no-repeat sm:mt-5 sm:aspect-[1447/814] sm:rounded-[34px] sm:bg-[url('/assets/images/online_zoom_pep/lg_opep.svg')] md:mt-8 md:w-full md:rounded-[52px] lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px] mb-6 md:mb-8 lg:mb-10 xl:mb-12 "
     >
       <div className="absolute inset-x-[3.7%] top-[5.1%] text-white sm:top-[18.5%] md:inset-x-[4%] md:top-[19.5%]">
         <p className="inline-block border-b border-primary pb-1 text-[13px] font-bold leading-none text-primary sm:text-[11px] md:text-[16px] lg:text-[18px] xl:text-[20px]">
