@@ -36,9 +36,9 @@ const OnlineZoomPepHero = () => {
         </p>
         <h1
           id="online-zoom-pep-title"
-          className="mt-[4.5%] font-bold leading-tight tracking-wide sm:mt-[2.5%] md:mt-[2.3%] text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+          className="mt-[4.5%] font-semibold leading-tight tracking-wide sm:mt-[2.5%] md:mt-[2.3%] text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
         >
-          YOUR LOCATION SHOULDN'T
+          YOUR LOCATION SHOULDN&apos;T
           <br />
           LIMIT YOUR DEVELOPMENT.
         </h1>
@@ -78,13 +78,13 @@ const OnlineZoomPepHero = () => {
                 height={49}
                 className="h-6 w-6 object-contain sm:h-5 sm:w-5 md:h-7 md:w-7 lg:h-8 lg:w-8 xl:h-9 xl:w-9"
               />
-              <span className="text-white text-[9px] md:text-sm lg:text-base">{feature?.label}</span>
+              <span className="text-white text-[8px] md:text-sm lg:text-base">{feature?.label}</span>
             </div>
           </React.Fragment>
         ))}
       </div>
 
-      <p className="absolute left-[3.4%] top-[92%] font-medium leading-none text-white sm:left-[3.1%] sm:top-[92.4%] md:left-[2.9%] md:top-[92.5%] text-sm md:text-base lg:text-lg xl:text-xl">
+      <p className="absolute left-[3.4%] top-[93%] font-medium leading-none text-white sm:left-[3.1%] sm:top-[92.4%] md:left-[2.9%] md:top-[92.5%] text-sm md:text-base lg:text-lg xl:text-xl">
         Report delivered within 72 hours
       </p>
     </section>
