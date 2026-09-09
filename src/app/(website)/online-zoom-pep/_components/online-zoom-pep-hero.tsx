@@ -58,7 +58,7 @@ const OnlineZoomPepHero = () => {
 
       <Link
         href={isLogin ? "/contact-us" : "/login"}
-        className="absolute left-[4.2%] top-[76%] inline-flex h-12 md:h-14 lg:h-16 items-center justify-center rounded-[8px] border-2 border-primary bg-black/10 px-4 py-3 md:py-4 text-base font-medium leading-none text-primary shadow-[0_0_14px_rgba(16,230,7,0.45)] transition-transform hover:scale-[1.02] sm:left-[3.1%] sm:top-[65.5%] sm:rounded-[5px] sm:border-[1.5px] sm:text-lg md:left-[2.9%] md:top-[64.5%] md:text-xl lg:text-2xl xl:text-3xl"
+        className="absolute left-[4.2%] top-[76%] inline-flex h-12 md:h-14 lg:h-16 items-center justify-center rounded-[8px] border-2 border-primary bg-black/10 px-3 md:px-4 py-3 md:py-4 text-base font-medium leading-none text-primary shadow-[0_0_14px_rgba(16,230,7,0.45)] transition-transform hover:scale-[1.02] sm:left-[3.1%] sm:top-[65.5%] sm:rounded-[5px] sm:border-[1.5px] sm:text-lg md:left-[2.9%] md:top-[64.5%] md:text-xl lg:text-2xl xl:text-3xl"
       >
         BOOK YOUR CONSULTATION  <ChevronRight className="w-6 h-6 md:w-8 md:h-8"/>
       </Link>
