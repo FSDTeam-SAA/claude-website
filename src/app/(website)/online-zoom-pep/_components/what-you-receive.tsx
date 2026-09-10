@@ -56,7 +56,7 @@ const WhatYouReceive = () => {
   return (
     <section
       aria-labelledby="what-you-receive-title"
-      className="relative mx-auto mt-3 aspect-[686/1216] w-[95%] max-w-[1400px] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_what_you_receive.svg')] bg-cover bg-center bg-no-repeat sm:mt-5 sm:aspect-[1221/687] sm:rounded-[34px] sm:bg-[url('/assets/images/online_zoom_pep/lg_what_you_receive.svg')] md:mt-8 md:w-full md:rounded-[52px] lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]"
+      className="relative mx-auto mt-3 box-content aspect-[686/1216] w-[95%] max-w-[1400px] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_what_you_receive.svg')] bg-cover bg-center bg-no-repeat pb-[60px] sm:mt-5 sm:box-border sm:aspect-[1221/687] sm:rounded-[34px] sm:bg-[url('/assets/images/online_zoom_pep/lg_what_you_receive.svg')] sm:pb-0 md:mt-8 md:w-full md:rounded-[52px] lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]"
     >
       <header className="absolute inset-x-[4%] top-[3.2%] z-10 text-center text-white sm:top-[3.5%]">
         <p className="font-bold tracking-[0.35em] text-primary leading-normal text-xs md:text-sm lg:text-base lg:text-lg">
@@ -64,17 +64,16 @@ const WhatYouReceive = () => {
         </p>
         <h2
           id="what-you-receive-title"
-          className="py-2 md:py-0 text-xl font-bold leading-none tracking-tight text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl"
+          className="py-1 md:py-0  font-semibold leading-none tracking-tight text-lg md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl"
         >
           Your Summary Online PEP Report.
         </h2>
-        <p className="mt-[2px] font-medium leading-normal text-[11px] md:text-sm lg:text-base">
-          A complete view of your profile - delivered within 48 hours of your
-          live session.
+        <p className="mt-[2px] font-normal md:font-medium leading-normal text-[10px] md:text-sm lg:text-base">
+          A complete view of your profile - delivered within 48 hours of your live session.
         </p>
       </header>
 
-      <div className="absolute left-[7.5%] top-[47.5%] grid w-[85%] grid-cols-2 gap-1 md:gap-2 lg:gap-3 sm:left-auto sm:right-[3.2%] sm:top-[20%] sm:w-[41.5%] ">
+      <div className="absolute left-[7.5%] top-[50%] grid w-[85%] grid-cols-2 gap-1.5 md:gap-2 lg:gap-3 sm:left-auto sm:right-[3.2%] sm:top-[20%] sm:w-[41.5%] ">
         {evaluationAreas.map(([title, description, icon]) => (
           <article
             key={title}
