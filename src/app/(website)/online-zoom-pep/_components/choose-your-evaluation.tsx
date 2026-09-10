@@ -38,13 +38,13 @@ const ChooseYourEvaluation = () => {
           </span>
           <span className="h-px w-12 bg-primary md:w-28 lg:w-36" />
         </div>
-        <h2
+        <h4
           id="choose-your-evaluation-title"
-          className="mt-4 font-semibold leading-none text-sm md:text-3xl lg:text-4xl xl:text-5xl"
+          className="mt-4 font-semibold leading-none text-xs md:text-3xl lg:text-4xl xl:text-5xl"
         >
           Two Evaluation Options. Two Different Experiences.
-        </h2>
-        <p className="mt-1 font-medium leading-normal text-[9px] md:mt-2 md:text-sm lg:text-base">
+        </h4>
+        <p className="mt-1.5 font-medium leading-normal text-[9px] md:mt-2 md:text-sm lg:text-base">
           Choose the format that best matches your location.
         </p>
       </header>
@@ -72,7 +72,7 @@ const ChooseYourEvaluation = () => {
               <p className="mt-1 text-[clamp(7px,1.9vw,11px)] font-bold tracking-[0.22em] md:mt-3 md:text-[12px] lg:text-[14px] xl:text-[16px]">
                 {option.subtitle}
               </p>
-              <span className="mt-11 block h-[2px] w-8 bg-primary md:mt-6 md:h-[3px] md:w-20 lg:w-24" />
+              <span className="mt-12 block h-[2px] w-8 bg-primary md:mt-12 md:h-[3px] md:w-16 lg:w-20" />
             </div>
             <div className="pointer-events-none absolute inset-x-[2%] bottom-[3%] md:bottom-[10%] z-[30] grid grid-cols-1 text-white text-[clamp(5px,1.45vw,8px)] md:grid-cols-2 md:text-[clamp(7px,0.75vw,12px)] lg:text-[13px] xl:text-[14px]">
               <div className="space-y-1 md:border-r md:border-primary md:space-y-2 md:pr-2 lg:space-y-4 lg:pr-4">

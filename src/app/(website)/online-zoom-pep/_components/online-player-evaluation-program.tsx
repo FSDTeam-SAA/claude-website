@@ -41,7 +41,7 @@ const OnlinePlayerEvaluationProgram = () => {
         </p>
         <h2
           id="online-player-evaluation-title"
-          className="mt-[4.5%] font-bold leading-normal tracking-wide sm:mt-[2.5%] md:mt-[5%] text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl"
+          className="mt-4 font-bold leading-9 tracking-wide sm:mt-[2.5%] md:mt-[5%] text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl"
         >
           Stop Waiting.
           <br />
