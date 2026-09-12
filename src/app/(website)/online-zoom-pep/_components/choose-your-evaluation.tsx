@@ -1,5 +1,10 @@
+"use client"
+
 import Image from "next/image";
 import { Check, MapPin, Radio } from "lucide-react";
+import { parseCookies } from "nookies";
+
+const COOKIE_NAME = "googtrans";
 
 const options = [
   {
@@ -25,6 +30,9 @@ const options = [
 ] as const;
 
 const ChooseYourEvaluation = () => {
+
+   const cookie = parseCookies()[COOKIE_NAME];
+    const lang = cookie?.split("/")?.[2] || "en";
   return (
     <section
       aria-labelledby="choose-your-evaluation-title"
@@ -40,16 +48,16 @@ const ChooseYourEvaluation = () => {
         </div>
         <h4
           id="choose-your-evaluation-title"
-          className="mt-4 font-semibold leading-none text-xs md:text-3xl lg:text-4xl xl:text-5xl"
+          className={`mt-4 font-semibold leading-none  ${lang === "fr" ? "text-xs md:text-3xl lg:text-4xl xl:text-[40px]" : "text-xs md:text-3xl lg:text-4xl xl:text-5xl"}`}
         >
           Two Evaluation Options. Two Different Experiences.
         </h4>
-        <p className="mt-1.5 font-medium leading-normal text-[9px] md:mt-2 md:text-sm lg:text-base">
+        <p className="mt-1 font-medium leading-normal text-[9px] md:mt-2 md:text-sm lg:text-base">
           Choose the format that best matches your location.
         </p>
       </header>
 
-      <div className="absolute left-[3.5%] top-[31%] grid w-[93%] grid-cols-2 gap-1.5 md:left-[4.2%] md:top-[25%] md:w-[91.6%] md:gap-x-[1.8%]">
+      <div className="absolute left-[3.5%] top-[35%] grid w-[93%] grid-cols-2 gap-1.5 md:left-[4.2%] md:top-[25%] md:w-[91.6%] md:gap-x-[1.8%]">
         {options.map((option, index) => (
           <article
             key={option.desktop}
@@ -132,7 +140,7 @@ const ChooseYourEvaluation = () => {
         ))}
       </div>
 
-      <aside className="absolute mt-4 md:mt-0 left-[3.5%] top-[68.5%] w-[93%] rounded-[8px] border border-yellow-400 bg-black/75 px-2 py-1.5 text-yellow-300 md:left-[4.2%] md:top-[81%] md:w-[91.6%] md:rounded-[14px] md:border-2 md:px-4 md:py-3 lg:px-5 lg:py-4">
+      <aside className="absolute mt-8 md:mt-0 left-[3.5%] top-[68.5%] w-[93%] rounded-[8px] border border-yellow-400 bg-black/75 px-2 py-1.5 text-yellow-300 md:left-[4.2%] md:top-[81%] md:w-[91.6%] md:rounded-[14px] md:border-2 md:px-4 md:py-3 lg:px-5 lg:py-4">
         <h3 className="font-semibold leading-none text-[9px] md:text-base lg:text-lg xl:text-xl">
           IMPORTANT INFORMATION
         </h3>
