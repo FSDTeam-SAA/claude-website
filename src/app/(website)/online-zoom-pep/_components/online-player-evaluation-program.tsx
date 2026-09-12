@@ -57,7 +57,7 @@ const OnlinePlayerEvaluationProgram = () => {
         <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
       </Link>
 
-      <div className="absolute left-[4.2%] top-[26%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:left-[4%] sm:top-[76%] sm:gap-3 sm:text-[8px] md:gap-5 md:text-[11px] lg:gap-7 lg:text-[13px] xl:text-[14px] ">
+      <div className="absolute left-[4.2%] top-[36%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:left-[4%] md:top-[76%] sm:gap-3 sm:text-[8px] md:gap-5 md:text-[11px] lg:gap-7 lg:text-[13px] xl:text-[14px] ">
         {programFeatures.map((feature, index) => (
           <React.Fragment key={`${feature.icon}-${index}`}>
             {index > 0 && (
@@ -80,7 +80,7 @@ const OnlinePlayerEvaluationProgram = () => {
         ))}
       </div>
 
-      <p className="absolute left-[4.2%] top-[86.8%] font-medium leading-none text-white sm:left-[4%] sm:top-[92.5%] text-sm md:text-base lg:text-lg xl:text-xl">
+      <p className="absolute left-[4.2%] top-[86.8%] font-medium leading-normal text-white sm:left-[4%] sm:top-[92.5%] text-sm md:text-base lg:text-lg xl:text-xl">
         AVAILABLE FOR ALL AGE CATEGORIES -{" "}
         <span className="text-primary">U9 TO U23.</span>
       </p>

@@ -4,7 +4,10 @@ import { ChevronRight } from "lucide-react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { parseCookies } from "nookies";
 import React from "react";
+
+const COOKIE_NAME = "googtrans";
 
 const heroFeatures = [
   {
@@ -25,6 +28,9 @@ const OnlineZoomPepHero = () => {
   const session = useSession();
   const isLogin = Boolean(session?.data?.user?.accessToken);
 
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
+
   return (
     <section
       aria-labelledby="online-zoom-pep-title"
@@ -38,10 +44,22 @@ const OnlineZoomPepHero = () => {
           id="online-zoom-pep-title"
           className="mt-[4.5%] font-semibold leading-tight tracking-wide sm:mt-[2.5%] md:mt-[2.3%] text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
         >
-          YOUR LOCATION SHOULDN&apos;T
-          <br />
-          LIMIT YOUR DEVELOPMENT.
+          {lang === "fr" ? (
+            <>
+              VOTRE LOCALISATION NE DEVRAIT PAS
+              <br className="hidden md:block" />
+              LIMITER VOTRE DÉVELOPPEMENT.
+            </>
+          ) : (
+            <>
+              YOUR LOCATION SHOULDN&apos;T
+             <br className="hidden md:block" />
+              LIMIT YOUR DEVELOPMENT.
+            </>
+          )}
         </h1>
+
+        {/* Votre localisation ne devrait pas limiter votre développement. */}
         <div className="mt-4 md:mt-5 lg:mt-6 max-w-[82%] font-medium leading-normal sm:max-w-[43%] md:max-w-[490px] text-xs md:text-sm lg:text-base lg:text-lg xl:text-xl">
           <p>
             The Player Evaluation Program - Now available
@@ -60,7 +78,8 @@ const OnlineZoomPepHero = () => {
         href={isLogin ? "/contact-us" : "/login"}
         className="absolute left-[4.2%] top-[76%] inline-flex h-12 md:h-14 lg:h-16 items-center justify-center rounded-[8px] border-2 border-primary bg-black/10 px-3 md:px-4 py-3 md:py-4 text-base font-medium leading-none text-primary shadow-[0_0_14px_rgba(16,230,7,0.45)] transition-transform hover:scale-[1.02] sm:left-[3.1%] sm:top-[65.5%] sm:rounded-[5px] sm:border-[1.5px] sm:text-lg md:left-[2.9%] md:top-[64.5%] md:text-xl lg:text-2xl xl:text-3xl"
       >
-        BOOK YOUR CONSULTATION  <ChevronRight className="w-6 h-6 md:w-8 md:h-8"/>
+        BOOK YOUR CONSULTATION{" "}
+        <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
       </Link>
 
       <div className="absolute left-[3.4%]  top-[87.9%] flex items-center gap-2 whitespace-nowrap text-[8px] font-medium text-white sm:left-[3.1%] sm:top-[82.8%] sm:gap-2 sm:text-[8px] md:left-[2.9%] md:gap-3 md:text-[10px] lg:text-[12px] xl:text-[13px]">
@@ -78,7 +97,9 @@ const OnlineZoomPepHero = () => {
                 height={49}
                 className="h-6 w-6 object-contain sm:h-5 sm:w-5 md:h-7 md:w-7 lg:h-8 lg:w-8 xl:h-9 xl:w-9"
               />
-              <span className="text-white text-[8px] md:text-sm lg:text-base">{feature?.label}</span>
+              <span className="text-white text-[8px] md:text-sm lg:text-base">
+                {feature?.label}
+              </span>
             </div>
           </React.Fragment>
         ))}

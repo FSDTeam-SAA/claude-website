@@ -73,11 +73,11 @@ const WhatYouReceive = () => {
         </p>
       </header>
 
-      <div className="absolute left-[7.5%] top-[50%] grid w-[85%] grid-cols-2 gap-1.5 md:gap-2 lg:gap-3 sm:left-auto sm:right-[3.2%] sm:top-[20%] sm:w-[41.5%] ">
+      <div className="absolute left-[7.5%] top-[48%] grid w-[85%] grid-cols-2 gap-1.5 md:gap-2 lg:gap-2 sm:left-auto sm:right-[3.2%] sm:top-[20%] sm:w-[41.5%] ">
         {evaluationAreas.map(([title, description, icon]) => (
           <article
             key={title}
-            className="flex min-h-[55px] items-center gap-1.5 rounded-[6px] border border-primary bg-black/55 p-1.4 md:p-2 text-white shadow-[0_0_8px_rgba(16,230,7,0.18)] sm:gap-1 sm:rounded-[4px] md:gap-2 lg:rounded-[6px]"
+            className="flex min-h-[55px] items-center gap-1 rounded-[6px] border border-primary bg-black/55 p-1.4 md:p-2 text-white shadow-[0_0_8px_rgba(16,230,7,0.18)] sm:gap-1 sm:rounded-[4px] md:gap-2 lg:rounded-[6px]"
           >
             <Image
               src={`/assets/images/pep/${icon}`}
@@ -88,7 +88,7 @@ const WhatYouReceive = () => {
               className="h-9 w-9 shrink-0 object-contain sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14"
             />
             <div className="min-w-0">
-              <h5 className="font-bold uppercase leading-[0.95] text-primary text-xs md:text-sm lg:text-base">
+              <h5 className="font-medium md:font-bold uppercase leading-[0.95] text-primary text-xs md:text-sm lg:text-base">
                 {title}
               </h5>
               <p className="mt-[2px] font-medium leading-normal text-[7px] md:text-[10px] lg:text-xs">
@@ -99,7 +99,7 @@ const WhatYouReceive = () => {
         ))}
       </div>
 
-      <div className="absolute bottom-[3.8%] left-[7.5%] flex w-[85%] items-center justify-between rounded-[6px] border border-primary bg-black/55 text-white sm:bottom-[3.2%] sm:left-[3.2%] sm:w-[93.6%] p-1.5 md:p-3">
+      <div className="absolute bottom-[3.8%] left-[7.5%] flex w-[85%] items-center justify-between rounded-[6px] border border-primary bg-black/55 text-white sm:bottom-[3.2%] sm:left-[3.2%] sm:w-[93.6%] p-1.5 md:p-2">
         {summaryItems.map(([label, icon], index) => (
           <React.Fragment key={`${icon}-${index}`}>
             {index > 0 && (
