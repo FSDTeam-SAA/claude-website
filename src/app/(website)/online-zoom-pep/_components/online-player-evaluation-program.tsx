@@ -57,13 +57,13 @@ const OnlinePlayerEvaluationProgram = () => {
         <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
       </Link>
 
-      <div className="absolute left-[4.2%] top-[36%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:left-[4%] md:top-[76%] sm:gap-3 sm:text-[8px] md:gap-5 md:text-[11px] lg:gap-7 lg:text-[13px] xl:text-[14px] ">
+      <div className="absolute left-[4.2%] top-[25%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:left-[4%] md:top-[76%] sm:gap-3 sm:text-[8px] md:gap-5 md:text-[11px] lg:gap-7 lg:text-[13px] xl:text-[14px] ">
         {programFeatures.map((feature, index) => (
           <React.Fragment key={`${feature.icon}-${index}`}>
             {index > 0 && (
               <span className="h-6 w-px bg-primary sm:h-10 md:h-12 lg:h-14" />
             )}
-            <div className="flex flex-col items-center gap-1 md:gap-2">
+            <div className="flex flex-col items-center gap-1 md:gap-2 ">
               <Image
                 src={feature.icon}
                 alt=""
@@ -72,7 +72,7 @@ const OnlinePlayerEvaluationProgram = () => {
                 height={59}
                 className="h-7 w-7 object-contain sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14"
               />
-              <span className="text-white text-[8px] md:text-sm text-center">
+              <span className="text-white text-[7px] sm:text-[8px] md:text-sm text-center">
                 {feature?.label}
               </span>
             </div>

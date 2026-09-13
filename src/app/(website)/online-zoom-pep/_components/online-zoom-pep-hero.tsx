@@ -95,9 +95,9 @@ const OnlineZoomPepHero = () => {
                 aria-hidden
                 width={50}
                 height={49}
-                className="h-6 w-6 object-contain sm:h-5 sm:w-5 md:h-7 md:w-7 lg:h-8 lg:w-8 xl:h-9 xl:w-9"
+                className="object-contain h-5 w-5 md:h-7 md:w-7 lg:h-8 lg:w-8 xl:h-9 xl:w-9"
               />
-              <span className="text-white text-[8px] md:text-sm lg:text-base">
+              <span className="text-white text-[7px] sm:text-[8px] md:text-sm lg:text-base">
                 {feature?.label}
               </span>
             </div>
