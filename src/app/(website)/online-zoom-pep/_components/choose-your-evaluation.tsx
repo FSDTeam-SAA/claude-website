@@ -48,7 +48,7 @@ const ChooseYourEvaluation = () => {
         </div>
         <h4
           id="choose-your-evaluation-title"
-          className={`mt-4 font-semibold leading-none  ${lang === "fr" ? "text-xs md:text-3xl lg:text-4xl xl:text-[40px]" : "text-xs md:text-3xl lg:text-4xl xl:text-5xl"}`}
+          className={`mt-4 font-semibold leading-none  ${lang === "fr" ? "text-xs md:text-3xl lg:text-4xl xl:text-[40px]" : "text-xs md:text-3xl lg:text-4xl xl:text-[42px]"}`}
         >
           Two Evaluation Options. Two Different Experiences.
         </h4>
