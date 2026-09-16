@@ -42,6 +42,7 @@ const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [isResending, setIsResending] = useState(false);
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/";
 
@@ -58,6 +59,25 @@ const LoginForm = () => {
       rememberMe: false,
     },
   });
+
+  async function resendVerification() {
+    if (!(await form.trigger(["email", "password"]))) return;
+    setIsResending(true);
+    try {
+      const { email, password } = form.getValues();
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_BACKEND_URL + "/auth/resend-verification",
+        { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, password }) },
+      );
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || "Could not send verification email.");
+      toast.success(result.message);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Could not send verification email.");
+    } finally {
+      setIsResending(false);
+    }
+  }
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
@@ -78,7 +98,7 @@ const LoginForm = () => {
       router.refresh();
     } catch (error) {
       console.error("Login failed:", error);
-      toast.error("Please verify your email then Login again. If you have not received the verification email, please check your spam folder or request a new one.");
+      toast.error(error instanceof Error ? error.message : "Login failed. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -210,6 +230,10 @@ const LoginForm = () => {
                 {isLoading ? "Signing In..." : "Sign In"}
               </Button>
             </div>
+
+            <Button type="button" variant="link" disabled={isResending || isLoading} onClick={resendVerification} className="w-full">
+              {isResending ? "Sending..." : "Resend verification email"}
+            </Button>
 
              <div className="w-full flex items-center gap-2">
               <span className="hidden md:block w-1/3 border-b border-[#6C6C6C]"/>
