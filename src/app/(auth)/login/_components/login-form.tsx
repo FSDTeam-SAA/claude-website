@@ -46,6 +46,13 @@ const LoginForm = () => {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/";
 
+  const authError = searchParams.get("error");
+  const authErrorMessage = authError === "GoogleTokenMissing"
+    ? "Google sign-in could not be completed. Please try again."
+    : authError === "GoogleBackendLoginFailed" || authError === "AccessDenied"
+      ? "Google sign-in is temporarily unavailable. Please try again or sign in with your email and password."
+      : authError ? "Sign-in could not be completed. Please try again." : null;
+
   const session = useSession();
 
   console.log("login session status", session)
@@ -112,6 +119,9 @@ const LoginForm = () => {
   return (
     <div className="pr-2 md:pr-20 2xl:pr-32">
       <div className="w-full md:w-[570px] bg-white rounded-[16px] border-[2px] border-[#E7E7E7] shadow-[0px_0px_32px_0px_#0000001F] p-4 md:p-6 lg:p-8">
+        {authErrorMessage && (
+          <p role="alert" className="mb-4 text-sm text-red-600">{authErrorMessage}</p>
+        )}
         <div className="w-full flex items-center justify-center pb-4">
           <Link href="/">
             <Image 
