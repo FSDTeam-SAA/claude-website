@@ -15,9 +15,9 @@ import { useRouter } from "next/navigation";
 // import moment from 'moment';
 import Image from 'next/image';
 import { UsersApiResponse } from '@/components/shared/Navbar/user-data-type';
-import { PlayersTableSkeleton } from './profile-skeleton';
 import ClaudePagination from '@/components/ui/claude-pagination';
 import NotFound from '@/components/shared/NotFound/NotFound';
+import Loader from '@/components/ui/Loader';
 
 // emailVerified=true&sortOrder=desc&
 const ProfilesContainer = () => {
@@ -39,9 +39,7 @@ const ProfilesContainer = () => {
     let content;
 
     if (isLoading) {
-        return <div className="container py-8">
-            <PlayersTableSkeleton />
-        </div>
+        return <Loader variant="section" message="Loading player profiles..." />
     } else if (isError) {
         return <div className='container py-8'>
             <ErrorContainer message={error?.message || "Something went wrong!"} />

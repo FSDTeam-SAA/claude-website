@@ -100,8 +100,8 @@ import ProfilePicture from "./profile-picture"
 import PersonalInformationForm from "./personal-information-form"
 import { UserProfileApiResponse } from "./user-data-type"
 import VideoUpload from "./video-upload"
-import ProfileSettingSkeleton from "./personal-info-page-skeleton"
 import VideoLinkUpload from "./video-link-upload"
+import Loader from "@/components/ui/Loader"
 
 const ProfileContainer = () => {
   const { data: session } = useSession()
@@ -124,9 +124,7 @@ const ProfileContainer = () => {
   
   // loading 
   if (isLoading) {
-    return <div className="pt-6">
-      <ProfileSettingSkeleton/>
-    </div>
+    return <Loader variant="section" message="Loading your profile..." />
   }
 
   const user = data?.data?.user
@@ -154,7 +152,6 @@ const ProfileContainer = () => {
 }
 
 export default ProfileContainer
-
 
 
 
