@@ -18,6 +18,7 @@ import DistributionPlayerStats from './distribution-player-stats'
 // import SetPieces from './set-pieces'
 import GkStats from './gk-stats'
 import SimilarPlayers from './similar-players'
+import Loader from '@/components/ui/Loader'
 
 const PlayerProfileContainer = ({id}:{id:string}) => {
    const hasValidUserId = /^[a-f\d]{24}$/i.test(id);
@@ -34,6 +35,10 @@ const PlayerProfileContainer = ({id}:{id:string}) => {
     console.log(data )
 
     const playerRole =   data?.data?.user?.role;
+
+    if (isLoading) {
+      return <Loader variant="section" message="Loading player analysis..." />
+    }
 
     // console.log(playerRole)
 

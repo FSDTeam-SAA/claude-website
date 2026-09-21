@@ -126,7 +126,7 @@ export interface UsersApiResponse {
 //     const fetchUsers = async () => {
 //       setIsLoading(true)
 //       try {
-//         const res = await fetch(`${baseUrl}/user/all-user?limit=100000`, {
+//         const res = await fetch(`${baseUrl}/user/all-user?limit=10`, {
 //           headers: {
 //             "Content-Type": "application/json",
 //             // ...(token && { Authorization: `Bearer ${token}` }),
@@ -162,7 +162,7 @@ export interface UsersApiResponse {
 
 //       try {
 //         const res = await fetch(
-//           `${baseUrl}/user/all-user?searchTerm=${encodeURIComponent(searchTerm)}&limit=100000`,
+//           `${baseUrl}/user/all-user?searchTerm=${encodeURIComponent(searchTerm)}&limit=10`,
 //           {
 //             headers: {
 //               "Content-Type": "application/json",
