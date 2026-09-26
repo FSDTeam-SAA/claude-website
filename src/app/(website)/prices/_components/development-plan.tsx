@@ -41,7 +41,7 @@ const DevelopmentPlan = () => {
 //     (item) => item?.paymentType === "Development",
 //   );
 
-const subscriptionData = data?.data;
+const subscriptionData = data?.data?.filter((item) => item.isActive === true);
 
   // console.log(subscriptionData)
 
@@ -71,7 +71,7 @@ const subscriptionData = data?.data;
           Development Plan
         </h3>
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 pt-2 md:pt-9 lg:pt-12">
+        <div className="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 md:pt-9 lg:pt-12">
           {subscriptionData?.map((item) => {
             return (
               <div

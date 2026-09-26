@@ -25,7 +25,8 @@ export type PaymentType =
   | "Development"
   | "TeamGame"
   | "Individual"
-  | "Evaluation";
+  | "Evaluation"
+  | "Online"
 
 export type Interval = "monthly" | "yearly";
 

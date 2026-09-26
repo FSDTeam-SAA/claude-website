@@ -1,22 +1,29 @@
 "use client";
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Subscription, SubscriptionApiResponse } from "./subscription-data-type";
+import {
+  Subscription,
+  SubscriptionApiResponse,
+} from "./subscription-data-type";
 import { useSession } from "next-auth/react";
 import IndividualPricingSkeleton from "./individual-pricing-skeleton";
 import ErrorContainer from "@/components/shared/ErrorContainer/ErrorContainer";
-import RegisterAsPlayerEvaluationForm from "./register-as-player-evaluation-form";
 import { CircleCheckBig } from "lucide-react";
 import { parseCookies } from "nookies";
+import RegisterAsPlayerEvaluationOnlineForm from "./register-as-player-evaluation-online-form";
 const COOKIE_NAME = "googtrans";
 
-const PlayerEvaluationProgram = () => {
-    const cookie = parseCookies()[COOKIE_NAME];
-    const lang = cookie?.split("/")?.[2] || "en";
+const getStartingAge = (title: string) =>
+  Number(title.match(/\d+/)?.[0] ?? Number.MAX_SAFE_INTEGER);
+
+const PlayerEvaluationOnline = () => {
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
   const [isOpen, setIsOpen] = useState(false);
   const currentPage = 1;
   const [subscriptionId, setSubscriptionId] = useState<string | null>(null);
-  const [selectedSubscription, setSelectedSubscription] = useState<Subscription | null>(null);
+  const [selectedSubscription, setSelectedSubscription] =
+    useState<Subscription | null>(null);
   const session = useSession();
   const token = (session?.data?.user as { accessToken: string })?.accessToken;
 
@@ -40,15 +47,21 @@ const PlayerEvaluationProgram = () => {
 
   // console.log(data)
 
-  const subscriptionData = data?.data?.filter(
-    (item) => item?.paymentType === "Evaluation",
-  );
+  const subscriptionData = data?.data
+    ?.filter((item) => item?.paymentType === "Online")
+    .sort(
+      (firstItem, secondItem) =>
+        getStartingAge(firstItem.title) - getStartingAge(secondItem.title),
+    );
 
   // console.log(subscriptionData)
 
   if (isLoading) {
     return (
-      <div id="player-evaluation-program" className="scroll-mt-28 bg_color py-7 md:py-16 lg:py-24">
+      <div
+        id="player-evaluation-program-online"
+        className="scroll-mt-28 bg_color py-7 md:py-16 lg:py-24"
+      >
         <div className="container py-6">
           <IndividualPricingSkeleton />
         </div>
@@ -60,7 +73,10 @@ const PlayerEvaluationProgram = () => {
     const message =
       error instanceof Error ? error.message : "Something went wrong!";
     return (
-      <div id="player-evaluation-program" className="bg_color py-7 md:py-16 lg:py-24">
+      <div
+        id="player-evaluation-program-online"
+        className="bg_color py-7 md:py-16 lg:py-24"
+      >
         <div className="pb-8">
           <ErrorContainer message={message} />
         </div>
@@ -70,12 +86,14 @@ const PlayerEvaluationProgram = () => {
 
   return (
     // <div className="bg-[#EBEBEB] py-10 md:py-16 lg:py-24">
-    <div id="player-evaluation-program" className="scroll-mt-28 bg_color py-7 md:py-16 lg:py-24">
+    <div
+      id="player-evaluation-program-online"
+      className="scroll-mt-28 bg_color py-7 md:py-16 lg:py-24"
+    >
       <div className="container ">
         <h3 className="text-2xl md:text-3xl lg:text-[40px] text-primary h_underline leading-normal font-normal text-center">
-          Player Evaluation Program On Site
+          Player Evaluation Program Online
         </h3>
-
 
         <div className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-2 md:pt-9 lg:pt-12">
           {subscriptionData?.map((item) => {
@@ -86,7 +104,7 @@ const PlayerEvaluationProgram = () => {
               >
                 <div className="bg-primary rounded-t-[14px] py-4 md:py-6 lg:py-8">
                   <h4 className="text-lg md:text-xl lg:text-2xl font-normal text-white leading-[120%] text-center ">
-                    {item?.title} 
+                    {item?.title}
                   </h4>
                   <p className=" text-base md:text-lg  font-normal text-white leading-[120%] text-center ">
                     {item?.evaluationLimit || 0} Evaluations / Year
@@ -98,9 +116,14 @@ const PlayerEvaluationProgram = () => {
                   </h5>
                   <ul>
                     {item?.features?.map((feature, index) => (
-                      <li key={index} className="flex items-start md:items-center justify-start gap-2 py-1">
+                      <li
+                        key={index}
+                        className="flex items-start md:items-center justify-start gap-2 py-1"
+                      >
                         <CircleCheckBig className="w-4 h-4 text-green-600" />
-                        <span className="text-sm text-[#131313]">{feature}</span>
+                        <span className="text-sm text-[#131313]">
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -123,7 +146,7 @@ const PlayerEvaluationProgram = () => {
 
       {/* modal open  */}
       {isOpen && subscriptionId && (
-        <RegisterAsPlayerEvaluationForm
+        <RegisterAsPlayerEvaluationOnlineForm
           open={isOpen}
           onOpenChange={setIsOpen}
           subscriptionId={subscriptionId}
@@ -136,4 +159,4 @@ const PlayerEvaluationProgram = () => {
   );
 };
 
-export default PlayerEvaluationProgram;
+export default PlayerEvaluationOnline;
