@@ -13,6 +13,9 @@ import { parseCookies } from "nookies";
 import RegisterAsPlayerEvaluationOnlineForm from "./register-as-player-evaluation-online-form";
 const COOKIE_NAME = "googtrans";
 
+const getStartingAge = (title: string) =>
+  Number(title.match(/\d+/)?.[0] ?? Number.MAX_SAFE_INTEGER);
+
 const PlayerEvaluationOnline = () => {
   const cookie = parseCookies()[COOKIE_NAME];
   const lang = cookie?.split("/")?.[2] || "en";
@@ -44,9 +47,12 @@ const PlayerEvaluationOnline = () => {
 
   // console.log(data)
 
-  const subscriptionData = data?.data?.filter(
-    (item) => item?.paymentType === "Online",
-  );
+  const subscriptionData = data?.data
+    ?.filter((item) => item?.paymentType === "Online")
+    .sort(
+      (firstItem, secondItem) =>
+        getStartingAge(firstItem.title) - getStartingAge(secondItem.title),
+    );
 
   // console.log(subscriptionData)
 
@@ -89,7 +95,7 @@ const PlayerEvaluationOnline = () => {
           Player Evaluation Program Online
         </h3>
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-2 md:pt-9 lg:pt-12">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-2 md:pt-9 lg:pt-12">
           {subscriptionData?.map((item) => {
             return (
               <div

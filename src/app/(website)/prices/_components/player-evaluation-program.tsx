@@ -77,7 +77,7 @@ const PlayerEvaluationProgram = () => {
         </h3>
 
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 pt-2 md:pt-9 lg:pt-12">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-2 md:pt-9 lg:pt-12">
           {subscriptionData?.map((item) => {
             return (
               <div
