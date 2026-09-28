@@ -47,13 +47,13 @@ const OnlineZoomPepHero = () => {
           {lang === "fr" ? (
             <>
               VOTRE LOCALISATION NE DEVRAIT PAS
-              <br className="hidden md:block" />
+              <br />
               LIMITER VOTRE DÉVELOPPEMENT.
             </>
           ) : (
             <>
               YOUR LOCATION SHOULDN&apos;T
-             <br className="hidden md:block" />
+             <br />
               LIMIT YOUR DEVELOPMENT.
             </>
           )}
