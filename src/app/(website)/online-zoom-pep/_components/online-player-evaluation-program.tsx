@@ -41,7 +41,7 @@ const OnlinePlayerEvaluationProgram = () => {
         </p>
         <h2
           id="online-player-evaluation-title"
-          className="mt-4 font-bold leading-9 tracking-wide sm:mt-[2.5%] md:mt-[5%] text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl"
+          className="mt-4 font-bold leading-9 tracking-wide sm:mt-[2.5%] md:mt-[5%] text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl"
         >
           Stop Waiting.
           <br />
@@ -57,7 +57,7 @@ const OnlinePlayerEvaluationProgram = () => {
         <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
       </Link>
 
-      <div className="absolute left-[4.2%] top-[25%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:left-[4%] md:top-[76%] sm:gap-3 sm:text-[8px] md:gap-5 md:text-[11px] lg:gap-7 lg:text-[13px] xl:text-[14px] ">
+      <div className="absolute left-[4.2%] top-[30%] sm:top-[25%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:left-[4%] md:top-[76%] sm:gap-3 sm:text-[8px] md:gap-5 md:text-[11px] lg:gap-7 lg:text-[13px] xl:text-[14px] ">
         {programFeatures.map((feature, index) => (
           <React.Fragment key={`${feature.icon}-${index}`}>
             {index > 0 && (
