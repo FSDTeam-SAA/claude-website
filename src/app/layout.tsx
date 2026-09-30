@@ -4,7 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import AuthProvider from "@/components/providers/AuthProvider";
 import AppProvider from "@/components/providers/AppProvider";
-// import ProfileImageGuard from "./(website)/profile/_components/profile-image-guard";
+import ProfileImageGuard from "./(website)/profile/_components/profile-image-guard";
 import { Suspense } from "react";
 import LangConfig from "./lang-config";
 import Script from "next/script";
@@ -49,7 +49,6 @@ export default function RootLayout({
 
         <AuthProvider>
           <AppProvider>
-            {/* <ProfileImageGuard> */}
             {/* ✅ Google translate container */}
             {/* <div id="google_translate_element"></div> */}
             <div
@@ -64,13 +63,12 @@ export default function RootLayout({
             <Suspense fallback={null}>
               <TranslateProvider />
             </Suspense>
-            {children}
+            <ProfileImageGuard>{children}</ProfileImageGuard>
 
             <Script
               src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
               strategy="afterInteractive"
             />
-            {/* </ProfileImageGuard> */}
 
             <Toaster />
           </AppProvider>

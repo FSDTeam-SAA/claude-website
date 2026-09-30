@@ -1,74 +1,75 @@
-"use client"
+"use client";
 
-import { useEffect, useId, useRef, useState } from "react"
-import { AlertCircle, ChevronRight, Search, UserRound, X } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import { Input } from "@/components/ui/input"
+import { useEffect, useId, useRef, useState } from "react";
+import { AlertCircle, ChevronRight, Search, UserRound, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Input } from "@/components/ui/input";
 
 interface User {
-  _id: string
-  firstName: string
-  lastName: string
-  email?: string
-  profileImage?: string
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email?: string;
+  profileImage?: string;
 }
 
 interface SearchBoxProps {
-  baseUrl: string
+  baseUrl: string;
 }
 
-const MIN_SEARCH_LENGTH = 2
+const MIN_SEARCH_LENGTH = 2;
 
 const CircularSpinner = ({ className = "" }: { className?: string }) => (
   <span
     aria-hidden="true"
     className={`inline-block shrink-0 animate-spin rounded-full border-2 border-primary/20 border-r-primary border-t-primary motion-reduce:animate-none ${className}`}
   />
-)
+);
 
 const SearchBox = ({ baseUrl }: SearchBoxProps) => {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [users, setUsers] = useState<User[]>([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [retryCount, setRetryCount] = useState(0)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [users, setUsers] = useState<User[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [retryCount, setRetryCount] = useState(0);
 
-  const searchRef = useRef<HTMLDivElement>(null)
-  const inputRef = useRef<HTMLInputElement>(null)
-  const resultsId = useId()
-  const query = searchTerm.trim()
-  const canSearch = query.length >= MIN_SEARCH_LENGTH
-  const showDropdown = isOpen && query.length > 0
+  const searchRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const resultsId = useId();
+  const query = searchTerm.trim();
+  const canSearch = query.length >= MIN_SEARCH_LENGTH;
+  const showDropdown = isOpen && query.length > 0;
 
   useEffect(() => {
     if (!canSearch) {
-      setUsers([])
-      setError(null)
-      setIsLoading(false)
-      return
+      setUsers([]);
+      setError(null);
+      setIsLoading(false);
+      return;
     }
 
-    const controller = new AbortController()
+    const controller = new AbortController();
 
-    setUsers([])
-    setError(null)
-    setIsLoading(true)
+    setUsers([]);
+    setError(null);
+    setIsLoading(true);
 
     const timer = window.setTimeout(async () => {
       try {
-        const nameParts = query.split(/\s+/)
+        const nameParts = query.split(/\s+/);
         const queryParams = new URLSearchParams({
           emailVerified: "true",
+          isProfileCompleted: "true",
           limit: "10",
-        })
+        });
 
         if (nameParts.length > 1) {
-          queryParams.set("firstName", nameParts[0])
-          queryParams.set("lastName", nameParts.slice(1).join(" "))
+          queryParams.set("firstName", nameParts[0]);
+          queryParams.set("lastName", nameParts.slice(1).join(" "));
         } else {
-          queryParams.set("searchTerm", nameParts[0])
+          queryParams.set("searchTerm", nameParts[0]);
         }
 
         const response = await fetch(
@@ -76,45 +77,49 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
           {
             headers: { "Content-Type": "application/json" },
             signal: controller.signal,
-          }
-        )
+          },
+        );
 
-        if (!response.ok) throw new Error("Search failed")
+        if (!response.ok) throw new Error("Search failed");
 
-        const data = await response.json()
-        setUsers(Array.isArray(data?.data) ? data.data : [])
+        const data = await response.json();
+        setUsers(Array.isArray(data?.data) ? data.data : []);
       } catch (searchError) {
-        if (searchError instanceof Error && searchError.name === "AbortError") return
-        setError("We couldn't complete the search. Please try again.")
+        if (searchError instanceof Error && searchError.name === "AbortError")
+          return;
+        setError("We couldn't complete the search. Please try again.");
       } finally {
-        if (!controller.signal.aborted) setIsLoading(false)
+        if (!controller.signal.aborted) setIsLoading(false);
       }
-    }, 350)
+    }, 350);
 
     return () => {
-      window.clearTimeout(timer)
-      controller.abort()
-    }
-  }, [baseUrl, canSearch, query, retryCount])
+      window.clearTimeout(timer);
+      controller.abort();
+    };
+  }, [baseUrl, canSearch, query, retryCount]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
       }
-    }
+    };
 
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [])
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleClear = () => {
-    setSearchTerm("")
-    setUsers([])
-    setError(null)
-    setIsOpen(false)
-    inputRef.current?.focus()
-  }
+    setSearchTerm("");
+    setUsers([]);
+    setError(null);
+    setIsOpen(false);
+    inputRef.current?.focus();
+  };
 
   return (
     <div ref={searchRef} className="relative w-full max-w-sm">
@@ -143,12 +148,12 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
           placeholder="Search players..."
           value={searchTerm}
           onChange={(event) => {
-            setSearchTerm(event.target.value)
-            setIsOpen(true)
+            setSearchTerm(event.target.value);
+            setIsOpen(true);
           }}
           onFocus={() => setIsOpen(true)}
           onKeyDown={(event) => {
-            if (event.key === "Escape") setIsOpen(false)
+            if (event.key === "Escape") setIsOpen(false);
           }}
           className="h-11 rounded-full border-0 bg-transparent pl-11 pr-11 text-sm shadow-none outline-none placeholder:text-gray-500 focus-visible:ring-0 focus-visible:ring-offset-0 [&::-webkit-search-cancel-button]:hidden"
         />
@@ -200,12 +205,15 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
             <>
               <div className="border-b border-gray-100 px-4 py-2.5">
                 <p className="text-xs font-medium text-gray-500">
-                  {users.length} {users.length === 1 ? "player" : "players"} found
+                  {users.length} {users.length === 1 ? "player" : "players"}{" "}
+                  found
                 </p>
               </div>
               <div className="max-h-80 overflow-y-auto overscroll-contain py-1.5">
                 {users.map((user) => {
-                  const fullName = `${user.firstName || ""} ${user.lastName || ""}`.trim() || "Player"
+                  const fullName =
+                    `${user.firstName || ""} ${user.lastName || ""}`.trim() ||
+                    "Player";
 
                   return (
                     <Link
@@ -213,8 +221,8 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
                       href={`/player-profile/${user._id}`}
                       role="option"
                       onClick={() => {
-                        setIsOpen(false)
-                        setSearchTerm("")
+                        setIsOpen(false);
+                        setSearchTerm("");
                       }}
                       className="group flex items-center gap-3 px-3 py-2.5 transition-colors hover:bg-gray-50 focus:bg-gray-50 focus:outline-none"
                     >
@@ -226,14 +234,18 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
                         className="h-11 w-11 shrink-0 rounded-full border border-gray-200 object-cover"
                       />
                       <div className="min-w-0 flex-1">
-                        <p className="truncate text-sm font-semibold text-gray-900">{fullName}</p>
+                        <p className="truncate text-sm font-semibold text-gray-900">
+                          {fullName}
+                        </p>
                         {user.email && (
-                          <p className="mt-0.5 truncate text-xs text-gray-500">{user.email}</p>
+                          <p className="mt-0.5 truncate text-xs text-gray-500">
+                            {user.email}
+                          </p>
                         )}
                       </div>
                       <ChevronRight className="h-4 w-4 shrink-0 text-gray-300 transition-transform group-hover:translate-x-0.5 group-hover:text-primary" />
                     </Link>
-                  )
+                  );
                 })}
               </div>
             </>
@@ -242,14 +254,18 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
               <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-gray-100">
                 <UserRound className="h-5 w-5 text-gray-400" />
               </div>
-              <p className="text-sm font-medium text-gray-800">No players found</p>
-              <p className="mt-1 text-xs text-gray-500">Try a different name or email address.</p>
+              <p className="text-sm font-medium text-gray-800">
+                No players found
+              </p>
+              <p className="mt-1 text-xs text-gray-500">
+                Try a different name or email address.
+              </p>
             </div>
           )}
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default SearchBox
+export default SearchBox;
