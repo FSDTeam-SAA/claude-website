@@ -57,7 +57,43 @@ const OnlinePlayerEvaluationProgram = () => {
         <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
       </Link>
 
-      <div className="absolute left-[4.2%] top-[30%] sm:top-[25%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:left-[4%] md:top-[76%] sm:gap-3 sm:text-[8px] md:gap-5 md:text-[11px] lg:gap-7 lg:text-[13px] xl:text-[14px] ">
+      {/* On phones, keep the first two benefits on the left and the report on the right. */}
+      <div className="absolute left-[4.2%] top-[26%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:hidden">
+        {programFeatures.slice(0, 2).map((feature, index) => (
+          <React.Fragment key={`${feature.icon}-${index}`}>
+            {index > 0 && <span className="h-6 w-px bg-primary" />}
+            <div className="flex flex-col items-center gap-1">
+              <Image
+                src={feature.icon}
+                alt=""
+                aria-hidden
+                width={58}
+                height={59}
+                className="h-7 w-7 object-contain"
+              />
+              <span className="text-center text-[8px] text-white">
+                {feature.label}
+              </span>
+            </div>
+          </React.Fragment>
+        ))}
+      </div>
+
+      <div className="absolute right-[4.2%] top-[26%] flex flex-col items-center gap-1 text-[6px] font-medium text-white sm:hidden">
+        <Image
+          src={programFeatures[2].icon}
+          alt=""
+          aria-hidden
+          width={58}
+          height={59}
+          className="h-7 w-7 object-contain"
+        />
+        <span className="text-center text-[8px] text-white">
+          {programFeatures[2].label}
+        </span>
+      </div>
+
+      <div className="absolute left-[4.2%] top-[26%] hidden items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:left-[4%] sm:top-[25%] sm:flex sm:gap-3 sm:text-[8px] md:top-[76%] md:gap-5 md:text-[11px] lg:gap-7 lg:text-[13px] xl:text-[14px]">
         {programFeatures.map((feature, index) => (
           <React.Fragment key={`${feature.icon}-${index}`}>
             {index > 0 && (
