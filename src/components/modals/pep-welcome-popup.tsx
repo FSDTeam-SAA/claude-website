@@ -10,6 +10,12 @@ import { cn } from "@/lib/utils";
 const PepWelcomePopup = () => {
   const [open, setOpen] = React.useState(true);
 
+  React.useEffect(() => {
+    document.body.classList.add("pep-popup-open");
+
+    return () => document.body.classList.remove("pep-popup-open");
+  }, []);
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogPortal>

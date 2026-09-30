@@ -1,8 +1,4 @@
-
-
-
-
-// second version 
+// second version
 
 // "use client"
 
@@ -125,49 +121,35 @@
 
 // export default ProfilePicture
 
+// old code
 
+"use client";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// old code 
-
-"use client"
-
-import { CircleArrowUp } from "lucide-react"
-import Image from "next/image"
-import { useEffect, useRef, useState } from "react"
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { useSession } from "next-auth/react"
-import { toast } from "sonner"
-import { User } from "./user-data-type"
+import { CircleArrowUp } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useSession } from "next-auth/react";
+import { toast } from "sonner";
+import { User } from "./user-data-type";
+import { useRouter } from "next/navigation";
 
 const ProfilePicture = ({ user }: { user?: User }) => {
-  const { data: session } = useSession()
-  const token = (session?.user as { accessToken?: string })?.accessToken
-  const queryClient = useQueryClient()
+  const { data: session } = useSession();
+  const token = (session?.user as { accessToken?: string })?.accessToken;
+  const queryClient = useQueryClient();
+  const router = useRouter();
 
-  const [profileImage, setProfileImage] = useState("/assets/images/no-user.jpg")
-  const fileInputRef = useRef<HTMLInputElement>(null)
+  const [profileImage, setProfileImage] = useState(
+    "/assets/images/no-user.jpg",
+  );
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (user?.profileImage) {
-      setProfileImage(user.profileImage)
+      setProfileImage(user.profileImage);
     }
-  }, [user?.profileImage])
+  }, [user?.profileImage]);
 
   const { mutate, isPending } = useMutation({
     mutationFn: async (formData: FormData) => {
@@ -177,30 +159,36 @@ const ProfilePicture = ({ user }: { user?: User }) => {
           method: "PUT",
           headers: { Authorization: `Bearer ${token}` },
           body: formData,
-        }
-      )
-      return res.json()
+        },
+      );
+      return res.json();
     },
-    onSuccess: () => {
-      toast.success("Profile image updated")
-      queryClient.invalidateQueries({ queryKey: ["user-profile"] })
+    onSuccess: async (data) => {
+      if (!data?.success) {
+        toast.error(data?.message || "Profile image update failed");
+        return;
+      }
+      toast.success("Profile image updated");
+      await queryClient.invalidateQueries({ queryKey: ["user-profile"] });
+      if (data?.data?.isProfileCompleted && user?.isProfileCompleted !== true) {
+        router.replace("/");
+      }
     },
     onError: () => toast.error("Upload failed"),
-  })
+  });
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (!file) return
+    const file = e.target.files?.[0];
+    if (!file) return;
 
-    const reader = new FileReader()
-    reader.onloadend = () =>
-      setProfileImage(reader.result as string)
-    reader.readAsDataURL(file)
+    const reader = new FileReader();
+    reader.onloadend = () => setProfileImage(reader.result as string);
+    reader.readAsDataURL(file);
 
-    const formData = new FormData()
-    formData.append("profileImage", file)
-    mutate(formData)
-  }
+    const formData = new FormData();
+    formData.append("profileImage", file);
+    mutate(formData);
+  };
 
   return (
     <div className="w-full relative flex justify-center items-center">
@@ -224,26 +212,20 @@ const ProfilePicture = ({ user }: { user?: User }) => {
             onChange={handleFileChange}
           />
 
-         <div>
-             <button
-            className="w-[200px] flex items-center justify-center gap-2 rounded-[8px] border-[2px] border-primary text-primary py-2 md:py-3 px-3"
-            onClick={() => fileInputRef.current?.click()}
-            disabled={isPending}
-          >
-            <CircleArrowUp />
-            Upload Image
-          </button>
-         </div>
+          <div>
+            <button
+              className="w-[200px] flex items-center justify-center gap-2 rounded-[8px] border-[2px] border-primary text-primary py-2 md:py-3 px-3"
+              onClick={() => fileInputRef.current?.click()}
+              disabled={isPending}
+            >
+              <CircleArrowUp />
+              Upload Image
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProfilePicture
-
-
-
-
-
-
+export default ProfilePicture;

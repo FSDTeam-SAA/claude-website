@@ -40,6 +40,7 @@ import { CalendarIcon, X } from "lucide-react";
 import { User } from "./user-data-type";
 import { useEffect } from "react";
 import { parseCookies } from "nookies";
+import { useRouter } from "next/navigation";
 
 const socialMediaNameEnum = z.enum([
   "Facebook",
@@ -48,6 +49,12 @@ const socialMediaNameEnum = z.enum([
   "YouTube",
   "TikTok",
 ]);
+
+const RequiredMark = () => (
+  <span className="ml-1 text-red-500" aria-hidden="true">
+    *
+  </span>
+);
 
 const formSchema = z
   .object({
@@ -113,9 +120,7 @@ const formSchema = z
     category: z.string().min(1, {
       message: "Category is required.",
     }),
-    foot: z.string().min(1, {
-      message: "Foot is required.",
-    }),
+    foot: z.string().optional(),
 
     position: z
       .array(z.string())
@@ -178,7 +183,6 @@ interface PersonalInformationFormProps {
   user?: User;
 }
 
-
 const COOKIE_NAME = "googtrans";
 
 // const PersonalInformationForm = () => {
@@ -186,11 +190,12 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
   user,
 }) => {
   const session = useSession();
+  const router = useRouter();
   const token = (session?.data?.user as { accessToken: string })?.accessToken;
   const queryClient = useQueryClient();
 
-    const cookie = parseCookies()[COOKIE_NAME];
-    const lang = cookie?.split("/")?.[2] || "en";
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
 
   const POSITIONS = [
     { label: "GK", value: "gk" },
@@ -336,6 +341,9 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
       }
       toast.success(data?.message || "Profile updated successfully");
       await queryClient.invalidateQueries({ queryKey: ["user-profile"] });
+      if (data?.data?.isProfileCompleted && user?.isProfileCompleted !== true) {
+        router.replace("/");
+      }
     },
     onError: () => toast.error("Update failed"),
   });
@@ -351,7 +359,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
       citizenship: values.citizenship?.trim(),
       nationality: values.nationality?.trim(),
       currentClub: values.currentClub?.trim(),
-      // age: Number(values.dob), 
+      // age: Number(values.dob),
     };
 
     mutate(cleanedValues);
@@ -361,10 +369,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
     <div>
       <div className="pt-6">
         <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-4"
-          >
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
               <FormField
                 control={form.control}
@@ -372,7 +377,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      First Name
+                      First Name<RequiredMark />
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -391,7 +396,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Last Name
+                      Last Name<RequiredMark />
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -410,7 +415,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Gender (boy - girl)
+                      Gender (boy - girl)<RequiredMark />
                     </FormLabel>
                     <FormControl>
                       <Select
@@ -441,7 +446,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Nationality
+                      Nationality<RequiredMark />
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -460,7 +465,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Jersey Number
+                      Jersey Number<RequiredMark />
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -577,7 +582,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Email Address
+                      Email Address<RequiredMark />
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -600,7 +605,12 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                     {lang === "fr" ? "Taille" : lang === "es" ? "Altura" : "Height"}
+                      {lang === "fr"
+                        ? "Taille"
+                        : lang === "es"
+                          ? "Altura"
+                          : "Height"}
+                    <RequiredMark />
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -619,7 +629,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Weight
+                      Weight<RequiredMark />
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -679,7 +689,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Age
+                      Age<RequiredMark />
                     </FormLabel>
 
                     {/* <FormControl>
@@ -695,8 +705,9 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                         <FormControl>
                           <Button
                             variant="outline"
-                            className={`w-full justify-start text-left h-[47px] border border-[#645949] ${!field.value && "text-muted-foreground"
-                              }`}
+                            className={`w-full justify-start text-left h-[47px] border border-[#645949] ${
+                              !field.value && "text-muted-foreground"
+                            }`}
                           >
                             {field.value
                               ? format(field.value, "dd MMM yyyy")
@@ -735,7 +746,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Place of birth
+                      Place of birth<RequiredMark />
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -757,7 +768,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Citizenship
+                      Citizenship<RequiredMark />
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -776,7 +787,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Current Club
+                      Current Club<RequiredMark />
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -798,7 +809,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      League
+                      League<RequiredMark />
                     </FormLabel>
                     <FormControl>
                       <Input
@@ -893,7 +904,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Category
+                      Category<RequiredMark />
                     </FormLabel>
                     <FormControl>
                       <Select
@@ -1002,7 +1013,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-base font-normal leading-[150%] text-[#131313]">
-                      Position (select up to 2)
+                      Position (select up to 2)<RequiredMark />
                     </FormLabel>
 
                     <Popover>

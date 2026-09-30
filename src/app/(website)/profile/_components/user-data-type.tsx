@@ -2,26 +2,25 @@
 // Root API Response
 // ======================
 export interface UserProfileApiResponse {
-  statusCode: number
-  success: boolean
-  message: string
-  data: UserProfileData
+  statusCode: number;
+  success: boolean;
+  message: string;
+  data: UserProfileData;
 }
 
 // ======================
 // Data Wrapper
 // ======================
 export interface UserProfileData {
-  user: User
+  user: User;
   // stats: Stats
-  reports: Report[]
+  reports: Report[];
   // transferHistory: TransferHistory[]
 }
 
 // ======================
 // User Type
 // ======================
-
 
 export interface SocialMedia {
   _id: string;
@@ -41,6 +40,7 @@ export interface User {
   provider: "credentials" | "google" | "facebook";
 
   profileImage: string;
+  isProfileCompleted: boolean;
   verified: boolean;
   phone: string;
   phoneCode: string;
@@ -71,7 +71,7 @@ export interface User {
   gpa: string | null;
   hight: string | null;
   weight: string | null;
-  agent: string
+  agent: string;
   inSchoolOrCollege: boolean;
   institute: "middle school" | "high school" | "college / university" | null;
 
@@ -86,4 +86,3 @@ export interface User {
 
   __v: number;
 }
-

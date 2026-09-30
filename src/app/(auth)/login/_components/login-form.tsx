@@ -1,14 +1,10 @@
-
-
-
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import Image from 'next/image'
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { useSession } from "next-auth/react";
 import {
   Form,
   FormControl,
@@ -23,10 +19,12 @@ import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { getSession, signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import GoogleLoginButton from "@/components/modals/google-login-button";
+import { useQueryClient } from "@tanstack/react-query";
+import { UserProfileApiResponse } from "@/app/(website)/profile/_components/user-data-type";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -42,21 +40,19 @@ const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const queryClient = useQueryClient();
   const [isResending, setIsResending] = useState(false);
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || "/";
 
   const authError = searchParams.get("error");
-  const authErrorMessage = authError === "GoogleTokenMissing"
-    ? "Google sign-in could not be completed. Please try again."
-    : authError === "GoogleBackendLoginFailed" || authError === "AccessDenied"
-      ? "Google sign-in is temporarily unavailable. Please try again or sign in with your email and password."
-      : authError ? "Sign-in could not be completed. Please try again." : null;
-
-  const session = useSession();
-
-  console.log("login session status", session)
-
+  const authErrorMessage =
+    authError === "GoogleTokenMissing"
+      ? "Google sign-in could not be completed. Please try again."
+      : authError === "GoogleBackendLoginFailed" || authError === "AccessDenied"
+        ? "Google sign-in is temporarily unavailable. Please try again or sign in with your email and password."
+        : authError
+          ? "Sign-in could not be completed. Please try again."
+          : null;
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -74,13 +70,22 @@ const LoginForm = () => {
       const { email, password } = form.getValues();
       const response = await fetch(
         process.env.NEXT_PUBLIC_BACKEND_URL + "/auth/resend-verification",
-        { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, password }) },
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        },
       );
       const result = await response.json();
-      if (!response.ok) throw new Error(result.message || "Could not send verification email.");
+      if (!response.ok)
+        throw new Error(result.message || "Could not send verification email.");
       toast.success(result.message);
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : "Could not send verification email.");
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Could not send verification email.",
+      );
     } finally {
       setIsResending(false);
     }
@@ -100,12 +105,46 @@ const LoginForm = () => {
         throw new Error(result.error);
       }
 
+      const currentSession = await getSession();
+      const token = currentSession?.user?.accessToken;
+      if (!token) {
+        throw new Error("Unable to verify your profile. Please try again.");
+      }
+
+      const profileResponse = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/user/profile`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+          cache: "no-store",
+        },
+      );
+      const profileData =
+        (await profileResponse.json()) as UserProfileApiResponse;
+      if (!profileResponse.ok || !profileData?.success) {
+        throw new Error(
+          profileData?.message || "Unable to verify your profile.",
+        );
+      }
+
+      queryClient.setQueryData(["user-profile"], profileData);
+      const requiresProfileCompletion =
+        currentSession.user.role === "player" ||
+        currentSession.user.role === "gk";
+      const destination =
+        requiresProfileCompletion && !profileData.data.user.isProfileCompleted
+          ? "/profile"
+          : "/";
+
       toast.success("Login successful!");
-      router.push(callbackUrl);
+      router.replace(destination);
       router.refresh();
     } catch (error) {
       console.error("Login failed:", error);
-      toast.error(error instanceof Error ? error.message : "Login failed. Please try again.");
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Login failed. Please try again.",
+      );
     } finally {
       setIsLoading(false);
     }
@@ -120,15 +159,17 @@ const LoginForm = () => {
     <div className="pr-2 md:pr-20 2xl:pr-32">
       <div className="w-full md:w-[570px] bg-white rounded-[16px] border-[2px] border-[#E7E7E7] shadow-[0px_0px_32px_0px_#0000001F] p-4 md:p-6 lg:p-8">
         {authErrorMessage && (
-          <p role="alert" className="mb-4 text-sm text-red-600">{authErrorMessage}</p>
+          <p role="alert" className="mb-4 text-sm text-red-600">
+            {authErrorMessage}
+          </p>
         )}
         <div className="w-full flex items-center justify-center pb-4">
           <Link href="/">
-            <Image 
-              src="/assets/images/logo.jpg" 
-              alt="auth logo" 
-              width={500} 
-              height={500} 
+            <Image
+              src="/assets/images/logo.jpg"
+              alt="auth logo"
+              width={500}
+              height={500}
               className="w-[290px] h-[80px] object-cover"
             />
           </Link>
@@ -137,7 +178,7 @@ const LoginForm = () => {
         <h3 className="text-2xl md:text-[32px] lg:text-[40px] font-normal text-[#131313] text-center leading-[120%]">
           Welcome Back!
         </h3>
-        
+
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -162,7 +203,7 @@ const LoginForm = () => {
                 </FormItem>
               )}
             />
-            
+
             <FormField
               control={form.control}
               name="password"
@@ -228,7 +269,7 @@ const LoginForm = () => {
                 </div>
               )}
             />
-            
+
             <div className="pt-2">
               <Button
                 disabled={isLoading}
@@ -241,24 +282,28 @@ const LoginForm = () => {
               </Button>
             </div>
 
-            <Button type="button" variant="link" disabled={isResending || isLoading} onClick={resendVerification} className="w-full">
+            <Button
+              type="button"
+              variant="link"
+              disabled={isResending || isLoading}
+              onClick={resendVerification}
+              className="w-full"
+            >
               {isResending ? "Sending..." : "Resend verification email"}
             </Button>
 
-             <div className="w-full flex items-center gap-2">
-              <span className="hidden md:block w-1/3 border-b border-[#6C6C6C]"/>
+            <div className="w-full flex items-center gap-2">
+              <span className="hidden md:block w-1/3 border-b border-[#6C6C6C]" />
               <span className="w-full md:w-1/3 text-base md:text-lg font-normal text-[#424242] leading-[120%] text-center">
                 OR
               </span>
-              <span className="hidden md:block w-1/3 border-b border-[#6C6C6C]"/>
+              <span className="hidden md:block w-1/3 border-b border-[#6C6C6C]" />
             </div>
 
             <div className="pb-4">
               <GoogleLoginButton context="login" />
             </div>
 
-           
-            
             <div>
               <p className="text-sm font-normal leading-[150%] text-[#616161] text-center">
                 Don&apos;t have an account?{" "}
@@ -276,9 +321,7 @@ const LoginForm = () => {
 
 export default LoginForm;
 
-
-// old code 
-
+// old code
 
 // "use client";
 
@@ -475,7 +518,7 @@ export default LoginForm;
 //               <span className="w-1/3 border-b border-[#6C6C6C]"/>
 //             </div>
 //             <div>
-              
+
 //               <p className="text-sm font-normal leading-[150%] text-[#616161] text-center">Don’t have an account? <Link href="/sign-up" className="text-primary hover:underline">Register Here</Link></p>
 //               </div>
 //           </form>
