@@ -35,7 +35,7 @@ const OnlinePlayerEvaluationProgram = () => {
       aria-labelledby="online-player-evaluation-title"
       className="relative mx-auto mt-3 aspect-[686/1216] w-[95%] max-w-[1400px] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_opep.svg')] bg-cover bg-center bg-no-repeat sm:mt-5 sm:aspect-[1447/814] sm:rounded-[34px] sm:bg-[url('/assets/images/online_zoom_pep/lg_opep.svg')] md:mt-8 md:w-full md:rounded-[52px] lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px] mb-6 md:mb-8 lg:mb-10 xl:mb-12 "
     >
-      <div className="absolute inset-x-[3.7%] top-[5.1%] text-white sm:top-[18.5%] md:inset-x-[4%] md:top-[19.5%]">
+      <div className="absolute left-[6%] right-[3.7%] top-[5.1%] text-white sm:top-[18.5%] md:inset-x-[4%] md:top-[19.5%]">
         <p className="inline-block border-b border-primary pb-1 font-bold leading-normal text-primary text-sm md:text-base lg:text-lg xl:text-xl">
           ONLINE PLAYER EVALUATION PROGRAM
         </p>
@@ -51,14 +51,14 @@ const OnlinePlayerEvaluationProgram = () => {
 
       <Link
         href={isLogin ? "/contact-us" : "/login"}
-        className="absolute left-[4.2%] top-[50%] inline-flex h-11 md:h-14 lg:h-16 items-center justify-center rounded-[8px] border-2 border-primary bg-black/10 px-3 md:px-4 py-3 md:py-4 text-base font-medium leading-none text-primary shadow-[0_0_14px_rgba(16,230,7,0.45)] transition-transform hover:scale-[1.02] sm:left-[3.1%] sm:top-[55%] sm:rounded-[5px] sm:border-[1.5px] sm:text-lg md:left-[2.9%] md:top-[58%] md:text-xl lg:text-2xl xl:text-3xl"
+        className="absolute left-[6%] top-[50%] inline-flex h-11 md:h-14 lg:h-16 items-center justify-center rounded-[8px] border-2 border-primary bg-black/10 px-3 md:px-4 py-3 md:py-4 text-base font-medium leading-none text-primary shadow-[0_0_14px_rgba(16,230,7,0.45)] transition-transform hover:scale-[1.02] sm:left-[3.1%] sm:top-[55%] sm:rounded-[5px] sm:border-[1.5px] sm:text-lg md:left-[2.9%] md:top-[58%] md:text-xl lg:text-2xl xl:text-3xl"
       >
         BOOK YOUR CONSULTATION{" "}
         <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
       </Link>
 
       {/* On phones, keep the first two benefits on the left and the report on the right. */}
-      <div className="absolute left-[4.2%] top-[25%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:hidden">
+      <div className="absolute left-[6%] top-[25%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:hidden">
         {programFeatures.slice(0, 2).map((feature, index) => (
           <React.Fragment key={`${feature.icon}-${index}`}>
             {index > 0 && <span className="h-6 w-px bg-primary" />}
@@ -79,18 +79,21 @@ const OnlinePlayerEvaluationProgram = () => {
         ))}
       </div>
 
-      <div className="absolute right-[12%] top-[20%] flex flex-col items-center gap-1 text-[6px] font-medium text-white sm:hidden">
-        <Image
-          src={programFeatures[2].icon}
-          alt=""
-          aria-hidden
-          width={58}
-          height={59}
-          className="h-7 w-7 object-contain"
-        />
-        <span className="text-center text-[8px] text-white">
-          {programFeatures[2].label}
-        </span>
+      <div className="absolute right-[12%] top-[20%] flex items-center gap-2 text-[6px] font-medium text-white sm:hidden">
+        <span aria-hidden className="h-8 w-px bg-primary" />
+        <div className="flex flex-col items-center gap-1">
+          <Image
+            src={programFeatures[2].icon}
+            alt=""
+            aria-hidden
+            width={58}
+            height={59}
+            className="h-7 w-7 object-contain"
+          />
+          <span className="text-center text-[8px] text-white">
+            {programFeatures[2].label}
+          </span>
+        </div>
       </div>
 
       <div className="absolute left-[4.2%] top-[25%] hidden items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:left-[4%] sm:top-[25%] sm:flex sm:gap-3 sm:text-[8px] md:top-[76%] md:gap-5 md:text-[11px] lg:gap-7 lg:text-[13px] xl:text-[14px] ">
@@ -116,7 +119,7 @@ const OnlinePlayerEvaluationProgram = () => {
         ))}
       </div>
 
-      <p className="absolute left-[4.2%] top-[86.8%] font-medium leading-normal text-white sm:left-[4%] sm:top-[92.5%] text-sm md:text-base lg:text-lg xl:text-xl">
+      <p className="absolute left-[6%] top-[86.8%] font-medium leading-normal text-white sm:left-[4%] sm:top-[92.5%] text-sm md:text-base lg:text-lg xl:text-xl">
         AVAILABLE FOR ALL AGE CATEGORIES -{" "}
         <span className="text-primary">U9 TO U23.</span>
       </p>
