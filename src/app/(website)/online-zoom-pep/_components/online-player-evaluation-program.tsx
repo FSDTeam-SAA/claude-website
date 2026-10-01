@@ -58,7 +58,7 @@ const OnlinePlayerEvaluationProgram = () => {
       </Link>
 
       {/* On phones, keep the first two benefits on the left and the report on the right. */}
-      <div className="absolute left-[4.2%] top-[26%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:hidden">
+      <div className="absolute left-[4.2%] top-[25%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:hidden">
         {programFeatures.slice(0, 2).map((feature, index) => (
           <React.Fragment key={`${feature.icon}-${index}`}>
             {index > 0 && <span className="h-6 w-px bg-primary" />}
@@ -79,7 +79,7 @@ const OnlinePlayerEvaluationProgram = () => {
         ))}
       </div>
 
-      <div className="absolute right-[4.2%] top-[26%] flex flex-col items-center gap-1 text-[6px] font-medium text-white sm:hidden">
+      <div className="absolute right-[12%] top-[20%] flex flex-col items-center gap-1 text-[6px] font-medium text-white sm:hidden">
         <Image
           src={programFeatures[2].icon}
           alt=""
@@ -93,7 +93,7 @@ const OnlinePlayerEvaluationProgram = () => {
         </span>
       </div>
 
-      <div className="absolute left-[4.2%] top-[26%] hidden items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:left-[4%] sm:top-[25%] sm:flex sm:gap-3 sm:text-[8px] md:top-[76%] md:gap-5 md:text-[11px] lg:gap-7 lg:text-[13px] xl:text-[14px]">
+      <div className="absolute left-[4.2%] top-[25%] hidden items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:left-[4%] sm:top-[25%] sm:flex sm:gap-3 sm:text-[8px] md:top-[76%] md:gap-5 md:text-[11px] lg:gap-7 lg:text-[13px] xl:text-[14px] ">
         {programFeatures.map((feature, index) => (
           <React.Fragment key={`${feature.icon}-${index}`}>
             {index > 0 && (
