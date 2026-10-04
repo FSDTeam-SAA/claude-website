@@ -17,7 +17,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, MailCheck } from "lucide-react";
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
@@ -26,6 +26,13 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import GoogleLoginButton from "@/components/modals/google-login-button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const formSchema = z
   .object({
@@ -59,6 +66,9 @@ const formSchema = z
 const SignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [confirmShowPassword, setConfirmShowPassword] = useState(false);
+  const [isVerificationModalOpen, setIsVerificationModalOpen] = useState(false);
+  const [registeredEmail, setRegisteredEmail] = useState("");
+  const [registeredRole, setRegisteredRole] = useState<"player" | "gk" | "guest">("player");
   const router = useRouter();
   
   const form = useForm<z.infer<typeof formSchema>>({
@@ -86,23 +96,15 @@ const SignupForm = () => {
       });
       return res.json();
     },
-    onSuccess: (data) => {
+    onSuccess: (data, values) => {
       if (!data?.success) {
         toast.error(data?.message || "Something went wrong");
         return;
       }
-      toast.success(data?.message || "Registration successful!", {
-        description:
-          "Please check your confirmation email and verify your account before completing your profile.",
-        duration: 8000,
-        classNames: {
-          toast: "!border-green-300 !bg-green-50 !p-5",
-          title: "!text-lg !font-bold !text-green-800 md:!text-xl",
-          description: "!text-base !font-medium !text-green-700",
-          icon: "!text-green-600",
-        },
-      });
-      router.push("/login");
+      setRegisteredEmail(values.email);
+      setRegisteredRole(values.role);
+      form.reset();
+      setIsVerificationModalOpen(true);
     },
     onError: (error) => {
       toast.error("Registration failed. Please try again.");
@@ -114,8 +116,45 @@ const SignupForm = () => {
     mutate(values);
   }
 
+  const handleVerificationModalClose = () => {
+    setIsVerificationModalOpen(false);
+    router.push("/login");
+  };
+
+  const registeredRoleLabel = {
+    player: "Player",
+    gk: "Goalkeeper",
+    guest: "Guest",
+  }[registeredRole];
+
   return (
     <div>
+      <Dialog open={isVerificationModalOpen} onOpenChange={setIsVerificationModalOpen}>
+        <DialogContent className="w-[calc(100%-2rem)] max-w-[460px] rounded-[20px] border-0 bg-white p-6 font-sans shadow-2xl sm:rounded-[20px] sm:p-8">
+          <DialogHeader className="items-center space-y-4 text-center">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary ring-8 ring-primary/5">
+              <MailCheck className="h-7 w-7 stroke-[2.25]" aria-hidden="true" />
+            </div>
+            <DialogTitle className="pt-2 text-2xl font-bold leading-tight tracking-tight text-[#1A1A1A]">
+              You&apos;re almost ready
+            </DialogTitle>
+            <DialogDescription className="max-w-[360px] text-center text-[15px] leading-6 text-black">
+              Your {registeredRoleLabel.toLowerCase()} account has been created. To activate it and complete your profile, please verify the email we sent to{" "}
+              <span className="font-bold text-[#1A1A1A] break-all">{registeredEmail}</span>.
+              If you don&apos;t see it, please check your Spam or Junk folder.
+            </DialogDescription>
+          </DialogHeader>
+
+          <Button
+            type="button"
+            onClick={handleVerificationModalClose}
+            className="mt-3 h-12 w-full rounded-[12px] bg-primary text-base font-semibold text-white shadow-sm transition-colors hover:bg-primary/90"
+          >
+            Got It
+          </Button>
+        </DialogContent>
+      </Dialog>
+
       <div className="w-full md:w-[570px] bg-white rounded-[16px] border-[2px] border-[#E7E7E7] shadow-[0px_0px_32px_0px_#0000001F] px-4 md:px-6 lg:px-8 py-3">
         <div className="w-full flex items-center justify-center pb-2">
           <Link href="/">
@@ -407,4 +446,3 @@ const SignupForm = () => {
 };
 
 export default SignupForm;
-
