@@ -58,7 +58,7 @@ const OnlinePlayerEvaluationProgram = () => {
       </Link>
 
       {/* On phones, keep the first two benefits on the left and the report on the right. */}
-      <div className="absolute left-[6%] top-[25%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:hidden">
+      <div className="absolute left-[10%] top-[25%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:hidden">
         {programFeatures.slice(0, 2).map((feature, index) => (
           <React.Fragment key={`${feature.icon}-${index}`}>
             {index > 0 && <span className="h-6 w-px bg-primary" />}
@@ -79,8 +79,8 @@ const OnlinePlayerEvaluationProgram = () => {
         ))}
       </div>
 
-      <div className="absolute right-[12%] top-[20%] flex items-center gap-2 text-[6px] font-medium text-white sm:hidden">
-        <span aria-hidden className="h-8 w-px bg-primary" />
+      <div className="absolute right-[10%] top-[25%] flex items-center gap-2 text-[6px] font-medium text-white sm:hidden ">
+        <span aria-hidden className="h-8 w-px bg-primary " />
         <div className="flex flex-col items-center gap-1">
           <Image
             src={programFeatures[2].icon}
