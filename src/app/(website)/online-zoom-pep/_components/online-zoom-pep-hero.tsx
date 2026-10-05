@@ -34,7 +34,7 @@ const OnlineZoomPepHero = () => {
   return (
     <section
       aria-labelledby="online-zoom-pep-title"
-      className="relative mx-auto mt-3 aspect-[686/1216] w-[95%] max-w-[1400px] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_ozp_hero.svg')] bg-cover bg-center bg-no-repeat sm:mt-5 sm:aspect-[1447/814] sm:rounded-[34px] sm:bg-[url('/assets/images/online_zoom_pep/lg_ozp_hero.svg')] md:mt-8 md:w-full md:rounded-[52px] lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]"
+      className="relative container mx-auto mt-3 aspect-[686/1216] w-[95%] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_ozp_hero.svg')] bg-cover bg-center bg-no-repeat sm:mt-5 sm:aspect-[1447/814] sm:rounded-[34px] sm:bg-[url('/assets/images/online_zoom_pep/lg_ozp_hero.svg')] md:mt-8 md:w-full md:rounded-[52px] lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]"
     >
       <div className="absolute inset-x-[3.1%] top-[5.1%] text-white sm:top-[13.8%] md:inset-x-[2.9%] md:top-[14.1%]">
         <p className="inline-block border-b border-primary pb-1 font-medium md:font-bold leading-normal text-primary text-sm md:text-base lg:text-lg xl:text-xl">

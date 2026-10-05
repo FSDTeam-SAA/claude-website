@@ -11,7 +11,7 @@ const StopGuessing = () => {
      const cookie = parseCookies()[COOKIE_NAME];
             const lang = cookie?.split("/")?.[2] || "en";
   return (
-    <div className="relative max-w-[1400px] mx-auto w-[95%] md:w-full bg-[url('/assets/images/pep/sm_stop_buessing.svg')] md:bg-[url('/assets/images/pep/lg_stop_buessing.svg')] bg-cover bg-center bg-no-repeat min-h-[600px] md:h-[750px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center items-center text-center">
+    <div className="relative container mx-auto w-[95%] md:w-full bg-[url('/assets/images/pep/sm_stop_buessing.svg')] md:bg-[url('/assets/images/pep/lg_stop_buessing.svg')] bg-cover bg-center bg-no-repeat min-h-[600px] md:h-[750px] py-10 md:py-16 lg:py-20 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center items-center text-center">
       {/* Dark overlay for text contrast */}
       <div className="absolute inset-0 bg-black/40 z-0"></div>
 

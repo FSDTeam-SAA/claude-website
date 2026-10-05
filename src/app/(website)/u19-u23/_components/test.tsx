@@ -35,7 +35,7 @@ const steps = [
 
 const FiveStepsToGuide = () => {
   return (
-    <section className="relative mx-auto mt-6 flex w-[95%] max-w-[1400px] flex-col items-center justify-center overflow-hidden rounded-[30px] bg-[#080b09] bg-[url('/assets/images/home_page/sm_bg.svg')] bg-cover bg-center bg-no-repeat pb-8 pt-10 text-white md:mt-8 md:w-full md:rounded-[70px] md:bg-[url('/assets/images/home_page/lg_bg.svg')] md:pb-16 md:pt-28 lg:mt-10 xl:mt-12 xl:h-[750px] xl:py-12">
+    <section className="relative container mx-auto mt-6 flex w-[95%] flex-col items-center justify-center overflow-hidden rounded-[30px] bg-[#080b09] bg-[url('/assets/images/home_page/sm_bg.svg')] bg-cover bg-center bg-no-repeat pb-8 pt-10 text-white md:mt-8 md:w-full md:rounded-[70px] md:bg-[url('/assets/images/home_page/lg_bg.svg')] md:pb-16 md:pt-28 lg:mt-10 xl:mt-12 xl:h-[750px] xl:py-12">
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-1.5 md:px-8 lg:px-12">
         <h2 className="font-dagger text-center md:text-left text-xl font-medium leading-none md:text-3xl lg:text-4xl xl:text-[43px] xl:leading-none">
           Five Steps to Guide Your Development
