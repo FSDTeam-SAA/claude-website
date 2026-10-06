@@ -79,7 +79,7 @@ const OnlinePlayerEvaluationProgram = () => {
         ))}
       </div>
 
-      <div className="absolute right-[13%] top-[25%] flex items-center gap-1 text-[6px] font-medium text-white sm:hidden ">
+      <div className="absolute right-[9.5%] top-[25%] flex items-center gap-1 text-[6px] font-medium text-white sm:hidden ">
         <span aria-hidden className="h-6 w-px bg-primary " />
         <div className="flex flex-col items-center gap-1">
           <Image
