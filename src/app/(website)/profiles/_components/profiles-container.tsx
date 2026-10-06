@@ -24,11 +24,13 @@ const ProfilesContainer = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const router = useRouter();
 
+  // &isProfileCompleted=true
+
   const { data, isLoading, isError, error } = useQuery<UsersApiResponse>({
     queryKey: ["all-users", currentPage],
     queryFn: async () => {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/user/all-user?emailVerified=true&isProfileCompleted=true&sortOrder=desc&page=${currentPage}&limit=7`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/user/all-user?emailVerified=true&sortOrder=desc&page=${currentPage}&limit=7`,
       );
       if (!res.ok) throw new Error("Failed to load player profiles");
       return res.json();
