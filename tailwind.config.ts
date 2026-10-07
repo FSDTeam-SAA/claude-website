@@ -63,12 +63,15 @@ const config: Config = {
         center: true,
         padding: {
           DEFAULT: "14px",
-          lg: "20px",
+          // Give 1024px iPad layouts comfortable horizontal breathing room.
+          lg: "32px",
+          xl: "20px",
         },
         screens: {
-          sm: "100%",
-          md: "100%",
-          lg: "1240px",
+          // A 960px container leaves a 32px visual gutter on each side of a
+          // 1024px iPad viewport.
+          lg: "990px",
+          xl: "1270px",
         },
       },
       keyframes: {
