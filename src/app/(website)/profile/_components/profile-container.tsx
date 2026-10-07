@@ -94,7 +94,9 @@
 
 "use client"
 
+import { useState } from "react"
 import { useSession } from "next-auth/react"
+import { toast } from "sonner"
 import { useQuery } from "@tanstack/react-query"
 import ProfilePicture from "./profile-picture"
 import PersonalInformationForm from "./personal-information-form"
@@ -106,6 +108,7 @@ import Loader from "@/components/ui/Loader"
 const ProfileContainer = () => {
   const { data: session } = useSession()
   const token = (session?.user as { accessToken?: string })?.accessToken
+  const [showProfileImageError, setShowProfileImageError] = useState(false)
 
   const { data, isLoading } = useQuery<UserProfileApiResponse>({
     queryKey: ["user-profile"],
@@ -130,11 +133,33 @@ const ProfileContainer = () => {
   const user = data?.data?.user
   // console.log(data)
 
+  const handleProfileUpdateAttempt = () => {
+    if (user?.profileImage) return true
+
+    setShowProfileImageError(true)
+    toast.error("Please add your profile photo before updating.")
+
+    requestAnimationFrame(() => {
+      document
+        .getElementById("profile-image-upload")
+        ?.scrollIntoView({ behavior: "smooth", block: "center" })
+      document
+        .querySelector<HTMLButtonElement>("[data-profile-image-upload]")
+        ?.focus({ preventScroll: true })
+    })
+
+    return false
+  }
+
   return (
     <div className="py-8 md:py-12 lg:py-16">
       <div className="container grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 lg:gap-14">
         <div className="md:col-span-1 border border-[#E7E7E7] rounded-[16px] p-6">
-          <ProfilePicture user={user} />
+          <ProfilePicture
+            user={user}
+            showRequiredError={showProfileImageError}
+            onImageUploadSuccess={() => setShowProfileImageError(false)}
+          />
           <VideoUpload videos={user?.playingVideo || []} />
           <VideoLinkUpload userId={user?._id || ""}/>
         </div>
@@ -143,7 +168,10 @@ const ProfileContainer = () => {
           <h1 className="text-2xl md:text-[28px] lg:text-[32px] text-[#131313] font-normal">
             Profile Settings
           </h1>
-          <PersonalInformationForm user={user} />
+          <PersonalInformationForm
+            user={user}
+            onProfileUpdateAttempt={handleProfileUpdateAttempt}
+          />
         </div>
 
       </div>
@@ -152,6 +180,4 @@ const ProfileContainer = () => {
 }
 
 export default ProfileContainer
-
-
 

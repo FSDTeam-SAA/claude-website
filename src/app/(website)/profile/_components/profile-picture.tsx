@@ -125,7 +125,7 @@
 
 "use client";
 
-import { CircleArrowUp } from "lucide-react";
+import { AlertCircle, CircleArrowUp } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -134,7 +134,15 @@ import { toast } from "sonner";
 import { User } from "./user-data-type";
 import { useRouter } from "next/navigation";
 
-const ProfilePicture = ({ user }: { user?: User }) => {
+const ProfilePicture = ({
+  user,
+  showRequiredError,
+  onImageUploadSuccess,
+}: {
+  user?: User;
+  showRequiredError: boolean;
+  onImageUploadSuccess: () => void;
+}) => {
   const { data: session } = useSession();
   const token = (session?.user as { accessToken?: string })?.accessToken;
   const queryClient = useQueryClient();
@@ -170,6 +178,7 @@ const ProfilePicture = ({ user }: { user?: User }) => {
       }
       toast.success("Profile image updated");
       await queryClient.invalidateQueries({ queryKey: ["user-profile"] });
+      onImageUploadSuccess();
       if (data?.data?.isProfileCompleted && user?.isProfileCompleted !== true) {
         router.replace("/");
       }
@@ -190,39 +199,56 @@ const ProfilePicture = ({ user }: { user?: User }) => {
     mutate(formData);
   };
 
+  const hasProfileImageError = showRequiredError && !user?.profileImage;
+
   return (
-    <div className="w-full relative flex justify-center items-center">
-      <div className="relative">
-        <div className="w-32 h-32 rounded-full overflow-hidden border">
-          <Image
-            src={profileImage}
-            alt="Profile"
-            width={128}
-            height={128}
-            className="w-full h-full object-cover"
-          />
-        </div>
+    <div
+      id="profile-image-upload"
+      className="w-full flex flex-col items-center"
+      aria-invalid={hasProfileImageError}
+    >
+      <div className="w-32 h-32 rounded-full overflow-hidden border">
+        <Image
+          src={profileImage}
+          alt="Profile"
+          width={128}
+          height={128}
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-        <div className="w-full absolute flex justify-center mt-4">
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept="image/*"
-            hidden
-            onChange={handleFileChange}
-          />
+      <div className="mt-4 w-[200px]">
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          hidden
+          onChange={handleFileChange}
+        />
 
-          <div>
-            <button
-              className="w-[200px] flex items-center justify-center gap-2 rounded-[8px] border-[2px] border-primary text-primary py-2 md:py-3 px-3"
-              onClick={() => fileInputRef.current?.click()}
-              disabled={isPending}
-            >
-              <CircleArrowUp />
-              Upload Image
-            </button>
-          </div>
-        </div>
+        <button
+          className={`w-full flex items-center justify-center gap-2 rounded-[8px] border-[2px] py-2 md:py-3 px-3 ${
+            hasProfileImageError
+              ? "border-red-500 text-red-500"
+              : "border-primary text-primary"
+          }`}
+          onClick={() => fileInputRef.current?.click()}
+          disabled={isPending}
+          type="button"
+          data-profile-image-upload
+        >
+          <CircleArrowUp />
+          Upload Image
+        </button>
+        {hasProfileImageError && (
+          <p
+            className="mt-2 flex items-start gap-1.5 rounded-md bg-red-50 px-2 py-1.5 text-xs leading-4 text-red-600"
+            role="alert"
+          >
+            <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+            Add a profile photo to complete your profile.
+          </p>
+        )}
       </div>
     </div>
   );
