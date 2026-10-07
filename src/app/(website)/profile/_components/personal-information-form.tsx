@@ -181,6 +181,7 @@ const formSchema = z
 
 interface PersonalInformationFormProps {
   user?: User;
+  onProfileUpdateAttempt: () => boolean;
 }
 
 const COOKIE_NAME = "googtrans";
@@ -188,6 +189,7 @@ const COOKIE_NAME = "googtrans";
 // const PersonalInformationForm = () => {
 const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
   user,
+  onProfileUpdateAttempt,
 }) => {
   const session = useSession();
   const router = useRouter();
@@ -350,6 +352,8 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
+    if (!onProfileUpdateAttempt()) return;
+
     // console.log(values)
 
     // mutate(values)
