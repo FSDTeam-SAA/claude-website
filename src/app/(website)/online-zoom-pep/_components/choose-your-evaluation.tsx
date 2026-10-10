@@ -167,7 +167,7 @@ const ChooseYourEvaluation = () => {
         <h3 className="font-semibold leading-none text-xs md:text-base lg:text-lg xl:text-xl">
           IMPORTANT INFORMATION
         </h3>
-        <p className="mt-1 xl:mt-2 font-normal leading-normal md:leading-[1.15] text-[8px]  md:text-xs xl:text-sm">
+        <p className="mt-1 xl:mt-2 font-normal leading-normal text-[8px]  md:text-xs xl:text-sm">
           PEP Online is not the complete in-person PEP assessment. Certain tests
           and protocols have been adapted for safe and effective live delivery
           through Zoom. Players who want the complete proprietary PEP test
