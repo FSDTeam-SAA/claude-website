@@ -60,7 +60,7 @@ const OnlineZoomPepHero = () => {
         </h1>
 
         {/* Votre localisation ne devrait pas limiter votre développement. */}
-        <div className="mt-4 md:mt-5 lg:mt-6 max-w-[82%] font-medium leading-normal sm:max-w-[43%] md:max-w-[490px] text-xs md:text-sm lg:text-base lg:text-lg xl:text-xl">
+        <div className="mt-4 md:mt-5 lg:mt-6 max-w-[82%] font-medium leading-normal sm:max-w-[43%] md:max-w-[490px] text-xs md:text-sm lg:text-base xl:text-xl">
           <p>
             The Player Evaluation Program - Now available
             <br />
