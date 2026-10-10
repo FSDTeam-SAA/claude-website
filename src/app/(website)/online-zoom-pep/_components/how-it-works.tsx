@@ -44,11 +44,13 @@ const steps = [
   },
 ] as const;
 
+// box-content
+
 const HowItWorks = () => {
   return (
     <section
       aria-labelledby="how-it-works-title"
-      className="relative container mx-auto mt-3 box-content aspect-[686/1216] w-[95%] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_ozp_hero.svg')] bg-cover bg-center bg-no-repeat pb-[310px] md:mt-8 md:box-border md:aspect-[1448/814] md:w-full md:rounded-[52px] md:bg-[url('/assets/images/online_zoom_pep/lg_opep.svg')] md:pb-0 lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]"
+      className="relative container mx-auto box-content px-0 mt-3 aspect-[686/1216] w-[95%] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_ozp_hero.svg')] bg-cover bg-center bg-no-repeat pb-[250px] md:mt-8 md:box-border md:aspect-[1448/814] md:w-full md:rounded-[52px] md:bg-[url('/assets/images/online_zoom_pep/lg_opep.svg')] md:pb-0 lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]"
     >
       <header className="absolute inset-x-[4%] top-[3.3%] z-10 text-center text-white md:top-[4.2%]">
         <p className="font-bold tracking-[0.34em] text-primary text-xs md:text-sm lg:text-base lg:text-lg">
