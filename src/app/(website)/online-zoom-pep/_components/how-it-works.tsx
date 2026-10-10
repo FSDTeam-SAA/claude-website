@@ -72,10 +72,10 @@ const HowItWorks = () => {
             className="relative flex aspect-[1.10] flex-col overflow-hidden rounded-[9px] border border-primary bg-black/70 text-white shadow-[0_0_12px_rgba(16,230,7,0.22)] md:aspect-[0.81] md:rounded-[14px]"
           >
             <div className="flex h-[16%] shrink-0 items-center gap-1 px-2 md:gap-1.5 md:px-3 lg:px-4">
-              <span className="text-[clamp(22px,7vw,31px)] font-semibold leading-none text-primary text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+              <span className="text-[clamp(22px,7vw,31px)] font-semibold leading-none text-primary text-3xl md:text-4xl xl:text-6xl">
                 {step.number}
               </span>
-              <h3 className="text-[clamp(8px,2.5vw,11px)] font-medium leading-[1.05] md:text-[13px] lg:text-[18px] xl:text-[20px]">
+              <h3 className="text-[clamp(8px,2.5vw,11px)] font-medium leading-[1.05] md:text-[13px] lg:text-sm xl:text-[20px]">
                 {step.title}
               </h3>
             </div>
@@ -97,15 +97,15 @@ const HowItWorks = () => {
                 className="hidden h-full w-full object-cover object-top md:block"
               />
             </div>
-            <div className="min-h-0 flex-1 space-y-1 overflow-hidden px-2 py-1.5 text-[clamp(6px,1.8vw,8px)] font-medium leading-[1.1] md:space-y-1.5 md:px-4 md:py-3 lg:px-5 lg:text-[13px] xl:text-[14px] -mt-1 md:-mt-0">
+            <div className="min-h-0 flex-1 space-y-1 overflow-hidden px-2 py-1.5 text-[clamp(6px,1.8vw,8px)] font-medium leading-[1.1] md:space-y-1.5 md:px-4 md:py-2 xl:py-3 xl:px-5 lg:text-[13px] xl:text-[14px] -mt-1 md:-mt-0">
               {step.details.map(({ text, icon: Icon }) => (
                 <p key={text} className="flex items-center gap-1 md:gap-1.5 ">
                   <Icon
                     aria-hidden
-                    className="mt-0.5 h-3 w-3 shrink-0 text-primary md:h-6 md:w-6"
+                    className="mt-0.5 h-3 w-3 shrink-0 text-primary md:h-5 md:w-5 xl:h-6 xl:w-6"
                     strokeWidth={1.8}
                   />
-                  <span className="text-[10px] sm:text-xs md:text-sm">{text}</span>
+                  <span className="text-[10px] sm:text-xs xl:text-sm">{text}</span>
                 </p>
               ))}
             </div>

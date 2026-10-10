@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import { Check, MapPin, Radio } from "lucide-react";
@@ -15,7 +15,13 @@ const options = [
     badgeIcon: Radio,
     title: "PEP ONLINE",
     subtitle: "LIVE VIA ZOOM",
-    details: ["Available worldwide", "Tests adapted for remote delivery", "All 8 evaluation dimensions", "Summary & Premium report", "Report delivered within 72 hours"],
+    details: [
+      "Available worldwide",
+      "Tests adapted for remote delivery",
+      "All 8 evaluation dimensions",
+      "Summary & Premium report",
+      "Report delivered within 72 hours",
+    ],
   },
   {
     mobile: "/assets/images/online_zoom_pep/sm_cye2.svg",
@@ -25,14 +31,19 @@ const options = [
     badgeIcon: MapPin,
     title: "FULL PEP",
     subtitle: "IN PERSON",
-    details: ["Complete proprietary PEP test battery", "Direct on-field observation", "All 8 evaluation dimensions", "Summary & Premium report", "Report delivered within 72 hours"],
+    details: [
+      "Complete proprietary PEP test battery",
+      "Direct on-field observation",
+      "All 8 evaluation dimensions",
+      "Summary & Premium report",
+      "Report delivered within 72 hours",
+    ],
   },
 ] as const;
 
 const ChooseYourEvaluation = () => {
-
-   const cookie = parseCookies()[COOKIE_NAME];
-    const lang = cookie?.split("/")?.[2] || "en";
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
   return (
     <section
       aria-labelledby="choose-your-evaluation-title"
@@ -41,18 +52,18 @@ const ChooseYourEvaluation = () => {
       <header className="absolute inset-x-[4%] top-[17.5%] z-10 text-center text-white md:top-[4%]">
         <div className="mx-auto flex items-center justify-center gap-2 text-[9px] font-medium text-primary md:gap-3 md:text-[12px] lg:text-[14px] xl:text-[16px] mb-4 md:mb-0">
           <span className="h-px w-12 bg-primary md:w-28 lg:w-36" />
-          <span className="rounded-full border border-primary px-3 py-1 text-[7px] leading-none md:px-4 md:py-1.5 md:text-sm lg:text-base">
+          <span className="rounded-full border border-primary px-3 py-1 text-[7px] leading-none md:px-4 md:py-1.5 md:text-sm lg:text-[15px] xl:text-base">
             CHOOSE YOUR EVALUATION
           </span>
           <span className="h-px w-12 bg-primary md:w-28 lg:w-36" />
         </div>
         <h4
           id="choose-your-evaluation-title"
-          className={`mt-4 font-semibold leading-none  ${lang === "fr" ? "text-xs md:text-3xl lg:text-4xl xl:text-[40px]" : "text-xs md:text-3xl lg:text-4xl xl:text-[42px]"}`}
+          className={`mt-2 xl:mt-4 font-semibold leading-none  ${lang === "fr" ? "text-xs md:text-3xl lg:text-4xl xl:text-[40px]" : "text-xs md:text-3xl lg:text-4xl xl:text-[42px]"}`}
         >
           Two Evaluation Options. Two Different Experiences.
         </h4>
-        <p className="mt-1 font-medium leading-normal text-[9px] md:mt-2 md:text-sm lg:text-base">
+        <p className="mt-1 font-medium leading-normal text-[9px] xl:mt-2 md:text-sm lg:text-[15px] xl:text-base">
           Choose the format that best matches your location.
         </p>
       </header>
@@ -74,15 +85,20 @@ const ChooseYourEvaluation = () => {
               </p>
               <h3 className="mt-2 text-[clamp(18px,5vw,28px)] font-bold leading-[0.9] tracking-tight md:mt-5 md:text-[clamp(28px,3vw,46px)] lg:text-[clamp(36px,3.3vw,52px)] xl:text-[58px]">
                 {option.title.split(" ").map((word, wordIndex) => (
-                  <span key={word} className={wordIndex > 0 ? "ml-1 text-primary" : ""}>{word}</span>
+                  <span
+                    key={word}
+                    className={wordIndex > 0 ? "ml-1 text-primary" : ""}
+                  >
+                    {word}
+                  </span>
                 ))}
               </h3>
               <p className="mt-1 text-[clamp(7px,1.9vw,11px)] font-bold tracking-[0.22em] md:mt-3 md:text-[12px] lg:text-[14px] xl:text-[16px]">
                 {option.subtitle}
               </p>
-              <span className="mt-12 block h-[2px] w-8 bg-primary md:mt-12 md:h-[3px] md:w-16 lg:w-20" />
+              <span className="mt-12 block h-[2px] w-8 bg-primary lg:mt-7 xl:mt-12 md:h-[3px] md:w-16 lg:w-20" />
             </div>
-            <div className="pointer-events-none absolute inset-x-[2%] bottom-[3%] md:bottom-[10%] z-[30] grid grid-cols-1 text-white text-[clamp(5px,1.45vw,8px)] md:grid-cols-2 md:text-[clamp(7px,0.75vw,12px)] lg:text-[13px] xl:text-[14px]">
+            <div className="pointer-events-none absolute inset-x-[2%] bottom-[3%] xl:bottom-[10%] z-[30] grid grid-cols-1 text-white text-[clamp(5px,1.45vw,8px)] md:grid-cols-2 md:text-[clamp(7px,0.75vw,12px)] lg:text-[13px] xl:text-[14px] ">
               <div className="space-y-1 md:border-r md:border-primary md:space-y-2 md:pr-2 lg:space-y-4 lg:pr-4">
                 {option.details.map((detail, detailIndex) => (
                   <p
@@ -96,13 +112,18 @@ const ChooseYourEvaluation = () => {
                         strokeWidth={3}
                       />
                     </span>
-                    <span className="text-[7px] md:text-xs lg:text-[13px]">{detail}</span>
+                    <span className="text-[7px] md:text-xs xl:text-[13px]">
+                      {detail}
+                    </span>
                   </p>
                 ))}
               </div>
               <div className="hidden space-y-1 md:block md:space-y-2 md:pl-2 lg:space-y-5 lg:pl-4">
                 {option.details.slice(3).map((detail) => (
-                  <p key={detail} className="flex items-center gap-1 leading-[1.05] md:gap-1.5">
+                  <p
+                    key={detail}
+                    className="flex items-center gap-1 leading-[1.05] md:gap-1.5"
+                  >
                     <span className="flex h-2.5 w-2.5 shrink-0 items-center justify-center rounded-full bg-primary text-white md:h-3 md:w-3 lg:h-4 lg:w-4">
                       <Check
                         aria-hidden
@@ -110,7 +131,9 @@ const ChooseYourEvaluation = () => {
                         strokeWidth={3}
                       />
                     </span>
-                    <span className="text-[7px] md:text-xs lg:text-[13px]">{detail}</span>
+                    <span className="text-[7px] md:text-xs xl:text-[13px]">
+                      {detail}
+                    </span>
                   </p>
                 ))}
               </div>
@@ -140,11 +163,11 @@ const ChooseYourEvaluation = () => {
         ))}
       </div>
 
-      <aside className="absolute mt-8 md:mt-0 left-[3.5%] top-[68.5%] w-[93%] rounded-[8px] border border-yellow-400 bg-black/75 px-2 py-1.5 text-yellow-300 md:left-[4.2%] md:top-[81%] md:w-[91.6%] md:rounded-[14px] md:border-2 md:px-4 md:py-3 lg:px-5 lg:py-4">
-        <h3 className="font-semibold leading-none text-[9px] md:text-base lg:text-lg xl:text-xl">
+      <aside className="absolute mt-8 md:mt-0 left-[3.5%] top-[78.5%] w-[93%] rounded-[8px] border border-yellow-400 bg-black/75 px-3 py-2 text-yellow-300 md:left-[4.2%] md:top-[81%] md:w-[91.6%] md:rounded-[14px] md:border-2 md:px-4 md:py-3 xl:px-5 xl:py-4">
+        <h3 className="font-semibold leading-none text-xs md:text-base lg:text-lg xl:text-xl">
           IMPORTANT INFORMATION
         </h3>
-        <p className="mt-1 font-normal leading-[1.15] text-[7px] md:mt-2 md:text-xs lg:text-sm">
+        <p className="mt-1 xl:mt-2 font-normal leading-normal md:leading-[1.15] text-[8px]  md:text-xs xl:text-sm">
           PEP Online is not the complete in-person PEP assessment. Certain tests
           and protocols have been adapted for safe and effective live delivery
           through Zoom. Players who want the complete proprietary PEP test
