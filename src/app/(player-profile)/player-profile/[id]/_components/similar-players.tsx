@@ -70,7 +70,7 @@ const SimilarPlayers = ({ id }: { id: string }) => {
         </h3>
 
         {/* ✅ Correct grid layout */}
-        <ul className="grid grid-cols-1 xl:grid-cols-2 gap-5">
+        <ul className="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-3 xl:gap-5">
           {similarPlayers?.map((item) => {
             return (
               <li key={item._id}>
@@ -97,7 +97,7 @@ const SimilarPlayers = ({ id }: { id: string }) => {
 
                     <div className="w-full md:w-3/5 flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-4">
                       {/* Stats Section */}
-                      <div className="grid grid-cols-3 w-full text-center">
+                      <div className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-3 w-full text-center ">
                         {[
                           { label: "Age", value: item?.age ?? 0 },
                           {
@@ -114,7 +114,9 @@ const SimilarPlayers = ({ id }: { id: string }) => {
                         ].map((stat, index) => (
                           <div
                             key={index}
-                            className="flex flex-col items-center justify-between md:justify-center py-2 "
+                            className={`flex flex-col items-center justify-between md:justify-center py-2 ${
+                              index === 2 ? "lg:col-span-2 xl:col-span-1" : ""
+                            }`}
                           >
                             {/* Label */}
                             <p className="text-[12px] text-gray-500 mb-1">
