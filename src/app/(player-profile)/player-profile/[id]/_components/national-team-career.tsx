@@ -57,7 +57,7 @@ const NationalTeam = ({ data, isLoading, error, isError }: Props) => {
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-10" />
 
-        <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6 relative z-10">
+        <h3 className="text-2xl md:text-3xl xl:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6 relative z-10">
           National Team Career
         </h3>
 
