@@ -50,7 +50,7 @@ const SimilarPlayers = ({ id }: { id: string }) => {
       <div className="container pb-12 px-0 ">
         <div className='relative bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
           <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
-          <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5">
+          <h3 className="text-2xl md:text-3xl xl:text-4xl text-primary font-normal leading-[120%] pb-5">
             SIMILAR PLAYERS
           </h3>
           <p className="text-sm text-white text-center">
@@ -65,12 +65,12 @@ const SimilarPlayers = ({ id }: { id: string }) => {
     <div className="pb-8 md:pb-10 lg:pb-14">
       <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
         <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
-        <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">
+        <h3 className="text-2xl md:text-3xl xl:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">
           SIMILAR PLAYERS
         </h3>
 
         {/* ✅ Correct grid layout */}
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <ul className="grid grid-cols-1 xl:grid-cols-2 gap-5">
           {similarPlayers?.map((item) => {
             return (
               <li key={item._id}>
@@ -122,7 +122,7 @@ const SimilarPlayers = ({ id }: { id: string }) => {
                             </p>
 
                             {/* Value */}
-                            <div className="text-[15px] font-semibold text-[#131313] truncate max-w-[90px]">
+                            <div className="text-[15px] font-semibold text-[#131313] truncate w-auto  xl:max-w-[90px]">
                               {/* {String(stat.value)?.trim().replace(/\s+/g, " ")} */}
                               {String(stat.value)?.trim()}
                             </div>
@@ -177,24 +177,34 @@ const SimilarPlayers = ({ id }: { id: string }) => {
 
 export default SimilarPlayers;
 
+
+
+
+
+
+// "use client";
+
 // import React from "react";
-// import { UserProfile } from "./player-data-type";
 // import ErrorContainer from "@/components/shared/ErrorContainer/ErrorContainer";
 // import SimilarPlayersSkeleton from "./similar-players-skeleton";
 // import Image from "next/image";
 // import Link from "next/link";
+// import { useQuery } from "@tanstack/react-query";
+// import { SimilarPlayersApiResponse } from "./similar-players-data-type";
 
-// const SimilarPlayers = ({
-//   data,
-//   isLoading,
-//   error,
-//   isError,
-// }: {
-//   data?: UserProfile;
-//   isLoading: boolean;
-//   error: unknown;
-//   isError: boolean;
-// }) => {
+// const SimilarPlayers = ({ id }: { id: string }) => {
+//   const hasValidUserId = /^[a-f\d]{24}$/i.test(id);
+//   const { data, isLoading, isError, error } =
+//     useQuery<SimilarPlayersApiResponse>({
+//       queryKey: ["similar-players", id],
+//       queryFn: async () => {
+//         const res = await fetch(
+//           `${process.env.NEXT_PUBLIC_BACKEND_URL}/user/detail/${id}/similar-players`,
+//         );
+//         return res.json();
+//       },
+//       enabled: hasValidUserId,
+//     });
 
 //   if (isLoading) {
 //     return (
@@ -214,7 +224,7 @@ export default SimilarPlayers;
 //     );
 //   }
 
-//   const similarPlayers = data?.semelierPlayer;
+//   const similarPlayers = data?.data;
 
 //   console.log("dd", similarPlayers);
 
@@ -223,11 +233,13 @@ export default SimilarPlayers;
 //     return (
 //       <div className="container pb-12 px-0 ">
 //         <div className='relative bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
-//         <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
-//           <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5">
+//           <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
+//           <h3 className="text-2xl md:text-3xl xl:text-4xl text-primary font-normal leading-[120%] pb-5">
 //             SIMILAR PLAYERS
 //           </h3>
-//           <p className="text-sm text-white text-center">No similar players found.</p>
+//           <p className="text-sm text-white text-center">
+//             No similar players found.
+//           </p>
 //         </div>
 //       </div>
 //     );
@@ -237,17 +249,17 @@ export default SimilarPlayers;
 //     <div className="pb-8 md:pb-10 lg:pb-14">
 //       <div className='relative container bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/pro_bg1.svg")] rounded-[16px] p-6 shadow-[0px_4px_24px_0px_#00000014]]'>
 //         <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
-//         <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">
+//         <h3 className="text-2xl md:text-3xl xl:text-4xl text-primary font-normal leading-[120%] pb-5 md:pb-6">
 //           SIMILAR PLAYERS
 //         </h3>
 
 //         {/* ✅ Correct grid layout */}
-//         <ul className="grid grid-cols-1 md:grid-cols-2 gap-5">
+//         <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-2 xl:gap-5">
 //           {similarPlayers?.map((item) => {
 //             return (
 //               <li key={item._id}>
 //                 <Link href={`/player-profile/${item?._id}`}>
-//                   <div className="bg-[#E9EBF3] flex flex-col md:flex-row items-center justify-between gap-4 rounded-[16px] p-3">
+//                   <div className="bg-[#E9EBF3] flex flex-col md:flex-row items-center justify-between gap-2 md:gap-[2px] xl:gap-4 rounded-[16px] p-3">
 //                     {/* LEFT: Profile */}
 //                     <div className="w-full md:w-2/5 flex items-center gap-2">
 //                       <Image
@@ -259,7 +271,7 @@ export default SimilarPlayers;
 //                       />
 
 //                       <div>
-//                         <h4 className="text-sm md:text-base text-[#131313] font-semibold leading-[120%]">
+//                         <h4 className="text-sm md:text-[15px] xl:text-base text-[#131313] font-semibold leading-[120%]">
 //                           {item?.name || "N/A"}
 //                         </h4>
 //                       </div>
@@ -267,7 +279,7 @@ export default SimilarPlayers;
 
 //                     {/* RIGHT: Stats + Similarity */}
 
-//                     <div className="w-full md:w-3/5 flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-4">
+//                     <div className="w-full md:w-3/5 flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-2 xl:gap-4">
 //                       {/* Stats Section */}
 //                       <div className="grid grid-cols-3 w-full text-center">
 //                         {[
@@ -289,12 +301,12 @@ export default SimilarPlayers;
 //                             className="flex flex-col items-center justify-between md:justify-center py-2 "
 //                           >
 //                             {/* Label */}
-//                             <p className="text-[12px] text-gray-500 mb-1">
+//                             <p className="text-[11px] xl:text-[12px] text-gray-500 mb-1">
 //                               {stat.label}
 //                             </p>
 
 //                             {/* Value */}
-//                             <div className="text-[15px] font-semibold text-[#131313] truncate max-w-[90px]">
+//                             <div className="text-[13px] xl:text-[15px] font-semibold text-[#131313] truncate max-w-[90px]">
 //                               {/* {String(stat.value)?.trim().replace(/\s+/g, " ")} */}
 //                               {String(stat.value)?.trim()}
 //                             </div>

@@ -110,7 +110,7 @@ const PlayerRating = ({
     <div className='w-full relative bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] shadow-[0px_4px_16px_0px_#00000014] rounded-[16px] px-4 md:px-6 py-5'>
       <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
 
-      <h5 className="text-[17px] md:text-3xl lg:text-4xl font-normal leading-[120%] text-primary text-center md:text-left pb-2">
+      <h5 className="text-[17px] md:text-3xl xl:text-4xl font-normal leading-[120%] text-primary text-center md:text-left pb-2">
         {lang === "fr"
           ? gameCount === 1
             ? `Notes du joueur des ${gameCount} derniers matchs` 
