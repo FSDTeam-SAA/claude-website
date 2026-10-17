@@ -6,7 +6,6 @@ import PlayerRating from "./player-rating";
 import GroundField from "./ground-field";
 // import NationalTeam from './national-team-career'
 // import TransferHistory from './transfer-history'
-import DefensiveStats from "./defensive-stats";
 // import Fouls from './fouls'
 import LastPlayerReport from "./last-player-report";
 import HighlightsVideo from "./highlights-video";
@@ -16,9 +15,10 @@ import AttackingStats from "./attacking-stats";
 import DistributionGkStats from "./distribution-gk-stats";
 import DistributionPlayerStats from "./distribution-player-stats";
 // import SetPieces from './set-pieces'
-import GkStats from "./gk-stats";
+import GkAndDefensiveStats from "./gk-and-defensive-stats";
 import SimilarPlayers from "./similar-players";
 import Loader from "@/components/ui/Loader";
+import DefensiveStats from "./defensive-stats";
 
 const PlayerProfileContainer = ({ id }: { id: string }) => {
   const hasValidUserId = /^[a-f\d]{24}$/i.test(id);
@@ -82,26 +82,23 @@ const PlayerProfileContainer = ({ id }: { id: string }) => {
         <NationalTeam data={data?.data } isLoading={isLoading} error={error} isError={isError} />
       </section> */}
 
-      {/* GK Stats  */}
+      {/* Defensive and goalkeeper stats section */}
       <section>
-        {playerRole == "gk" && (
-          <GkStats
+        {playerRole == "gk" ? (
+          <GkAndDefensiveStats
+            data={data?.data}
+            isLoading={isLoading}
+            error={error}
+            isError={isError}
+          />
+        ) : (
+          <DefensiveStats
             data={data?.data}
             isLoading={isLoading}
             error={error}
             isError={isError}
           />
         )}
-      </section>
-
-      {/* defensive stats section  */}
-      <section>
-        <DefensiveStats
-          data={data?.data}
-          isLoading={isLoading}
-          error={error}
-          isError={isError}
-        />
       </section>
 
       {/* Attacking stats section  */}

@@ -12,22 +12,26 @@ const OurMission = () => {
   const missionData = [
     {
       id: 1,
-      img: "/assets/images/home_page/1 11 1.svg",
+      img: "/assets/images/home_page/1.svg",
+      smImg: "/assets/images/home_page/data_sm_de/sm_our_mission1.svg",
       title: "Get rated every game",
     },
     {
       id: 2,
       img: "/assets/images/home_page/2.svg",
+      smImg: "/assets/images/home_page/data_sm_de/sm_our_mission2.svg",
       title: "Compete with teammates",
     },
     {
       id: 3,
       img: "/assets/images/home_page/3.svg",
+      smImg: "/assets/images/home_page/data_sm_de/sm_our_mission3.svg",
       title: "Build your data identity",
     },
     {
       id: 4,
       img: "/assets/images/home_page/4.svg",
+      smImg: "/assets/images/home_page/data_sm_de/sm_our_mission4.svg",
       title: "Unlock new opportunities",
     },
   ];
@@ -40,26 +44,38 @@ const OurMission = () => {
             Our Mission
           </h1>
           <p className="text-white text-sm md:text-lg lg:text-xl font-medium opacity-90">
-            Four pillars that drive everything we do :
+            Four pillars that drive everything we do:
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-10 w-full max-w-[1200px] mb-8 md:mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-4 md:gap-6 lg:gap-10 w-full max-w-[1200px] mb-8 md:mb-12">
           {missionData?.map((item) => {
             return (
               <div
                 key={item?.id}
-                className="bg-white rounded-tl-[40px] rounded-br-[40px] md:rounded-tl-[60px] md:rounded-br-[60px] border-[3px] md:border-[5px] border-primary p-2 flex flex-col items-center h-full hover:scale-105 transition-transform duration-300 "
+                className="aspect-[3/4] bg-[#061006] rounded-[22px] md:aspect-auto md:bg-white md:rounded-tl-[60px] md:rounded-br-[60px] border-[3px] md:border-[5px] border-primary p-[5px] md:p-2 flex flex-col items-center h-full hover:scale-105 transition-transform duration-300"
               >
-                 <Image
-                    src={item?.img}
-                    alt={item?.title}
+                <div className="flex h-full w-full flex-col items-center rounded-[17px] bg-white pt-3 md:hidden">
+                  <Image
+                    src={item.smImg}
+                    alt={item.title}
                     width={200}
                     height={200}
-                    className="object-contain w-full md:w-auto h-[110px] md:h-[180px]"
+                    className="h-[clamp(100px,31vw,150px)] w-full object-contain"
                   />
-                <h3 className="text-center text-xs md:text-base lg:text-lg font-semibold text-[#131313] leading-tight pb-3">
-                  {item?.title}
+                  <h3 className="mt-auto px-2 pb-3 text-center text-xs font-dagger font-semibold leading-tight text-[#131313]">
+                    {item.title}
+                  </h3>
+                </div>
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  width={200}
+                  height={200}
+                  className="hidden object-contain w-auto h-[180px] md:block"
+                />
+                <h3 className="hidden text-center text-base font-semibold leading-tight text-[#131313] pb-3 md:block lg:text-lg">
+                  {item.title}
                 </h3>
               </div>
             );
