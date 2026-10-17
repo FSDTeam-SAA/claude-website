@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { BadgeCheck, HeartHandshake, UsersRound } from "lucide-react";
 
 const WhyChooseAnalytic = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -65,9 +66,72 @@ const WhyChooseAnalytic = () => {
   ];
 
   const chooseData = isMobile ? mobileData : desktopData;
+  const mobileBenefits = [
+    {
+      title: "For Players",
+      desc: "Verified stats and objective ratings in one profile, building proof of performance that coaches and scouts trust.",
+      icon: BadgeCheck,
+    },
+    {
+      title: "For Teams & Staff",
+      desc: "Fair, evidence-based recruitment and bias-free evaluation, with clear tracking of each player's development.",
+      icon: UsersRound,
+    },
+    {
+      title: "For Parents",
+      desc: "A clear, measurable view of your child's progress, and verified data that opens doors to academies, universities, and tryouts.",
+      icon: HeartHandshake,
+    },
+  ];
 
   return (
-    <div className="relative container mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[700px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
+    <>
+      <section className="relative container mx-auto mt-6 flex w-[95%] min-h-[720px] flex-col justify-center overflow-hidden rounded-[30px] bg-[url('/assets/images/home_page/sm_bg.svg')] bg-cover bg-center bg-no-repeat py-8 md:hidden">
+        <div className="relative z-10 w-full px-5">
+          <div className="mb-10">
+            <h1 className="mb-3 text-2xl font-dagger font-bold leading-normal text-primary">
+              Why Analytic Soccer
+            </h1>
+            <p className="text-sm font-dagger font-semibold leading-normal text-white">
+              Verified data that gives amateur players a professional profile, and real opportunities.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {mobileBenefits.map((benefit) => {
+              const Icon = benefit.icon;
+
+              return (
+                <article
+                  key={benefit.title}
+                  className="flex min-h-[120px] items-center gap-3 rounded-[20px] border-2 border-primary bg-black/20 p-3"
+                >
+                  <div className="relative h-20 w-20 shrink-0">
+                    <div className="absolute inset-0 bg-primary [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0_75%,0_25%)]" />
+                    <div className="absolute inset-[3px] bg-[#071109] [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0_75%,0_25%)]" />
+                    <Icon
+                      aria-hidden="true"
+                      className="absolute inset-0 m-auto h-10 w-10 text-primary"
+                      strokeWidth={2.25}
+                    />
+                  </div>
+
+                  <div className="min-w-0">
+                    <h2 className="mb-1 text-xl font-dagger font-bold leading-tight text-primary">
+                      {benefit.title}
+                    </h2>
+                    <p className="text-xs font-semibold leading-tight text-white">
+                      {benefit.desc}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+    <div className="relative container mx-auto hidden w-[95%] md:flex md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[700px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex-col justify-center">
       <div className="relative z-10 px-2 md:px-8 lg:px-12 w-full max-w-[1200px] mx-auto">
         <div className="max-w-[1000px] mb-6 md:mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-dagger font-bold text-primary mb-3 md:mb-6 leading-tight">
@@ -105,6 +169,7 @@ const WhyChooseAnalytic = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
