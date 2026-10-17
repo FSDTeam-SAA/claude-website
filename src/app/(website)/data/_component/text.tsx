@@ -255,3 +255,236 @@
 
 
 
+// "use client";
+
+// import React, { useEffect, useState } from "react";
+
+// const WhyChooseAnalytic = () => {
+//   const [isMobile, setIsMobile] = useState(false);
+
+//   useEffect(() => {
+//     const checkScreen = () => {
+//       setIsMobile(window.innerWidth < 768); // md breakpoint
+//     };
+
+//     checkScreen();
+
+//     window.addEventListener("resize", checkScreen);
+
+//     return () => window.removeEventListener("resize", checkScreen);
+//   }, []);
+
+//   const desktopData = [
+//     {
+//       id: 1,
+//       title: "Access verified performance data",
+//       desc: "Every stat, every match, every achievement verified and recorded in one place. No more scattered records or lost history.",
+//     },
+//     {
+//       id: 2,
+//       title: "Receive objective ratings",
+//       desc: "Get rated based on real performance metrics, not opinions. Fair, transparent, and comparable across regions.",
+//     },
+//     {
+//       id: 3,
+//       title: "Track your career progression and transfer history",
+//       desc: "Track your entire soccer journey. Every club, every season, every progression milestone documented.",
+//     },
+//     {
+//       id: 4,
+//       title: "Build true proof of performance",
+//       desc: "Turn your evaluations into a verified record that coaches, clubs and scouts can trust. Your data speaks for itself.",
+//     },
+//   ];
+
+//   const mobileData = [
+//       {
+//       id: 1,
+//       title: "Access verified performance data",
+//       desc: "Every stat - every match verified and in one place.",
+//     },
+//     {
+//       id: 2,
+//       title: "Receive objective ratings",
+//       desc: "Rated on real performance not opinions.",
+//     },
+//     {
+//       id: 3,
+//       title: "Track your career progression",
+//       desc: "Every season - every milestone is fully documented.",
+//     },
+//     {
+//       id: 4,
+//       title: "Build true proof of performance",
+//       desc: "A verified record that coaches and scouts can trust.",
+//     },
+//   ];
+
+//   const chooseData = isMobile ? mobileData : desktopData;
+
+//   return (
+//     <div className="relative container mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[700px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
+//       <div className="relative z-10 px-2 md:px-8 lg:px-12 w-full max-w-[1200px] mx-auto">
+//         <div className="max-w-[1000px] mb-6 md:mb-12">
+//           <h1 className="text-3xl md:text-4xl lg:text-5xl font-dagger font-bold text-primary mb-3 md:mb-6 leading-tight">
+//             Why Choose Analytic Soccer ?
+//           </h1>
+
+//           <p className="hidden md:block text-white text-[13px] md:text-lg font-medium leading-relaxed opacity-90">
+//             There is no global platform where amateur players can access verified
+//             performance data until now. Analytic Soccer is the first platform to
+//             deliver all of this, giving every amateur player the same digital
+//             tools and visibility used by professionals.
+//           </p>
+
+//           <p className="block md:hidden text-white text-[13px] font-medium leading-relaxed opacity-90">
+//             No platform gives amateur players a professional profile -
+//             visibility - and real opportunities until now!
+//           </p>
+//         </div>
+
+//         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
+//           {chooseData.map((item) => (
+//             <div
+//               key={item.id}
+//               className="bg-transparent border-[1.5px] md:border-[2px] border-primary rounded-[20px] md:rounded-[30px] p-3 flex flex-col gap-2 md:gap-3 hover:shadow-[0_0_15px_rgba(16,230,7,0.2)] transition-all duration-300"
+//             >
+//               <h3 className="text-primary text-sm md:text-xl font-bold font-dagger leading-tight">
+//                 {item.title}
+//               </h3>
+
+//               <p className="text-white text-[11px] md:text-sm font-medium opacity-80 leading-normal">
+//                 {item.desc}
+//               </p>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default WhyChooseAnalytic;
+
+
+
+
+
+
+// "use client"
+// import { parseCookies } from "nookies";
+// import React from "react";
+// const COOKIE_NAME = "googtrans";
+// const WhyDataMatters = () => {
+//       const cookie = parseCookies()[COOKIE_NAME];
+//       const lang = cookie?.split("/")?.[2] || "en";
+//   const dataCategories = [
+//     {
+//       title: "For Teams",
+//       items: [
+//         {
+//           label: "Objective Recruitment",
+//           desc: "Data makes scouting fair, efficient and evidence-based.",
+//         },
+//         {
+//           label: "Player Development Tracking",
+//           desc: "Clearly shows each player's progress and individual needs.",
+//         },
+//         {
+//           label: "Tactical & Performance Insights",
+//           desc: "Pro-level data to improve game decisions and team strategy.",
+//         },
+//       ],
+//     },
+//     {
+//       title: `${lang === "fr" ? "Pour le staff" : "For Staff"}`,
+//       items: [
+//         {
+//           label: "Objective Evaluation",
+//           desc: "Consistent, bias-free player assessment every time.",
+//         },
+//         {
+//           label: "Performance Monitoring",
+//           desc: "Individualized development plans not generic training.",
+//         },
+//         {
+//           label: "Scouting Efficiency",
+//           desc: "Find the right players faster by filtering top talent.",
+//         },
+//         {
+//           label: "Tactical Insight",
+//           desc: "Deeper understanding of player impact and team dynamics.",
+//         },
+//       ],
+//     },
+//     {
+//       title: "For Parents",
+//       items: [
+//         {
+//           label: "Track Your Child's Progress",
+//           desc: "A clear, measurable view of development, strengths and potential.",
+//         },
+//         {
+//           label: "Opportunities & Exposure",
+//           desc: "Verified data that opens doors to academies, universities and tryouts.",
+//         },
+//         {
+//           label: "Transparency & Fairness",
+//           desc: "Objective evaluation with no favoritism or subjective opinions.",
+//         },
+//       ],
+//     },
+//   ];
+
+//   return (
+//     <div className="relative container mx-auto w-[95%] md:w-full bg-[url('/assets/images/home_page/sm_bg.svg')] md:bg-[url('/assets/images/home_page/lg_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[750px] py-8 md:py-12 lg:py-14 rounded-[30px] md:rounded-[50px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col justify-center">
+//       <div className="relative z-10 px-4 md:px-8 lg:px-12 w-full max-w-[1140px] mx-auto">
+//         <div className="max-w-[1000px] mb-6 md:mb-7">
+//           <h1 className="text-2xl md:text-4xl lg:text-5xl  font-bold text-primary mb-2 md:mb-4 leading-tight">
+//             Why Data Matters ?
+//           </h1>
+//           <p className="text-white text-[13px] md:text-lg font-medium opacity-90 leading-relaxed max-w-[800px]">
+//             Data creates fairness, clarity and opportunity for everyone in the game.
+//           </p>
+//         </div>
+
+//         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
+//           {dataCategories.map((category, idx) => (
+//             <div
+//               key={idx}
+//               className={`flex flex-col ${idx === 2 ? "col-span-2 lg:col-span-1 items-center" : ""
+//                 }`}
+//             >
+//               <h2 className="text-primary text-xs md:text-3xl  font-bold mb-3 md:mb-6 text-center">
+//                 {category.title}
+//               </h2>
+//               <div className={`flex-grow border-2 border-primary rounded-[20px] md:rounded-[30px] p-2 md:p-4 bg-transparent hover:shadow-[0_0_20px_rgba(16,230,7,0.2)] transition-all duration-300 ${idx === 2 ? "w-[calc(100%-1rem)] max-w-[200px] md:max-w-full md:w-full" : "w-full"}`}>
+//                 <div className="flex flex-col gap-3">
+//                   {category.items.map((item, itemIdx) => (
+//                     <div key={itemIdx} className="flex flex-col gap-1">
+//                       <h3 className="text-primary text-[11px] md:text-lg font-bold leading-tight">
+//                         {item.label}
+//                       </h3>
+//                       <p className="text-white text-[10px] md:text-sm font-medium opacity-80 leading-tight md:leading-relaxed">
+//                         {item.desc}
+//                       </p>
+//                     </div>
+//                   ))}
+//                 </div>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default WhyDataMatters;
+
+
+
+
+
+
+
