@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { BadgeCheck, HeartHandshake, UsersRound } from "lucide-react";
+import Image from "next/image";
 
 const WhyChooseAnalytic = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -70,23 +70,23 @@ const WhyChooseAnalytic = () => {
     {
       title: "For Players",
       desc: "Verified stats and objective ratings in one profile, building proof of performance that coaches and scouts trust.",
-      icon: BadgeCheck,
+      icon: "/assets/images/home_page/data_sm_de/sm_why_as1.svg",
     },
     {
       title: "For Teams & Staff",
       desc: "Fair, evidence-based recruitment and bias-free evaluation, with clear tracking of each player's development.",
-      icon: UsersRound,
+      icon: "/assets/images/home_page/data_sm_de/sm_why_as2.svg",
     },
     {
       title: "For Parents",
       desc: "A clear, measurable view of your child's progress, and verified data that opens doors to academies, universities, and tryouts.",
-      icon: HeartHandshake,
+      icon: "/assets/images/home_page/data_sm_de/sm_why_as3.svg",
     },
   ];
 
   return (
     <>
-      <section className="relative container mx-auto mt-6 flex w-[95%] min-h-[720px] flex-col justify-center overflow-hidden rounded-[30px] bg-[url('/assets/images/home_page/sm_bg.svg')] bg-cover bg-center bg-no-repeat py-8 md:hidden">
+      <section className="relative container mx-auto mt-6 flex w-[95%] min-h-[650px] flex-col justify-center overflow-hidden rounded-[30px] bg-[url('/assets/images/home_page/sm_bg.svg')] bg-cover bg-center bg-no-repeat py-6 md:hidden">
         <div className="relative z-10 w-full px-5">
           <div className="mb-10">
             <h1 className="mb-3 text-2xl font-dagger font-bold leading-normal text-primary">
@@ -99,20 +99,19 @@ const WhyChooseAnalytic = () => {
 
           <div className="space-y-4">
             {mobileBenefits.map((benefit) => {
-              const Icon = benefit.icon;
-
               return (
                 <article
                   key={benefit.title}
-                  className="flex min-h-[120px] items-center gap-3 rounded-[20px] border-2 border-primary bg-black/20 p-3"
+                  className="flex min-h-[110px] items-center gap-3 rounded-[20px] border-2 border-primary bg-black/20 p-3"
                 >
-                  <div className="relative h-20 w-20 shrink-0">
-                    <div className="absolute inset-0 bg-primary [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0_75%,0_25%)]" />
-                    <div className="absolute inset-[3px] bg-[#071109] [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0_75%,0_25%)]" />
-                    <Icon
+                  <div className="h-20 w-20 shrink-0">
+                    <Image
+                      src={benefit.icon}
+                      alt=""
                       aria-hidden="true"
-                      className="absolute inset-0 m-auto h-10 w-10 text-primary"
-                      strokeWidth={2.25}
+                      width={194}
+                      height={194}
+                      className="h-full w-full"
                     />
                   </div>
 
