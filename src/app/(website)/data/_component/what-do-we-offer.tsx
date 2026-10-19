@@ -57,7 +57,7 @@ const WhatDoWeOffer = () => {
                     className="h-[clamp(100px,31vw,150px)] w-full object-contain"
                   />
                   <h3 className="-mt-0.5 px-2 pb-3 text-center text-[clamp(0.75rem,3.2vw,1.125rem)] font-dagger font-semibold leading-tight text-[#131313]">
-                    {item.title}
+                    {item.id === 4 ? "Structured Feedback" : item.title}
                   </h3>
                 </div>
                 <Image
