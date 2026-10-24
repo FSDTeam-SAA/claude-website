@@ -59,7 +59,7 @@ const ChooseYourEvaluation = () => {
         </div>
         <h4
           id="choose-your-evaluation-title"
-          className={`mt-2 xl:mt-4 font-semibold leading-none  ${lang === "fr" ? "text-xs md:text-3xl lg:text-4xl xl:text-[40px]" : "text-xs md:text-3xl lg:text-4xl xl:text-[42px]"}`}
+          className={`mt-2 xl:mt-4 font-semibold leading-none  ${lang === "fr" ? "text-xs md:text-3xl lg:text-[31px] xl:text-[40px]" : "text-xs md:text-3xl lg:text-4xl xl:text-[42px]"}`}
         >
           Two Evaluation Options. Two Different Experiences.
         </h4>
@@ -83,7 +83,7 @@ const ChooseYourEvaluation = () => {
                 />
                 {option.badge}
               </p>
-              <h3 className="mt-2 text-[clamp(18px,5vw,28px)] font-bold leading-[0.9] tracking-tight md:mt-5 md:text-[clamp(28px,3vw,46px)] lg:text-[clamp(36px,3.3vw,52px)] xl:text-[58px]">
+              <h3 className="mt-2 text-[clamp(18px,5vw,28px)] font-bold leading-[0.9] tracking-tight md:mt-5 md:text-[clamp(28px,3vw,46px)] lg:text-4xl xl:text-[58px]">
                 {option.title.split(" ").map((word, wordIndex) => (
                   <span
                     key={word}
@@ -112,7 +112,7 @@ const ChooseYourEvaluation = () => {
                         strokeWidth={3}
                       />
                     </span>
-                    <span className="text-[7px] md:text-xs xl:text-[13px]">
+                    <span className="text-[7px] md:text-[10px] lg:text-[11px] xl:text-[13px]">
                       {detail}
                     </span>
                   </p>
@@ -131,7 +131,7 @@ const ChooseYourEvaluation = () => {
                         strokeWidth={3}
                       />
                     </span>
-                    <span className="text-[7px] md:text-xs xl:text-[13px]">
+                    <span className="text-[7px] md:text-[10px] lg:text-[11px] xl:text-[13px]">
                       {detail}
                     </span>
                   </p>

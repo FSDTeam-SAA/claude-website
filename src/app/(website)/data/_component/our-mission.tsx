@@ -55,7 +55,7 @@ const OurMission = () => {
                 key={item?.id}
                 className="aspect-[3/4] bg-[#061006] rounded-[22px] md:aspect-auto md:bg-white md:rounded-tl-[60px] md:rounded-br-[60px] border-[3px] md:border-[5px] border-primary p-[5px] md:p-2 flex flex-col items-center h-full hover:scale-105 transition-transform duration-300"
               >
-                <div className="flex h-full w-full flex-col items-center rounded-[17px] bg-white pt-3 md:hidden">
+                <div className="flex h-full w-full flex-col items-center rounded-[17px] bg-white pt-0 md:hidden">
                   <Image
                     src={item.smImg}
                     alt={item.title}

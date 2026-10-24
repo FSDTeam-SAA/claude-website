@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { parseCookies } from "nookies";
 import React from "react";
+const COOKIE_NAME = "googtrans";
 
 const evaluationAreas = [
   {
@@ -45,24 +47,26 @@ const evaluationAreas = [
 ];
 
 const WhatDoWeOffer = () => {
+   const cookie = parseCookies()[COOKIE_NAME];
+        const lang = cookie?.split("/")?.[2] || "en";
   return (
-    <section className="relative container mx-auto w-[95%] md:w-full bg-[url('/assets/images/pep/sm_wdwo_bg.png')] md:bg-[url('/assets/images/pep/lg_wdwo_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[680px] xl:h-[760px] py-16 md:py-7 lg:py-8 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col items-center">
-      <div className="relative z-10 w-full max-w-[1300px] mx-auto px-2 md:px-12 flex flex-col h-full">
+    <section className="relative container mx-auto w-[95%] md:w-full bg-[url('/assets/images/pep/sm_wdwo_bg.png')] md:bg-[url('/assets/images/pep/lg_wdwo_bg.svg')] bg-cover bg-center bg-no-repeat min-h-[550px] md:h-[680px] xl:h-[760px] py-16 md:py-7 lg:py-8 rounded-[30px] md:rounded-[70px] mt-6 md:mt-8 lg:mt-10 xl:mt-12 overflow-hidden flex flex-col items-center ">
+      <div className={`relative z-10 w-full max-w-[1300px] mx-auto px-2 ${lang === "fr" ? "md:px-2" : "md:px-10"} flex flex-col h-full`}>
         <div className="text-center mb-8 md:mb-5 lg:mb-9 xl:mb-6 mt-8 lg:mt-4 xl:mt-0">
           <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-6xl font-medium text-primary md:text-white leading-normal">
             What Do We Offer
           </h2>
-          <h3 className="text-primary md:text-white text-lg md:text-3xl lg:text-4xl  font-medium mb-1 md:mb-4 tracking-tight pt-1">
+          <h3 className="text-primary md:text-white text-lg md:text-3xl lg:text-4xl  font-medium mb-1 md:mb-2 tracking-tight pt-1">
             The 360° Player Evaluation
           </h3>
-          <p className="text-white text-xs md:text-base lg:text-lg xl:text-2xl max-w-[1200px] text-center md:text-left opacity-100 leading-normal font-medium px-2">
+          <p className="text-white text-xs md:text-sm lg:text-base xl:text-2xl max-w-[1200px] text-center md:text-left opacity-100 leading-normal font-medium px-2">
             We build a complete, multifactorial profile that sees the whole
             player, not just a single skill. No more bias, no more random
             opinions. The data will show exactly where you stand.
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-x-1.5 sm:gap-x-2 md:gap-x-0 gap-y-2 sm:gap-y-3 md:gap-y-4 items-center w-full max-w-[1300px] mx-auto pt-1 md:pt-3">
+        <div className="grid grid-cols-3 gap-x-1.5 sm:gap-x-2 md:gap-x-0 gap-y-2 sm:gap-y-3 xl:gap-y-4 items-center w-full max-w-[1300px] mx-auto pt-1 md:pt-2">
           {evaluationAreas?.map((area, index) => (
             <div
               key={index}
@@ -84,7 +88,7 @@ const WhatDoWeOffer = () => {
                   src={area.img}
                   alt={area.title}
                   width={250}
-                  height={250}
+                  height={220}
                   className="object-contain w-auto h-auto"
                 />
               </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Mail } from "lucide-react";
+// import { Mail } from "lucide-react";
 import BgNewsletterSubscribe from "./bg-newsletter-subscribe";
 import { SiFacebook } from "react-icons/si";
 import { FaSquareInstagram } from "react-icons/fa6";
@@ -113,7 +113,8 @@ const BgFooter = () => {
               href="mailto:info@analyticsoccer.com"
               className="hover:font-semibold flex items-center gap-2"
             >
-              <Mail className="w-5 h-5" /> info@analyticsoccer.com
+              {/* <Mail className="w-5 h-5" />  */}
+              info@analyticsoccer.com
             </Link>
           </p>
         </div>

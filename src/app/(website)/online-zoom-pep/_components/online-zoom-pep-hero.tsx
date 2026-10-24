@@ -42,7 +42,7 @@ const OnlineZoomPepHero = () => {
         </p>
         <h1
           id="online-zoom-pep-title"
-          className="mt-[4.5%] font-semibold leading-tight tracking-wide sm:mt-[2.5%] md:mt-[2.3%] text-2xl md:text-3xl lg:text-4xl xl:text-5xl"
+          className={`mt-[4.5%] font-semibold leading-tight tracking-wide sm:mt-[2.5%] md:mt-[2.3%] ${lang === "fr" ? "text-2xl md:text-3xl lg:text-[31px] xl:text-5xl" : "text-2xl md:text-3xl lg:text-4xl xl:text-5xl"} `}
         >
           {lang === "fr" ? (
             <>
@@ -60,7 +60,7 @@ const OnlineZoomPepHero = () => {
         </h1>
 
         {/* Votre localisation ne devrait pas limiter votre développement. */}
-        <div className="mt-4 md:mt-5 lg:mt-6 max-w-[82%] font-medium leading-normal sm:max-w-[43%] md:max-w-[490px] text-xs md:text-sm lg:text-base xl:text-xl">
+        <div className={`mt-4 md:mt-5 lg:mt-6 max-w-[82%] font-medium leading-normal sm:max-w-[43%] md:max-w-[490px] ${lang === "fr" ? "text-xs md:text-sm lg:text-[15px] xl:text-xl" : "text-xs md:text-sm lg:text-base xl:text-xl"}`}>
           <p>
             The Player Evaluation Program - Now available
             <br />

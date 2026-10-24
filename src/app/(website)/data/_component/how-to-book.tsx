@@ -11,9 +11,9 @@ const HowToBook = () => {
   const session = useSession();
   const isLogin = session?.data?.user?.accessToken;
 
-    const cookie = parseCookies()[COOKIE_NAME];
-        const lang = cookie?.split("/")?.[2] || "en";
-        // console.log( "language", lang)
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
+  // console.log( "language", lang)
 
   const missionData = [
     {
@@ -54,9 +54,13 @@ const HowToBook = () => {
         <div className="w-full text-left mb-18 md:mb-12">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-dagger font-bold text-primary mb-3 md:mb-4">
             <span className="md:hidden">
-              How to book your<br />video analysis !
+              How to book your
+              <br />
+              video analysis!
             </span>
-            <span className="hidden md:inline">How to book your video analysis !</span>
+            <span className="hidden md:inline">
+              How to book your video analysis!
+            </span>
           </h1>
         </div>
 

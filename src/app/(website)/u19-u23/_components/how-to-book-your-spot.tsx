@@ -40,7 +40,7 @@ const HowToBookYourSpot = () => {
       <div className="relative z-10 px-6 md:px-12 lg:px-20 flex flex-col items-center w-full max-w-[1100px] mx-auto">
         <div className="w-full mb-6 md:mb-12">
           <h2 className="text-lg md:text-3xl lg:text-4xl xl:text-6xl font-medium text-center md:text-left text-primary leading-normal mb-3 md:mb-4">
-            How to Book Your Spot !
+            How to Book Your Spot!
           </h2>
         </div>
 

@@ -4,7 +4,10 @@ import { ChevronRight } from "lucide-react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { parseCookies } from "nookies";
 import React from "react";
+
+const COOKIE_NAME = "googtrans";
 
 const programFeatures = [
   {
@@ -30,6 +33,10 @@ const OnlinePlayerEvaluationProgram = () => {
   const session = useSession();
   const isLogin = Boolean(session?.data?.user?.accessToken);
 
+
+    const cookie = parseCookies()[COOKIE_NAME];
+    const lang = cookie?.split("/")?.[2] || "en";
+
   return (
     <section
       aria-labelledby="online-player-evaluation-title"
@@ -41,7 +48,7 @@ const OnlinePlayerEvaluationProgram = () => {
         </p>
         <h2
           id="online-player-evaluation-title"
-          className="mt-4 font-bold leading-9 tracking-wide sm:mt-[2.5%] md:mt-[5%] text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl"
+          className={`mt-4 font-bold leading-9 tracking-wide sm:mt-[2.5%] md:mt-[5%]  ${lang === "fr" ? "text-2xl lg:text-[31px] xl:text-5xl 2xl:text-6xl" : "text-2xl lg:text-4xl xl:text-5xl 2xl:text-6xl"}`}
         >
           Stop Waiting.
           <br />
@@ -58,7 +65,7 @@ const OnlinePlayerEvaluationProgram = () => {
       </Link>
 
       {/* On phones, keep the first two benefits on the left and the report on the right. */}
-      <div className="absolute left-[10%] top-[25%] flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:hidden">
+      <div className={`absolute left-[10%] ${lang === "fr" ? "top-[30%]" : "top-[25%]"} flex items-center gap-2 whitespace-nowrap text-[6px] font-medium text-white sm:hidden`}>
         {programFeatures.slice(0, 2).map((feature, index) => (
           <React.Fragment key={`${feature.icon}-${index}`}>
             {index > 0 && <span className="h-6 w-px bg-primary" />}
@@ -79,7 +86,7 @@ const OnlinePlayerEvaluationProgram = () => {
         ))}
       </div>
 
-      <div className="absolute right-[9.5%] top-[25%] flex items-center gap-1 text-[6px] font-medium text-white sm:hidden ">
+      <div className={`absolute right-[9.5%] ${lang === "fr" ? "top-[30%]" : "top-[25%]"} flex items-center gap-1 text-[6px] font-medium text-white sm:hidden `}>
         <span aria-hidden className="h-6 w-px bg-primary " />
         <div className="flex flex-col items-center gap-1">
           <Image

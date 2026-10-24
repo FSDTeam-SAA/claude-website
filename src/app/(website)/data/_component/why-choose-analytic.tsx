@@ -134,7 +134,7 @@ const WhyChooseAnalytic = () => {
       <div className="relative z-10 px-2 md:px-8 lg:px-12 w-full max-w-[1200px] mx-auto">
         <div className="max-w-[1000px] mb-6 md:mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-dagger font-bold text-primary mb-3 md:mb-6 leading-tight">
-            Why Choose Analytic Soccer ?
+            Why Choose Analytic Soccer?
           </h1>
 
           <p className="hidden md:block text-white text-[13px] md:text-lg font-medium leading-relaxed opacity-90">
