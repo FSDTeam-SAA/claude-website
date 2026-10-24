@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import {
   BarChart3,
@@ -56,7 +57,7 @@ const HowItWorks = () => {
   return (
     <section
       aria-labelledby="how-it-works-title"
-      className={`relative container mx-auto box-content px-0 mt-3 aspect-[686/1216] w-[95%] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_ozp_hero.svg')] bg-cover bg-center bg-no-repeat ${lang === "fr" ? "pb-[280px]" : "pb-[250px]"} md:mt-8 md:box-border md:aspect-[1448/814] md:w-full md:rounded-[52px] md:bg-[url('/assets/images/online_zoom_pep/lg_opep.svg')] md:pb-0 lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]`}
+      className={`relative container mx-auto box-content px-0 mt-3 aspect-[686/1216] w-[95%] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_ozp_hero.svg')] bg-cover bg-center bg-no-repeat ${lang === "fr" ? "pb-[290px]" : "pb-[250px]"} md:mt-8 md:box-border md:aspect-[1448/814] md:w-full md:rounded-[52px] md:bg-[url('/assets/images/online_zoom_pep/lg_opep.svg')] md:pb-0 lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]`}
     >
       <header className="absolute inset-x-[4%] top-[3.3%] z-10 text-center text-white md:top-[4.2%]">
         <p className="font-bold tracking-[0.34em] text-primary text-xs md:text-sm lg:text-base lg:text-lg">
@@ -64,7 +65,7 @@ const HowItWorks = () => {
         </p>
         <h4
           id="how-it-works-title"
-          className={`mt-2 text-lg font-bold leading-none tracking-tight ${lang === "fr" ? "text-2xl md:text-3xl lg:text-[31px] xl:text-5xl 2xl:text-6xl" : "text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl"}`}
+          className={`mt-2 text-lg font-bold leading-none tracking-tight ${lang === "fr" ? "text-2xl md:text-3xl lg:text-[31px] xl:text-5xl 2xl:text-[52px]" : "text-2xl md:text-3xl lg:text-4xl xl:text-5xl"}`}
         >
           Three Steps to Your Online Evaluation.
         </h4>
@@ -73,7 +74,7 @@ const HowItWorks = () => {
         </p>
       </header>
 
-      <div className="absolute left-[14%] top-[11%] grid w-[72%] gap-2 md:left-[5.2%] md:top-[26%] md:w-[89.6%] md:grid-cols-3 md:gap-x-[3.5%]">
+      <div className={`absolute left-[14%] ${lang === "fr" ? "top-[15%]" : "top-[11%]"} grid w-[72%] gap-2 md:left-[5.2%] md:top-[26%] md:w-[89.6%] md:grid-cols-3 md:gap-x-[3.5%]`}>
         {steps.map((step) => (
           <article
             key={step.number}

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import NewsletterSubscribe from "./NewsletterSubscribe";
-import { Mail } from "lucide-react";
+// import { Mail } from "lucide-react";
 import { SiFacebook } from "react-icons/si";
 import { FaSquareInstagram } from "react-icons/fa6";
 
