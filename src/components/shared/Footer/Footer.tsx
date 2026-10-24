@@ -125,13 +125,14 @@ const Footer = () => {
               </li>
             </Link>
           </ul>
-          <p className=" text-sm lg:text-base xl:text-lg leading-[120%] text-[#131313] hover:text-primary font-normal ">
+          <p className=" text-sm lg:text-base xl:text-lg leading-[120%] text-[#131313] hover:text-primary font-normal">
             {/* <strong className='text-[#131313]'>Email :</strong>  */}
             <Link
               href="mailto:info@analyticsoccer.com"
               className="hover:font-semibold flex items-center gap-2"
             >
-              <Mail className="w-5 h-5" /> info@analyticsoccer.com
+              {/* <Mail className="w-5 h-5" />  */}
+              info@analyticsoccer.com
             </Link>
           </p>
         </div>

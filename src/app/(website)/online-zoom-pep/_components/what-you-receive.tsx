@@ -1,7 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import { parseCookies } from "nookies";
 import React from "react";
+
+const COOKIE_NAME = "googtrans"
 
 const evaluationAreas = [
   [
@@ -56,18 +59,20 @@ const summaryItems = [
 // relative container mx-auto mt-3 aspect-[686/1216] w-[95%] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_ozp_hero.svg')] bg-cover bg-center bg-no-repeat sm:mt-5 sm:aspect-[1447/814] sm:rounded-[34px] sm:bg-[url('/assets/images/online_zoom_pep/lg_ozp_hero.svg')] md:mt-8 md:w-full md:rounded-[52px] lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]
 
 const WhatYouReceive = () => {
+      const cookie = parseCookies()[COOKIE_NAME];
+      const lang = cookie?.split("/")?.[2] || "en";
   return (
     <section
       aria-labelledby="what-you-receive-title"
-      className="relative container mx-auto mt-3  aspect-[686/1216] w-[95%] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_what_you_receive.svg')] bg-cover bg-center bg-no-repeat pb-[60px] sm:mt-5 sm:box-border sm:aspect-[1221/687] sm:rounded-[34px] sm:bg-[url('/assets/images/online_zoom_pep/lg_what_you_receive.svg')] sm:pb-0 md:mt-8 md:w-full md:rounded-[52px] lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]"
+      className="relative container mx-auto mt-3 aspect-[686/1216] w-[95%] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_what_you_receive.svg')] bg-cover bg-center bg-no-repeat pb-[60px] sm:mt-5 sm:box-border sm:aspect-[1221/687] sm:rounded-[34px] sm:bg-[url('/assets/images/online_zoom_pep/lg_what_you_receive.svg')] sm:pb-0 md:mt-8 md:w-full md:rounded-[52px] lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]"
     >
-      <header className="absolute inset-x-[4%] top-[3.2%] z-10 text-center text-white xl:top-[3.5%]">
+      <header className="absolute inset-x-[4%] top-[3%] z-10 text-center text-white xl:top-[2%]">
         <p className="font-bold tracking-[0.35em] text-primary leading-normal text-xs md:text-sm lg:text-base xl:text-lg">
           WHAT YOU RECEIVE
         </p>
         <h2
           id="what-you-receive-title"
-          className="py-1 md:py-0  font-semibold leading-none tracking-tight text-lg md:text-3xl xl:text-5xl 2xl:text-6xl"
+          className="py-1 md:py-0  font-semibold leading-none tracking-tight text-lg md:text-3xl lg:text-[31px] xl:text-5xl 2xl:text-6xl"
         >
           Your Summary Online PEP Report.
         </h2>
@@ -76,11 +81,11 @@ const WhatYouReceive = () => {
         </p>
       </header>
 
-      <div className="absolute left-[7.5%] top-[48%] grid w-[85%] grid-cols-2 gap-1.5 md:gap-2 lg:gap-2 sm:left-auto sm:right-[3.2%] sm:top-[20%] md:w-[46%] xl:w-[41.5%] ">
+      <div className="absolute left-[7.5%] top-[48%] grid w-[85%] grid-cols-2 gap-1.5 md:gap-2 lg:gap-2 sm:left-auto sm:right-[3.2%] sm:top-[20%] md:w-[50%] xl:w-[44%] ">
         {evaluationAreas.map(([title, description, icon]) => (
           <article
             key={title}
-            className="flex min-h-[55px] items-center gap-1 rounded-[6px] border border-primary bg-black/55 p-1.4 md:p-2 text-white shadow-[0_0_8px_rgba(16,230,7,0.18)] sm:rounded-[4px] xl:gap-2 lg:rounded-[6px]"
+            className="flex min-h-[45px] items-center gap-1 rounded-[6px] border border-primary bg-black/55 p-1.4 md:p-2 text-white shadow-[0_0_8px_rgba(16,230,7,0.18)] sm:rounded-[4px] xl:gap-2 lg:rounded-[6px]"
           >
             <Image
               src={`/assets/images/pep/${icon}`}
@@ -88,13 +93,13 @@ const WhatYouReceive = () => {
               aria-hidden
               width={360}
               height={360}
-              className="h-9 w-9 shrink-0 object-contain sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 xl:h-14 xl:w-14"
+              className="h-9 w-9 shrink-0 object-contain sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-11 lg:w-11 xl:h-12 xl:w-12 "
             />
             <div className="min-w-0">
-              <h5 className="font-medium md:font-bold uppercase leading-[0.95] text-primary text-xs md:text-sm xl:text-base">
+              <p className="font-medium md:font-bold uppercase leading-normal text-primary text-xs md:text-sm xl:text-base">
                 {title}
-              </h5>
-              <p className="mt-[2px] font-medium leading-normal text-[7px] md:text-[10px] xl:text-xs">
+              </p>
+              <p className="mt-[2px] font-medium leading-normal text-[6px] md:text-[9px] xl:text-xs ">
                 {description}
               </p>
             </div>
@@ -102,7 +107,7 @@ const WhatYouReceive = () => {
         ))}
       </div>
 
-      <div className="absolute bottom-[3.8%] left-[7.5%] flex w-[85%] items-center justify-between rounded-[6px] border border-primary bg-black/55 text-white sm:bottom-[3.2%] sm:left-[3.2%] sm:w-[93.6%] p-1.5 md:p-2">
+      <div className={`absolute ${lang === "fr" ? "bottom-[1.5%]" : "bottom-[3.8%]"} left-[7.5%] flex w-[85%] items-center justify-between rounded-[6px] border border-primary bg-black/55 text-white sm:bottom-[3.2%] sm:left-[3.2%] sm:w-[93.6%] p-1.5 md:p-2`}>
         {summaryItems.map(([label, icon], index) => (
           <React.Fragment key={`${icon}-${index}`}>
             {index > 0 && (

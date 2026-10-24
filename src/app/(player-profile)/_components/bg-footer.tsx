@@ -113,7 +113,8 @@ const BgFooter = () => {
               href="mailto:info@analyticsoccer.com"
               className="hover:font-semibold flex items-center gap-2"
             >
-              <Mail className="w-5 h-5" /> info@analyticsoccer.com
+              {/* <Mail className="w-5 h-5" />  */}
+              info@analyticsoccer.com
             </Link>
           </p>
         </div>

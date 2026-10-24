@@ -9,6 +9,8 @@ import {
   Video,
 } from "lucide-react";
 import React from "react";
+import { parseCookies } from "nookies";
+const COOKIE_NAME = "googtrans";
 
 const steps = [
   {
@@ -47,21 +49,25 @@ const steps = [
 // box-content
 
 const HowItWorks = () => {
+
+
+      const cookie = parseCookies()[COOKIE_NAME];
+      const lang = cookie?.split("/")?.[2] || "en";
   return (
     <section
       aria-labelledby="how-it-works-title"
-      className="relative container mx-auto box-content px-0 mt-3 aspect-[686/1216] w-[95%] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_ozp_hero.svg')] bg-cover bg-center bg-no-repeat pb-[250px] md:mt-8 md:box-border md:aspect-[1448/814] md:w-full md:rounded-[52px] md:bg-[url('/assets/images/online_zoom_pep/lg_opep.svg')] md:pb-0 lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]"
+      className={`relative container mx-auto box-content px-0 mt-3 aspect-[686/1216] w-[95%] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_ozp_hero.svg')] bg-cover bg-center bg-no-repeat ${lang === "fr" ? "pb-[280px]" : "pb-[250px]"} md:mt-8 md:box-border md:aspect-[1448/814] md:w-full md:rounded-[52px] md:bg-[url('/assets/images/online_zoom_pep/lg_opep.svg')] md:pb-0 lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]`}
     >
       <header className="absolute inset-x-[4%] top-[3.3%] z-10 text-center text-white md:top-[4.2%]">
         <p className="font-bold tracking-[0.34em] text-primary text-xs md:text-sm lg:text-base lg:text-lg">
           HOW IT WORKS
         </p>
-        <h2
+        <h4
           id="how-it-works-title"
-          className="mt-2 text-lg font-bold leading-none tracking-tight text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl"
+          className={`mt-2 text-lg font-bold leading-none tracking-tight ${lang === "fr" ? "text-2xl md:text-3xl lg:text-[31px] xl:text-5xl 2xl:text-6xl" : "text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl"}`}
         >
           Three Steps to Your Online Evaluation.
-        </h2>
+        </h4>
         <p className="mt-2 font-medium leading-none text-[11px] md:text-sm lg:text-base">
           Getting evaluated has never been this accessible.
         </p>
