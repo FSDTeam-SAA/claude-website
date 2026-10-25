@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import { parseCookies } from "nookies";
 import React from "react";
 const COOKIE_NAME = "googtrans";
 const WhyDataMatters = () => {
-      const cookie = parseCookies()[COOKIE_NAME];
-      const lang = cookie?.split("/")?.[2] || "en";
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
   const dataCategories = [
     {
       title: "For Teams",
@@ -71,7 +71,8 @@ const WhyDataMatters = () => {
             Why Data Matters?
           </h1>
           <p className="text-white text-[13px] md:text-lg font-medium opacity-90 leading-relaxed max-w-[800px]">
-            Data creates fairness, clarity and opportunity for everyone in the game.
+            Data creates fairness, clarity and opportunity for everyone in the
+            game.
           </p>
         </div>
 
@@ -79,13 +80,16 @@ const WhyDataMatters = () => {
           {dataCategories.map((category, idx) => (
             <div
               key={idx}
-              className={`flex flex-col ${idx === 2 ? "col-span-2 lg:col-span-1 items-center" : ""
-                }`}
+              className={`flex flex-col ${
+                idx === 2 ? "col-span-2 lg:col-span-1 items-center" : ""
+              }`}
             >
               <h2 className="text-primary text-xs md:text-3xl  font-bold mb-3 md:mb-6 text-center">
                 {category.title}
               </h2>
-              <div className={`flex-grow border-2 border-primary rounded-[20px] md:rounded-[30px] p-2 md:p-4 bg-transparent hover:shadow-[0_0_20px_rgba(16,230,7,0.2)] transition-all duration-300 ${idx === 2 ? "w-[calc(100%-1rem)] max-w-[200px] md:max-w-full md:w-full" : "w-full"}`}>
+              <div
+                className={`flex-grow border-2 border-primary rounded-[20px] md:rounded-[30px] p-2 md:p-4 bg-transparent hover:shadow-[0_0_20px_rgba(16,230,7,0.2)] transition-all duration-300 ${idx === 2 ? "w-[calc(100%-1rem)] max-w-[200px] md:max-w-full md:w-full" : "w-full"}`}
+              >
                 <div className="flex flex-col gap-3">
                   {category.items.map((item, itemIdx) => (
                     <div key={itemIdx} className="flex flex-col gap-1">

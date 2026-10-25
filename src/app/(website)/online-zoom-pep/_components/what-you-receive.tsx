@@ -4,7 +4,7 @@ import Image from "next/image";
 import { parseCookies } from "nookies";
 import React from "react";
 
-const COOKIE_NAME = "googtrans"
+const COOKIE_NAME = "googtrans";
 
 const evaluationAreas = [
   [
@@ -55,12 +55,11 @@ const summaryItems = [
   ],
 ] as const;
 
-
 // relative container mx-auto mt-3 aspect-[686/1216] w-[95%] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_ozp_hero.svg')] bg-cover bg-center bg-no-repeat sm:mt-5 sm:aspect-[1447/814] sm:rounded-[34px] sm:bg-[url('/assets/images/online_zoom_pep/lg_ozp_hero.svg')] md:mt-8 md:w-full md:rounded-[52px] lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]
 
 const WhatYouReceive = () => {
-      const cookie = parseCookies()[COOKIE_NAME];
-      const lang = cookie?.split("/")?.[2] || "en";
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
   return (
     <section
       aria-labelledby="what-you-receive-title"
@@ -77,11 +76,12 @@ const WhatYouReceive = () => {
           Your Summary Online PEP Report.
         </h2>
         <p className="mt-[1px] xl:mt-[2px] font-normal md:font-medium leading-normal text-[10px] md:text-sm lg:text-[15px] xl:text-base">
-          A complete view of your profile - delivered within 48 hours of your live session.
+          A complete view of your profile - delivered within 48 hours of your
+          live session.
         </p>
       </header>
 
-      <div className="absolute left-[7.5%] top-[48%] grid w-[85%] grid-cols-2 gap-1.5 md:gap-2 lg:gap-2 sm:left-auto sm:right-[3.2%] sm:top-[20%] md:w-[50%] xl:w-[44%] ">
+      <div className="absolute left-[7.5%] top-[48%] grid w-[85%] grid-cols-2 gap-1.5 md:gap-2 lg:gap-2 sm:left-auto sm:right-[3.2%] sm:top-[20%] md:w-[49%] xl:w-[44%] ">
         {evaluationAreas.map(([title, description, icon]) => (
           <article
             key={title}
@@ -107,7 +107,9 @@ const WhatYouReceive = () => {
         ))}
       </div>
 
-      <div className={`absolute ${lang === "fr" ? "bottom-[1.5%]" : "bottom-[3.8%]"} left-[7.5%] flex w-[85%] items-center justify-between rounded-[6px] border border-primary bg-black/55 text-white sm:bottom-[3.2%] sm:left-[3.2%] sm:w-[93.6%] p-1.5 md:p-2`}>
+      <div
+        className={`absolute ${lang === "fr" ? "bottom-[1.5%]" : "bottom-[3.8%]"} left-[7.5%] flex w-[85%] items-center justify-between rounded-[6px] border border-primary bg-black/55 text-white sm:bottom-[3.2%] sm:left-[3.2%] sm:w-[93.6%] p-1.5 md:p-1`}
+      >
         {summaryItems.map(([label, icon], index) => (
           <React.Fragment key={`${icon}-${index}`}>
             {index > 0 && (
