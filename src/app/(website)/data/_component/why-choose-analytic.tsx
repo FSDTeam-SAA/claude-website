@@ -3,10 +3,18 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { parseCookies } from "nookies";
+
+const COOKIE_NAME = "googtrans";
 
 const WhyChooseAnalytic = () => {
   const [isMobile, setIsMobile] = useState(false);
 
+
+      const cookie = parseCookies()[COOKIE_NAME];
+        const lang = cookie?.split("/")?.[2] || "en";
+
+        
   useEffect(() => {
     const checkScreen = () => {
       setIsMobile(window.innerWidth < 768); // md breakpoint
@@ -90,7 +98,7 @@ const WhyChooseAnalytic = () => {
         <div className="relative z-10 w-full px-5">
           <div className="mb-10">
             <h1 className="mb-3 text-2xl font-dagger font-bold leading-normal text-primary">
-              Why Analytic Soccer
+              {lang === "fr" ? "Pourquoi Analytic Soccer ?" : "Why Analytic Soccer"}
             </h1>
             <p className="text-sm font-dagger font-semibold leading-normal text-white">
               Verified data that gives amateur players a professional profile, and real opportunities.
@@ -102,7 +110,7 @@ const WhyChooseAnalytic = () => {
               return (
                 <article
                   key={benefit.title}
-                  className="flex min-h-[110px] items-center gap-3 rounded-[20px] border-2 border-primary bg-black/20 p-3"
+                  className="flex min-h-[110px] items-center gap-1 rounded-[20px] border-2 border-primary bg-black/20 p-2"
                 >
                   <div className="h-20 w-20 shrink-0">
                     <Image
