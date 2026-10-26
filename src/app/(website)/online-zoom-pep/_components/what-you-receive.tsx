@@ -63,7 +63,7 @@ const WhatYouReceive = () => {
   return (
     <section
       aria-labelledby="what-you-receive-title"
-      className="relative container mx-auto mt-3 aspect-[686/1216] w-[95%] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_what_you_receive.svg')] bg-cover bg-center bg-no-repeat pb-[60px] sm:mt-5 sm:box-border sm:aspect-[1221/687] sm:rounded-[34px] sm:bg-[url('/assets/images/online_zoom_pep/lg_what_you_receive.svg')] sm:pb-0 md:mt-8 md:w-full md:rounded-[52px] lg:mt-10 lg:rounded-[62px] xl:mt-12 xl:rounded-[70px]"
+      className="relative container mx-auto mt-3 box-content px-0 aspect-[686/1216] w-[95%] overflow-hidden rounded-[30px] bg-[url('/assets/images/online_zoom_pep/sm_what_you_receive.svg')] bg-cover bg-center bg-no-repeat pb-[20px] sm:mt-5 sm:box-border sm:px-[14px] sm:aspect-[1221/687] sm:rounded-[34px] sm:bg-[url('/assets/images/online_zoom_pep/lg_what_you_receive.svg')] sm:pb-0 md:mt-8 md:w-full md:rounded-[52px] lg:px-8 lg:mt-10 lg:rounded-[62px] xl:px-5 xl:mt-12 xl:rounded-[70px]"
     >
       <header className="absolute inset-x-[4%] top-[3%] z-10 text-center text-white xl:top-[2%]">
         <p className="font-bold tracking-[0.35em] text-primary leading-normal text-xs md:text-sm lg:text-base xl:text-lg">
@@ -108,7 +108,7 @@ const WhatYouReceive = () => {
       </div>
 
       <div
-        className={`absolute ${lang === "fr" ? "bottom-[1.5%]" : "bottom-[3.8%]"} left-[7.5%] flex w-[85%] items-center justify-between rounded-[6px] border border-primary bg-black/55 text-white sm:bottom-[3.2%] sm:left-[3.2%] sm:w-[93.6%] p-1.5 md:p-1`}
+        className={`absolute ${lang === "fr" ? "bottom-[2%]" : "bottom-[2.5%]"} left-[7.5%] flex w-[85%] items-center justify-between rounded-[6px] border border-primary bg-black/55 text-white sm:bottom-[3.2%] sm:left-[3.2%] sm:w-[93.6%] p-1.5 md:p-1`}
       >
         {summaryItems.map(([label, icon], index) => (
           <React.Fragment key={`${icon}-${index}`}>
