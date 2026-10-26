@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import {
   BarChart3,
@@ -50,10 +50,8 @@ const steps = [
 // box-content
 
 const HowItWorks = () => {
-
-
-      const cookie = parseCookies()[COOKIE_NAME];
-      const lang = cookie?.split("/")?.[2] || "en";
+  const cookie = parseCookies()[COOKIE_NAME];
+  const lang = cookie?.split("/")?.[2] || "en";
   return (
     <section
       aria-labelledby="how-it-works-title"
@@ -74,7 +72,9 @@ const HowItWorks = () => {
         </p>
       </header>
 
-      <div className={`absolute left-[14%] ${lang === "fr" ? "top-[15%]" : "top-[11%]"} grid w-[72%] gap-2 md:left-[5.2%] md:top-[26%] md:w-[89.6%] md:grid-cols-3 md:gap-x-[3.5%]`}>
+      <div
+        className={`absolute left-[14%] ${lang === "fr" ? "top-[15%]" : "top-[11%]"} grid w-[72%] gap-2 md:left-[5.2%] md:top-[26%] md:w-[89.6%] md:grid-cols-3 md:gap-x-[3.5%]`}
+      >
         {steps.map((step) => (
           <article
             key={step.number}
@@ -114,7 +114,9 @@ const HowItWorks = () => {
                     className="mt-0.5 h-3 w-3 shrink-0 text-primary md:h-5 md:w-5 xl:h-6 xl:w-6"
                     strokeWidth={1.8}
                   />
-                  <span className="text-[10px] sm:text-xs xl:text-sm">{text}</span>
+                  <span className="text-[10px] sm:text-xs xl:text-sm">
+                    {text}
+                  </span>
                 </p>
               ))}
             </div>
@@ -122,7 +124,7 @@ const HowItWorks = () => {
         ))}
       </div>
 
-      <p className="absolute bottom-[1.5%] left-0 right-0 text-center font-medium text-white md:bottom-[4.1%] text-sm md:text-base lg:text-lg">
+      <p className="absolute bottom-[3%] left-0 right-0 text-center font-medium text-white md:bottom-[4.1%] text-sm md:text-base lg:text-lg">
         BOOK <span className="mx-1 text-primary">━━➤</span> CONNECT{" "}
         <span className="mx-1 text-primary">━━➤</span> REPORT
       </p>
