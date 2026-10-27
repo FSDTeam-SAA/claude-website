@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -6,12 +7,18 @@ import BgNewsletterSubscribe from "./bg-newsletter-subscribe";
 import { SiFacebook } from "react-icons/si";
 import { FaSquareInstagram } from "react-icons/fa6";
 
+import { parseCookies } from "nookies";
+
+const COOKIE_NAME = "googtrans";
+
 const BgFooter = () => {
+      const cookie = parseCookies()[COOKIE_NAME];
+      const lang = cookie?.split("/")?.[2] || "en";
   return (
     <div className='bg-cover bg-no-repeat bg-center bg-[url("/assets/profiles/profile_bg.svg")] border-t border-[#8E959F]/50'>
       <div className="absolute inset-0 bg-black/20 rounded-[16px] -z-50" />
-      <div className="py-10 md:py-12 lg:py-14 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-10 gap-5 md:gap-6 lg:gap-6">
-        <div className="md:col-span-2">
+      <div className="py-10 md:py-12 lg:py-14 container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-11 xl:grid-cols-10 gap-5 md:gap-6 lg:gap-6">
+        <div className="md:col-span-2 xl:col-span-2">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -61,7 +68,7 @@ const BgFooter = () => {
             </Link>
           </div>
         </div>
-        <div className="md:col-span-3">
+        <div className="md:col-span-3 xl:col-span-3">
           {/* <h4 className="hidden md:block text-lg md:text-xl font-normal text-white leading-[120%] pb-4 md:pb-6 lg:pb-8">
             General website FAQ
           </h4> */}
@@ -72,7 +79,7 @@ const BgFooter = () => {
           </Link>
           <ul>
             <Link href="/contact-us/#about-us">
-              <li className="text-sm lg:text-base xl:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary">
+               <li className={`text-sm ${lang === "fr" ? "lg:text-sm xl:text-base" : "lg:text-base xl:text-lg"} font-normal text-white leading-[120%] hover:underline hover:text-primary`}>
                 About Us
               </li>
             </Link>
@@ -80,34 +87,34 @@ const BgFooter = () => {
               <li className="text-sm lg:text-base xl:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary py-3 md:py-4">About Us</li>
             </Link> */}
             <Link href="/contact-us">
-              <li className="text-sm lg:text-base xl:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary py-4">
+             <li className={`text-sm ${lang === "fr" ? "lg:text-sm xl:text-base" : "lg:text-base xl:text-lg"} font-normal text-white leading-[120%] hover:underline hover:text-primary py-4`}>
                 Contact Us
               </li>
             </Link>
             <Link href="/player-evaluation-program-faq">
-              <li className="text-sm lg:text-base xl:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary">
+              <li className={`text-sm ${lang === "fr" ? "lg:text-sm xl:text-base" : "lg:text-base xl:text-lg"} font-normal text-white leading-[120%] hover:underline hover:text-primary`}>
                 Player Evaluation Program FAQ
               </li>
             </Link>
           </ul>
         </div>
-        <div className="md:col-span-2">
+        <div className="md:col-span-3 xl:col-span-2">
           <h4 className="hidden md:block text-lg md:text-xl font-normal text-white leading-[120%] pb-4 md:pb-6 lg:pb-8">
             Other Links
           </h4>
           <ul>
             <Link href="/terms-of-use">
-              <li className="text-base md:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary">
+             <li className={`text-sm ${lang === "fr" ? "lg:text-sm xl:text-base" : "lg:text-base xl:text-lg"} font-normal text-white leading-[120%] hover:underline hover:text-primary`}>
                 Terms Of Use
               </li>
             </Link>
             <Link href="/privacy-policy">
-              <li className="text-base md:text-lg font-normal text-white leading-[120%] hover:underline hover:text-primary py-4">
+              <li className={`text-sm ${lang === "fr" ? "lg:text-sm xl:text-base" : "lg:text-base xl:text-lg"} font-normal text-white leading-[120%] hover:underline hover:text-primary py-4 `}>
                 Privacy Policy
               </li>
             </Link>
           </ul>
-          <p className=" text-base md:text-lg leading-[120%] text-white hover:text-primary font-normal ">
+            <p className={`text-sm ${lang === "fr" ? "lg:text-sm xl:text-base" : "lg:text-base xl:text-lg"} leading-[120%] text-white hover:text-primary font-normal`}>
             {/* <strong className='text-white'>Email :</strong>  */}
             <Link
               href="mailto:info@analyticsoccer.com"
@@ -118,7 +125,7 @@ const BgFooter = () => {
             </Link>
           </p>
         </div>
-        <div className="md:col-span-3">
+        <div className="md:col-span-3 xl:col-span-3">
           <h4 className="text-lg md:text-xl font-semibold leading-[120%] text-white pb-3 lg:pb-4">
             Subscribe To Our <span className="text-primary">NEWSLETTER</span>
           </h4>
