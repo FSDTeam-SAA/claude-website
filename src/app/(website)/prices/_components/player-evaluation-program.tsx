@@ -93,7 +93,7 @@ const PlayerEvaluationProgram = () => {
                   </p>
                 </div>
                 <div className="pt-5 pb-5 md:pb-6 px-6 md:px-7 lg:px-2">
-                  <h5 className="text-2xl md:text-3xl lg:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-2">
+                  <h5 className={`text-2xl ${lang === "fr" ? "md:text-2xl" : "md:text-3xl"} xl:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-2`}>
                     ${item?.price} / {`${lang === "fr" ? "Chaque" : "Each"}`}
                   </h5>
                   <ul>
