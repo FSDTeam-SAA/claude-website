@@ -114,6 +114,9 @@ const PlayerEvaluationOnline = () => {
                   <h5 className={`text-2xl ${lang === "fr" ? "md:text-2xl" : "md:text-3xl"} xl:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-2`}>
                     ${item?.price} / {`${lang === "fr" ? "Chaque" : "Each"}`}
                   </h5>
+                  <p className=" text-base md:text-lg  font-normal text-[#131313] pb-2 leading-[120%] text-center ">
+                    {item?.yearPrice}
+                  </p>
                   <ul>
                     {item?.features?.map((feature, index) => (
                       <li

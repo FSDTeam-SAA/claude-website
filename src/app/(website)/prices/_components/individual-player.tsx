@@ -71,7 +71,7 @@ const IndividualPlayer = () => {
     // <div className="bg-[#EBEBEB] py-10 md:py-16 lg:py-24">
     <div className="bg_color py-7 md:py-16 lg:py-24 ">
       <div className="container ">
-        <p className="bg-black rounded-[14px] text-xl md:text-2xl lg:text-3xl xl:text-[33px] font-normal text-primary leading-[120%] text-center py-6 md:py-8 lg:py-10 mb-8 md:mb-10 lg:mb-24">
+        <p className="bg-black rounded-[14px] text-xl md:text-2xl lg:text-3xl xl:text-3xl font-normal text-primary leading-[120%] text-center py-6 md:py-8 lg:py-10 mb-8 md:mb-10 lg:mb-24">
           Make sure to set up your profile in the Profile Settings before making
           a payment
         </p>
