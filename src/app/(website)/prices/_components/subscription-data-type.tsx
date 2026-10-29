@@ -2,6 +2,7 @@ export interface Subscription {
   _id: string;
   title: string;
   price: number;
+  yearPrice?: string;
   currency: string;
   description?: string;
   features: string[];
