@@ -111,7 +111,7 @@ const PlayerEvaluationOnline = () => {
                   </p>
                 </div>
                 <div className="pt-5 pb-5 md:pb-6 px-6 md:px-7 lg:px-2">
-                  <h5 className={`text-2xl ${lang === "fr" ? "md:text-2xl" : "md:text-3xl"} xl:text-4xl text-[#131313] text-center leading-[120%] font-bold pb-2`}>
+                  <h5 className={`text-2xl ${lang === "fr" ? "md:text-2xl xl:text-[32px]" : "md:text-3xl xl:text-4xl"} text-[#131313] text-center leading-[120%] font-bold pb-2`}>
                     ${item?.price} / {`${lang === "fr" ? "Chaque" : "Each"}`}
                   </h5>
                   <p className=" text-base md:text-lg  font-normal text-[#131313] pb-2 leading-[120%] text-center ">
