@@ -134,6 +134,8 @@ import { toast } from "sonner";
 import { User } from "./user-data-type";
 import { useRouter } from "next/navigation";
 
+const DEFAULT_PROFILE_IMAGE = "/assets/images/no-user.jpg";
+
 const ProfilePicture = ({
   user,
   showRequiredError,
@@ -149,7 +151,7 @@ const ProfilePicture = ({
   const router = useRouter();
 
   const [profileImage, setProfileImage] = useState(
-    "/assets/images/no-user.jpg",
+    DEFAULT_PROFILE_IMAGE,
   );
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -200,6 +202,7 @@ const ProfilePicture = ({
   };
 
   const hasProfileImageError = showRequiredError && !user?.profileImage;
+  const hasProfileImage = profileImage !== DEFAULT_PROFILE_IMAGE;
 
   return (
     <div
@@ -238,7 +241,11 @@ const ProfilePicture = ({
           data-profile-image-upload
         >
           <CircleArrowUp />
-          Upload Image
+          {isPending
+            ? "Uploading..."
+            : hasProfileImage
+              ? "Change Picture"
+              : "Upload Image"}
         </button>
         {hasProfileImageError && (
           <p
