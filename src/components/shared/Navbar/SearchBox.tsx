@@ -122,7 +122,11 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
   };
 
   return (
-    <div ref={searchRef} className="relative w-full max-w-sm">
+    <div
+      ref={searchRef}
+      className="notranslate relative w-full max-w-sm"
+      translate="no"
+    >
       <div
         className={`relative rounded-full border bg-white transition-all duration-200 ${
           isOpen

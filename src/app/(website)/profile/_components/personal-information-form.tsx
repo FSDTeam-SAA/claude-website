@@ -429,7 +429,10 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                         <SelectTrigger className="w-full h-[48px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
                           <SelectValue placeholder="Select Gender" />
                         </SelectTrigger>
-                        <SelectContent className="bg-white border-none">
+                        <SelectContent
+                          className="notranslate bg-white border-none"
+                          translate="no"
+                        >
                           <SelectItem className="cursor-pointer" value="male">
                             Male
                           </SelectItem>
@@ -503,7 +506,10 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                               <SelectTrigger className="w-[110px] h-[47px] border border-[#645949] rounded-[8px]">
                                 <SelectValue />
                               </SelectTrigger>
-                              <SelectContent className="h-[250px]  md:h-[300px] overflow-auto bg-white border-none">
+                              <SelectContent
+                                className="notranslate h-[250px] md:h-[300px] overflow-auto bg-white border-none"
+                                translate="no"
+                              >
                                 {/* North America */}
                                 <SelectItem value="+1">🇺🇸 +1</SelectItem>
                                 {/* <SelectItem value="+1">🇨🇦 +1</SelectItem> */}
@@ -673,7 +679,11 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                                                     </Button>
                                                 </FormControl>
                                             </PopoverTrigger>
-                                            <PopoverContent className="w-auto p-0" align="start">
+                                            <PopoverContent
+                                              className="notranslate w-auto p-0"
+                                              align="start"
+                                              translate="no"
+                                            >
                                                 <Calendar
                                                     mode="single"
                                                     selected={field.value ?? undefined}
@@ -709,7 +719,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                         <FormControl>
                           <Button
                             variant="outline"
-                            className={`w-full justify-start text-left h-[47px] border border-[#645949] ${
+                            className={`h-[47px] w-full justify-start rounded-[8px] border border-[#645949] text-left ${
                               !field.value && "text-muted-foreground"
                             }`}
                           >
@@ -723,8 +733,9 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                       </PopoverTrigger>
 
                       <PopoverContent
-                        className="w-auto p-2 bg-white border-none"
+                        className="notranslate w-auto p-2 bg-white border-none"
                         align="start"
+                        translate="no"
                       >
                         <Calendar
                           mode="single"
@@ -842,7 +853,10 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                         <SelectTrigger className="w-full h-[48px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
                           <SelectValue placeholder="Select League" />
                         </SelectTrigger>
-                        <SelectContent className="h-[200px] overflow-y-auto bg-white border-none">
+                        <SelectContent
+                          className="notranslate h-[200px] overflow-y-auto bg-white border-none"
+                          translate="no"
+                        >
                           <SelectItem className="cursor-pointer" value="nwsl">
                             NWSL
                           </SelectItem>
@@ -918,7 +932,10 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                         <SelectTrigger className="w-full h-[48px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
                           <SelectValue placeholder="Select Category" />
                         </SelectTrigger>
-                        <SelectContent className="h-[200px] overflow-y-auto bg-white border-none">
+                        <SelectContent
+                          className="notranslate h-[200px] overflow-y-auto bg-white border-none"
+                          translate="no"
+                        >
                           <SelectItem
                             className="cursor-pointer"
                             value="semi-professional"
@@ -993,7 +1010,10 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                         <SelectTrigger className="w-full h-[48px] py-2 px-3 rounded-[8px] border border-[#645949] text-base font-medium leading-[120%] text-[#131313]">
                           <SelectValue placeholder="Select Foot" />
                         </SelectTrigger>
-                        <SelectContent className="bg-white border-none">
+                        <SelectContent
+                          className="notranslate bg-white border-none"
+                          translate="no"
+                        >
                           <SelectItem className="cursor-pointer" value="left">
                             Left
                           </SelectItem>
@@ -1025,7 +1045,7 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                         <FormControl>
                           <Button
                             variant="outline"
-                            className="w-full justify-between h-[48px] bg-white border border-[#645949]"
+                            className="w-full h-[48px] justify-between rounded-[8px] border border-[#645949] bg-white"
                           >
                             {field.value?.length
                               ? field.value
@@ -1042,7 +1062,10 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                         </FormControl>
                       </PopoverTrigger>
 
-                      <PopoverContent className="min-w-[320px] p-3 bg-white border-none">
+                      <PopoverContent
+                        className="notranslate min-w-[320px] p-3 bg-white border-none"
+                        translate="no"
+                      >
                         <div className="space-y-2">
                           {POSITIONS.map((pos) => {
                             const checked = field.value?.includes(pos.value);
@@ -1142,7 +1165,10 @@ const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({
                             <SelectTrigger className="h-[47px] border border-[#645949] rounded-[8px]">
                               <SelectValue placeholder="Select platform" />
                             </SelectTrigger>
-                            <SelectContent className="bg-white">
+                            <SelectContent
+                              className="notranslate bg-white"
+                              translate="no"
+                            >
                               {SOCIAL_MEDIA_OPTIONS.map((option) => (
                                 <SelectItem key={option} value={option}>
                                   {option}
