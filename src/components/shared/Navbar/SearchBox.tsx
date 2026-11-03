@@ -61,7 +61,7 @@ const SearchBox = ({ baseUrl }: SearchBoxProps) => {
         const nameParts = query.split(/\s+/);
         const queryParams = new URLSearchParams({
           emailVerified: "true",
-          // isProfileCompleted: "true",
+          isProfileCompleted: "true",
           limit: "10",
         });
 
